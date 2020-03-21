@@ -1,3 +1,5 @@
+package libilabor;
+
 public abstract class Player 
 {
 	private String Name;
