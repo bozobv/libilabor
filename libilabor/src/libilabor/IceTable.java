@@ -12,7 +12,11 @@ public abstract class IceTable
 	private Igloo igloo;
 	private Item frozenItem;
 
+<<<<<<< HEAD
 	public IceTable(int newsnow){} 					  //még ebbe bele kell pakolni, hogy milyen tárgyak vannak belefagyasztva
+=======
+	public IceTable(int newsnow){} 			      //még ebbe bele kell pakolni, hogy milyen tárgyak vannak belefagyasztva
+>>>>>>> branch 'master' of https://github.com/bozobv/libilabor.git
 	
 	void setNeighbours(List<IceTable> newNeighbours)
 	{
