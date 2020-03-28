@@ -53,7 +53,7 @@ public class IceField
 		
 		
 	}
-<<<<<<< HEAD
+
 	
 	void Turn() 
 	{
