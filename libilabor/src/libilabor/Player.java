@@ -8,7 +8,7 @@ public abstract class Player
 	private IceTable currentTable;
 	private Storable inventory;
 	
-	void Step() {}
+	void Step() {}		//ha meghal valaki, akkor az IceField EndGame függvényét kell meghivni, bár most nézem, hogy nem ismeri az icefieldet, so vanbaj
 	
 	void Move(){}
 	

@@ -1,8 +1,10 @@
 package libilabor;
 
+import java.util.List;
+
 public abstract class IceTable 
 {
-	private int snowHeight;
+	private int snowHeight;			//max 4
 	private int capacity;
 	private IceField iceField;
 	private Player playersOnTable;
@@ -10,7 +12,13 @@ public abstract class IceTable
 	private Igloo igloo;
 	private Item frozenItem;
 
-	public IceTable(){}
+	public IceTable(int newsnow){} 					  //még ebbe bele kell pakolni, hogy milyen tárgyak vannak belefagyasztva
+	
+	void setNeighbours(List<IceTable> newNeighbours)
+	{
+		neighbours = (IceTable) newNeighbours;        //nemtom, hogy jó-e oda az átcastolás
+	}
+	
 	void PlayerVisit(Player p) {}
 	
 	void BlizzardComing() {}
