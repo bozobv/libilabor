@@ -14,7 +14,7 @@ public abstract class Item
 	void pickedUpBy(Player p) {}
 
 
-	//SETTERS AND GETTERS .
+	//SETTERS AND GETTERS . 
 	
 	
 	public int getId() {
