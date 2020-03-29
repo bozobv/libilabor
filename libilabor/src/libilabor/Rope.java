@@ -44,6 +44,7 @@ public class Rope extends Storable
 					done=true;
 				}
 			}
+			s.close();
 		}
 	}
 }
