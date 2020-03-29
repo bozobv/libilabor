@@ -70,9 +70,9 @@ public abstract class Player
 		
 		Item frozenitem= currentTable.getFrozenItem();
 		
-		//TODO: inventory slot mechanizmus implementálása
+		//TODO: inventory slot mechanizmus implementï¿½lï¿½sa
 		if(inventory[0]==null) {
-			frozenitem.PickedUpBy(this);
+			frozenitem.pickedUpBy(this);
 		}
 	}
 	
