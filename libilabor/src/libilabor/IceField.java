@@ -126,18 +126,6 @@ public class IceField
 		System.out.println("ember a vizben!!!"); 
 	}
 	
-	void SetPlayerInWater1(boolean b) 
-	{
-		PlayerInWater = b;
-		System.out.println("ember a vizben!!!2"); 
-	}
-	
-	void SetPlayerInWater2(boolean b) 
-	{
-		PlayerInWater = b;
-		System.out.println("ember a vizben!!!1"); 
-	}
-	
 	
 	void Victory() 
 	{
