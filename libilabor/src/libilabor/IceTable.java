@@ -1,56 +1,89 @@
 package libilabor;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public abstract class IceTable 
 {
-	private int snowHeight;			//max 4
+	private int snowHeight;
 	private int capacity;
 	private IceField iceField;
-	private Player playersOnTable;
-	private IceTable neighbours;
+	private ArrayList<Player> playersOnTable;
 	private Igloo igloo;
 	private Item frozenItem;
+	private ArrayList<IceTable> neighbours;
 
-
-	public IceTable(int newsnow){} 			      //még ebbe bele kell pakolni, hogy milyen tárgyak vannak belefagyasztva
-	
-	void setNeighbours(List<IceTable> newNeighbours)
-	{
-		neighbours = (IceTable) newNeighbours;        //nemtom, hogy jó-e oda az átcastolás
+	public IceTable(){
+		
+		playersOnTable = new ArrayList<Player>();
+		neighbours = new ArrayList<IceTable>();
+		
+	}
+	public void PlayerVisit(Player p) {
+		
+		this.playersOnTable.add(p);
+		p.setCurrentTable(this);
 	}
 	
-	void PlayerVisit(Player p) {}
+	public void BlizzardComing() {
+		
+		System.out.print("A kovetkezo korben hovihar fog tombolni"
+				+ "a jegmezon. Mindenki kesz�lj�n fel a katasztrofara!!");
+	}
 	
-	void BlizzardComing() {}
+	public void CheckFlareGunPart() {}
 	
-	int GetCapacity()
+	public void RemovePlayer(Player p) {
+		
+		playersOnTable.remove(this.playersOnTable.indexOf(p));
+	}
+
 	
-	{
+	//Setters&Getters
+	
+	public IceField getIceField() {
+		return iceField;
+	}
+
+	public void setIceField(IceField iceField) {
+		this.iceField = iceField;
+	}
+
+	public int getSnowHeight() {
+		return snowHeight;
+	}
+
+	public void setSnowHeight(int snowHeight) {
+		this.snowHeight = snowHeight;
+	}
+	
+	public int getCapacity(){
 		return capacity;
 	}
 	
-	IceTable GetNeighbours() {
-		IceTable it = null; //TODO nyilván nem null csak zavart hogy piros xd
-		return it;
+	public ArrayList<IceTable> getNeighbours() {
+		
+		return neighbours;
 	}
 	
-	void SetIgloo() {}
+	public Igloo getIgloo() {
+		
+		return this.igloo;
+	}
 	
-	void SetSnowHeight() {}
+	public void setIgloo(Igloo i) {
+		
+		this.igloo = i;
+	}
 	
-	Item GetFrozenItem() 
-	{
+	public Item getFrozenItem() {
 		return frozenItem;
 	}
 	
-	void CheckFlareGunPart() {}
-	
-	Player GetPlayers() 
-	{
+	public ArrayList<Player> getPlayers() {
 		return playersOnTable;
 	}
 	
-	void RemovePlayer(Player p) {}
+	public void setFrozenItem(Item i) {
+		this.frozenItem=i;
+	}
 }
-

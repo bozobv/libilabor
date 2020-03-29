@@ -2,5 +2,9 @@ package libilabor;
 
 public class Eskimo extends Player 
 {
-	void UseSkill() {}
+	
+	public Eskimo(IceTable currentTable) {
+		super("Eskimo"+ Player.id++, 4, 5, currentTable);
+	}
+	public void UseSkill() {}
 }

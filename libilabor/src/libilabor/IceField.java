@@ -15,7 +15,7 @@ public class IceField
 		int randomTable = 0;
 		int randomSnowHeight = 0;
 		
-		StableTable firstTable = new StableTable(0);
+		StableTable firstTable = new StableTable();
 		iceTables.add(firstTable);
 		
 		for (int i = 1; i < height * width; i++)
@@ -26,25 +26,23 @@ public class IceField
 			switch (randomTable) 
 			{
 				case 0:
-					StableTable nextStableTable = new StableTable(randomSnowHeight);
+					StableTable nextStableTable = new StableTable();
 					iceTables.add(nextStableTable);
 					break;
 				case 1:
 					int randomCapacity = rand.nextInt(players.size()) + 1;
-					UnstableTable nextUnstableTable = new UnstableTable(randomSnowHeight, randomCapacity );
+					UnstableTable nextUnstableTable = new UnstableTable();
 					iceTables.add(nextUnstableTable);
 					break;
 				case 2:
-					Hole nextHole = new Hole(randomSnowHeight);
+					Hole nextHole = new Hole();
 					iceTables.add(nextHole);
 					break;
 				default: 
 			}
 		}
 		
-		//szomszédok meghatározása, ha négyzetrács alapú a jégmező:
-		
-		
+		//TODO: Szomszedok meghatarozasa
 		for (int i = 0; i < width; i++)
 		{
 			
