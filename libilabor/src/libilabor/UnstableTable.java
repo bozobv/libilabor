@@ -5,27 +5,26 @@ import java.util.*;
 public class UnstableTable extends IceTable 
 {
 	
-	public UnstableTable() {
-		super();
+	public UnstableTable(int cap) {
 		Random rand = new Random();
-		int c = rand.nextInt();
+		int c = rand.nextInt(cap);
 		this.setCapacity(c);
-		
+
 	}
-	void Flip() {
-		
-		for(Player p: this.getPlayersOnTable()) {
+	void flip() {
+
+		for(Player p: this.getPlayers()) {
 			p.setThp(0);
 		}
 		this.getIceField().EndGame();
 	}
-	public void PlayerVisit(Player p) {
+	public void playerVisit(Player p) {
 		
-		this.getPlayersOnTable().add(p);
+		this.getPlayers().add(p);
 		
-		if(this.getPlayersOnTable().size() > this.getCapacity()) {
+		if(this.getPlayers().size() > this.getCapacity()) {
 			
-			this.Flip();
+			this.flip();
 		}
 	}
 	

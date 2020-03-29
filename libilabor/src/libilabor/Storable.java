@@ -1,8 +1,10 @@
 package libilabor;
 
-public class Storable extends Item 
+public abstract class Storable extends Item
 {
-	void PickedUpBy(Player p) {}
+	abstract void pickedUpBy(Player p);
 	
-	void Used() {}
+	void used(Player p){
+		System.out.println("Ezt az eszkozt nem lehet hasznalni");
+	}
 }

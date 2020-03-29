@@ -13,7 +13,6 @@ public abstract class IceTable
 	private Item frozenItem = null;
 	private ArrayList<IceTable> neighbours;
 	
-	
 	public IceTable(){
 		
 		//TODO: random  itemezes
@@ -40,7 +39,7 @@ public abstract class IceTable
 	public void setIceField(IceField iceField) {
 		this.iceField = iceField;
 	}
-	public ArrayList<Player> getPlayersOnTable() {
+	public ArrayList<Player> getPlayers() {
 		return playersOnTable;
 	}
 	public void setPlayersOnTable(ArrayList<Player> playersOnTable) {
@@ -65,12 +64,13 @@ public abstract class IceTable
 		this.neighbours = neighbours;
 	}
 
-	public void PlayerVisit(Player p) {
+	public void playerVisit(Player p) {
 		
 		this.playersOnTable.add(p);
 		p.setCurrentTable(this);
 	}
 	
+<<<<<<< HEAD
 	public Item getItem(){
 		return frozenItem;
 	}
@@ -80,13 +80,16 @@ public abstract class IceTable
 	}
 	
 	public void BlizzardComing() {
+=======
+	public void blizzardComing() {
+>>>>>>> branch 'master' of https://github.com/bozobv/libilabor.git
 		
 		System.out.print("A kovetkezo korben hovihar fog tombolni"
 				+ "a jegmezon. Mindenki kesz�lj�n fel a katasztrofara!!");
 	}
 	
 	
-	public int CheckFlareGunPart() {
+	public int checkFlareGunPart() {
 		
 		int parts = 0; 
 		
@@ -100,11 +103,7 @@ public abstract class IceTable
 		return parts;
 	}
 	
-	public ArrayList<Player> setPlayers() {
-		return playersOnTable;
-	}
-	
-	public void RemovePlayer(Player p) {
+	public void removePlayer(Player p) {
 		
 		playersOnTable.remove(this.playersOnTable.indexOf(p));
 	}
