@@ -11,9 +11,12 @@ public class UnstableTable extends IceTable
 		this.setCapacity(c);
 		
 		
+<<<<<<< HEAD
 	}
 	void flip() {
 		
+=======
+>>>>>>> branch 'master' of https://github.com/bozobv/libilabor.git
 		for(Player p: this.getPlayers()) {
 			p.setThp(0);
 		}

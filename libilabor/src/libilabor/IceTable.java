@@ -73,7 +73,7 @@ public abstract class IceTable
 	public void blizzardComing() {
 		
 		System.out.print("A kovetkezo korben hovihar fog tombolni"
-				+ "a jegmezon. Mindenki keszüljön fel a katasztrofara!!");
+				+ "a jegmezon. Mindenki keszï¿½ljï¿½n fel a katasztrofara!!");
 	}
 	
 	

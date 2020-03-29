@@ -4,11 +4,11 @@ public abstract class Item
 {
 	private int id;
 
-	void PickedUpBy(Player p) {}
+	void pickedUpBy(Player p) {}
 
+	
 	//SETTERS AND GETTERS
-	
-	
+
 	public int getId() {
 		return id;
 	}

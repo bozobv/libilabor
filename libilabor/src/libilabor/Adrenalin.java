@@ -2,5 +2,5 @@ package libilabor;
 
 public class Adrenalin extends Instant 
 {
-	void PickedUpBy(Player p) {}
+	void pickedUpBy(Player p) {}
 }
