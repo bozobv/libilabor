@@ -40,8 +40,7 @@ public class Rope extends Storable
 					System.out.println("Nincs senki ezen a mezőn");
 				}
 				else{
-					Player p = players.get(0);
-					p.setCurrentTable(user.getCurrentTable());
+					players.get(0).setCurrentTable(user.getCurrentTable());
 				}
 			}
 		}
