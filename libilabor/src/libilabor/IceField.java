@@ -30,8 +30,8 @@ public class IceField
 					iceTables.add(nextStableTable);
 					break;
 				case 1:
-					int randomCapacity = rand.nextInt(players.size()) + 1;
-					UnstableTable nextUnstableTable = new UnstableTable();
+					// itt valtoztattam meg hogy a konstruktorban megoldja a randomizalt kapacitast
+					UnstableTable nextUnstableTable = new UnstableTable(players.size());
 					iceTables.add(nextUnstableTable);
 					break;
 				case 2:
@@ -100,19 +100,19 @@ public class IceField
 		{																					//abban az esetben, ha esetben, ha túlindexelődne a táblák listája, a másik irányba hívja meg a blizzard maradék részét
 			for (int j = randomTable; j < iceTables.size(); j++)
 			{
-				iceTables.get(j).BlizzardComing();
+				iceTables.get(j).blizzardComing();
 			}
 						
 			for (int j = randomTable - 1; j >= iceTables.size() - blizzardedTables; j--)
 			{
-				iceTables.get(j).BlizzardComing();
+				iceTables.get(j).blizzardComing();
 			}
 		}
 		else 
 		{
 			for (int j = randomTable; j < randomTable + blizzardedTables; j++)				//ha nem indexelődik túl, akkor a random kiindulási ponttól fut le a hóvihar
 			{
-				iceTables.get(j).BlizzardComing();
+				iceTables.get(j).blizzardComing();
 			}
 			
 		}

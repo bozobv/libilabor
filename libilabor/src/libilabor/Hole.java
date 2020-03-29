@@ -6,13 +6,13 @@ public class Hole extends IceTable
 		super();
 		
 	}
-	public void PlayerVisit(Player p) {
+	public void playerVisit(Player p) {
 		
 		this.getPlayers().add(p);
 		this.getIceField().SetPlayerInWater(true);
 		
 	}
-	public void RemovePlayer(Player p) {
+	public void removePlayer(Player p) {
 		
 		this.getPlayers().remove(this.getPlayers().indexOf(p));
 		this.getIceField().SetPlayerInWater(false);
