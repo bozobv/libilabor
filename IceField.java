@@ -20,6 +20,7 @@ public class IceField
 		for (int i = 1; i < height * width; i++)
 		{
 			randomTable = rand.nextInt(3);
+			randomSnowHeight = rand.nextInt(5);
 		
 			switch (randomTable) 
 			{
@@ -28,8 +29,10 @@ public class IceField
 					iceTables.add(nextStableTable);
 					break;
 				case 1:
+					UnstableTable nextUnstableTable = new UnstableTable();
 					// itt valtoztattam meg hogy a konstruktorban megoldja a randomizalt kapacitast
 					UnstableTable nextUnstableTable = new UnstableTable(players.size());
+>>>>>>> branch 'master' of https://github.com/bozobv/libilabor.git
 					iceTables.add(nextUnstableTable);
 					break;
 				case 2:
