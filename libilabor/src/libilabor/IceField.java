@@ -1,7 +1,6 @@
 package libilabor;
 import java.util.Random;
 import java.util.ArrayList;
-import java.util.List;
 
 public class IceField 
 {
@@ -97,7 +96,7 @@ public class IceField
 		while (i < players.size())							//mindegyik játékosnak meghívja a step függvényét, az utolsó játékosnál újrainditja a számlálót
 		{
 			
-			players.get(i).Step();
+			players.get(i).step();
 			if (PlayerInWater == true && playerDrowning == true)	//ha előző körben valaki vizbeesett, és még ebben a körben is benne van, akkor vége a játéknak
 				EndGame();
 			

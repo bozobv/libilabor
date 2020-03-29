@@ -10,8 +10,7 @@ public abstract class Item
 	}
 	
 
-	abstract void  PickedUpBy(Player p);
-	void pickedUpBy(Player p) {}
+	abstract void  pickedUpBy(Player p);
 
 
 	//SETTERS AND GETTERS . 

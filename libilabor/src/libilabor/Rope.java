@@ -26,10 +26,10 @@ public class Rope extends Storable
 			else if(input.equals("b")){
 				players=neighbours.get(1).getPlayers();			//TODO map szélein nincs minden irány xd
 			}
-			else if(input.equals("f")){
+			else if(input.equals("l")){
 				players=neighbours.get(2).getPlayers();
 			}
-			else if(input.equals("l")){
+			else if(input.equals("f")){
 				players=neighbours.get(3).getPlayers();
 			}
 			else{
