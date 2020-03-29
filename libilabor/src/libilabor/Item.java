@@ -6,9 +6,9 @@ public abstract class Item
 
 	void PickedUpBy(Player p) {}
 
+	
 	//SETTERS AND GETTERS
-	
-	
+
 	public int getId() {
 		return id;
 	}

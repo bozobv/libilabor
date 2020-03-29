@@ -1,6 +1,7 @@
 package libilabor;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public abstract class Player 
 {
@@ -16,6 +17,7 @@ public abstract class Player
 	private Storable[] inventory;
 	
 
+	
 	public Player(String name, int thp, int work, IceTable currentTable) {
 		super();
 		Name = name;
@@ -25,10 +27,18 @@ public abstract class Player
 		this.inventory = new Storable[inventoryStartingSize];
 	}
 
-	//ha meghal valaki, akkor az IceField EndGame fuggvenyet kell meghivni, de nem ismeri az IceFieldet
+	//TODO ha meghal valaki, akkor az IceField EndGame fuggvenyet kell meghivni, de nem ismeri az IceFieldet
 	public void Step() {
-		//TODO: valami konzolos valaszto rendszer implementalasa
-		int player_choice = 0;
+		Scanner input = new Scanner( System.in );
+		System.out.print( "Mit akarsz csinálni:\n"+ 
+				"0: Mozgás\n" + 
+				"1: Ásás\n" + 
+				"2: Tárgy felvétle\n" + 
+				"3: Képesség használata\n" + 
+				"4: Tárgy használata\n" + 
+				"5: Rakéta javítása\n"+
+				"6: Semmit");
+		int player_choice =  input.nextInt();
 		while(this.work>0) {
 			switch(player_choice) {
 			case 0: Move();
@@ -50,36 +60,36 @@ public abstract class Player
 		neighbours.get(player_choice).PlayerVisit(this);
 	}
 	
-	
-	//TODO: tisztazni kene a nevet mert mashogy van szekvencian
 	public void UseItem(){
-		
+		Scanner input = new Scanner( System.in );
+		System.out.print( "Melyik itemet akarod használni?:\n"+ 
+				"0: FlarGunPart"+
+				"1:Rope "+
+				"2:ScubaSuit"+
+				"3:Shovel");
+		int player_choice =  input.nextInt();
+		if(inventory[player_choice]!=null)inventory[player_choice].Used();
 	}
 	
 	public abstract void UseSkill();
 	
 	
 	public void Dig(){
-		//TODO: aso inventory helyenek beirasa
-		if(inventory[0]!=null) currentTable.setSnowHeight(currentTable.getSnowHeight()-2);
+		if(inventory[3]!=null) currentTable.setSnowHeight(currentTable.getSnowHeight()-2);
 		else currentTable.setSnowHeight(currentTable.getSnowHeight()-1);	
 	}
 	
 	public void PickUp(){
 		if(currentTable.getSnowHeight()>=0)return;
-		
 		Item frozenitem= currentTable.getFrozenItem();
-		
-		//TODO: inventory slot mechanizmus implementálása
-		if(inventory[0]==null) {
+		if(inventory[frozenitem.getId()]==null) {
 			frozenitem.PickedUpBy(this);
 		}
 	}
 	
-	public void AddToInventory(Storable s, int slot){
-		//TODO: helyes indexeles
-		if(inventory[slot]==null) {
-			inventory[slot]=s;
+	public void AddToInventory(Storable s){
+		if(inventory[s.getId()]==null) {
+			inventory[s.getId()]=s;
 			currentTable.setFrozenItem(null);
 		}
 	}
@@ -89,6 +99,7 @@ public abstract class Player
 	}
 	
 	public void FallInHole () {
+		work=0;
 	}
 	
 	//Setters&Getters
