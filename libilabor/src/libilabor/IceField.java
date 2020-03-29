@@ -1,28 +1,35 @@
 package libilabor;
 import java.util.Random;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class IceField 
 {
-	List<IceTable> iceTables;
+	ArrayList<IceTable> iceTables;
 	boolean PlayerInWater = false; 
-	List<Player> players;
+	ArrayList<Player> players;
 	
 	public IceField(int height, int width) 
 	{
+		if (height < 2 || width < 2)
+		{
+			System.out.println("Tul kicsi, a meret a lenyeg");
+			return;
+		}
+		
+		//veletlenszeru legyen a jegtabla tipusok generalasa
 		Random rand = new Random();
 		int randomTable = 0;
-		int randomSnowHeight = 0;
 		
+		//a jatekosok kiindulo pontja fixen stabil jegtabla
 		StableTable firstTable = new StableTable();
 		iceTables.add(firstTable);
 		
+		//jegmezo feltoltese jegtablakkal
 		for (int i = 1; i < height * width; i++)
 		{
 			randomTable = rand.nextInt(3);
-			randomSnowHeight = rand.nextInt(5);
-		
+			
 			switch (randomTable) 
 			{
 				case 0:
@@ -30,7 +37,6 @@ public class IceField
 					iceTables.add(nextStableTable);
 					break;
 				case 1:
-					int randomCapacity = rand.nextInt(players.size()) + 1;
 					UnstableTable nextUnstableTable = new UnstableTable();
 					iceTables.add(nextUnstableTable);
 					break;
@@ -42,13 +48,36 @@ public class IceField
 			}
 		}
 		
-		//TODO: Szomszedok meghatarozasa
-		for (int i = 0; i < width; i++)
+		//Szomszedok meghatarozasa
+		
+		ArrayList<IceTable> neighbours = new ArrayList<IceTable>();
+		
+		for (int i = 0; i < height * width; i++)
 		{
-			
+			if ( i % width != width - 1)
+				neighbours.add(iceTables.get(i + 1));
+			if ( i % width != 0)
+				neighbours.add(iceTables.get(i - 1));
+			if ( i < iceTables.size() - width)
+				neighbours.add(iceTables.get(i + width));
+			if ( i > width - 1)
+				neighbours.add(iceTables.get(i - width));
+			neighbours.clear();
 		}
 		
+		//itemek elhelyezese
+		//FlareGunParts elhelyezés:
+		int FGPOnField = 0;
+		while(FGPOnField <= 3 )
+		{
+			int RandomNumber = rand.nextInt(height * width - 1);
+			if ( iceTables.get(RandomNumber) == null )
+			{
+				//iceTables.get(RandomNumber).setItem();
+			}
+		}
 		
+		for (int i = 0; i < height * width; i++)
 		
 	}
 
