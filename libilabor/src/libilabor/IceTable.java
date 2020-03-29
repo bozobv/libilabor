@@ -70,7 +70,7 @@ public abstract class IceTable
 		p.setCurrentTable(this);
 	}
 	
-<<<<<<< HEAD
+
 	public Item getItem(){
 		return frozenItem;
 	}
@@ -79,10 +79,10 @@ public abstract class IceTable
 		frozenItem = it;
 	}
 	
-	public void BlizzardComing() {
-=======
+	
+
 	public void blizzardComing() {
->>>>>>> branch 'master' of https://github.com/bozobv/libilabor.git
+
 		
 		System.out.print("A kovetkezo korben hovihar fog tombolni"
 				+ "a jegmezon. Mindenki kesz�lj�n fel a katasztrofara!!");
