@@ -47,7 +47,7 @@ public abstract class Player
 		ArrayList<IceTable> neighbours=this.currentTable.getNeighbours();
 		//TODO: valami konzolos valaszto rendszer implementalasa
 		int player_choice=0;
-		neighbours.get(player_choice).PlayerVisit(this);
+		neighbours.get(player_choice).playerVisit(this);
 	}
 	
 	
@@ -85,7 +85,7 @@ public abstract class Player
 	}
 
 	public void RepairFlareGun() {
-		currentTable.CheckFlareGunPart();
+		currentTable.checkFlareGunPart();
 	}
 	
 	public void FallInHole () {
