@@ -42,9 +42,7 @@ public class IceField
 			}
 		}
 		
-		//szomszédok meghatározása, ha négyzetrács alapú a jégmező:
-		
-		
+		//TODO: Szomszedok meghatarozasa
 		for (int i = 0; i < width; i++)
 		{
 			

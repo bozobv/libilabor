@@ -2,10 +2,10 @@ package libilabor;
 
 public class Hole extends IceTable 
 {
-	public Hole(int newsnow) {
-		super(newsnow);
+	public Hole() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
-	void PlayerVisit(Player p) {}
-	void RemovePlayer(Player p) {}
+	public void PlayerVisit(Player p) {}
+	public void RemovePlayer(Player p) {}
 }

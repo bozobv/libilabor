@@ -3,11 +3,11 @@ package libilabor;
 public class UnstableTable extends IceTable 
 {
 	
-	public UnstableTable(int newsnow, int randomCapacity) {
-		super(newsnow);
+	public UnstableTable() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
 	void Flip() {}
-	void PlayerVisit(Player p) {}
+	public void PlayerVisit(Player p) {}
 	
 }

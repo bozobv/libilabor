@@ -2,5 +2,5 @@ package libilabor;
 
 public class Eskimo extends Player 
 {
-	void UseSkill() {}
+	public void UseSkill() {}
 }
