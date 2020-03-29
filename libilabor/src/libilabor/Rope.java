@@ -44,6 +44,7 @@ public class Rope extends Storable
 					p.setCurrentTable(user.getCurrentTable());
 				}
 			}
+			s.close();
 		}
 	}
 }

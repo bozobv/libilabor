@@ -9,14 +9,10 @@ public class UnstableTable extends IceTable
 		Random rand = new Random();
 		int c = rand.nextInt(cap);
 		this.setCapacity(c);
-		
-		
-<<<<<<< HEAD
+
 	}
 	void flip() {
-		
-=======
->>>>>>> branch 'master' of https://github.com/bozobv/libilabor.git
+
 		for(Player p: this.getPlayers()) {
 			p.setThp(0);
 		}
