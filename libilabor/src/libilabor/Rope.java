@@ -18,7 +18,7 @@ public class Rope extends Storable
 			Scanner s=new Scanner(System.in);
 			String input = s.nextLine();
 			if(input.equals("m")){
-				break;
+				done=true;
 			}
 			else if(input.equals("j")){
 				players=neighbours.get(0).getPlayers();			//ha ez így nem működne faszán, akkor az ifekben csak a számot(az indexet) határozzuk meg, aztán az utsó ifben deklaráljuk csak a playerst
@@ -41,6 +41,7 @@ public class Rope extends Storable
 				}
 				else{
 					players.get(0).setCurrentTable(user.getCurrentTable());
+					done=true;
 				}
 			}
 		}
