@@ -5,6 +5,10 @@ import java.util.ArrayList;
 public abstract class Player 
 {
 	private static final int inventoryStartingSize=4;
+	public static int id=0;
+	
+	
+	
 	private String Name;
 	private int thp;
 	private int work;
@@ -72,10 +76,10 @@ public abstract class Player
 		}
 	}
 	
-	public void AddToInventory(Storable s){
+	public void AddToInventory(Storable s, int slot){
 		//TODO: helyes indexeles
-		if(inventory[0]==null) {
-			inventory[0]=s;
+		if(inventory[slot]==null) {
+			inventory[slot]=s;
 			currentTable.setFrozenItem(null);
 		}
 	}
@@ -85,9 +89,7 @@ public abstract class Player
 	}
 	
 	public void FallInHole () {
-		
 	}
-
 	
 	//Setters&Getters
 	public String getName() {
