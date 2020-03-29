@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public abstract class IceTable 
 {
+	
 	private int snowHeight;
 	private int capacity;
 	private IceField iceField;
@@ -11,13 +12,59 @@ public abstract class IceTable
 	private Igloo igloo;
 	private Item frozenItem;
 	private ArrayList<IceTable> neighbours;
-
+	
+	
 	public IceTable(){
 		
+		//TODO: random  itemezes
 		playersOnTable = new ArrayList<Player>();
 		neighbours = new ArrayList<IceTable>();
 		
 	}
+	
+	public int getSnowHeight() {
+		return snowHeight;
+	}
+	public void setSnowHeight(int snowHeight) {
+		this.snowHeight = snowHeight;
+	}
+	public int getCapacity() {
+		return capacity;
+	}
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
+	}
+	public IceField getIceField() {
+		return iceField;
+	}
+	public void setIceField(IceField iceField) {
+		this.iceField = iceField;
+	}
+	public ArrayList<Player> getPlayersOnTable() {
+		return playersOnTable;
+	}
+	public void setPlayersOnTable(ArrayList<Player> playersOnTable) {
+		this.playersOnTable = playersOnTable;
+	}
+	public Igloo getIgloo() {
+		return igloo;
+	}
+	public void setIgloo(Igloo igloo) {
+		this.igloo = igloo;
+	}
+	public Item getFrozenItem() {
+		return frozenItem;
+	}
+	public void setFrozenItem(Item frozenItem) {
+		this.frozenItem = frozenItem;
+	}
+	public ArrayList<IceTable> getNeighbours() {
+		return neighbours;
+	}
+	public void setNeighbours(ArrayList<IceTable> neighbours) {
+		this.neighbours = neighbours;
+	}
+
 	public void PlayerVisit(Player p) {
 		
 		this.playersOnTable.add(p);
@@ -30,60 +77,29 @@ public abstract class IceTable
 				+ "a jegmezon. Mindenki keszüljön fel a katasztrofara!!");
 	}
 	
-	public void CheckFlareGunPart() {}
+	
+	public int CheckFlareGunPart() {
+		
+		int parts = 0; 
+		
+		for(Player p: this.playersOnTable) {
+			
+			if(p.getInventory()[1] != null) {				
+				parts++;
+			}
+		}
+		
+		return parts;
+	}
+	
+	public ArrayList<Player> setPlayers() {
+		return playersOnTable;
+	}
 	
 	public void RemovePlayer(Player p) {
 		
 		playersOnTable.remove(this.playersOnTable.indexOf(p));
 	}
 
-	
-	//Setters&Getters
-	
-	public IceField getIceField() {
-		return iceField;
-	}
 
-	public void setIceField(IceField iceField) {
-		this.iceField = iceField;
-	}
-
-	public int getSnowHeight() {
-		return snowHeight;
-	}
-
-	public void setSnowHeight(int snowHeight) {
-		this.snowHeight = snowHeight;
-	}
-	
-	public int getCapacity(){
-		return capacity;
-	}
-	
-	public ArrayList<IceTable> getNeighbours() {
-		
-		return neighbours;
-	}
-	
-	public Igloo getIgloo() {
-		
-		return this.igloo;
-	}
-	
-	public void setIgloo(Igloo i) {
-		
-		this.igloo = i;
-	}
-	
-	public Item getFrozenItem() {
-		return frozenItem;
-	}
-	
-	public ArrayList<Player> getPlayers() {
-		return playersOnTable;
-	}
-	
-	public void setFrozenItem(Item i) {
-		this.frozenItem=i;
-	}
 }
