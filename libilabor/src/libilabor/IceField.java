@@ -7,12 +7,19 @@ public class IceField
 	ArrayList<IceTable> iceTables;
 	boolean PlayerInWater = false; 
 	ArrayList<Player> players;
+	private static int FrozenItemDrop = 6; //minel nagyobb a szam, annal kisebb az esély, hogy befagyott targy jon letre
 	
 	public IceField(int height, int width) 
 	{
 		if (height < 2 || width < 2)
 		{
 			System.out.println("Tul kicsi, a meret a lenyeg");
+			return;
+		}
+		
+		if (FrozenItemDrop < 1)
+		{
+			System.out.println("Ne szorakozz, allitsd vissza a FrozenItemDrop-ot 0-nál nagyobbra");
 			return;
 		}
 		
@@ -28,10 +35,6 @@ public class IceField
 		for (int i = 1; i < height * width; i++)
 		{
 			randomTable = rand.nextInt(3);
-
-			
-
-		
 
 			switch (randomTable) 
 			{
@@ -52,7 +55,6 @@ public class IceField
 				default: 
 			}
 		}
-		
 		//Szomszedok meghatarozasa
 		
 		ArrayList<IceTable> neighbours = new ArrayList<IceTable>();
@@ -78,11 +80,53 @@ public class IceField
 			int RandomNumber = rand.nextInt(height * width - 1);
 			if ( iceTables.get(RandomNumber) == null )
 			{
-				//iceTables.get(RandomNumber).setItem();
+				FlareGunPart flg = new FlareGunPart();
+				iceTables.get(RandomNumber).setFrozenItem(flg);
+				FGPOnField++;
 			}
 		}
 		
-		for (int i = 0; i < height * width; i++) {}
+		//random item lepakolás
+		int ItemSetChance = rand.nextInt(FrozenItemDrop);
+		int RandomItem = rand.nextInt(6);
+		for (int i = 0; i < height * width; i++) 
+		{
+			if (iceTables.get(i).getFrozenItem() != null)
+			{
+				if (ItemSetChance == 1)
+				{
+					switch (RandomItem) 
+					{
+						case 0:
+							Item Adr = new Adrenalin();
+							iceTables.get(i).setFrozenItem(Adr);
+							break;
+						case 1:
+							Item F = new Food();
+							iceTables.get(i).setFrozenItem(F);
+							break;
+						case 2:
+							Item SS = new ScubaSuit();
+							iceTables.get(i).setFrozenItem(SS);
+							break;
+						case 3:
+							Item Sh = new Shovel();
+							iceTables.get(i).setFrozenItem(Sh);
+							break;
+						case 4:
+							Item R = new Rope();
+							iceTables.get(i).setFrozenItem(R);
+							break;
+						case 5:
+							Item Wh = new Whiskey();
+							iceTables.get(i).setFrozenItem(Wh);
+							break;
+						default:
+					}
+				}
+			}
+				
+		}
 		
 	}
 
