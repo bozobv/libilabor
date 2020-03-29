@@ -14,16 +14,16 @@ public class UnstableTable extends IceTable
 	}
 	void Flip() {
 		
-		for(Player p: this.getPlayersOnTable()) {
+		for(Player p: this.getPlayers()) {
 			p.setThp(0);
 		}
 		this.getIceField().EndGame();
 	}
 	public void PlayerVisit(Player p) {
 		
-		this.getPlayersOnTable().add(p);
+		this.getPlayers().add(p);
 		
-		if(this.getPlayersOnTable().size() > this.getCapacity()) {
+		if(this.getPlayers().size() > this.getCapacity()) {
 			
 			this.Flip();
 		}

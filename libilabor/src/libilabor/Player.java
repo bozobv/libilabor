@@ -51,6 +51,7 @@ public abstract class Player
 			}
 			work--;
 		}
+		input.close();
 	}		
 	
 	public void Move(){
@@ -63,12 +64,13 @@ public abstract class Player
 	public void UseItem(){
 		Scanner input = new Scanner( System.in );
 		System.out.print( "Melyik itemet akarod használni?:\n"+ 
-				"0: FlarGunPart"+
-				"1:Rope "+
-				"2:ScubaSuit"+
-				"3:Shovel");
+				"0: FlarGunPart\n"+
+				"1:Rope\n"+
+				"2:ScubaSuit\n"+
+				"3:Shovel\n");
 		int player_choice =  input.nextInt();
-		if(inventory[player_choice]!=null)inventory[player_choice].Used();
+		if(inventory[player_choice]!=null)inventory[player_choice].used(this);
+		input.close();
 	}
 	
 	public abstract void UseSkill();
@@ -83,11 +85,10 @@ public abstract class Player
 		if(currentTable.getSnowHeight()>=0)return;
 		Item frozenitem= currentTable.getFrozenItem();
 		if(inventory[frozenitem.getId()]==null) {
-			frozenitem.PickedUpBy(this);
+			frozenitem.pickedUpBy(this);
 		}
 	}
-	
-	public void AddToInventory(Storable s){
+	public void addToInventory(Storable s){
 		if(inventory[s.getId()]==null) {
 			inventory[s.getId()]=s;
 			currentTable.setFrozenItem(null);
