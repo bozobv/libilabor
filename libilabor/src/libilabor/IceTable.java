@@ -40,7 +40,7 @@ public abstract class IceTable
 	public void setIceField(IceField iceField) {
 		this.iceField = iceField;
 	}
-	public ArrayList<Player> getPlayersOnTable() {
+	public ArrayList<Player> getPlayers() {
 		return playersOnTable;
 	}
 	public void setPlayersOnTable(ArrayList<Player> playersOnTable) {
@@ -74,7 +74,7 @@ public abstract class IceTable
 	public void BlizzardComing() {
 		
 		System.out.print("A kovetkezo korben hovihar fog tombolni"
-				+ "a jegmezon. Mindenki keszüljön fel a katasztrofara!!");
+				+ "a jegmezon. Mindenki keszï¿½ljï¿½n fel a katasztrofara!!");
 	}
 	
 	
