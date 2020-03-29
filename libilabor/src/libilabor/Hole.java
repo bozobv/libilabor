@@ -18,4 +18,16 @@ public class Hole extends IceTable
 		this.getIceField().SetPlayerInWater(false);
 		
 	}
+	
+	
+	public Item getItem(){
+		System.out.println("ez egy luk, nincs benne semmi");
+		//az icefield konstruktora ne tegyen ide item-et
+		Whiskey w = null;;
+		return w;
+	}
+	
+	public void setItem(Item it){
+		System.out.println("ez egy luk, ne rakj bele semmit");
+	}
 }
