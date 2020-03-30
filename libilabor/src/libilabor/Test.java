@@ -30,7 +30,7 @@ public class Test {
         if(p1.getInventory()[1]!=null){
             System.out.println("Az eszkimo sikeresen felvette a kotelet");
         }
-        System.out.println("A teszteléshez, a jobb oldali szomszédot válasszuk!");
+        System.out.println("A tesztelï¿½shez, a jobb oldali szomszï¿½dot vï¿½lasszuk!");
         p1.useItem();
         if(p2.getCurrentTable()==p1.getCurrentTable()){
             System.out.println("Az eszkimo sikeresen kimentette a tarsat a vizbol");
@@ -292,13 +292,13 @@ public class Test {
 
     public static void main(String[] args){
 
-    	boolean testrunning = true;
+    	//boolean testrunning = true;
     	Scanner scanner = new Scanner(System.in);
     	String input = null;
-    	while(testrunning == true)
-    	{
-    		
-    		System.out.print("1. ropeTest\n" +
+    	/*while(testrunning == true)
+    	{*/
+    		System.out.print("Valasszon ki egy tesztesetet:"	+ 
+    			"1. ropeTest\n" +
                 "2. scubaSuitTest\n" +
                 "3. digTest\n" +
                 "4. shovelDigTest\n" +
@@ -309,8 +309,8 @@ public class Test {
                 "9. eskimoUseSkillTest\n"+
                 "10. holeTest\n"+
                 "11. scientistUseSkill\n"+
-                "12. blizzardTest\n"+
-                "13. exit\n");
+                "12. blizzardTest\n");//+
+                //"13. exit\n");
     		
     		input = scanner.nextLine();
     		switch (input) {
@@ -327,11 +327,11 @@ public class Test {
     			case "10": holeTest(); break;
     			case "11": scientistUseSkillTest(); break;
     			case "12": blizzardTest(); break;
-    			case "13": testrunning = false; break;
+    			//case "13": testrunning = false; break;
     		}
     		System.out.println();
     		
-    	}
+    	//}
     	scanner.close();
     }
  }
