@@ -64,9 +64,11 @@ public class Test {
 		System.out.println("Instabil tábla peldanyostiva!");
 		UnstableTable t2 = new UnstableTable(2);
 		t2.setCapacity(1);
+		System.out.println("p1 Eszkimo peldanyostiva!");
 		Eskimo p1 = new Eskimo(t1);
+		System.out.println("p2 Eszkimo peldanyostiva!");
 		Eskimo p2 = new Eskimo(t1);
-		IceField i = new IceField(0, 0);
+		IceField i = new IceField(3, 3);
 		t2.setIceField(i);
 		System.out.println("A jelenlegi ket jegtablabol all."
 				+ "Egy stabilbol es egy instabilbol."

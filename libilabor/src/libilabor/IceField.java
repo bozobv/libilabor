@@ -4,13 +4,16 @@ import java.util.Random;
 import java.util.ArrayList;
 
 public class IceField {
-	private ArrayList<IceTable> iceTables;
+	private ArrayList<IceTable> iceTables = new ArrayList<IceTable>();
 	private boolean playerInWater = false;
-	private ArrayList<Player> players;
+	private ArrayList<Player> players = new ArrayList<Player>();
 	private static int FrozenItemDrop = 6; // minel nagyobb a szam, annal kisebb az esely, hogy befagyott targy jon
 											// letre
-
+		
 	public IceField(int height, int width) {
+		for(int i = 0; i < 3; i++) {
+			players.add(null);
+		}
 		if (height < 2 || width < 2) {
 			System.out.println("Tul kicsi, a meret a lenyeg");
 			return;
@@ -27,8 +30,7 @@ public class IceField {
 
 		// a jatekosok kiindulo pontja fixen stabil jegtabla
 		StableTable firstTable = new StableTable();
-		iceTables.add(firstTable);
-
+		this.iceTables.add(firstTable);
 		// jegmezo feltoltese jegtablakkal
 		for (int i = 1; i < height * width; i++) {
 			randomTable = rand.nextInt(3);
@@ -41,7 +43,6 @@ public class IceField {
 			case 1:
 				// itt valtoztattam meg hogy a konstruktorban megoldja a randomizalt kapacitast
 				UnstableTable nextUnstableTable = new UnstableTable(players.size());
-
 				iceTables.add(nextUnstableTable);
 				break;
 			case 2:
@@ -52,7 +53,7 @@ public class IceField {
 			}
 		}
 		// Szomszedok meghatarozasa
-
+		
 		ArrayList<IceTable> neighbours = new ArrayList<IceTable>();
 
 		for (int i = 0; i < height * width; i++) {
@@ -66,19 +67,18 @@ public class IceField {
 				neighbours.add(iceTables.get(i - width));
 			neighbours.clear();
 		}
-
+		
 		// itemek elhelyezese
 		// FlareGunParts elhelyezes:
 		int FGPOnField = 0;
 		while (FGPOnField <= 3) {
 			int RandomNumber = rand.nextInt(height * width - 1);
-			if (iceTables.get(RandomNumber) == null) {
+			if (iceTables.get(RandomNumber).getFrozenItem() == null) {
 				FlareGunPart flg = new FlareGunPart();
 				iceTables.get(RandomNumber).setFrozenItem(flg);
 				FGPOnField++;
 			}
 		}
-
 		// random item lepakolas
 		int ItemSetChance = rand.nextInt(FrozenItemDrop);
 		int RandomItem = rand.nextInt(6);
@@ -116,6 +116,7 @@ public class IceField {
 			}
 
 		}
+		
 
 	}
 
