@@ -146,8 +146,6 @@ public class Test {
     	StableTable it2= new StableTable();
     	System.out.println("Eszkimo peldanyositva! Az eszkimo az elso jegtablan all.");
     	Eskimo p = new Eskimo(it1);
-    	IceField i = new IceField(3, 3);
-        it2.setIceField(i);
     	System.out.println("Eszkimo atlep a masik jegtablara!");
     	it2.playerVisit(p);
     	
