@@ -27,10 +27,15 @@ public class Test {
     }
     
     public static void scientistUseSkillTest() {
-    	StableTable st = new StableTable();
-    	Hole h = new Hole();
-    	UnstableTable ust = new UnstableTable(10);
     	IceField ifield = new IceField(3, 3);
+    	System.out.println("Jegmezo peldanyositva!!");
+    	StableTable st = new StableTable();
+    	System.out.println("Stabil tabla peldanyositva!");
+    	Hole h = new Hole();
+    	System.out.println("Luk peldanyositva!");
+    	UnstableTable ust = new UnstableTable(10);
+    	System.out.println("Luk peldanyositva!");
+    	
     	ArrayList<IceTable> temp = new ArrayList<IceTable>();
     	temp.add(st);
     	temp.add(h);
