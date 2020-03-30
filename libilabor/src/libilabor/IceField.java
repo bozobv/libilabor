@@ -67,7 +67,9 @@ public class IceField {
 				neighbours.add(iceTables.get(i + width));
 			if (i > width - 1)
 				neighbours.add(iceTables.get(i - width));
+			iceTables.get(i).setNeighbours(neighbours);
 			neighbours.clear();
+			
 		}
 		
 		// itemek elhelyezese
