@@ -2,11 +2,17 @@ package libilabor;
 
 public class FlareGunPart extends Storable 
 {
-	void pickedUpBy(Player p) {
+	private static int FLAREGUNPART_ID = 0;
+	
+	public FlareGunPart() {
+		this.setId(FLAREGUNPART_ID);
+		
+	}
+	public void pickedUpBy(Player p) {
 		p.addToInventory(this);
 	}
 
-	void used(Player p) {
-		p.RepairFlareGun();
+	public void used(Player p) {
+		p.repairFlareGun();
 	}
 }

@@ -2,5 +2,12 @@ package libilabor;
 
 public abstract class Instant extends Item 
 {
-	void pickedUpBy(Player p) {}
-}
+	private static int  INSTANT=4;
+
+	public Instant(){
+		this.setId(INSTANT);
+	}
+	
+	public abstract void  pickedUpBy(Player p); 
+
+} 

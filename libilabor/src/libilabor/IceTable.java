@@ -10,7 +10,7 @@ public abstract class IceTable
 	private IceField iceField;
 	private ArrayList<Player> playersOnTable;
 	private Igloo igloo;
-	private Item frozenItem;
+	private Item frozenItem = null;
 	private ArrayList<IceTable> neighbours;
 	
 	public IceTable(){
@@ -68,9 +68,10 @@ public abstract class IceTable
 		
 		this.playersOnTable.add(p);
 		p.setCurrentTable(this);
-	}
-	
+	}	
+
 	public void blizzardComing() {
+
 		
 		System.out.print("A kovetkezo korben hovihar fog tombolni"
 				+ "a jegmezon. Mindenki kesz�lj�n fel a katasztrofara!!");

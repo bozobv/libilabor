@@ -3,12 +3,14 @@ package libilabor;
 public abstract class Item 
 {
 	private int id;
-
-	void pickedUpBy(Player p) {}
-
 	
-	//SETTERS AND GETTERS
-
+	public Item() {
+		id = 0;
+	}
+	public abstract void  pickedUpBy(Player p);
+	//SETTERS AND GETTERS . 
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -18,3 +20,4 @@ public abstract class Item
 	}
 	
 }
+
