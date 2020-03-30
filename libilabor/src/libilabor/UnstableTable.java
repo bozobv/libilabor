@@ -16,7 +16,6 @@ public class UnstableTable extends IceTable
 		for(Player p: this.getPlayers()) {
 			p.setThp(0);
 		}
-		this.getIceField().endGame();
 	}
 	public void playerVisit(Player p) {
 		

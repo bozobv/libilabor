@@ -124,14 +124,17 @@ public class Test {
 		t2.setCapacity(1);
 		System.out.println("p1 Eszkimo peldanyostiva!");
 		Eskimo p1 = new Eskimo(t1);
+		t1.getPlayers().add(p1);
 		System.out.println("p2 Eszkimo peldanyostiva!");
 		Eskimo p2 = new Eskimo(t1);
+		t1.getPlayers().add(p2);
 		System.out.println("i IceField peldanyostiva!");
 		IceField i = new IceField(3, 3);
 		t2.setIceField(i);
+		t1.setIceField(i);
 		System.out.println("A jelenlegi ket jegtablabol all."
 				+ "Egy stabilbol es egy instabilbol."
-				+ "A jat�kosok most a satbil jegtablan vannak"
+				+ "A jatekosok most a satbil jegtablan vannak"
 				+ "\n \"Az elso jatekos mozgatasahoz nyomja meg a 'd' gombot");
     		Scanner scanner = new Scanner(System.in);
         	String asw = scanner.nextLine();  
