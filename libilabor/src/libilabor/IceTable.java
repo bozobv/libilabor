@@ -15,7 +15,6 @@ public abstract class IceTable
 	
 	public IceTable(){
 		
-		//TODO: random  itemezes
 		playersOnTable = new ArrayList<Player>();
 		neighbours = new ArrayList<IceTable>();
 		
@@ -68,23 +67,7 @@ public abstract class IceTable
 		
 		this.playersOnTable.add(p);
 		p.setCurrentTable(this);
-
-	}
-	
-
-	public Item getItem(){
-		return frozenItem;
-	}
-	
-	public void setItem(Item it){
-		frozenItem = it;
-	}
-	
-	
-
-
-		
-
+	}	
 
 	public void blizzardComing() {
 
