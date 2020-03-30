@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Test {
-    //elvileg jobb oldalt lesz a kimentésre váró inas
+    //elvileg jobb oldalt lesz a kimentesre varo inas
     static void ropeTest(){
         Eskimo p1,p2;
         Rope r=new Rope();
@@ -24,7 +24,7 @@ public class Test {
         p1.pickUp();
         p1.useItem();
     }
-    //jobbra lesz a lik, oda kéne belezúgni
+    //jobbra lesz a lik, oda kene belezugni
     static void scubaSuitTest(){
         StableTable t=new StableTable();
         Hole h=new Hole();

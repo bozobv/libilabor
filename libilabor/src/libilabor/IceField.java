@@ -7,7 +7,7 @@ public class IceField {
 	private ArrayList<IceTable> iceTables;
 	private boolean playerInWater = false;
 	private ArrayList<Player> players;
-	private static int FrozenItemDrop = 6; // minel nagyobb a szam, annal kisebb az esély, hogy befagyott targy jon
+	private static int FrozenItemDrop = 6; // minel nagyobb a szam, annal kisebb az esely, hogy befagyott targy jon
 											// letre
 
 	public IceField(int height, int width) {
@@ -17,7 +17,7 @@ public class IceField {
 		}
 
 		if (FrozenItemDrop < 1) {
-			System.out.println("Ne szorakozz, allitsd vissza a FrozenItemDrop-ot 0-nál nagyobbra");
+			System.out.println("Ne szorakozz, allitsd vissza a FrozenItemDrop-ot 0-nal nagyobbra");
 			return;
 		}
 
@@ -68,7 +68,7 @@ public class IceField {
 		}
 
 		// itemek elhelyezese
-		// FlareGunParts elhelyezés:
+		// FlareGunParts elhelyezes:
 		int FGPOnField = 0;
 		while (FGPOnField <= 3) {
 			int RandomNumber = rand.nextInt(height * width - 1);
@@ -120,30 +120,30 @@ public class IceField {
 	}
 
 	public void turn() {
-		Random rand = new Random(); // hóvihar érkezésének a randomizálásához
-		boolean playerDrowning = false; // ha az előző körben valaki vízbeesett búvárruha nélkül, akkor igaz
+		Random rand = new Random(); // hovihar erkezesenek a randomizalasahoz
+		boolean playerDrowning = false; // ha az elozo korben valaki vizbeesett buvarruha nelkul, akkor igaz
 		boolean blizzardComing = false;
 		int i = 0;
-		while (i < players.size()) // mindegyik játékosnak meghívja a step függvényét, az utolsó
-									// játékosnál újrainditja a számlálót
+		while (i < players.size()) // mindegyik jatekosnak meghivja a step fuggvenyet, az utolso
+									// jatekosnal ujrainditja a szamlalot
 		{
 
 			players.get(i).step();
-			if (playerInWater == true && playerDrowning == true) // ha előző körben valaki vizbeesett, és még ebben
-																	// a körben is benne van, akkor vége a játéknak
+			if (playerInWater == true && playerDrowning == true) // ha elozo korben valaki vizbeesett, es meg ebben
+																	// a korben is benne van, akkor vege a jateknak
 				endGame();
 
 			playerDrowning = playerInWater;
 
-			if (i < players.size()) // megnézi, hogy az utolsó jáékosnál jár-e
+			if (i < players.size()) // megnezi, hogy az utolso jaekosnal jar-e
 				i++;
 			else {
 				i = 0;
-				if (blizzardComing == true) // ha az előző körben jelezve lett, hogy érkezik hóvihar, akkor ebben a
-											// körben meghívja a blizzard függvényt
+				if (blizzardComing == true) // ha az elozo korben jelezve lett, hogy erkezik hovihar, akkor ebben a
+											// korben meghivja a blizzard fuggvenyt
 					Blizzard();
 
-				if (rand.nextInt(10) == 4) // 10% az esély arra, hogy következő körben hóvihar jön
+				if (rand.nextInt(10) == 4) // 10% az esely arra, hogy kovetkezo korben hovihar jon
 					blizzardComing = true;
 				else
 					blizzardComing = false;
@@ -156,15 +156,15 @@ public class IceField {
 	}
 
 	void Blizzard() {
-		Random rand = new Random(); // hóvihar méretének és helyének randomizálásához
-		int randomTable = rand.nextInt(iceTables.size()); // hóvihar helyének randomizálása
-		int randomBlizzardSize = rand.nextInt(6) + 1; // hóvihar méretáne aránya
-		int blizzardedTables = iceTables.size() / randomBlizzardSize; // hóvihar mérete táblaméret / arány
+		Random rand = new Random(); // hovihar meretenek es helyenek randomizalasahoz
+		int randomTable = rand.nextInt(iceTables.size()); // hovihar helyenek randomizalasa
+		int randomBlizzardSize = rand.nextInt(6) + 1; // hovihar meretane aranya
+		int blizzardedTables = iceTables.size() / randomBlizzardSize; // hovihar merete tablameret / arany
 
-		if (randomTable + blizzardedTables > iceTables.size()) // meghívjuk az érintett táblákra a blizzardcomming
-																// függvényt
-		{ // abban az esetben, ha esetben, ha túlindexelődne a táblák listája, a
-			// másik irányba hívja meg a blizzard maradék részét
+		if (randomTable + blizzardedTables > iceTables.size()) // meghivjuk az erintett tablakra a blizzardcomming
+																// fuggvenyt
+		{ // abban az esetben, ha esetben, ha tulindexelodne a tablak listaja, a
+			// masik iranyba hivja meg a blizzard maradek reszet
 			for (int j = randomTable; j < iceTables.size(); j++) {
 				iceTables.get(j).blizzardComing();
 			}
@@ -173,9 +173,9 @@ public class IceField {
 				iceTables.get(j).blizzardComing();
 			}
 		} else {
-			for (int j = randomTable; j < randomTable + blizzardedTables; j++) // ha nem indexelődik túl, akkor a
-																				// random kiindulási ponttól fut le a
-																				// hóvihar
+			for (int j = randomTable; j < randomTable + blizzardedTables; j++) // ha nem indexelodik tul, akkor a
+																				// random kiindulasi ponttol fut le a
+																				// hovihar
 			{
 				iceTables.get(j).blizzardComing();
 			}

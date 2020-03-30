@@ -30,13 +30,13 @@ public abstract class Player
 	//TODO ha meghal valaki, akkor az IceField EndGame fuggvenyet kell meghivni, de nem ismeri az IceFieldet
 	public void step() {
 		Scanner input = new Scanner( System.in );
-		System.out.print( "Mit akarsz csin�lni:\n"+ 
-				"0: Mozg�s\n" + 
-				"1: �s�s\n" + 
-				"2: T�rgy felv�tle\n" + 
-				"3: K�pess�g haszn�lata\n" + 
-				"4: T�rgy haszn�lata\n" + 
-				"5: Rak�ta jav�t�sa\n"+
+		System.out.print( "Mit akarsz csinalni:\n"+ 
+				"0: Mozgas\n" + 
+				"1: Asas\n" + 
+				"2: Targy felvetle\n" + 
+				"3: Kepesseg hasznalata\n" + 
+				"4: Targy hasznalata\n" + 
+				"5: Raketa javitasa\n"+
 				"6: Semmit");
 		int player_choice =  input.nextInt();
 		while(this.work>0) {
@@ -63,7 +63,7 @@ public abstract class Player
 	
 	public void useItem(){
 		Scanner input = new Scanner( System.in );
-		System.out.print( "Melyik itemet akarod haszn�lni?:\n"+ 
+		System.out.print( "Melyik itemet akarod hasznalni?:\n"+ 
 				"0: FlarGunPart\n"+
 				"1:Rope\n"+
 				"2:ScubaSuit\n"+
