@@ -21,10 +21,8 @@ public class UnstableTable extends IceTable
 		
 		this.getPlayers().add(p);
 		
-		if(this.getPlayers().size() > this.getCapacity()) {
-			
+		if(this.getPlayers().size() > this.getCapacity())
 			this.flip();
-		}
 	}
 	
 }
