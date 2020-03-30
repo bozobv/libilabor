@@ -17,6 +17,6 @@ public class Scientist extends Player
 			System.out.println("nincs ilyen szomszed");
 			return;
 		}
-		System.out.println(getCurrentTable().getNeighbours().get(answer).getCapacity());
+		System.out.println("a tabla kapacitasa:" + getCurrentTable().getNeighbours().get(answer).getCapacity());
 	}
 }

@@ -8,11 +8,11 @@ public class Test {
     public static void ropeTest(){
 
         Eskimo p1,p2;
-        Rope r=new Rope();
-        Hole h=new Hole();
-        StableTable s=new StableTable();
-        IceField i= new IceField(3,3);
-        ArrayList<IceTable> neighbours=i.getIceTables().get(5).getNeighbours();
+        Rope r = new Rope();
+        Hole h = new Hole();
+        StableTable s = new StableTable();
+        IceField i = new IceField(3,3);
+        ArrayList<IceTable> neighbours = i.getIceTables().get(5).getNeighbours();
         neighbours.set(0,h);
         s.setNeighbours(neighbours);
         i.getIceTables().set(5,s);
@@ -27,11 +27,11 @@ public class Test {
     }
     
     public static void scientistUseSkillTest() {
-    	StableTable st=new StableTable();
-    	Hole h= new Hole();
-    	UnstableTable ust= new UnstableTable(10);
-    	IceField ifield= new IceField(3, 3);
-    	ArrayList<IceTable> temp= new ArrayList<IceTable>();
+    	StableTable st = new StableTable();
+    	Hole h = new Hole();
+    	UnstableTable ust = new UnstableTable(10);
+    	IceField ifield = new IceField(3, 3);
+    	ArrayList<IceTable> temp = new ArrayList<IceTable>();
     	temp.add(st);
     	temp.add(h);
     	temp.add(ust);
@@ -40,7 +40,7 @@ public class Test {
     	h.setIceField(ifield);
     	ust.setIceField(ifield);
     	
-    	temp=new ArrayList<IceTable>();
+    	temp = new ArrayList<IceTable>();
     	temp.add(h);
     	temp.add(ust);
     	st.setNeighbours(temp);
@@ -93,9 +93,9 @@ public class Test {
         p.dig();
     }
     public static void unstableTableTest() {
-    	System.out.println("Stabil tábla peldanyostiva!");
+    	System.out.println("Stabil tï¿½bla peldanyostiva!");
 		StableTable t1 = new StableTable();
-		System.out.println("Instabil tábla peldanyostiva!");
+		System.out.println("Instabil tï¿½bla peldanyostiva!");
 		UnstableTable t2 = new UnstableTable(2);
 		t2.setCapacity(1);
 		System.out.println("p1 Eszkimo peldanyostiva!");
@@ -107,7 +107,7 @@ public class Test {
 		t2.setIceField(i);
 		System.out.println("A jelenlegi ket jegtablabol all."
 				+ "Egy stabilbol es egy instabilbol."
-				+ "A jatékosok most a satbil jegtablan vannak"
+				+ "A jatï¿½kosok most a satbil jegtablan vannak"
 				+ "\n \"Az elso jatekos mozgatasahoz nyomja meg a 'd' gombot");
     		Scanner scanner = new Scanner(System.in);
         	String asw = scanner.nextLine();  
