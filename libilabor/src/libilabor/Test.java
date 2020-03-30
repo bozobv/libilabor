@@ -213,6 +213,17 @@ public class Test {
     {
     	
     }
+    
+    public static void blizzardTest() {
+    	System.out.println("Egy jégmezõ létrejött");
+    	IceField i = new IceField(3,3);
+    	System.out.println("A jégmezõn hóvihar tombol");
+    	i.Blizzard();
+    	
+    	
+    }
+    
+    
         
     public static void main(String[] args){
         System.out.print("1. ropeTest\n" +
@@ -238,6 +249,7 @@ public class Test {
             case "7": playerVisitTest(); break;
             case "8": eskimoAdrenalinTest(); break;
             case "9": holeTest(); break;
+            case "0": blizzardTest(); break;
         }
         scanner.close();
     }
