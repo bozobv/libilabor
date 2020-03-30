@@ -236,13 +236,27 @@ public class Test {
     }
     
     public static void blizzardTest() {
-    	System.out.println("Egy jégmezõ létrejött");
+    	System.out.println("Egy jegmezo letrejott");
     	IceField i = new IceField(3,3);
-    	Eskimo e1 = new Eskimo();
-    	Eskimo e2 = new Eskimo();
-    	i.getIceTables().get(0).getPlayers().add(e)
-    	System.out.println("A jégmezõn hóvihar tombol");
+    	
+    	System.out.println("e1 eszkimo létrejott");
+    	Eskimo e1 = new Eskimo(i.getIceTables().get(0));
+    	System.out.println("e2 letrejott");
+    	Eskimo e2 = new Eskimo(i.getIceTables().get(1));
+    	
+    	i.getIceTables().get(0).getPlayers().add(e1);
+    	i.getIceTables().get(1).getPlayers().add(e2);
+    	System.out.println("e1 thp:" + e1.getThp());
+    	System.out.println("e2 thp:" + e2.getThp());
+    	
+    	System.out.println("e1 iglut epit");
+    	e2.useSkill();
+    	
+    	System.out.println("Hvihat lefut");
     	i.Blizzard();
+    	
+    	System.out.println("e1 thp:" + e1.getThp());
+    	System.out.println("e2 thp:" + e2.getThp());
     	
     	
     }
@@ -261,7 +275,8 @@ public class Test {
                 "8. eskimoAdrenalinTest\n"+
                 "9. eskimoUseSkillTest\n"+
                 "10. holeTest\n"+
-                "11. scientistUseSkill\n");
+                "11. scientistUseSkill\n"+
+                "12. blizzardTest");
         Scanner scanner = new Scanner(System.in);
         String input=scanner.nextLine();
         switch (input) {
@@ -281,6 +296,7 @@ public class Test {
             case "9": eskimoUseSkillTest(); break;
            
             case "11": scientistUseSkillTest(); break;
+            case "12": blizzardTest(); break;
 
         }
         scanner.close();
