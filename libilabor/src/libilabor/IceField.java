@@ -56,22 +56,34 @@ public class IceField {
 		}
 		// Szomszedok meghatarozasa
 		
-		ArrayList<IceTable> neighbours = new ArrayList<IceTable>();
+		//ArrayList<IceTable> neighbours = new ArrayList<IceTable>();
 
-		for (int i = 0; i < height * width; i++) {
-			if (i % width != width - 1)
+		for (int i = 0; i < height * width; i++) 
+		{
+			ArrayList<IceTable> neighbours = new ArrayList<IceTable>();
+			if (i % width != width - 1) {
 				neighbours.add(iceTables.get(i + 1));
-			if (i % width != 0)
-				neighbours.add(iceTables.get(i - 1));
-			if (i < iceTables.size() - width)
-				neighbours.add(iceTables.get(i + width));
-			if (i > width - 1)
-				neighbours.add(iceTables.get(i - width));
-			iceTables.get(i).setNeighbours(neighbours);
-			neighbours.clear();
 			
+			}
+			if (i % width != 0) {
+				neighbours.add(iceTables.get(i - 1));
+			
+			}
+			if (i < iceTables.size() - width) {
+				neighbours.add(iceTables.get(i + width));
+			
+			}
+			if (i > width - 1) {
+				neighbours.add(iceTables.get(i - width));
+			
+			}
+			iceTables.get(i).setNeighbours(neighbours);
+			//System.out.println(iceTables.get(i).getNeighbours());
+			//neighbours.clear();	
 		}
 		
+		for (int i = 0; i < height * width; i++) 
+		{System.out.println(iceTables.get(i).getNeighbours());}
 		// itemek elhelyezese
 		// FlareGunParts elhelyezes:
 		int FGPOnField = 0;
