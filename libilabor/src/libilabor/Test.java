@@ -97,12 +97,10 @@ public class Test {
     public static void inventoryTest() {
     	Scanner scanner= new Scanner(System.in);
     	StableTable st= new StableTable();
-    	st.setSnowHeight(0);
     	Eskimo eskimo= new Eskimo(st);
     	Storable item;
-    	boolean loop=true;
     	outerloop:
-    	while(loop) {
+    	while(true) {
 	    	 System.out.println("Adjon hozza valamit az inventoryhoz:\n"
 	    	 		+ "0: FlareGunPart\n"
 	    	 		+ "1: Rope\n"
