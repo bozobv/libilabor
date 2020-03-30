@@ -4,6 +4,7 @@ public class Hole extends IceTable
 {
 	public Hole() {
 		super();
+		this.setCapacity(0);
 		
 	}
 	public void playerVisit(Player p) {
