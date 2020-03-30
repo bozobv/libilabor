@@ -28,25 +28,25 @@ public abstract class Player
 	}
 
 	//TODO ha meghal valaki, akkor az IceField EndGame fuggvenyet kell meghivni, de nem ismeri az IceFieldet
-	public void Step() {
+	public void step() {
 		Scanner input = new Scanner( System.in );
-		System.out.print( "Mit akarsz csinálni:\n"+ 
-				"0: Mozgás\n" + 
-				"1: Ásás\n" + 
-				"2: Tárgy felvétle\n" + 
-				"3: Képesség használata\n" + 
-				"4: Tárgy használata\n" + 
-				"5: Rakéta javítása\n"+
+		System.out.print( "Mit akarsz csinï¿½lni:\n"+ 
+				"0: Mozgï¿½s\n" + 
+				"1: ï¿½sï¿½s\n" + 
+				"2: Tï¿½rgy felvï¿½tle\n" + 
+				"3: Kï¿½pessï¿½g hasznï¿½lata\n" + 
+				"4: Tï¿½rgy hasznï¿½lata\n" + 
+				"5: Rakï¿½ta javï¿½tï¿½sa\n"+
 				"6: Semmit");
 		int player_choice =  input.nextInt();
 		while(this.work>0) {
 			switch(player_choice) {
-			case 0: Move();
-			case 1: Dig();
-			case 2: PickUp();
-			case 3: UseSkill();
-			case 4: UseItem();
-			case 5: RepairFlareGun();
+			case 0: move();
+			case 1: dig();
+			case 2: pickUp();
+			case 3: useSkill();
+			case 4: useItem();
+			case 5: repairFlareGun();
 			case 6: break;
 			}
 			work--;
@@ -54,16 +54,16 @@ public abstract class Player
 		input.close();
 	}		
 	
-	public void Move(){
+	public void move(){
 		ArrayList<IceTable> neighbours=this.currentTable.getNeighbours();
 		//TODO: valami konzolos valaszto rendszer implementalasa
 		int player_choice=0;
 		neighbours.get(player_choice).playerVisit(this);
 	}
 	
-	public void UseItem(){
+	public void useItem(){
 		Scanner input = new Scanner( System.in );
-		System.out.print( "Melyik itemet akarod használni?:\n"+ 
+		System.out.print( "Melyik itemet akarod hasznï¿½lni?:\n"+ 
 				"0: FlarGunPart\n"+
 				"1:Rope\n"+
 				"2:ScubaSuit\n"+
@@ -73,15 +73,15 @@ public abstract class Player
 		input.close();
 	}
 	
-	public abstract void UseSkill();
+	public abstract void useSkill();
 	
 	
-	public void Dig(){
+	public void dig(){
 		if(inventory[3]!=null) currentTable.setSnowHeight(currentTable.getSnowHeight()-2);
 		else currentTable.setSnowHeight(currentTable.getSnowHeight()-1);	
 	}
 	
-	public void PickUp(){
+	public void pickUp(){
 		if(currentTable.getSnowHeight()>=0)return;
 		Item frozenitem= currentTable.getFrozenItem();
 		if(inventory[frozenitem.getId()]==null) {
@@ -95,11 +95,11 @@ public abstract class Player
 		}
 	}
 
-	public void RepairFlareGun() {
+	public void repairFlareGun() {
 		currentTable.checkFlareGunPart();
 	}
 	
-	public void FallInHole () {
+	public void fallInHole() {
 		work=0;
 	}
 	

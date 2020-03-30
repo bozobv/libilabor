@@ -18,7 +18,7 @@ public class Rope extends Storable
 			Scanner s=new Scanner(System.in);
 			String input = s.nextLine();
 			if(input.equals("m")){
-				break;
+				done=true;
 			}
 			else if(input.equals("j")){
 				players=neighbours.get(0).getPlayers();			//ha ez így nem működne faszán, akkor az ifekben csak a számot(az indexet) határozzuk meg, aztán az utsó ifben deklaráljuk csak a playerst
@@ -26,10 +26,10 @@ public class Rope extends Storable
 			else if(input.equals("b")){
 				players=neighbours.get(1).getPlayers();			//TODO map szélein nincs minden irány xd
 			}
-			else if(input.equals("f")){
+			else if(input.equals("l")){
 				players=neighbours.get(2).getPlayers();
 			}
-			else if(input.equals("l")){
+			else if(input.equals("f")){
 				players=neighbours.get(3).getPlayers();
 			}
 			else{
@@ -40,8 +40,8 @@ public class Rope extends Storable
 					System.out.println("Nincs senki ezen a mezőn");
 				}
 				else{
-					Player p = players.get(0);
-					p.setCurrentTable(user.getCurrentTable());
+					players.get(0).setCurrentTable(user.getCurrentTable());
+					done=true;
 				}
 			}
 			s.close();

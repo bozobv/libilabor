@@ -68,6 +68,7 @@ public abstract class IceTable
 		
 		this.playersOnTable.add(p);
 		p.setCurrentTable(this);
+<<<<<<< HEAD
 	}
 	
 
@@ -81,6 +82,10 @@ public abstract class IceTable
 	
 	
 
+=======
+	}	
+
+>>>>>>> branch 'master' of https://github.com/bozobv/libilabor.git
 	public void blizzardComing() {
 
 		

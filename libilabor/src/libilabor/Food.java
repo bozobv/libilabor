@@ -3,10 +3,7 @@ package libilabor;
 public class Food extends Instant 
 {
 
-	public Food(int id){
-		super(id);
-		
-	}
+
 	
 	//  A food eggyel noveli a THP-t 
 	void PickedUpBy(Player p) {

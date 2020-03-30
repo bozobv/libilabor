@@ -3,10 +3,7 @@ package libilabor;
 public class Whiskey extends Instant 
 {
 
-	public Whiskey(int id){
-		super(id);
-		
-	}
+
 	
 	// A Whiskey kettovel noveli a THP-t.    
 	void PickedUpBy(Player p) {

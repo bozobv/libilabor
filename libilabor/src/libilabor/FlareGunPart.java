@@ -7,6 +7,6 @@ public class FlareGunPart extends Storable
 	}
 
 	void used(Player p) {
-		p.RepairFlareGun();
+		p.repairFlareGun();
 	}
 }
