@@ -4,12 +4,15 @@ public class Whiskey extends Instant
 {
 
 
+
+	public Whiskey(){
+		
+	}
 	
 	// A Whiskey kettovel noveli a THP-t.    
-	void PickedUpBy(Player p) {
+	public void pickedUpBy(Player p) {
 		p.setThp(p.getThp()+2);
 		
 	}
-	void pickedUpBy(Player p) {}
 
 }

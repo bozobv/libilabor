@@ -11,11 +11,11 @@ public class Test {
         Hole h=new Hole();
         StableTable s=new StableTable();
         IceField i= new IceField(3,3);
-        ArrayList<IceTable> neighbours=i.iceTables.get(5).getNeighbours();
+        ArrayList<IceTable> neighbours=i.getIceTables().get(5).getNeighbours();
         neighbours.set(0,h);
         s.setNeighbours(neighbours);
-        i.iceTables.set(5,s);
-        i.iceTables.set(6,h);
+        i.getIceTables().set(5,s);
+        i.getIceTables().set(6,h);
         p1=new Eskimo(s);
         p2=new Eskimo(h);
         s.playerVisit(p1);
@@ -31,11 +31,11 @@ public class Test {
         Eskimo p = new Eskimo(t);
         ScubaSuit s = new ScubaSuit();
         IceField i= new IceField(3,3);
-        ArrayList<IceTable> neighbours=i.iceTables.get(5).getNeighbours();
+        ArrayList<IceTable> neighbours=i.getIceTables().get(5).getNeighbours();
         neighbours.set(0,h);
         t.setNeighbours(neighbours);
-        i.iceTables.set(5,t);
-        i.iceTables.set(6,h);
+        i.getIceTables().set(5,t);
+        i.getIceTables().set(6,h);
         t.playerVisit(p);
         t.setFrozenItem(s);
         p.pickUp();
@@ -65,10 +65,10 @@ public class Test {
         Scanner scanner = new Scanner(System.in);
         String input=scanner.nextLine();
         switch (input) {
-            case "1" -> ropeTest();
-            case "2" -> scubaSuitTest();
-            case "3" -> digTest();
-            case "4" -> shovelDigTest();
+            case "1": ropeTest();
+            case "2": scubaSuitTest();
+            case "3": digTest();
+            case "4": shovelDigTest();
         }
     }
 }

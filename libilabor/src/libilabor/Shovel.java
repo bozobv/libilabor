@@ -2,8 +2,13 @@ package libilabor;
 
 public class Shovel extends Storable 
 {
+	private static int SHOVEL=3;
+	
+	public Shovel() {
+		this.setId(SHOVEL);
+	}
 
-    void pickedUpBy(Player p) {
+    public void pickedUpBy(Player p) {
         p.addToInventory(this);
     }
 

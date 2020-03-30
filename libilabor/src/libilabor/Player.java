@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public abstract class Player 
 {
-	private static final int inventoryStartingSize=4;
+	private static final int INVENTORY_STARTING_SIZE=4;
 	public static int id=0;
 	
 	
@@ -24,7 +24,7 @@ public abstract class Player
 		this.thp = thp;
 		this.work = work;
 		this.currentTable = currentTable;
-		this.inventory = new Storable[inventoryStartingSize];
+		this.inventory = new Storable[INVENTORY_STARTING_SIZE];
 	}
 
 	//TODO ha meghal valaki, akkor az IceField EndGame fuggvenyet kell meghivni, de nem ismeri az IceFieldet
@@ -133,6 +133,7 @@ public abstract class Player
 	}
 
 	public void setCurrentTable(IceTable currentTable) {
+		this.currentTable.removePlayer(this);
 		this.currentTable = currentTable;
 	}
 

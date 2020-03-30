@@ -3,13 +3,21 @@ package libilabor;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Rope extends Storable
 {
-	void pickedUpBy(Player p) {
+	
+	private static int ROPE=1;
+	
+	public Rope() {
+		this.setId(ROPE);
+		
+	}
+	public void pickedUpBy(Player p) {
 		p.addToInventory(this);
 	}
 
-	void used(Player user) {
+	public void used(Player user) {
 		ArrayList<IceTable> neighbours = user.getCurrentTable().getNeighbours();
 		boolean done=false;
 		while(!done){

@@ -4,13 +4,15 @@ public class Food extends Instant
 {
 
 
+
+	public Food(){
+	}
+
 	
 	//  A food eggyel noveli a THP-t 
-	void PickedUpBy(Player p) {
+	public void pickedUpBy(Player p) {
 		p.setThp(p.getThp()+1);
 		
 	}
 
-
-	void pickedUpBy(Player p) {}
 }

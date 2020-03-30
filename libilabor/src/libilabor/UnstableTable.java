@@ -9,14 +9,13 @@ public class UnstableTable extends IceTable
 		Random rand = new Random();
 		int c = rand.nextInt(cap);
 		this.setCapacity(c);
-
 	}
 	void flip() {
 
 		for(Player p: this.getPlayers()) {
 			p.setThp(0);
 		}
-		this.getIceField().EndGame();
+		this.getIceField().endGame();
 	}
 	public void playerVisit(Player p) {
 		
