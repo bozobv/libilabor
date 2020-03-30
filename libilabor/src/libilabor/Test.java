@@ -23,13 +23,14 @@ public class Test {
         i.getIceTables().set(6,h);
         p1=new Eskimo(s);
         p2=new Eskimo(h);
-        s.playerVisit(p1);
-        h.playerVisit(p2);
+        s.getPlayers().add(p1);
+        h.getPlayers().add(p2);
         s.setFrozenItem(r);
         p1.pickUp();
         if(p1.getInventory()[1]!=null){
             System.out.println("Az eszkimo sikeresen felvette a kotelet");
         }
+        System.out.println("A teszteléshez, a jobb oldali szomszédot válasszuk!");
         p1.useItem();
         if(p2.getCurrentTable()==p1.getCurrentTable()){
             System.out.println("Az eszkimo sikeresen kimentette a tarsat a vizbol");
