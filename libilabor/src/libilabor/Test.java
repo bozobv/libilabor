@@ -34,22 +34,22 @@ public class Test {
         Hole h=new Hole();
         System.out.println("Eszkimo peldanyositva!");
         Eskimo p = new Eskimo(t);
-        System.out.println("Búvárruha peldanyositva!");
+        System.out.println("Bï¿½vï¿½rruha peldanyositva!");
         ScubaSuit s = new ScubaSuit();
         IceField i= new IceField(3,3);
-        System.out.println("A p Eszkimo felveszi a búvárruhát!");
+        System.out.println("A p Eszkimo felveszi a bï¿½vï¿½rruhï¿½t!");
         p.addToInventory(s);
         h.setIceField(i);
-        System.out.println("Nyomja meg a d-t hogy az Eszkimo a lyukba lépjen.");
+        System.out.println("Nyomja meg a d-t hogy az Eszkimo a lyukba lï¿½pjen.");
         Scanner scanner = new Scanner(System.in);
     	String asw = scanner.nextLine();  
         if(asw.equals("d")) {
 
     		h.playerVisit(p);
-    		System.out.println("p1 Eszkimo Lyukba lépett!");
+    		System.out.println("p1 Eszkimo Lyukba lï¿½pett!");
             }
         if(!i.getPalyerInWater()) {
-        	System.out.println("A teszt sikeres volt a játékos a buvárruha miatt nincs veszélyben!");
+        	System.out.println("A teszt sikeres volt a jï¿½tï¿½kos a buvï¿½rruha miatt nincs veszï¿½lyben!");
         }
         scanner.close();
         
@@ -91,7 +91,7 @@ public class Test {
 	        if(asw.equals("d")) {
 
 	    		t2.playerVisit(p1);
-	    		System.out.println("p1 Eszkimo Instabil jégtáblára lépett!");
+	    		System.out.println("p1 Eszkimo Instabil jï¿½gtï¿½blï¿½ra lï¿½pett!");
 	            }
 	        
 	        System.out.println("Az elso jatekos mozgatasahoz nyomja meg a 'd' gombot");
@@ -100,7 +100,7 @@ public class Test {
 	        asw = scanner1.nextLine();
 	        if(asw.equals("d")) {
 	    		t2.playerVisit(p2);
-	    		System.out.println("p1 Eszkimo Instabil jégtáblára lépett!");
+	    		System.out.println("p1 Eszkimo Instabil jï¿½gtï¿½blï¿½ra lï¿½pett!");
 	        }
         System.out.println("Elso jatekos thp-ja: "+p1.getThp() +
         		"\t Masodik jatekos thp-ja: "+ p2.getThp() + 
@@ -183,6 +183,12 @@ public class Test {
     
     public static void eskimoUseSkillTest()
     {
+    	System.out.println("1. stabil jegtabla peldanyositva!");
+    	StableTable it1= new StableTable();
+    	System.out.println("Eszkimo peldanyositva! Az eszkimo a jegtablan all.");
+    	Eskimo p = new Eskimo(it1);
+    	System.out.println("iglu epitve");
+    	p.useSkill();
     	
     }
     
@@ -197,7 +203,8 @@ public class Test {
                 "5. unstableTableTest\n"+ 
                 "6. inventoryTest\n"+
                 "7. playerVisitTest\n" +
-                "8. eskimoAdrenalinTest\n");
+                "8. eskimoAdrenalinTest\n" +
+                "9. eskimoUseSkillTest\n");
 
         Scanner scanner = new Scanner(System.in);
         String input=scanner.nextLine();
@@ -211,6 +218,7 @@ public class Test {
             case "6": inventoryTest(); break;
             case "7": playerVisitTest(); break;
             case "8": eskimoAdrenalinTest(); break;
+            case "9": eskimoUseSkillTest(); break;
         }
         scanner.close();
     }
