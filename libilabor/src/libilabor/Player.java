@@ -82,14 +82,15 @@ public abstract class Player
 	}
 	
 	public void pickUp(){
-		if(currentTable.getSnowHeight()>=0)return;
-		Item frozenitem= currentTable.getFrozenItem();
+		if(currentTable.getSnowHeight()>0)return;
+		Item frozenitem=currentTable.getFrozenItem();
 		if(inventory[frozenitem.getId()]==null) {
 			frozenitem.pickedUpBy(this);
 		}
 	}
 	public void addToInventory(Storable s){
 		if(inventory[s.getId()]==null) {
+			
 			inventory[s.getId()]=s;
 			currentTable.setFrozenItem(null);
 		}

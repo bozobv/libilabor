@@ -94,7 +94,73 @@ public class Test {
 		
 	}
     
+
  
+
+    public static void inventoryTest() {
+    	Scanner scanner= new Scanner(System.in);
+    	StableTable st= new StableTable();
+    	st.setSnowHeight(0);
+    	Eskimo eskimo= new Eskimo(st);
+    	Storable item;
+    	boolean loop=true;
+    	outerloop:
+    	while(loop) {
+	    	 System.out.println("Adjon hozza valamit az inventoryhoz:\n"
+	    	 		+ "0: FlareGunPart\n"
+	    	 		+ "1: Rope\n"
+	    	 		+ "2: ScubaSuit\n"
+	    	 		+ "3: Shovel\n"
+	    	 		+ "4:Kilepes\n");
+	    	int answer= Integer.valueOf(scanner.nextLine());
+	    	switch(answer) {
+	    	case 0: item= new FlareGunPart(); break;
+	    	case 1: item= new Rope(); break;
+	    	case 2: item= new ScubaSuit(); break;
+	    	case 3: item= new Shovel(); break;
+	    	case 4: break outerloop;
+	    	default:item= new Shovel(); break;
+	    	}
+	    	st.setFrozenItem(item);
+	    	eskimo.pickUp();
+	    	System.out.println("A jatekos eszkoztara: ");
+	    	for (Storable it : eskimo.getInventory()) {
+	    		System.out.println(it==null ? "semmi": it.getClass().toString());
+			}
+    	}
+    	scanner.close();
+    }
+    
+    public static void playerVisitTest() {
+    	System.out.println("1. stabil jegtabla peldanyositva!");
+    	StableTable it1= new StableTable();
+    	System.out.println("2. stabil jegtabla peldanyositva!");
+    	StableTable it2= new StableTable();
+    	System.out.println("Eszkimo peldanyositva! Az eszkimo az elso jegtablan all.");
+    	Eskimo p = new Eskimo(it1);
+    	System.out.println("Eszkimo atlep a masik jegtablara!");
+    	it2.playerVisit(p);
+    	
+    }
+    
+    public static void eskimoAdrenalinTest() {
+    	System.out.println("Stabil jegtabla peldanyositva!");
+    	StableTable st = new StableTable();
+    	System.out.println("Eszkimo peldanyositva a stabil jegtablan!");
+    	Eskimo e = new Eskimo(st);
+    	System.out.println("Eszkimo munkaja:" + e.getWork());
+    	System.out.println("Adrenalin peldanyositva!");
+    	Adrenalin a = new Adrenalin();
+    	System.out.println("Eszkimo Adrenalint vesz magahoz!");
+    	a.pickedUpBy(e);
+    	System.out.println("A munka eggyel megnõtt. 5 --> 6");
+    	System.out.println("Eszkimo munkaja:" + e.getWork());
+
+    	
+    }
+    
+    
+
     
     public static void main(String[] args){
         System.out.print("1. ropeTest\n" +
@@ -102,7 +168,10 @@ public class Test {
                 "3. digTest\n" +
                 "4. shovelDigTest\n" +
                 "5. unstableTableTest\n"+ 
-                "6.");
+                "6. inventoryTest\n"+
+                "7. playerVisitTest\n" +
+                "8. eskimoAdrenalinTest\n");
+
         Scanner scanner = new Scanner(System.in);
         String input=scanner.nextLine();
         switch (input) {
@@ -111,7 +180,14 @@ public class Test {
             case "3": digTest();
             case "4": shovelDigTest();
             case "5": unstableTableTest();
+
             
+
+            case "6": inventoryTest();
+            case "7": playerVisitTest();
+            case "8": eskimoAdrenalinTest();
+
         }
+        scanner.close();
     }
 }
