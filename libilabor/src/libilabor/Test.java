@@ -301,12 +301,8 @@ public class Test {
             case "6": inventoryTest(); break;
             case "7": playerVisitTest(); break;
             case "8": eskimoAdrenalinTest(); break;
-
             case "10": holeTest(); break;
-
-
             case "9": eskimoUseSkillTest(); break;
-
             case "11": scientistUseSkillTest(); break;
             case "12": blizzardTest(); break;
 
