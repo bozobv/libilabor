@@ -113,7 +113,7 @@ public class Test {
         System.out.println("Aso inventoryhoz adva");
         p.addToInventory(shovel);
         s.getPlayers().add(p);
-        System.out.println("Eszkimo as");
+        System.out.println("Eszkimo as ");
         p.dig();
     }
     public static void unstableTableTest() {
