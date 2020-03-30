@@ -21,12 +21,12 @@ public class Hole extends IceTable
 	
 	
 	public Item getFrozenItem(){
-		System.out.println("ez egy luk, nincs benne semmi");
+		//System.out.println("ez egy luk, nincs benne semmi");
 		//az icefield konstruktora ne tegyen ide item-et
 		return null;
 	}
 	
 	public void setFrozenItem(Item it){
-		System.out.println("ez egy luk, ne rakj bele semmit");
+		//System.out.println("ez egy luk, ne rakj bele semmit");
 	}
 }

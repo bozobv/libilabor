@@ -6,6 +6,7 @@ public class UnstableTable extends IceTable
 {
 	
 	public UnstableTable(int cap) {
+		super();
 		Random rand = new Random();
 		int c = rand.nextInt(cap);
 		this.setCapacity(c);
