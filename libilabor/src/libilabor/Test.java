@@ -234,6 +234,34 @@ public class Test {
     	p.useSkill();
     	
     }
+    
+    public static void blizzardTest() {
+    	System.out.println("Egy jegmezo letrejott");
+    	IceField i = new IceField(3,3);
+    	
+    	System.out.println("e1 eszkimo l�trejott");
+    	Eskimo e1 = new Eskimo(i.getIceTables().get(0));
+    	System.out.println("e2 letrejott");
+    	Eskimo e2 = new Eskimo(i.getIceTables().get(1));
+    	
+    	i.getIceTables().get(0).getPlayers().add(e1);
+    	i.getIceTables().get(1).getPlayers().add(e2);
+    	System.out.println("e1 thp:" + e1.getThp());
+    	System.out.println("e2 thp:" + e2.getThp());
+    	
+    	System.out.println("e1 iglut epit");
+    	e2.useSkill();
+    	
+    	System.out.println("Hvihat lefut");
+    	i.Blizzard();
+    	
+    	System.out.println("e1 thp:" + e1.getThp());
+    	System.out.println("e2 thp:" + e2.getThp());
+    	
+    	
+    }
+    
+    
         
     public static void main(String[] args){
     	boolean testrunning = true;
@@ -253,6 +281,7 @@ public class Test {
     				"9. eskimoUseSkillTest\n"+
     				"10. holeTest\n"+
     				"11. scientistUseSkill\n"+
+    				"12. blizzardTest"+
     				"13. exit\n");
     		
     		input = scanner.nextLine();
@@ -269,11 +298,15 @@ public class Test {
     			case "9": eskimoUseSkillTest(); break;
     			case "10": holeTest(); break;
     			case "11": scientistUseSkillTest(); break;
+    			case "12": blizzardTest(); break;
     			case "13": testrunning = false; break;
     		}
     		System.out.println();
     		
     	}
     	scanner.close();
+
+       
+
     }
 }
