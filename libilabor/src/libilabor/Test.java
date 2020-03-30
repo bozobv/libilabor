@@ -225,7 +225,7 @@ public class Test {
     	Adrenalin a = new Adrenalin();
     	System.out.println("Eszkimo Adrenalint vesz magahoz!");
     	a.pickedUpBy(e);
-    	System.out.println("A munka eggyel megn�tt. 5 --> 6");
+    	System.out.println("A munka eggyel megn�tt. 4 --> 5");
     	System.out.println("Eszkimo munkaja:" + e.getWork());	
     }
 
