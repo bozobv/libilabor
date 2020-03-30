@@ -121,7 +121,8 @@ public class IceField {
 	}
 
 	public void turn() {
-		Random rand = new Random(); // hovihar erkezesenek a randomizalasahoz
+		// hovihar erkezesenek a randomizalasahoz
+		Random rand = new Random(); 
 		boolean playerDrowning = false; // ha az elozo korben valaki vizbeesett buvarruha nelkul, akkor igaz
 		boolean blizzardComing = false;
 		int i = 0;
@@ -157,14 +158,18 @@ public class IceField {
 	}
 
 	public void Blizzard() {
-		Random rand = new Random(); // hovihar meretenek es helyenek randomizalasahoz
-		int randomTable = rand.nextInt(iceTables.size()); // hovihar helyenek randomizalasa
-		int randomBlizzardSize = rand.nextInt(6) + 1; // hovihar meretane aranya
-		int blizzardedTables = iceTables.size() / randomBlizzardSize; // hovihar merete tablameret / arany
-
-		if (randomTable + blizzardedTables > iceTables.size()) // meghivjuk az erintett tablakra a blizzardcomming
-																// fuggvenyt
-		{ // abban az esetben, ha esetben, ha tulindexelodne a tablak listaja, a
+		// hovihar meretenek es helyenek randomizalasahoz
+		Random rand = new Random(); 
+		// hovihar helyenek randomizalasa
+		int randomTable = rand.nextInt(iceTables.size());
+		// hovihar meretane aranya
+		int randomBlizzardSize = rand.nextInt(6) + 1;
+		// hovihar merete tablameret / arany
+		int blizzardedTables = iceTables.size() / randomBlizzardSize; 
+		// meghivjuk az erintett tablakra a blizzardcomming fuggvenyt 
+		if (randomTable + blizzardedTables > iceTables.size()) 
+		{
+			// abban az esetben, ha esetben, ha tulindexelodne a tablak listaja, a
 			// masik iranyba hivja meg a blizzard maradek reszet
 			for (int j = randomTable; j < iceTables.size(); j++) {
 				iceTables.get(j).blizzardComing();
@@ -174,9 +179,10 @@ public class IceField {
 				iceTables.get(j).blizzardComing();
 			}
 		} else {
-			for (int j = randomTable; j < randomTable + blizzardedTables; j++) // ha nem indexelodik tul, akkor a
-																				// random kiindulasi ponttol fut le a
-																				// hovihar
+			// ha nem indexelodik tul, akkor a
+			// random kiindulasi ponttol fut le a hovihar
+			
+			for (int j = randomTable; j < randomTable + blizzardedTables; j++) 
 			{
 				iceTables.get(j).blizzardComing();
 			}
