@@ -18,5 +18,6 @@ public class Scientist extends Player
 			return;
 		}
 		System.out.println("a tabla kapacitasa:" + getCurrentTable().getNeighbours().get(answer).getCapacity());
+		scanner.close();
 	}
 }

@@ -67,13 +67,7 @@ public abstract class IceTable
 	public void playerVisit(Player p) {
 		
 		this.playersOnTable.add(p);
-
 		p.setCurrentTable(this);
-
-
-		p.setCurrentTable(this);
-
-
 	}
 	
 
@@ -84,18 +78,6 @@ public abstract class IceTable
 	public void setItem(Item it){
 		frozenItem = it;
 	}
-
-	
-
-		
-
-
-
-
-
-
-		
-
 
 	public void blizzardComing() 
 	{
