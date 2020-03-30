@@ -107,11 +107,16 @@ public class Test {
         System.out.println("Tablan a ho meret: " + s.getSnowHeight());
     }
     public static void shovelDigTest(){
+    	System.out.println("Stabil tabla peldanyositva!");
         StableTable s =new StableTable();
+        System.out.println("Eszkimo peldanyositva!");
         Eskimo p=new Eskimo(s);
+        System.out.println("Aso peldanyositva!");
         Shovel shovel = new Shovel();
+        System.out.println("Aso inventoryhoz adva");
         p.addToInventory(shovel);
         s.getPlayers().add(p);
+        System.out.println("Eszkimo as ");
         p.dig();
     }
     public static void unstableTableTest() {
