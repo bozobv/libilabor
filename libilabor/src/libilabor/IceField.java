@@ -78,8 +78,7 @@ public class IceField {
 			//neighbours.clear();	
 		}
 		
-		for (int i = 0; i < height * width; i++) 
-		{System.out.println(iceTables.get(i).getNeighbours());}
+		
 		// itemek elhelyezese
 		// FlareGunParts elhelyezes:
 		int FGPOnField = 0;

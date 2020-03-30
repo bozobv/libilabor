@@ -293,9 +293,10 @@ public class Test {
 
     	boolean testrunning = true;
     	Scanner scanner = new Scanner(System.in);
+    	String input = null;
     	while(testrunning == true)
     	{
-    		String input = null;
+    		
     		System.out.print("1. ropeTest\n" +
                 "2. scubaSuitTest\n" +
                 "3. digTest\n" +
