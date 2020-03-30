@@ -98,12 +98,15 @@ public class Test {
         
     }
     public static void digTest(){
-    	System.out.println("");
+    	System.out.println("Stabil tabla peldanyostiva!");
         StableTable s=new StableTable();
         Eskimo p=new Eskimo(s);
-        s.getPlayers().add(p);
+        s.getPlayers().add(p);       
         s.setSnowHeight(4);
+        System.out.println("Tablan a ho meret: " + s.getSnowHeight());
+        System.out.println("asas meghivva");
         p.dig();
+        System.out.println("Tablan a ho meret: " + s.getSnowHeight());
     }
     public static void shovelDigTest(){
     	System.out.println("Stabil tabla peldanyositva!");
