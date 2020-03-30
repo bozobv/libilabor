@@ -68,7 +68,23 @@ public abstract class IceTable
 		
 		this.playersOnTable.add(p);
 		p.setCurrentTable(this);
-	}	
+
+	}
+	
+
+	public Item getItem(){
+		return frozenItem;
+	}
+	
+	public void setItem(Item it){
+		frozenItem = it;
+	}
+	
+	
+
+
+		
+
 
 	public void blizzardComing() {
 

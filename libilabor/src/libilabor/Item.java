@@ -3,6 +3,7 @@ package libilabor;
 public abstract class Item 
 {
 	private int id;
+
 	
 	public Item() {
 		id = 0;
