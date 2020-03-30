@@ -36,6 +36,7 @@ public class Test {
         Eskimo p = new Eskimo(t);
         System.out.println("B�v�rruha peldanyositva!");
         ScubaSuit s = new ScubaSuit();
+        System.out.println("IceField peldanyositva!");
         IceField i= new IceField(3,3);
         System.out.println("A p Eszkimo felveszi a b�v�rruh�t!");
         p.addToInventory(s);
@@ -89,7 +90,6 @@ public class Test {
     		Scanner scanner = new Scanner(System.in);
         	String asw = scanner.nextLine();  
 	        if(asw.equals("d")) {
-
 	    		t2.playerVisit(p1);
 	    		System.out.println("p1 Eszkimo Instabil j�gt�bl�ra l�pett!");
 	            }
@@ -112,6 +112,29 @@ public class Test {
     
 
     public static void holeTest() {
+    	System.out.println("Stabil tabla peldanyositva!");
+        StableTable t=new StableTable();
+        System.out.println("Lyuk peldanyositva!");
+        Hole h=new Hole();
+        System.out.println("Eszkimo peldanyositva!");
+        Eskimo p = new Eskimo(t);
+        System.out.println("IceField peldanyositava!");
+        IceField i= new IceField(3,3);
+        h.setIceField(i);
+        System.out.println("Nyomja meg a d-t hogy az Eszkimo a lyukba l�pjen.");
+        Scanner scanner = new Scanner(System.in);
+    	String asw = scanner.nextLine();  
+        if(asw.equals("d")) {
+
+    		h.playerVisit(p);
+    		System.out.println("p1 Eszkimo Lyukba l�pett!");
+            }
+        if(i.getPalyerInWater()) {
+        	System.out.println("A teszt sikeres volt a j�t�kos vesz�lyben van!");
+        }
+        scanner.close();
+        
+    	
     	
 }
     public static void inventoryTest() {
@@ -161,6 +184,7 @@ public class Test {
     	StableTable it2= new StableTable();
     	System.out.println("Eszkimo peldanyositva! Az eszkimo az elso jegtablan all.");
     	Eskimo p = new Eskimo(it1);
+    	it1.getPlayers().add(p);
     	System.out.println("Eszkimo atlep a masik jegtablara!");
     	it2.playerVisit(p);
     	
@@ -176,6 +200,10 @@ public class Test {
     	Adrenalin a = new Adrenalin();
     	System.out.println("Eszkimo Adrenalint vesz magahoz!");
     	a.pickedUpBy(e);
+
+    	System.out.println("A munka eggyel megn�tt. 5 --> 6");
+    	System.out.println("Eszkimo munkaja:" + e.getWork());	
+
     	System.out.println("A munka eggyel megn�tt. 5 --> 6");
     	System.out.println("Eszkimo munkaja:" + e.getWork());
 
@@ -191,10 +219,7 @@ public class Test {
     	p.useSkill();
     	
     }
-    
-    
-
-    
+        
     public static void main(String[] args){
         System.out.print("1. ropeTest\n" +
                 "2. scubaSuitTest\n" +
@@ -203,8 +228,9 @@ public class Test {
                 "5. unstableTableTest\n"+ 
                 "6. inventoryTest\n"+
                 "7. playerVisitTest\n" +
-                "8. eskimoAdrenalinTest\n" +
-                "9. eskimoUseSkillTest\n");
+                "8. eskimoAdrenalinTest\n"+
+                "9. eskimoUseSkillTest\n"+
+                "10. holeTest\n");
 
         Scanner scanner = new Scanner(System.in);
         String input=scanner.nextLine();
@@ -219,6 +245,8 @@ public class Test {
             case "7": playerVisitTest(); break;
             case "8": eskimoAdrenalinTest(); break;
             case "9": eskimoUseSkillTest(); break;
+            case "10": holeTest(); break;
+
         }
         scanner.close();
     }
