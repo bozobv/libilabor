@@ -7,10 +7,10 @@ import java.util.Scanner;
 public class Rope extends Storable
 {
 	
-	private static int ROPE=1;
+	private static int ROPE_ID=1;
 	
 	public Rope() {
-		this.setId(ROPE);
+		this.setId(ROPE_ID);
 		
 	}
 	public void pickedUpBy(Player p) {
