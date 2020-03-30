@@ -164,6 +164,10 @@ public class Test {
     	System.out.println("A munka eggyel megn�tt. 5 --> 6");
     	System.out.println("Eszkimo munkaja:" + e.getWork());
 
+    }
+    
+    public static void eskimoUseSkillTest()
+    {
     	
     }
     
