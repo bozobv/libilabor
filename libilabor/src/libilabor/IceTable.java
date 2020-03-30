@@ -90,7 +90,7 @@ public abstract class IceTable
 
 		
 		System.out.print("A kovetkezo korben hovihar fog tombolni"
-				+ "a jegmezon. Mindenki kesz�lj�n fel a katasztrofara!!");
+				+ "a jegmezon. Mindenki keszoljon fel a katasztrofara!!");
 	}
 	
 	
