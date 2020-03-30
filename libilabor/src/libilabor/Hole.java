@@ -1,7 +1,7 @@
 package libilabor;
 
 public class Hole extends IceTable 
-{
+{	
 	public Hole() {
 		super();
 		

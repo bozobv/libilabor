@@ -183,7 +183,7 @@ public class Test {
     
     public static void eskimoUseSkillTest()
     {
-    	System.out.println("1. stabil jegtabla peldanyositva!");
+    	System.out.println("stabil jegtabla peldanyositva!");
     	StableTable it1= new StableTable();
     	System.out.println("Eszkimo peldanyositva! Az eszkimo a jegtablan all.");
     	Eskimo p = new Eskimo(it1);
