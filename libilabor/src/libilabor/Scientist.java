@@ -12,7 +12,7 @@ public class Scientist extends Player
 		System.out.println("Irja be melyik szomszedjat akarja megvizsgalni");
 		Scanner scanner = new Scanner(System.in);
 		int answer = Integer.valueOf(scanner.nextLine());
-		if (answer > getCurrentTable().getNeighbours().size())
+		if (answer >= getCurrentTable().getNeighbours().size())
 		{
 			System.out.println("nincs ilyen szomszed");
 			return;

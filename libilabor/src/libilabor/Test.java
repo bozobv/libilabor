@@ -235,35 +235,45 @@ public class Test {
     	
     }
         
-
     public static void main(String[] args){
-        System.out.print("1. ropeTest\n" +
-                "2. scubaSuitTest\n" +
-                "3. digTest\n" +
-                "4. shovelDigTest\n" +
-                "5. unstableTableTest\n"+ 
-                "6. inventoryTest\n"+
-                "7. playerVisitTest\n" +
-                "8. eskimoAdrenalinTest\n"+
-                "9. eskimoUseSkillTest\n"+
-                "10. holeTest\n"+
-                "11. scientistUseSkill\n");
-        Scanner scanner = new Scanner(System.in);
-        String input=scanner.nextLine();
-        switch (input) {
+    	boolean testrunning = true;
+    	Scanner scanner = new Scanner(System.in);
+    	while(testrunning == true)
+    	{
+    		String input = null;
+    		System.out.print("Irja be a tesztelni kivant eset szamat \n"+
+    				"1. ropeTest\n" +
+    				"2. scubaSuitTest\n" +
+    				"3. digTest\n" +
+    				"4. shovelDigTest\n" +
+    				"5. unstableTableTest\n"+ 
+    				"6. inventoryTest\n"+
+    				"7. playerVisitTest\n" +
+    				"8. eskimoAdrenalinTest\n"+
+    				"9. eskimoUseSkillTest\n"+
+    				"10. holeTest\n"+
+    				"11. scientistUseSkill\n"+
+    				"13. exit\n");
+    		
+    		input = scanner.nextLine();
+    		switch (input) {
 
-            case "1": ropeTest(); break;
-            case "2": scubaSuitTest(); break;
-            case "3": digTest(); break;
-            case "4": shovelDigTest(); break;
-            case "5": unstableTableTest(); break;
-            case "6": inventoryTest(); break;
-            case "7": playerVisitTest(); break;
-            case "8": eskimoAdrenalinTest(); break;
-            case "9": eskimoUseSkillTest(); break;
-            case "10": holeTest(); break;
-            case "11": scientistUseSkillTest(); break;
-        }
-        scanner.close();
+    			case "1": ropeTest(); break;
+    			case "2": scubaSuitTest(); break;
+    			case "3": digTest(); break;
+    			case "4": shovelDigTest(); break;
+    			case "5": unstableTableTest(); break;
+    			case "6": inventoryTest(); break;
+    			case "7": playerVisitTest(); break;
+    			case "8": eskimoAdrenalinTest(); break;
+    			case "9": eskimoUseSkillTest(); break;
+    			case "10": holeTest(); break;
+    			case "11": scientistUseSkillTest(); break;
+    			case "13": testrunning = false; break;
+    		}
+    		System.out.println();
+    		
+    	}
+    	scanner.close();
     }
 }
