@@ -168,8 +168,9 @@ public class IceField {
 		Random rand = new Random(); 
 		// hovihar helyenek randomizalasa
 		int randomTable = rand.nextInt(iceTables.size());
-		// hovihar meretane aranya
-		int randomBlizzardSize = rand.nextInt(6) + 1;
+		// hovihar meretane aranya, a szkeletonban fix meretu
+		//int randomBlizzardSize = rand.nextInt(6) + 1;
+		int randomBlizzardSize =  1;
 		// hovihar merete tablameret / arany
 		int blizzardedTables = iceTables.size() / randomBlizzardSize; 
 		// meghivjuk az erintett tablakra a blizzardcomming fuggvenyt 
