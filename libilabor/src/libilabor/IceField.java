@@ -10,7 +10,9 @@ public class IceField {
 	private static int FrozenItemDrop = 6; // minel nagyobb a szam, annal kisebb az esely, hogy befagyott targy jon
 											// letre
 		
-	public IceField(int height, int width) {
+	public IceField(int height, int width) 
+	{
+		//Todo playerek
 		for(int i = 0; i < 3; i++) {
 			players.add(null);
 		}
@@ -65,7 +67,9 @@ public class IceField {
 				neighbours.add(iceTables.get(i + width));
 			if (i > width - 1)
 				neighbours.add(iceTables.get(i - width));
+			iceTables.get(i).setNeighbours(neighbours);
 			neighbours.clear();
+			
 		}
 		
 		// itemek elhelyezese
@@ -131,8 +135,9 @@ public class IceField {
 		{
 
 			players.get(i).step();
-			if (playerInWater == true && playerDrowning == true) // ha elozo korben valaki vizbeesett, es meg ebben
-																	// a korben is benne van, akkor vege a jateknak
+			// ha elozo korben valaki vizbeesett, es meg ebben
+			// a korben is benne van, akkor vege a jateknak
+			if (playerInWater == true && playerDrowning == true) 
 				endGame();
 
 			playerDrowning = playerInWater;
@@ -141,11 +146,12 @@ public class IceField {
 				i++;
 			else {
 				i = 0;
-				if (blizzardComing == true) // ha az elozo korben jelezve lett, hogy erkezik hovihar, akkor ebben a
-											// korben meghivja a blizzard fuggvenyt
+				// ha az elozo korben jelezve lett, hogy erkezik hovihar, akkor ebben a
+				// korben meghivja a blizzard fuggvenyt
+				if (blizzardComing == true) 
 					Blizzard();
-
-				if (rand.nextInt(10) == 4) // 10% az esely arra, hogy kovetkezo korben hovihar jon
+				// 10% az esely arra, hogy kovetkezo korben hovihar jon
+				if (rand.nextInt(10) == 4) 
 					blizzardComing = true;
 				else
 					blizzardComing = false;
@@ -162,8 +168,9 @@ public class IceField {
 		Random rand = new Random(); 
 		// hovihar helyenek randomizalasa
 		int randomTable = rand.nextInt(iceTables.size());
-		// hovihar meretane aranya
-		int randomBlizzardSize = rand.nextInt(6) + 1;
+		// hovihar meretane aranya, a szkeletonban fix meretu
+		//int randomBlizzardSize = rand.nextInt(6) + 1;
+		int randomBlizzardSize =  1;
 		// hovihar merete tablameret / arany
 		int blizzardedTables = iceTables.size() / randomBlizzardSize; 
 		// meghivjuk az erintett tablakra a blizzardcomming fuggvenyt 

@@ -4,7 +4,7 @@ public class Eskimo extends Player
 {
 	
 	public Eskimo(IceTable currentTable) {
-		super("Eskimo"+ Player.id++, 4, 5, currentTable);
+		super("Eskimo"+ Player.id++, 5, 4, currentTable);
 	}
 	
 	public void useSkill() 

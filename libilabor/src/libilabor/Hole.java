@@ -1,7 +1,7 @@
 package libilabor;
 
 public class Hole extends IceTable 
-{
+{	
 	public Hole() {
 		super();
 		this.setCapacity(0);
@@ -30,5 +30,9 @@ public class Hole extends IceTable
 	
 	public void setFrozenItem(Item it){
 		//System.out.println("ez egy luk, ne rakj bele semmit");
+	}
+	
+	public int getCapacity() {
+		return 0;
 	}
 }
