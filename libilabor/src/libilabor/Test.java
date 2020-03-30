@@ -281,7 +281,7 @@ public class Test {
     				"9. eskimoUseSkillTest\n"+
     				"10. holeTest\n"+
     				"11. scientistUseSkill\n"+
-    				"12. blizzardTest"+
+    				"12. blizzardTest\n"+
     				"13. exit\n");
     		
     		input = scanner.nextLine();
