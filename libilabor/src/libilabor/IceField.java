@@ -155,7 +155,7 @@ public class IceField {
 		System.out.println("megfulladt, haltatok");
 	}
 
-	void Blizzard() {
+	public void Blizzard() {
 		Random rand = new Random(); // hovihar meretenek es helyenek randomizalasahoz
 		int randomTable = rand.nextInt(iceTables.size()); // hovihar helyenek randomizalasa
 		int randomBlizzardSize = rand.nextInt(6) + 1; // hovihar meretane aranya
