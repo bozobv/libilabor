@@ -119,6 +119,9 @@ public abstract class Player
 
 	public void setThp(int thp) {
 		this.thp = thp;
+		//ha thp egy ala csokken, a jateknak vege
+		if (thp < 1)
+			currentTable.getIceField().endGame();
 	}
 
 	public int getWork() {

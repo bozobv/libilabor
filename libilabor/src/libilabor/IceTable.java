@@ -2,6 +2,7 @@ package libilabor;
 
 import java.util.ArrayList;
 
+
 public abstract class IceTable 
 {
 	
@@ -67,6 +68,7 @@ public abstract class IceTable
 		
 		this.playersOnTable.add(p);
 		p.setCurrentTable(this);
+
 	}
 	
 
@@ -76,12 +78,24 @@ public abstract class IceTable
 	
 	public void setItem(Item it){
 		frozenItem = it;
-	}	
-	public void blizzardComing() {
-
+	}
+	
 		
-		System.out.print("A kovetkezo korben hovihar fog tombolni"
-				+ "a jegmezon. Mindenki keszoljon fel a katasztrofara!!");
+
+
+	public void blizzardComing() 
+	{
+		snowHeight = 4;
+		if (playersOnTable != null && getIgloo() == null)
+		{
+			for (int i = 0; i < playersOnTable.size(); i++)
+			{
+				int newThp = playersOnTable.get(i).getThp() - 1;
+				playersOnTable.get(i).setThp(newThp);
+			}
+		}
+		
+	
 	}
 	
 	
