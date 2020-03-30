@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Scientist extends Player 
 {
 	public Scientist(IceTable currentTable) {
-		super("Scientist"+Player.id++,4,5,currentTable);
+		super("Scientist"+Player.id++,4,4,currentTable);
 	}
 	
 	public void useSkill() 
