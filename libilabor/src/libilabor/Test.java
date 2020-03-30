@@ -92,13 +92,50 @@ public class Test {
         scanner1.close();
 		
 	}
+    
+    public static void inventoryTest() {
+    	Scanner scanner= new Scanner(System.in);
+    	StableTable st= new StableTable();
+    	st.setSnowHeight(0);
+    	Eskimo eskimo= new Eskimo(st);
+    	Storable item;
+    	boolean loop=true;
+    	outerloop:
+    	while(loop) {
+	    	 System.out.println("Adjon hozza valamit az inventoryhoz:\n"
+	    	 		+ "0: FlareGunPart\n"
+	    	 		+ "1: Rope\n"
+	    	 		+ "2: ScubaSuit\n"
+	    	 		+ "3: Shovel\n"
+	    	 		+ "4:Kilepes\n");
+	    	int answer= Integer.valueOf(scanner.nextLine());
+	    	switch(answer) {
+	    	case 0: item= new FlareGunPart(); break;
+	    	case 1: item= new Rope(); break;
+	    	case 2: item= new ScubaSuit(); break;
+	    	case 3: item= new Shovel(); break;
+	    	case 4: break outerloop;
+	    	default:item= new Shovel(); break;
+	    	}
+	    	st.setFrozenItem(item);
+	    	eskimo.pickUp();
+	    	System.out.println("A jatekos eszkoztara: ");
+	    	for (Storable it : eskimo.getInventory()) {
+	    		System.out.println(it==null ? "semmi": it.getClass().toString());
+			}
+    	}
+    	//System.out.println(eskimo.getInventory()[answer].getClass().toString());
+    	scanner.close();
+    }
+    
+    
     public static void main(String[] args){
         System.out.print("1. ropeTest\n" +
                 "2. scubaSuitTest\n" +
                 "3. digTest\n" +
                 "4. shovelDigTest\n" +
                 "5. unstableTableTest\n"+ 
-                "6. ");
+                "6. inventoryTest\n");
         Scanner scanner = new Scanner(System.in);
         String input=scanner.nextLine();
         switch (input) {
@@ -107,6 +144,8 @@ public class Test {
             case "3": digTest();
             case "4": shovelDigTest();
             case "5": unstableTableTest();
+            case "6": inventoryTest();
         }
+        scanner.close();
     }
 }
