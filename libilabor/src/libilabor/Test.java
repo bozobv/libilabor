@@ -59,8 +59,9 @@ public class Test {
         p.dig();
     }
     public static void unstableTableTest() {
-
+    	System.out.println("Stabil tábla peldanyostiva!");
 		StableTable t1 = new StableTable();
+		System.out.println("Instabil tábla peldanyostiva!");
 		UnstableTable t2 = new UnstableTable(2);
 		t2.setCapacity(1);
 		Eskimo p1 = new Eskimo(t1);
