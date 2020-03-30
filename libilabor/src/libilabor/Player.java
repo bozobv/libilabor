@@ -33,7 +33,7 @@ public abstract class Player
 		System.out.print( "Mit akarsz csinalni:\n"+ 
 				"0: Mozgas\n" + 
 				"1: Asas\n" + 
-				"2: Targy felvetle\n" + 
+				"2: Targy felvetle\n" +
 				"3: Kepesseg hasznalata\n" + 
 				"4: Targy hasznalata\n" + 
 				"5: Raketa javitasa\n"+
