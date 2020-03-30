@@ -53,6 +53,7 @@ public class IceField {
 				break;
 			default:
 			}
+			iceTables.get(i).setIceField(this);
 		}
 		// Szomszedok meghatarozasa
 		

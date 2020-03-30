@@ -96,6 +96,7 @@ public class Test {
         
     }
     public static void digTest(){
+    	System.out.println("");
         StableTable s=new StableTable();
         Eskimo p=new Eskimo(s);
         s.getPlayers().add(p);
@@ -302,7 +303,7 @@ public class Test {
     	String input = null;
     	/*while(testrunning == true)
     	{*/
-    		System.out.print("Valasszon ki egy tesztesetet:"	+ 
+    		System.out.print("Valasszon ki egy tesztesetet:\n"	+ 
     			"1. ropeTest\n" +
                 "2. scubaSuitTest\n" +
                 "3. digTest\n" +
