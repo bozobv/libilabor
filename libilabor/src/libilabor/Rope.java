@@ -45,7 +45,7 @@ public class Rope extends Storable
 			}
 			if(players!=null){
 				if (players.size()==0){
-					System.out.println("Nincs senki ezen a mezőn");
+					System.out.println("Nincs senki ezen a mezon");
 				}
 				else{
 					players.get(0).setCurrentTable(user.getCurrentTable());
