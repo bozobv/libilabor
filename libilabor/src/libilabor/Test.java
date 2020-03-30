@@ -26,6 +26,8 @@ public class Test {
         s.getPlayers().add(p1);
         h.getPlayers().add(p2);
         s.setFrozenItem(r);
+        s.setIceField(i);
+        h.setIceField(i);
         p1.pickUp();
         if(p1.getInventory()[1]!=null){
             System.out.println("Az eszkimo sikeresen felvette a kotelet");
