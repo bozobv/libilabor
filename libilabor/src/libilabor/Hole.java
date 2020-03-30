@@ -9,6 +9,7 @@ public class Hole extends IceTable
 	public void playerVisit(Player p) {
 		
 		this.getPlayers().add(p);
+		if(p.getInventory()[2] != null) return;
 		this.getIceField().setPlayerInWater(true);
 		
 	}
