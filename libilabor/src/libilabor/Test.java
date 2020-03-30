@@ -110,43 +110,80 @@ public class Test {
 		
 	}
     
+
     public static void holeTest() {
     	
-    	
-    }
-    
+}
     public static void inventoryTest() {
+    	System.out.println("Scanner scanner= new Scanner(System.in);");
     	Scanner scanner= new Scanner(System.in);
+    	System.out.println("StableTable st= new StableTable();");
     	StableTable st= new StableTable();
+    	System.out.println("Eskimo eskimo= new Eskimo(st);");
     	Eskimo eskimo= new Eskimo(st);
+    	System.out.println("Storable item;");
     	Storable item;
     	outerloop:
     	while(true) {
-	    	 System.out.println("Adjon hozza valamit az inventoryhoz:\n"
+	    	 System.out.println("\nAdjon hozza valamit az inventoryhoz:\n"
 	    	 		+ "0: FlareGunPart\n"
 	    	 		+ "1: Rope\n"
 	    	 		+ "2: ScubaSuit\n"
 	    	 		+ "3: Shovel\n"
 	    	 		+ "4:Kilepes\n");
+	    	 System.out.println("int answer= Integer.valueOf(scanner.nextLine());");
 	    	int answer= Integer.valueOf(scanner.nextLine());
 	    	switch(answer) {
-	    	case 0: item= new FlareGunPart(); break;
-	    	case 1: item= new Rope(); break;
-	    	case 2: item= new ScubaSuit(); break;
-	    	case 3: item= new Shovel(); break;
-	    	case 4: break outerloop;
-	    	default:item= new Shovel(); break;
+	    	case 0: System.out.println("case 0: item= new FlareGunPart(); break;");item= new FlareGunPart(); break;
+	    	case 1: System.out.println("case 1: item= new Rope(); break;");item= new Rope(); break;
+	    	case 2: System.out.println("case 2: item= new ScubaSuit(); break;");item= new ScubaSuit(); break;
+	    	case 3: System.out.println("case 3: item= new Shovel(); break;");item= new Shovel(); break;
+	    	case 4: System.out.println("case 4: break outerloop;");break outerloop;
+	    	default: System.out.println("default:item= new Shovel(); break;");item= new Shovel(); break;
 	    	}
+	    	System.out.println("st.setFrozenItem(item);");
 	    	st.setFrozenItem(item);
+	    	System.out.println("eskimo.pickUp();");
 	    	eskimo.pickUp();
-	    	System.out.println("A jatekos eszkoztara: ");
+	    	System.out.println("\nA jatekos eszkoztara: ");
 	    	for (Storable it : eskimo.getInventory()) {
 	    		System.out.println(it==null ? "semmi": it.getClass().toString());
 			}
     	}
+    	System.out.println("scanner.close();");
     	scanner.close();
     }
     
+    public static void playerVisitTest() {
+    	System.out.println("1. stabil jegtabla peldanyositva!");
+    	StableTable it1= new StableTable();
+    	System.out.println("2. stabil jegtabla peldanyositva!");
+    	StableTable it2= new StableTable();
+    	System.out.println("Eszkimo peldanyositva! Az eszkimo az elso jegtablan all.");
+    	Eskimo p = new Eskimo(it1);
+    	System.out.println("Eszkimo atlep a masik jegtablara!");
+    	it2.playerVisit(p);
+    	
+    }
+    
+    public static void eskimoAdrenalinTest() {
+    	System.out.println("Stabil jegtabla peldanyositva!");
+    	StableTable st = new StableTable();
+    	System.out.println("Eszkimo peldanyositva a stabil jegtablan!");
+    	Eskimo e = new Eskimo(st);
+    	System.out.println("Eszkimo munkaja:" + e.getWork());
+    	System.out.println("Adrenalin peldanyositva!");
+    	Adrenalin a = new Adrenalin();
+    	System.out.println("Eszkimo Adrenalint vesz magahoz!");
+    	a.pickedUpBy(e);
+    	System.out.println("A munka eggyel megnõtt. 5 --> 6");
+    	System.out.println("Eszkimo munkaja:" + e.getWork());
+
+    	
+    }
+    
+    
+
     
     public static void main(String[] args){
         System.out.print("1. ropeTest\n" +
@@ -154,16 +191,22 @@ public class Test {
                 "3. digTest\n" +
                 "4. shovelDigTest\n" +
                 "5. unstableTableTest\n"+ 
-                "6. inventoryTest\n");
+                "6. inventoryTest\n"+
+                "7. playerVisitTest\n" +
+                "8. eskimoAdrenalinTest\n");
+
         Scanner scanner = new Scanner(System.in);
         String input=scanner.nextLine();
         switch (input) {
+
             case "1": ropeTest(); break;
             case "2": scubaSuitTest(); break;
             case "3": digTest(); break;
             case "4": shovelDigTest(); break;
             case "5": unstableTableTest(); break;
             case "6": inventoryTest(); break;
+            case "7": playerVisitTest(); break;
+            case "8": eskimoAdrenalinTest(); break;
         }
         scanner.close();
     }

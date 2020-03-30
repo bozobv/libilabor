@@ -3,6 +3,8 @@ package libilabor;
 public class Whiskey extends Instant 
 {
 
+
+
 	public Whiskey(){
 		
 	}
