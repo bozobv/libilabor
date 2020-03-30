@@ -93,13 +93,16 @@ public class Test {
         scanner1.close();
 		
 	}
+    
+ 
+    
     public static void main(String[] args){
         System.out.print("1. ropeTest\n" +
                 "2. scubaSuitTest\n" +
                 "3. digTest\n" +
                 "4. shovelDigTest\n" +
                 "5. unstableTableTest\n"+ 
-                "6. ");
+                "6.");
         Scanner scanner = new Scanner(System.in);
         String input=scanner.nextLine();
         switch (input) {
@@ -108,6 +111,7 @@ public class Test {
             case "3": digTest();
             case "4": shovelDigTest();
             case "5": unstableTableTest();
+            
         }
     }
 }

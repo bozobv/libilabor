@@ -11,7 +11,7 @@ public class Adrenalin extends Instant
 	}
 
 	
-	// Az Adrenalin megnovel a munkat. . ...jjjjj dsdsdggg
+	// Az Adrenalin megnoveli a munkat eggyel.
 	public void pickedUpBy(Player p) {
 		p.setWork(p.getWork()+1);
 	}
