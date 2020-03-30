@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Test {
-    //elvileg jobb oldalt lesz a kimentesre varo inas
-    static void ropeTest(){
+
+    public static void ropeTest(){
+
         Eskimo p1,p2;
         Rope r=new Rope();
         Hole h=new Hole();
@@ -24,8 +25,9 @@ public class Test {
         p1.pickUp();
         p1.useItem();
     }
-    //jobbra lesz a lik, oda kene belezugni
-    static void scubaSuitTest(){
+
+    public static void scubaSuitTest(){
+    	
         StableTable t=new StableTable();
         Hole h=new Hole();
         Eskimo p = new Eskimo(t);
@@ -41,14 +43,14 @@ public class Test {
         p.pickUp();
         p.move();
     }
-    static void digTest(){
+    public static void digTest(){
         StableTable s=new StableTable();
         Eskimo p=new Eskimo(s);
         s.playerVisit(p);
         s.setSnowHeight(4);
         p.dig();
     }
-    static void shovelDigTest(){
+    public static void shovelDigTest(){
         StableTable s =new StableTable();
         Eskimo p=new Eskimo(s);
         Shovel shovel = new Shovel();
@@ -56,12 +58,47 @@ public class Test {
         s.playerVisit(p);
         p.dig();
     }
+    public static void unstableTableTest() {
+
+		StableTable t1 = new StableTable();
+		UnstableTable t2 = new UnstableTable(2);
+		t2.setCapacity(1);
+		Eskimo p1 = new Eskimo(t1);
+		Eskimo p2 = new Eskimo(t1);
+		IceField i = new IceField(0, 0);
+		t2.setIceField(i);
+		System.out.println("A jelenlegi ket jegtablabol all."
+				+ "Egy stabilbol es egy instabilbol."
+				+ "A jatékosok most a satbil jegtablan vannak"
+				+ "\n \"Az elso jatekos mozgatasahoz nyomja meg a 'd' gombot");
+    		Scanner scanner = new Scanner(System.in);
+        	String asw = scanner.nextLine();  
+	        if(asw.equals("d")) {
+
+	    		t2.playerVisit(p1);
+	            }
+	        
+	        System.out.println("Az elso jatekos mozgatasahoz nyomja meg a 'd' gombot");
+	        
+	        Scanner scanner1 = new Scanner(System.in);
+	        asw = scanner1.nextLine();
+	        if(asw.equals("d")) {
+	    		t2.playerVisit(p2);
+	        }
+        System.out.println("Elso jatekos thp-ja: "+p1.getThp() +
+        		"\t Masodik jatekos thp-ja: "+ p2.getThp() + 
+        		"\n Ha mmind a ketto 0 akkor jo a teszt.");
+        scanner.close();
+        scanner1.close();
+		
+	}
     public static void main(String[] args){
         System.out.print("1. ropeTest\n" +
                 "2. scubaSuitTest\n" +
                 "3. digTest\n" +
                 "4. shovelDigTest\n" +
-                "5. ");
+                "5. unstableTableTest\n"+ 
+                "6. ");
         Scanner scanner = new Scanner(System.in);
         String input=scanner.nextLine();
         switch (input) {
@@ -69,6 +106,7 @@ public class Test {
             case "2": scubaSuitTest();
             case "3": digTest();
             case "4": shovelDigTest();
+            case "5": unstableTableTest();
         }
     }
 }
