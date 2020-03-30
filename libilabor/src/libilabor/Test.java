@@ -124,7 +124,6 @@ public class Test {
 	    		System.out.println(it==null ? "semmi": it.getClass().toString());
 			}
     	}
-    	//System.out.println(eskimo.getInventory()[answer].getClass().toString());
     	scanner.close();
     }
     
