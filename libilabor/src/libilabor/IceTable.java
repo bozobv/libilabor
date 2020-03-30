@@ -80,12 +80,6 @@ public abstract class IceTable
 		frozenItem = it;
 	}
 	
-	
-
-
-		
-
-
 	public void blizzardComing() {
 
 		
