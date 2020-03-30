@@ -122,28 +122,31 @@ public class Test {
         p.dig();
     }
     public static void unstableTableTest() {
-    	System.out.println("Stabil t�bla peldanyostiva!");
+    	System.out.println("Stabil tï¿½bla peldanyostiva!");
 		StableTable t1 = new StableTable();
-		System.out.println("Instabil t�bla peldanyostiva!");
+		System.out.println("Instabil tï¿½bla peldanyostiva!");
 		UnstableTable t2 = new UnstableTable(2);
 		t2.setCapacity(1);
 		System.out.println("p1 Eszkimo peldanyostiva!");
 		Eskimo p1 = new Eskimo(t1);
+		t1.getPlayers().add(p1);
 		System.out.println("p2 Eszkimo peldanyostiva!");
 		Eskimo p2 = new Eskimo(t1);
+		t1.getPlayers().add(p2);
 		System.out.println("i IceField peldanyostiva!");
 		IceField i = new IceField(3, 3);
 		t2.setIceField(i);
+		t1.setIceField(i);
 		System.out.println("A jelenlegi ket jegtablabol all."
 				+ "Egy stabilbol es egy instabilbol."
-				+ "A jat�kosok most a satbil jegtablan vannak"
+				+ "A jatekosok most a satbil jegtablan vannak"
 				+ "\n \"Az elso jatekos mozgatasahoz nyomja meg a 'd' gombot");
     		Scanner scanner = new Scanner(System.in);
         	String asw = scanner.nextLine();  
 	        if(asw.equals("d")) {
 
 	    		t2.playerVisit(p1);
-	    		System.out.println("p1 Eszkimo Instabil j�gt�bl�ra l�pett!");
+	    		System.out.println("p1 Eszkimo Instabil jï¿½gtï¿½blï¿½ra lï¿½pett!");
 	            }
 	        
 	        System.out.println("Az elso jatekos mozgatasahoz nyomja meg a 'd' gombot");
@@ -152,7 +155,7 @@ public class Test {
 	        asw = scanner1.nextLine();
 	        if(asw.equals("d")) {
 	    		t2.playerVisit(p2);
-	    		System.out.println("p1 Eszkimo Instabil j�gt�bl�ra l�pett!");
+	    		System.out.println("p1 Eszkimo Instabil jï¿½gtï¿½blï¿½ra lï¿½pett!");
 	        }
         System.out.println("Elso jatekos thp-ja: "+p1.getThp() +
         		"\t Masodik jatekos thp-ja: "+ p2.getThp() + 
