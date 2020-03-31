@@ -9,7 +9,7 @@ public class Scientist extends Player
 	
 	public void useSkill() 
 	{
-		System.out.println("Irja be melyik szomszedjat akarja megvizsgalni");
+		System.out.println("Irja be melyik szomszedjat akarja megvizsgalni (szamot irjon) ");
 		Scanner scanner = new Scanner(System.in);
 		int answer = Integer.valueOf(scanner.nextLine());
 		if (answer >= getCurrentTable().getNeighbours().size())

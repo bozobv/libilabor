@@ -8,33 +8,33 @@ public class Test {
     public static void ropeTest(){
 
         Eskimo p1,p2;
-        Rope r=new Rope();
+        Rope r = new Rope();
         System.out.println("Kotel peldanyositva");
-        Hole h=new Hole();
+        Hole h = new Hole();
         System.out.println("Lyuk peldanyositva");
-        StableTable s=new StableTable();
+        StableTable s = new StableTable();
         System.out.println("Stabil tabla peldanyositva");
-        IceField i= new IceField(3,3);
+        IceField i = new IceField(3,3);
         System.out.println("Jegmezo peldanyositva");
 		ArrayList<IceTable> neighbours = new ArrayList<>(i.getIceTables().get(5).getNeighbours());
 		neighbours.set(0,h);
 		s.setNeighbours(neighbours);
 		i.getIceTables().set(5,s);
         i.getIceTables().set(6,h);
-        p1=new Eskimo(s);
-        p2=new Eskimo(h);
+        p1 = new Eskimo(s);
+        p2 = new Eskimo(h);
         s.getPlayers().add(p1);
         h.getPlayers().add(p2);
         s.setFrozenItem(r);
         s.setIceField(i);
         h.setIceField(i);
         p1.pickUp();
-        if(p1.getInventory()[1]!=null){
+        if(p1.getInventory()[1] != null){
             System.out.println("Az eszkimo sikeresen felvette a kotelet");
         }
         System.out.println("A tesztel�shez, a jobb oldali szomsz�dot v�lasszuk!");
         p1.useItem();
-        if(p2.getCurrentTable()==p1.getCurrentTable()){
+        if(p2.getCurrentTable() == p1.getCurrentTable()){
             System.out.println("Az eszkimo sikeresen kimentette a tarsat a vizbol");
         }
     }
@@ -47,7 +47,7 @@ public class Test {
     	Hole h = new Hole();
     	System.out.println("Luk peldanyositva!");
     	UnstableTable ust = new UnstableTable(10);
-    	System.out.println("Luk peldanyositva!");
+    	System.out.println("Instabil tabla peldanyositva!");
     	
     	ArrayList<IceTable> temp = new ArrayList<IceTable>();
     	temp.add(st);
@@ -57,22 +57,22 @@ public class Test {
     	st.setIceField(ifield);
     	h.setIceField(ifield);
     	ust.setIceField(ifield);
-    	
+    	System.out.println("2 szomszed van, 0 es 1");
     	temp = new ArrayList<IceTable>();
     	temp.add(h);
     	temp.add(ust);
     	st.setNeighbours(temp);
     	
-    	Scientist sct= new Scientist(st);
+    	Scientist sct = new Scientist(st);
     	sct.useSkill();
     }
 
     public static void scubaSuitTest(){
     	
     	System.out.println("Stabil tabla peldanyositva!");
-        StableTable t=new StableTable();
+        StableTable t = new StableTable();
         System.out.println("Lyuk peldanyositva!");
-        Hole h=new Hole();
+        Hole h = new Hole();
         System.out.println("Eszkimo peldanyositva!");
         Eskimo p = new Eskimo(t);
         System.out.println("Buvarruha peldanyositva!");
