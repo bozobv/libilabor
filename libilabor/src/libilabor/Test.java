@@ -324,7 +324,7 @@ public class Test {
                 "12. blizzardTest\n"+
                 "13. exit\n"
                 );
-    		System.out.println("a cucc" + input);
+    		
             
             input = scanner.nextLine();
            
