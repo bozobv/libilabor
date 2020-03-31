@@ -51,7 +51,7 @@ public abstract class Player
 			}
 			work--;
 		}
-		input.close();
+		//input.close();
 	}		
 	
 	public void move(){
@@ -70,7 +70,7 @@ public abstract class Player
 				"3:Shovel\n");
 		int player_choice =  input.nextInt();
 		if(inventory[player_choice]!=null)inventory[player_choice].used(this);
-		input.close();
+		//input.close();
 	}
 	
 	public abstract void useSkill();
