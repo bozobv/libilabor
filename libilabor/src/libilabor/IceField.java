@@ -3,26 +3,37 @@ package libilabor;
 import java.util.Random;
 import java.util.ArrayList;
 
-public class IceField {
+public class IceField 
+{
 	private ArrayList<IceTable> iceTables = new ArrayList<IceTable>();
 	private boolean playerInWater = false;
 	private ArrayList<Player> players = new ArrayList<Player>();
-	private static int FrozenItemDrop = 6; // minel nagyobb a szam, annal kisebb az esely, hogy befagyott targy jon
-											// letre
+	private int FrozenItemDrop = 6; 	// minel nagyobb a szam, annal kisebb az esely, hogy befagyott targy jon letre
+	private int blizzardFrequency = 10; //minel nagyobb a szam, annal kisebb az esely a hoviharra
 		
 	public IceField(int height, int width) 
 	{
 		//Todo playerek
-		for(int i = 0; i < 3; i++) {
+		for(int i = 0; i < 3; i++) 
+		{
 			players.add(null);
 		}
-		if (height < 2 || width < 2) {
+		
+		if (height < 2 || width < 2) 
+		{
 			System.out.println("Tul kicsi, a meret a lenyeg");
 			return;
 		}
 
-		if (FrozenItemDrop < 1) {
+		if (FrozenItemDrop < 1) 
+		{
 			System.out.println("Ne szorakozz, allitsd vissza a FrozenItemDrop-ot 0-nal nagyobbra");
+			return;
+		}
+		
+		if (blizzardFrequency < 1) 
+		{
+			System.out.println("Ne szorakozz, allitsd vissza a blizzardFrequency-t 0-nal nagyobbra");
 			return;
 		}
 
@@ -34,24 +45,26 @@ public class IceField {
 		StableTable firstTable = new StableTable();
 		this.iceTables.add(firstTable);
 		// jegmezo feltoltese jegtablakkal
-		for (int i = 1; i < height * width; i++) {
+		for (int i = 1; i < height * width; i++) 
+		{
 			randomTable = rand.nextInt(3);
 
-			switch (randomTable) {
-			case 0:
-				StableTable nextStableTable = new StableTable();
-				iceTables.add(nextStableTable);
-				break;
-			case 1:
-				// itt valtoztattam meg hogy a konstruktorban megoldja a randomizalt kapacitast
-				UnstableTable nextUnstableTable = new UnstableTable(players.size());
-				iceTables.add(nextUnstableTable);
-				break;
-			case 2:
-				Hole nextHole = new Hole();
-				iceTables.add(nextHole);
-				break;
-			default:
+			switch (randomTable) 
+			{
+				case 0:
+					StableTable nextStableTable = new StableTable();
+					iceTables.add(nextStableTable);
+					break;
+				case 1:
+					// itt valtoztattam meg hogy a konstruktorban megoldja a randomizalt kapacitast
+					UnstableTable nextUnstableTable = new UnstableTable(players.size());
+					iceTables.add(nextUnstableTable);
+					break;
+				case 2:
+					Hole nextHole = new Hole();
+					iceTables.add(nextHole);
+					break;
+				default:
 			}
 			iceTables.get(i).setIceField(this);
 		}
@@ -83,19 +96,25 @@ public class IceField {
 		// itemek elhelyezese
 		// FlareGunParts elhelyezes:
 		int FGPOnField = 0;
-		while (FGPOnField <= 3) {
+		while (FGPOnField <= 3) 
+		{
 			int RandomNumber = rand.nextInt(height * width - 1);
-			if (iceTables.get(RandomNumber).getFrozenItem() == null) {
+			if (iceTables.get(RandomNumber).getFrozenItem() == null) 
+			{
 				FlareGunPart flg = new FlareGunPart();
 				iceTables.get(RandomNumber).setFrozenItem(flg);
 				FGPOnField++;
 			}
 		}
+		
 		// random item lepakolas
+		int NumberOfItems = 8;
 		int ItemSetChance = rand.nextInt(FrozenItemDrop);
-		int RandomItem = rand.nextInt(6);
-		for (int i = 0; i < height * width; i++) {
-			if (iceTables.get(i).getFrozenItem() != null) {
+		int RandomItem = rand.nextInt(NumberOfItems);
+		for (int i = 0; i < height * width; i++) 
+		{
+			if (iceTables.get(i).getFrozenItem() != null) 
+			{
 				if (ItemSetChance == 1) {
 					switch (RandomItem) {
 					case 0:
@@ -122,6 +141,14 @@ public class IceField {
 						Item Wh = new Whiskey();
 						iceTables.get(i).setFrozenItem(Wh);
 						break;
+					case 6:
+						Item WSh = new WeakShovel();
+						iceTables.get(i).setFrozenItem(WSh);
+						break;
+					case 7:
+						Item T = new Tent();
+						iceTables.get(i).setFrozenItem(T);
+						break;
 					default:
 					}
 				}
@@ -132,7 +159,8 @@ public class IceField {
 
 	}
 
-	public void turn() {
+	public void turn() 
+	{
 		// hovihar erkezesenek a randomizalasahoz
 		Random rand = new Random(); 
 		boolean playerDrowning = false; // ha az elozo korben valaki vizbeesett buvarruha nelkul, akkor igaz
@@ -152,14 +180,15 @@ public class IceField {
 
 			if (i < players.size()) // megnezi, hogy az utolso jaekosnal jar-e
 				i++;
-			else {
+			else 
+			{
 				i = 0;
 				// ha az elozo korben jelezve lett, hogy erkezik hovihar, akkor ebben a
 				// korben meghivja a blizzard fuggvenyt
 				if (blizzardComing == true) 
 					Blizzard();
-				// 10% az esely arra, hogy kovetkezo korben hovihar jon
-				if (rand.nextInt(10) == 4) 
+				// esely arra, hogy kovetkezo korben hovihar jon
+				if (rand.nextInt(blizzardFrequency) == 1) 
 					blizzardComing = true;
 				else
 					blizzardComing = false;
@@ -171,7 +200,8 @@ public class IceField {
 		System.out.println("megfulladt, haltatok");
 	}
 
-	public void Blizzard() {
+	public void Blizzard() 
+	{
 		// hovihar meretenek es helyenek randomizalasahoz
 		Random rand = new Random(); 
 		// hovihar helyenek randomizalasa
@@ -205,32 +235,58 @@ public class IceField {
 		}
 	}
 
-	public void setPlayerInWater(boolean b) {
+	public void setPlayerInWater(boolean b) 
+	{
 		playerInWater = b;
 		System.out.println("ember a vizben!!!");
 	}
 	
-	public boolean getPalyerInWater() {
+	public boolean getPalyerInWater() 
+	{
 		
 		return playerInWater;
 	}
-	public ArrayList<IceTable> getIceTables() {
+	public ArrayList<IceTable> getIceTables() 
+	{
 		return iceTables;
 	}
 
-	public void setIceTables(ArrayList<IceTable> iceTables) {
+	public void setIceTables(ArrayList<IceTable> iceTables) 
+	{
 		this.iceTables = iceTables;
 	}
 
-	public ArrayList<Player> getPlayers() {
+	public ArrayList<Player> getPlayers() 
+	{
 		return players;
 	}
 
-	public void setPlayers(ArrayList<Player> players) {
+	public void setPlayers(ArrayList<Player> players) 
+	{
 		this.players = players;
 	}
-	public void victory() {
+	public void victory() 
+	{
 		System.out.println("Gyozelem");
 	}
-
+	
+	public void setFrozenItemDrop(int frequency) 
+	{
+		this.FrozenItemDrop = frequency;
+	}
+	
+	public void setBlizzardFrequency(int frequency) 
+	{
+		this.blizzardFrequency = frequency;
+	}
+	
+	public int getFrozenItemDrop() 
+	{
+		return this.FrozenItemDrop;
+	}
+	
+	public int getBlizzardFrequency() 
+	{
+		return this.blizzardFrequency;
+	}
 }
