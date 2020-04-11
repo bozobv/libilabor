@@ -194,7 +194,7 @@ public class IceField
 	
 	public void endGame() 
 	{
-		System.out.println("megfulladt, haltatok");
+		System.out.println("Legalabb egy jatekos megfulladt, elbuktatok a kuldetest!");
 	}
 
 	public void Blizzard(int size) 
