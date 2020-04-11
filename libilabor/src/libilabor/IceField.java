@@ -103,7 +103,7 @@ public class IceField
 		int NumberOfItems = 8;
 		int ItemSetChance = rand.nextInt(FrozenItemDrop);
 		int RandomItem = rand.nextInt(NumberOfItems);
-		for (int i = 0; i < height * width; i++) 
+		for (int i = 0; i < iceTables.size(); i++) 
 		{
 			if (iceTables.get(i).getFrozenItem() != null) 
 			{
@@ -158,7 +158,6 @@ public class IceField
 		while (i < players.size())  // mindegyik jatekosnak meghivja a step fuggvenyet, az utolso
 									// jatekosnal ujrainditja a szamlalot
 		{
-
 			players.get(i).step();
 			// ha elozo korben valaki vizbeesett, es meg ebben
 			// a korben is benne van, akkor vege a jateknak
