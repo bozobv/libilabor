@@ -14,7 +14,7 @@ public class Test {
         System.out.println("Lyuk peldanyositva");
         StableTable s = new StableTable();
         System.out.println("Stabil tabla peldanyositva");
-        IceField i = new IceField(3,3);
+        IceField i = new IceField(3,3, 0, 0);
         System.out.println("Jegmezo peldanyositva");
 		ArrayList<IceTable> neighbours = new ArrayList<>(i.getIceTables().get(5).getNeighbours());
 		neighbours.set(0,h);
@@ -40,7 +40,7 @@ public class Test {
     }
     
     public static void scientistUseSkillTest() {
-    	IceField ifield = new IceField(3, 3);
+    	IceField ifield = new IceField(3, 3, 0, 0);
     	System.out.println("Jegmezo peldanyositva!!");
     	StableTable st = new StableTable();
     	System.out.println("Stabil tabla peldanyositva!");
@@ -78,7 +78,7 @@ public class Test {
         System.out.println("Buvarruha peldanyositva!");
         System.out.println("B�v�rruha peldanyositva!");
         ScubaSuit s = new ScubaSuit();
-        IceField i= new IceField(3,3);
+        IceField i= new IceField(3,3, 0, 0);
         System.out.println("A p Eszkimo felveszi a buvarruhat!");
         System.out.println("A p Eszkimo felveszi a b�v�rruh�t!");
         p.addToInventory(s);
@@ -136,7 +136,7 @@ public class Test {
 		Eskimo p2 = new Eskimo(t1);
 		t1.getPlayers().add(p2);
 		System.out.println("i IceField peldanyostiva!");
-		IceField i = new IceField(3, 3);
+		IceField i = new IceField(3, 3, 0, 0);
 		t2.setIceField(i);
 		t1.setIceField(i);
 		System.out.println("A jelenlegi ket jegtablabol all."
@@ -177,7 +177,7 @@ public class Test {
         System.out.println("Eszkimo peldanyositva!");
         Eskimo p = new Eskimo(t);
         System.out.println("IceField peldanyositava!");
-        IceField i = new IceField(3,3);
+        IceField i = new IceField(3,3, 0, 0);
         h.setIceField(i);
         System.out.println("Nyomja meg a d-t hogy az Eszkimo a lyukba lepet.");
         Scanner scanner = new Scanner(System.in);
@@ -278,7 +278,7 @@ public class Test {
 
     public static void blizzardTest() {
     	System.out.println("Egy jegmezo letrejott");
-    	IceField i = new IceField(3,3);
+    	IceField i = new IceField(3,3, 0, 0);
     	System.out.println("e1 eszkimo letrejott");
     	Eskimo e1 = new Eskimo(i.getIceTables().get(0));
     	System.out.println("e2 letrejott");
@@ -293,7 +293,7 @@ public class Test {
     	e2.useSkill();
 
     	System.out.println("Hvihat lefut");
-    	i.Blizzard();
+    	i.Blizzard(10);
 
     	System.out.println("e1 thp:" + e1.getThp());
     	System.out.println("e2 thp:" + e2.getThp());
