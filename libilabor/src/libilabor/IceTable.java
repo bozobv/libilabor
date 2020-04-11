@@ -81,7 +81,6 @@ public abstract class IceTable
 
 	public void blizzardComing() 
 	{
-		snowHeight = 4;
 		if (playersOnTable != null && getIgloo() == null)
 		{
 			for (int i = 0; i < playersOnTable.size(); i++)

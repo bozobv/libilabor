@@ -56,9 +56,15 @@ public abstract class Player
 	
 	public void move(){
 		ArrayList<IceTable> neighbours=this.currentTable.getNeighbours();
-		//TODO: valami konzolos valaszto rendszer implementalasa
-		int player_choice=0;
-		neighbours.get(player_choice).playerVisit(this);
+		System.out.println("Irja be melyik szomszedjara akar lepni (szamot irjon) ");
+		Scanner scanner = new Scanner(System.in);
+		int answer = Integer.valueOf(scanner.nextLine());
+		if (answer >= neighbours.size())
+		{
+			System.out.println("nincs ilyen szomszed");
+			return;
+		}
+		neighbours.get(answer).playerVisit(this);
 	}
 	
 	public void useItem(){
