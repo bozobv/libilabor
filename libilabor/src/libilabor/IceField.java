@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class IceField 
 {
-	private ArrayList<IceTable> iceTables = new ArrayList<IceTable>();
 	private boolean playerInWater = false;
+	private ArrayList<IceTable> iceTables = new ArrayList<IceTable>();
 	private ArrayList<Player> players = new ArrayList<Player>();
 	//private int FrozenItemDrop = 6; 	// minel nagyobb a szam, annal kisebb az esely, hogy befagyott targy jon letre
 	private int blizzardFrequency = 9; //minel nagyobb a szam, annal kisebb az esely a hoviharra
@@ -22,9 +22,8 @@ public class IceField
 	{
 		if (height < 2 || width < 2) 
 		{
-			/*System.out.println("Tul kicsi, a meret a lenyeg, a magassagnak es a szelessegnek 1-nel nagyobbnak kell lennie");
-			return;*/
-			
+			System.out.println("Tul kicsi, a meret a lenyeg, a magassagnak es a szelessegnek 1-nel nagyobbnak kell lennie");
+			return;
 		}
 		
 		if (FrozenItemDrop < 1 || FrozenItemDrop > 10)
@@ -49,18 +48,14 @@ public class IceField
 			{
 				case 0:
 					StableTable nextStableTable = new StableTable();
-					nextStableTable.setSnowHeight(snowHeight);
 					iceTables.add(nextStableTable);
 					break;
 				case 1:
-					//unstable table randomizált kapacitás
 					UnstableTable nextUnstableTable = new UnstableTable(4);
-					nextUnstableTable.setSnowHeight(snowHeight);
 					iceTables.add(nextUnstableTable);
 					break;
 				case 2:
 					Hole nextHole = new Hole();
-					nextHole.setSnowHeight(snowHeight);
 					iceTables.add(nextHole);
 					break;
 				default:
@@ -68,22 +63,24 @@ public class IceField
 			iceTables.get(i).setIceField(this);
 		}
 		
-		// Szomszedok meghatarozasa
+		// Szomszedok meghatarozasa, ho magassag beallitasa
 		for (int i = 0; i < height * width; i++) 
 		{
+			iceTables.get(i).setSnowHeight(snowHeight);
 			ArrayList<IceTable> neighbours = new ArrayList<IceTable>();
-			if (i % width != width - 1) {
+			
+			if (i % width != width - 1) 
 				neighbours.add(iceTables.get(i + 1));
-			}
-			if (i % width != 0) {
+			
+			if (i % width != 0) 
 				neighbours.add(iceTables.get(i - 1));
-			}
-			if (i < iceTables.size() - width) {
+			
+			if (i < iceTables.size() - width) 
 				neighbours.add(iceTables.get(i + width));
-			}
-			if (i > width - 1) {
+			
+			if (i > width - 1) 
 				neighbours.add(iceTables.get(i - width));
-			}
+			
 			iceTables.get(i).setNeighbours(neighbours);	
 		}
 		
@@ -97,7 +94,8 @@ public class IceField
 			{
 				FlareGunPart flg = new FlareGunPart();
 				iceTables.get(RandomNumber).setFrozenItem(flg);
-				FGPOnField++;
+				if (iceTables.get(RandomNumber).getItem() != null)
+					FGPOnField++;
 			}
 		}
 		
