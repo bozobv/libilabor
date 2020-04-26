@@ -8,44 +8,46 @@ public class Test {
     public static void ropeTest(){
 
         Eskimo p1,p2;
-        Rope r=new Rope();
+        Rope r = new Rope();
         System.out.println("Kotel peldanyositva");
-        Hole h=new Hole();
+        Hole h = new Hole();
         System.out.println("Lyuk peldanyositva");
-        StableTable s=new StableTable();
+        StableTable s = new StableTable();
         System.out.println("Stabil tabla peldanyositva");
-        IceField i= new IceField(3,3);
+        IceField i = new IceField(3,3, 0, 0);
         System.out.println("Jegmezo peldanyositva");
 		ArrayList<IceTable> neighbours = new ArrayList<>(i.getIceTables().get(5).getNeighbours());
 		neighbours.set(0,h);
 		s.setNeighbours(neighbours);
 		i.getIceTables().set(5,s);
         i.getIceTables().set(6,h);
-        p1=new Eskimo(s);
-        p2=new Eskimo(h);
+        p1 = new Eskimo(s);
+        p2 = new Eskimo(h);
         s.getPlayers().add(p1);
         h.getPlayers().add(p2);
         s.setFrozenItem(r);
+        s.setIceField(i);
+        h.setIceField(i);
         p1.pickUp();
-        if(p1.getInventory()[1]!=null){
+        if(p1.getInventory()[1] != null){
             System.out.println("Az eszkimo sikeresen felvette a kotelet");
         }
         System.out.println("A tesztel�shez, a jobb oldali szomsz�dot v�lasszuk!");
         p1.useItem();
-        if(p2.getCurrentTable()==p1.getCurrentTable()){
+        if(p2.getCurrentTable() == p1.getCurrentTable()){
             System.out.println("Az eszkimo sikeresen kimentette a tarsat a vizbol");
         }
     }
     
     public static void scientistUseSkillTest() {
-    	IceField ifield = new IceField(3, 3);
+    	IceField ifield = new IceField(3, 3, 0, 0);
     	System.out.println("Jegmezo peldanyositva!!");
     	StableTable st = new StableTable();
     	System.out.println("Stabil tabla peldanyositva!");
     	Hole h = new Hole();
     	System.out.println("Luk peldanyositva!");
     	UnstableTable ust = new UnstableTable(10);
-    	System.out.println("Luk peldanyositva!");
+    	System.out.println("Instabil tabla peldanyositva!");
     	
     	ArrayList<IceTable> temp = new ArrayList<IceTable>();
     	temp.add(st);
@@ -55,28 +57,28 @@ public class Test {
     	st.setIceField(ifield);
     	h.setIceField(ifield);
     	ust.setIceField(ifield);
-    	
+    	System.out.println("2 szomszed van, 0 es 1");
     	temp = new ArrayList<IceTable>();
     	temp.add(h);
     	temp.add(ust);
     	st.setNeighbours(temp);
     	
-    	Scientist sct= new Scientist(st);
+    	Scientist sct = new Scientist(st);
     	sct.useSkill();
     }
 
     public static void scubaSuitTest(){
     	
     	System.out.println("Stabil tabla peldanyositva!");
-        StableTable t=new StableTable();
+        StableTable t = new StableTable();
         System.out.println("Lyuk peldanyositva!");
-        Hole h=new Hole();
+        Hole h = new Hole();
         System.out.println("Eszkimo peldanyositva!");
         Eskimo p = new Eskimo(t);
         System.out.println("Buvarruha peldanyositva!");
         System.out.println("B�v�rruha peldanyositva!");
         ScubaSuit s = new ScubaSuit();
-        IceField i= new IceField(3,3);
+        IceField i= new IceField(3,3, 0, 0);
         System.out.println("A p Eszkimo felveszi a buvarruhat!");
         System.out.println("A p Eszkimo felveszi a b�v�rruh�t!");
         p.addToInventory(s);
@@ -92,17 +94,21 @@ public class Test {
         if(!i.getPalyerInWater()) {
         	System.out.println("A teszt sikeres volt a j�t�kos a buv�rruha miatt nincs vesz�lyben!");
         }
-        scanner.close();
+        //scanner.close();
         
     }
     public static void digTest(){
-    	System.out.println("");
+    	System.out.println("Stabil tabla peldanyostiva!");
         StableTable s=new StableTable();
         Eskimo p=new Eskimo(s);
-        s.getPlayers().add(p);
+        s.getPlayers().add(p);       
         s.setSnowHeight(4);
+        System.out.println("Tablan a ho meret: " + s.getSnowHeight());
+        System.out.println("asas meghivva");
         p.dig();
+        System.out.println("Tablan a ho meret: " + s.getSnowHeight());
     }
+    
     public static void shovelDigTest(){
     	System.out.println("Stabil tabla peldanyositva!");
         StableTable s =new StableTable();
@@ -116,10 +122,11 @@ public class Test {
         System.out.println("Eszkimo as ");
         p.dig();
     }
+    
     public static void unstableTableTest() {
-    	System.out.println("Stabil t�bla peldanyostiva!");
+    	System.out.println("Stabil tï¿½bla peldanyostiva!");
 		StableTable t1 = new StableTable();
-		System.out.println("Instabil t�bla peldanyostiva!");
+		System.out.println("Instabil tï¿½bla peldanyostiva!");
 		UnstableTable t2 = new UnstableTable(2);
 		t2.setCapacity(1);
 		System.out.println("p1 Eszkimo peldanyostiva!");
@@ -129,7 +136,7 @@ public class Test {
 		Eskimo p2 = new Eskimo(t1);
 		t1.getPlayers().add(p2);
 		System.out.println("i IceField peldanyostiva!");
-		IceField i = new IceField(3, 3);
+		IceField i = new IceField(3, 3, 0, 0);
 		t2.setIceField(i);
 		t1.setIceField(i);
 		System.out.println("A jelenlegi ket jegtablabol all."
@@ -141,7 +148,7 @@ public class Test {
 	        if(asw.equals("d")) {
 
 	    		t2.playerVisit(p1);
-	    		System.out.println("p1 Eszkimo Instabil j�gt�bl�ra l�pett!");
+	    		System.out.println("p1 Eszkimo Instabil jï¿½gtï¿½blï¿½ra lï¿½pett!");
 	            }
 	        
 	        System.out.println("Az elso jatekos mozgatasahoz nyomja meg a 'd' gombot");
@@ -150,31 +157,32 @@ public class Test {
 	        asw = scanner1.nextLine();
 	        if(asw.equals("d")) {
 	    		t2.playerVisit(p2);
-	    		System.out.println("p1 Eszkimo Instabil j�gt�bl�ra l�pett!");
+	    		System.out.println("p1 Eszkimo Instabil jï¿½gtï¿½blï¿½ra lï¿½pett!");
 	        }
         System.out.println("Elso jatekos thp-ja: "+p1.getThp() +
         		"\t Masodik jatekos thp-ja: "+ p2.getThp() + 
         		"\n Ha mmind a ketto 0 akkor jo a teszt.");
-        scanner.close();
+        //scanner.close();
         scanner1.close();
 		
 	}
     
 
-    public static void holeTest() {
-
+    public static void holeTest() 
+    {
     	System.out.println("Stabil tabla peldanyositva!");
-        StableTable t=new StableTable();
+        StableTable t = new StableTable();
         System.out.println("Lyuk peldanyositva!");
-        Hole h=new Hole();
+        Hole h = new Hole();
         System.out.println("Eszkimo peldanyositva!");
         Eskimo p = new Eskimo(t);
         System.out.println("IceField peldanyositava!");
-        IceField i= new IceField(3,3);
+        IceField i = new IceField(3,3, 0, 0);
         h.setIceField(i);
         System.out.println("Nyomja meg a d-t hogy az Eszkimo a lyukba lepet.");
         Scanner scanner = new Scanner(System.in);
-    	String asw = scanner.nextLine();  
+    	String asw = scanner.nextLine(); 
+    	
         if(asw.equals("d")) {
 
     		h.playerVisit(p);
@@ -183,9 +191,10 @@ public class Test {
         if(i.getPalyerInWater()) {
         	System.out.println("A teszt sikeres volt a jatekos veszelyben van!");
         }
-        scanner.close();    	
+        //scanner.close();    	
 }
-    public static void inventoryTest() {
+    public static void inventoryTest() 
+    {
     	System.out.println("Scanner scanner= new Scanner(System.in);");
     	Scanner scanner= new Scanner(System.in);
     	System.out.println("StableTable st= new StableTable();");
@@ -221,11 +230,12 @@ public class Test {
 	    		System.out.println(it==null ? "semmi": it.getClass().toString());
 			}
     	}
-    	System.out.println("scanner.close();");
-    	scanner.close();
+    	System.out.println("//scanner.close();");
+    	//scanner.close();
     }
     
-    public static void playerVisitTest() {
+    public static void playerVisitTest() 
+    {
     	System.out.println("1. stabil jegtabla peldanyositva!");
     	StableTable it1= new StableTable();
     	System.out.println("2. stabil jegtabla peldanyositva!");
@@ -238,7 +248,8 @@ public class Test {
     	
     }
     
-    public static void eskimoAdrenalinTest() {
+    public static void eskimoAdrenalinTest() 
+    {
     	System.out.println("Stabil jegtabla peldanyositva!");
     	StableTable st = new StableTable();
     	System.out.println("Eszkimo peldanyositva a stabil jegtablan!");
@@ -262,19 +273,13 @@ public class Test {
     	System.out.println("Eszkimo peldanyositva! Az eszkimo a jegtablan all.");
     	Eskimo p = new Eskimo(it1);
     	System.out.println("iglu epitve");
-    	p.useSkill();
-    	
+    	p.useSkill();   	
     }
 
     public static void blizzardTest() {
     	System.out.println("Egy jegmezo letrejott");
-    	IceField i = new IceField(3,3);
-
+    	IceField i = new IceField(3,3, 0, 0);
     	System.out.println("e1 eszkimo letrejott");
-
-
-    	System.out.println("e1 eszkimo l�trejott");
-
     	Eskimo e1 = new Eskimo(i.getIceTables().get(0));
     	System.out.println("e2 letrejott");
     	Eskimo e2 = new Eskimo(i.getIceTables().get(1));
@@ -288,24 +293,22 @@ public class Test {
     	e2.useSkill();
 
     	System.out.println("Hvihat lefut");
-    	i.Blizzard();
+    	i.Blizzard(10);
 
     	System.out.println("e1 thp:" + e1.getThp());
     	System.out.println("e2 thp:" + e2.getThp());
 
-
     }
 
-
-
-
-    public static void main(String[] args){
-
-    	//boolean testrunning = true;
+    public static void main(String[] args)
+    {
+    	boolean testrunning = true;
     	Scanner scanner = new Scanner(System.in);
-    	String input = null;
-    	/*while(testrunning == true)
-    	{*/
+    	String input = "1";
+    	while(testrunning == true)
+    	{
+    		
+    		
     		System.out.print("Valasszon ki egy tesztesetet:\n"	+ 
     			"1. ropeTest\n" +
                 "2. scubaSuitTest\n" +
@@ -318,12 +321,16 @@ public class Test {
                 "9. eskimoUseSkillTest\n"+
                 "10. holeTest\n"+
                 "11. scientistUseSkill\n"+
-                "12. blizzardTest\n");//+
-                //"13. exit\n");
+                "12. blizzardTest\n"+
+                "13. exit\n"
+                );
     		
-    		input = scanner.nextLine();
-    		switch (input) {
-
+            
+            input = scanner.nextLine();
+           
+    		
+    		switch (input) 
+    		{
     			case "1": ropeTest(); break;
     			case "2": scubaSuitTest(); break;
     			case "3": digTest(); break;
@@ -336,11 +343,12 @@ public class Test {
     			case "10": holeTest(); break;
     			case "11": scientistUseSkillTest(); break;
     			case "12": blizzardTest(); break;
-    			//case "13": testrunning = false; break;
+    			case "13": testrunning = false; break;
+    			default:;
     		}
     		System.out.println();
     		
-    	//}
+    	}
     	scanner.close();
     }
  }

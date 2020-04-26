@@ -29,16 +29,20 @@ public class Rope extends Storable
 				done=true;
 			}
 			else if(input.equals("j")){
-				players=neighbours.get(0).getPlayers();			//ha ez így nem működne faszán, akkor az ifekben csak a számot(az indexet) határozzuk meg, aztán az utsó ifben deklaráljuk csak a playerst
+				players = new ArrayList<>();
+				players.addAll(neighbours.get(0).getPlayers());			//ha ez így nem működne faszán, akkor az ifekben csak a számot(az indexet) határozzuk meg, aztán az utsó ifben deklaráljuk csak a playerst
 			}
 			else if(input.equals("b")){
-				players=neighbours.get(1).getPlayers();			//TODO map szélein nincs minden irány xd
+				players = new ArrayList<>();
+				players.addAll(neighbours.get(1).getPlayers());		//TODO map szélein nincs minden irány xd
 			}
 			else if(input.equals("l")){
-				players=neighbours.get(2).getPlayers();
+				players = new ArrayList<>();
+				players.addAll(neighbours.get(2).getPlayers());
 			}
 			else if(input.equals("f")){
-				players=neighbours.get(3).getPlayers();
+				players = new ArrayList<>();
+				players.addAll(neighbours.get(3).getPlayers());
 			}
 			else{
 				System.out.println("Helytelen input");

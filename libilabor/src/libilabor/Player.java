@@ -51,14 +51,20 @@ public abstract class Player
 			}
 			work--;
 		}
-		input.close();
+		//input.close();
 	}		
 	
 	public void move(){
 		ArrayList<IceTable> neighbours=this.currentTable.getNeighbours();
-		//TODO: valami konzolos valaszto rendszer implementalasa
-		int player_choice=0;
-		neighbours.get(player_choice).playerVisit(this);
+		System.out.println("Irja be melyik szomszedjara akar lepni (szamot irjon) ");
+		Scanner scanner = new Scanner(System.in);
+		int answer = Integer.valueOf(scanner.nextLine());
+		if (answer >= neighbours.size())
+		{
+			System.out.println("nincs ilyen szomszed");
+			return;
+		}
+		neighbours.get(answer).playerVisit(this);
 	}
 	
 	public void useItem(){
@@ -70,7 +76,7 @@ public abstract class Player
 				"3:Shovel\n");
 		int player_choice =  input.nextInt();
 		if(inventory[player_choice]!=null)inventory[player_choice].used(this);
-		input.close();
+		//input.close();
 	}
 	
 	public abstract void useSkill();

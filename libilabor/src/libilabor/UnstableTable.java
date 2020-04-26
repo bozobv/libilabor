@@ -8,7 +8,7 @@ public class UnstableTable extends IceTable
 	public UnstableTable(int cap) {
 		super();
 		Random rand = new Random();
-		int c = rand.nextInt(cap);
+		int c = rand.nextInt(cap) + 1; //+1, hogy ne legyen nulla
 		this.setCapacity(c);
 	}
 	void flip() {
