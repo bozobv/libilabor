@@ -32,7 +32,6 @@ public class IceField
 					UnstableTable nextUnstableTable = new UnstableTable();
 					// itt valtoztattam meg hogy a konstruktorban megoldja a randomizalt kapacitast
 					UnstableTable nextUnstableTable = new UnstableTable(players.size());
->>>>>>> branch 'master' of https://github.com/bozobv/libilabor.git
 					iceTables.add(nextUnstableTable);
 					break;
 				case 2:

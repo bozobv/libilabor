@@ -9,14 +9,14 @@ public abstract class IceTable
 	private int snowHeight;
 	private int capacity;
 	private IceField iceField;
-	private ArrayList<Player> playersOnTable;
+	private ArrayList<Character> charactersOnTable;
 	private Igloo igloo;
 	private Item frozenItem = null;
 	private ArrayList<IceTable> neighbours;
 	
 	public IceTable(){
 		
-		playersOnTable = new ArrayList<Player>();
+		charactersOnTable = new ArrayList<Character>();
 		neighbours = new ArrayList<IceTable>();
 		
 	}
@@ -39,11 +39,11 @@ public abstract class IceTable
 	public void setIceField(IceField iceField) {
 		this.iceField = iceField;
 	}
-	public ArrayList<Player> getPlayers() {
-		return playersOnTable;
+	public ArrayList<Character> getCharactersOnTable() {
+		return charactersOnTable;
 	}
-	public void setPlayersOnTable(ArrayList<Player> playersOnTable) {
-		this.playersOnTable = playersOnTable;
+	public void setPlayersOnTable(ArrayList<Character> charactersOnTable) {
+		this.charactersOnTable = charactersOnTable;
 	}
 	public Igloo getIgloo() {
 		return igloo;
@@ -66,7 +66,7 @@ public abstract class IceTable
 
 	public void playerVisit(Player p) {
 		
-		this.playersOnTable.add(p);
+		this.charactersOnTable.add(p);
 		p.setCurrentTable(this);
 	}
 	
@@ -81,12 +81,12 @@ public abstract class IceTable
 
 	public void blizzardComing() 
 	{
-		if (playersOnTable != null && getIgloo() == null)
+		if (charactersOnTable != null && getIgloo() == null)
 		{
-			for (int i = 0; i < playersOnTable.size(); i++)
+			for (int i = 0; i < charactersOnTable.size(); i++)
 			{
-				int newThp = playersOnTable.get(i).getThp() - 1;
-				playersOnTable.get(i).setThp(newThp);
+				int newThp = ((Player) charactersOnTable.get(i)).getThp() - 1;
+				((Player) charactersOnTable.get(i)).setThp(newThp);
 			}
 		}
 		
@@ -98,9 +98,9 @@ public abstract class IceTable
 		
 		int parts = 0; 
 		
-		for(Player p: this.playersOnTable) {
+		for(Character p: this.charactersOnTable) {
 			
-			if(p.getInventory()[1] != null) {				
+			if(((Player) p).getInventory()[1] != null) {				
 				parts++;
 			}
 		}
@@ -108,9 +108,9 @@ public abstract class IceTable
 		return parts;
 	}
 	
-	public void removePlayer(Player p) {
+	public void removeCharacter(Character character) {
 		
-		playersOnTable.remove(this.playersOnTable.indexOf(p));
+		charactersOnTable.remove(this.charactersOnTable.indexOf(character));
 	}
 
 

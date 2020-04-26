@@ -7,7 +7,7 @@ public class IceField
 {
 	private boolean playerInWater = false;
 	private ArrayList<IceTable> iceTables = new ArrayList<IceTable>();
-	private ArrayList<Player> players = new ArrayList<Player>();
+	private ArrayList<Character> characters = new ArrayList<Character>();
 	//private int FrozenItemDrop = 6; 	// minel nagyobb a szam, annal kisebb az esely, hogy befagyott targy jon letre
 	private int blizzardFrequency = 9; //minel nagyobb a szam, annal kisebb az esely a hoviharra
 	private int blizzardSize = 0;
@@ -155,10 +155,10 @@ public class IceField
 		boolean playerDrowning = false; // ha az elozo korben valaki vizbeesett buvarruha nelkul, akkor igaz
 		boolean blizzardComing = false; // jelzi, hogy kovetkezo korben jon-e vihar
 		int i = 0;
-		while (i < players.size())  // mindegyik jatekosnak meghivja a step fuggvenyet, az utolso
+		while (i < characters.size())  // mindegyik jatekosnak meghivja a step fuggvenyet, az utolso
 									// jatekosnal ujrainditja a szamlalot
 		{
-			players.get(i).step();
+			characters.get(i).step();
 			// ha elozo korben valaki vizbeesett, es meg ebben
 			// a korben is benne van, akkor vege a jateknak
 			if (playerInWater == true && playerDrowning == true)
@@ -168,7 +168,7 @@ public class IceField
 			}
 			playerDrowning = playerInWater;
 
-			if (i < players.size() - 1) // megnezi, hogy az utolso jaekosnal jar-e
+			if (i < characters.size() - 1) // megnezi, hogy az utolso jaekosnal jar-e
 				i++;
 			else 
 			{
@@ -256,21 +256,21 @@ public class IceField
 	}
 
 	
-	public ArrayList<Player> getPlayers() 
+	public ArrayList<Character> getCharacters() 
 	{
-		return players;
+		return characters;
 	}
 
 	
-	public void setPlayers(ArrayList<Player> players) 
+	public void setPlayers(ArrayList<Character> characters) 
 	{
-		this.players = players;
+		this.characters = characters;
 	}
 	
 	
 	public void addPlayer(Player NewPlayer)
 	{
-		this.players.add(NewPlayer); 
+		this.characters.add(NewPlayer); 
 	}
 	
 	
