@@ -7,10 +7,11 @@ public class IceField
 {
 	private boolean playerInWater = false;
 	private ArrayList<IceTable> iceTables = new ArrayList<IceTable>();
-	private ArrayList<Player> players = new ArrayList<Player>();
+	private ArrayList<Characters> characters = new ArrayList<Characters>();
 	//private int FrozenItemDrop = 6; 	// minel nagyobb a szam, annal kisebb az esely, hogy befagyott targy jon letre
 	private int blizzardFrequency = 9; //minel nagyobb a szam, annal kisebb az esely a hoviharra
 	private int blizzardSize = 0;
+	private boolean blizzardComing = false; // jelzi, hogy kovetkezo korben jon-e vihar
 	
 	public IceField()
 	{
@@ -153,12 +154,12 @@ public class IceField
 		// hovihar erkezesenek a randomizalasahoz
 		Random rand = new Random(); 
 		boolean playerDrowning = false; // ha az elozo korben valaki vizbeesett buvarruha nelkul, akkor igaz
-		boolean blizzardComing = false; // jelzi, hogy kovetkezo korben jon-e vihar
 		int i = 0;
-		while (i < players.size())  // mindegyik jatekosnak meghivja a step fuggvenyet, az utolso
+		
+		while (i < characters.size())  // mindegyik jatekosnak meghivja a step fuggvenyet, az utolso
 									// jatekosnal ujrainditja a szamlalot
 		{
-			players.get(i).step();
+			characters.get(i).step();
 			// ha elozo korben valaki vizbeesett, es meg ebben
 			// a korben is benne van, akkor vege a jateknak
 			if (playerInWater == true && playerDrowning == true)
@@ -168,7 +169,7 @@ public class IceField
 			}
 			playerDrowning = playerInWater;
 
-			if (i < players.size() - 1) // megnezi, hogy az utolso jaekosnal jar-e
+			if (i < characters.size() - 1) // megnezi, hogy az utolso jaekosnal jar-e
 				i++;
 			else 
 			{
@@ -190,7 +191,6 @@ public class IceField
 			}
 		}
 	}
-
 	
 	public void endGame() 
 	{
@@ -229,7 +229,6 @@ public class IceField
 		}
 	}
 	
-
 	public void setPlayerInWater(boolean b) 
 	{
 		playerInWater = b;
@@ -249,37 +248,31 @@ public class IceField
 		return iceTables;
 	}
 
-	
 	public void setIceTables(ArrayList<IceTable> iceTables) 
 	{
 		this.iceTables = iceTables;
 	}
-
 	
-	public ArrayList<Player> getPlayers() 
+	public ArrayList<Characters> getCharacters() 
 	{
-		return players;
-	}
-
-	
-	public void setPlayers(ArrayList<Player> players) 
-	{
-		this.players = players;
+		return characters;
 	}
 	
-	
-	public void addPlayer(Player NewPlayer)
+	public void setPlayers(ArrayList<Characters> characters) 
 	{
-		this.players.add(NewPlayer); 
+		this.characters = characters;
 	}
-	
-	
+		
+	public void addPlayer(Characters NewCharacter)
+	{
+		this.characters.add(NewCharacter); 
+	}
+		
 	public void victory() 
 	{
 		System.out.println("Gyozelem");
 	}
-	
-	
+		
 	/*public void setFrozenItemDrop(int frequency) 
 	{
 		if (frequency < 1) 
@@ -290,8 +283,7 @@ public class IceField
 		this.FrozenItemDrop = frequency;
 		
 	}*/
-	
-	
+		
 	public void setBlizzardFrequency(int frequency) 
 	{
 		if (frequency < 1) 
@@ -302,18 +294,15 @@ public class IceField
 		this.blizzardFrequency = frequency;
 	}
 	
-	
 	/*public int getFrozenItemDrop() 
 	{
 		return this.FrozenItemDrop;
 	}*/
 	
-	
 	public int getBlizzardFrequency() 
 	{
 		return this.blizzardFrequency;
 	}
-	
 	
 	public void addTable(String TableType, int idx)
 	{
@@ -339,7 +328,6 @@ public class IceField
 		}
 		this.iceTables.add(idx, newTable);
 	}
-
 	
 	public int getBlizzardSize() 
 	{
