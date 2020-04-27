@@ -9,7 +9,7 @@ public class Hole extends IceTable
 	}
 	public void playerVisit(Player p) {
 		
-		this.getCharactersOnTable().add(p);
+		this.getPlayersOnTable().add(p);
 		if(p.getInventory()[2] != null) return;
 		p.fallInHole();
 		this.getIceField().setPlayerInWater(true);
@@ -17,7 +17,7 @@ public class Hole extends IceTable
 	}
 	public void removePlayer(Player p) {
 		
-		this.getCharactersOnTable().remove(this.getCharactersOnTable().indexOf(p));
+		this.getPlayersOnTable().remove(this.getPlayersOnTable().indexOf(p));
 		this.getIceField().setPlayerInWater(false);
 		
 	}
@@ -47,12 +47,12 @@ public class Hole extends IceTable
 		else
 			this.getConstruction().writeOut();
 		System.out.print(",");
-		if(this.getCharactersOnTable() == null)
+		if(this.getPlayersOnTable() == null)
 			System.out.print("null");
 		else
-			for(int i = 0; i < this.getCharactersOnTable().size(); i++)
+			for(int i = 0; i < this.getPlayersOnTable().size(); i++)
 			{
-				this.getCharactersOnTable().get(i).writeOut();
+				this.getPlayersOnTable().get(i).writeOut();
 				System.out.print(",");
 			}
 		System.out.print(")");		

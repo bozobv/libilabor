@@ -14,15 +14,15 @@ public class UnstableTable extends IceTable
 	}
 	void flip() {
 
-		for(Character p: this.getCharactersOnTable()) {
+		for(Character p: this.getPlayersOnTable()) {
 			((Player)p).setThp(0);
 		}
 	}
 	public void playerVisit(Player p) {
 		
-		this.getCharactersOnTable().add(p);
+		this.getPlayersOnTable().add(p);
 		
-		if(this.getCharactersOnTable().size() > this.getCapacity())
+		if(this.getPlayersOnTable().size() > this.getCapacity())
 			this.flip();
 	}
 	
@@ -39,12 +39,12 @@ public class UnstableTable extends IceTable
 		else
 			this.getConstruction().writeOut();
 		System.out.print(",");
-		if(this.getCharactersOnTable() == null)
+		if(this.getPlayersOnTable() == null)
 			System.out.print("null");
 		else
-			for(int i = 0; i < this.getCharactersOnTable().size(); i++)
+			for(int i = 0; i < this.getPlayersOnTable().size(); i++)
 			{
-				this.getCharactersOnTable().get(i).writeOut();
+				this.getPlayersOnTable().get(i).writeOut();
 				System.out.print(",");
 			}
 		System.out.print(")");		

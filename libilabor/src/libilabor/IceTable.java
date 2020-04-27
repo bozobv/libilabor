@@ -9,16 +9,33 @@ public abstract class IceTable
 	private int snowHeight;
 	private int capacity;
 	private IceField iceField;
-	private ArrayList<Character> charactersOnTable;
+	private ArrayList<Player> playersOnTable;
+	private ArrayList<PolarBear> animalsOnTable;
 	private Construction construction;
 	private Item frozenItem = null;
 	private ArrayList<IceTable> neighbours;
 	
 	public IceTable(){
 		
-		charactersOnTable = new ArrayList<Character>();
+		animalsOnTable = new ArrayList<PolarBear>();
+		playersOnTable = new ArrayList<Player>();
 		neighbours = new ArrayList<IceTable>();
 		
+	}
+	public ArrayList<Player> getPlayersOnTable() {
+		return playersOnTable;
+	}
+
+	public void setPlayersOnTable(ArrayList<Player> playersOnTable) {
+		this.playersOnTable = playersOnTable;
+	}
+
+	public ArrayList<PolarBear> getAnimalsOnTable() {
+		return animalsOnTable;
+	}
+
+	public void setAnimalsOnTable(ArrayList<PolarBear> animalsOnTable) {
+		this.animalsOnTable = animalsOnTable;
 	}
 	
 	public int getSnowHeight() {
@@ -38,12 +55,6 @@ public abstract class IceTable
 	}
 	public void setIceField(IceField iceField) {
 		this.iceField = iceField;
-	}
-	public ArrayList<Character> getCharactersOnTable() {
-		return charactersOnTable;
-	}
-	public void setPlayersOnTable(ArrayList<Character> charactersOnTable) {
-		this.charactersOnTable = charactersOnTable;
 	}
 	public Construction getConstruction() {
 		return construction;
@@ -66,7 +77,7 @@ public abstract class IceTable
 
 	public void playerVisit(Player p) {
 		
-		this.charactersOnTable.add(p);
+		this.playersOnTable.add(p);
 		p.setCurrentTable(this);
 	}
 	
@@ -81,12 +92,12 @@ public abstract class IceTable
 
 	public void blizzardComing() 
 	{
-		if (charactersOnTable != null && getConstruction() == null)
+		if (playersOnTable != null && getConstruction() == null)
 		{
-			for (int i = 0; i < charactersOnTable.size(); i++)
+			for (int i = 0; i < playersOnTable.size(); i++)
 			{
-				int newThp = ((Player) charactersOnTable.get(i)).getThp() - 1;
-				((Player) charactersOnTable.get(i)).setThp(newThp);
+				int newThp = (playersOnTable.get(i)).getThp() - 1;
+				(playersOnTable.get(i)).setThp(newThp);
 			}
 		}
 		
@@ -98,7 +109,7 @@ public abstract class IceTable
 		
 		int parts = 0; 
 		
-		for(Character p: this.charactersOnTable) {
+		for(Character p: this.playersOnTable) {
 			
 			if(((Player) p).getInventory()[1] != null) {				
 				parts++;
@@ -108,9 +119,13 @@ public abstract class IceTable
 		return parts;
 	}
 	
-	public void removeCharacter(Character character) {
+	public void removePlayer(Player character) {
 		
-		charactersOnTable.remove(this.charactersOnTable.indexOf(character));
+		playersOnTable.remove(this.playersOnTable.indexOf(character));
+	}
+	public void removeAnimal(PolarBear character) {
+		
+		animalsOnTable.remove(this.animalsOnTable.indexOf(character));
 	}
 	
 	public void writeOut() {}
