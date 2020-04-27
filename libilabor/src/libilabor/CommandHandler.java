@@ -19,6 +19,7 @@ public class CommandHandler {
 		}
 
 	}
+	
 	public void addPlayer(String type, String name,  int index) {}
 	public void addBear(int index) {}
 	public void blizzardChance(double possibility) {}
@@ -50,6 +51,10 @@ public class CommandHandler {
 	public void save(String saveFileName) {}
 	public void load(String saveFileName) {}
 	
-	
 
+	public void gameStance()
+	{
+		
+	}
 }
+

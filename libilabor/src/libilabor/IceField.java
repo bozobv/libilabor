@@ -349,4 +349,12 @@ public class IceField
 	{
 		
 	}
+	
+	public void writeOut()
+	{
+		for(int i = 0; i < iceTables.size(); i++ )
+		{
+			iceTables.get(i).writeOut();
+		}
+	}
 }

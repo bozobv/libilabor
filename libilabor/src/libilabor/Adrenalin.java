@@ -15,7 +15,10 @@ public class Adrenalin extends Instant
 		p.setWork(p.getWork()+1);
 	}
 
-	public void writeOut() {}
+	public void writeOut() 
+	{
+		
+	}
 
 
 
