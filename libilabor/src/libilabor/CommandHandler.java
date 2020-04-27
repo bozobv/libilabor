@@ -1,5 +1,7 @@
 package libilabor;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CommandHandler {
@@ -215,9 +217,16 @@ public class CommandHandler {
 	}
 
 	public void setNb(int index1, int index2) {
+        ArrayList<IceTable> i1=testField.getIceTables().get(index1).getNeighbours();
+        i1.add(testField.getIceTables().get(index1));
+        ArrayList<IceTable> i2=testField.getIceTables().get(index2).getNeighbours();
+        i2.add(testField.getIceTables().get(index2));
+	    testField.getIceTables().get(index1).setNeighbours(i2);
+	    testField.getIceTables().get(index2).setNeighbours(i1);
 	}
 
 	public void setSnow(int index, int height) {
+	    testField.getIceTables().get(index).setSnowHeight(height);
 	}
 
 	public void tableStats(int index) {
@@ -288,6 +297,7 @@ public class CommandHandler {
 	}
 
 	public void killCharacter(String name) {
+	    searchPlayer(name).getCurrentTable().removePlayer(searchPlayer(name));
 	}
 
 	public void dig(String name) {
@@ -295,8 +305,10 @@ public class CommandHandler {
 			if(player.getName().equals(name))player.dig();
 		}
 	}
-
+    //nem tudunk a rope used-jának infokat adni inne, mindenképp szükséges plusz felhasználói interakció
+    //ezek mellett felesleges az indexet átadni a függvénynek
 	public void rope(String name, int index) {
+	    searchPlayer(name).useItem(1);
 	}
 
 	public void setTent(String name) {
@@ -306,6 +318,7 @@ public class CommandHandler {
 	}
 
 	public void repairFlareGun(String name) {
+	    searchPlayer(name).useItem(0);
 	}
 
 	public void buildIgloo(String name) {
