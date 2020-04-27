@@ -315,6 +315,7 @@ public class CommandHandler {
 	}
 
 	public void killBear(int index) {
+		testField.getIceTables().get(index).setAnimalsOnTable(null);
 	}
 
 	public void gameStance() {
