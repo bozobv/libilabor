@@ -17,6 +17,7 @@ public class CommandHandler {
 			String input = scanner.nextLine();
 			String[] inputWords = input.split(" ");
 			String commandPart = inputWords[0];
+
 			switch (inputWords[0]) {
 			case "move":
 				this.move(Integer.parseInt(inputWords[1]));
@@ -79,7 +80,7 @@ public class CommandHandler {
 				}
 				break;
 			case "create":
-				if (inputWords[1].equals("icefield"))
+				if (inputWords[1] == "icefield")
 					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]),
 							Integer.parseInt(inputWords[4]));
 				break;
@@ -162,11 +163,7 @@ public class CommandHandler {
 		}
 		scanner.close();
 
-
-	}
-
-
-	
+	}	
 
 	public Player searchPlayer(String name){
         for (int i=0;i<testField.getPlayers().size();i++){
@@ -196,7 +193,7 @@ public class CommandHandler {
 			testField.getIceTables().get(index).playerVisit(newPlayer);
 			testField.addPlayer(newPlayer);
 		}
-		else
+		else 
 		{
 			System.out.println("az elvárt bemenet: add player eskimo/scientist name index ");
 		}
@@ -219,7 +216,7 @@ public class CommandHandler {
 
 	public void iceFieldSnow(int snowHeight) {
 		basicSnowHeight = snowHeight;
-
+		
 	}
 
 	public void iceFieldItem(int itemPossibility) {
@@ -238,13 +235,13 @@ public class CommandHandler {
 		case "random": testField = new IceField(h, w, d, s); break;
 		default: break;
 		}
-
+		
 	}
 
 	public void addTable(String type) {
 		switch(type) {
 		case "stable": StableTable t = new StableTable(); testField.getIceTables().add(t); break;
-		case "unstable": UnstableTable k = new UnstableTable(testField.getPlayers().size()); testField.getIceTables().add(k);
+		case "unstable": UnstableTable k = new UnstableTable(testField.getPlayers().size()); testField.getIceTables().add(k); 
 						 break;
 		case "hole": Hole h = new Hole(); testField.getIceTables().add(h); break;
 		}
@@ -383,7 +380,7 @@ public class CommandHandler {
 	}
 
 	public void scout(String name, int index) {
-	
+
 	}
 
 	public void setThp(int thp, String name) {
@@ -393,19 +390,21 @@ public class CommandHandler {
 				return;
 			}
 		}
-			
+
 	}
 
 	public void setWork(int work, String name) {
 		for(int i = 0; i<testField.getPlayers().size();i++) {
 			if(testField.getPlayers().get(i).getName().equals(name)) {
-				testField.getPlayers().get(i).setWork(work); 
+				testField.getPlayers().get(i).setWork(work);
 				return;
-			}  
+			}
 		}
 	}
 
-	public void callBlizzard(double possibility) {
+	public void callBlizzard(int size)
+	{
+		testField.Blizzard(size);
 	}
 
 	public void save(String saveFileName) {
@@ -423,8 +422,3 @@ public class CommandHandler {
 		testField.writeOut();
 	}
 }
-
-
-
-
-
