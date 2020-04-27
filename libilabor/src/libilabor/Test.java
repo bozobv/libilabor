@@ -3,6 +3,7 @@ package libilabor;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Test {
 
     public static void ropeTest(){
@@ -32,7 +33,7 @@ public class Test {
         if(p1.getInventory()[1] != null){
             System.out.println("Az eszkimo sikeresen felvette a kotelet");
         }
-        System.out.println("A tesztel�shez, a jobb oldali szomsz�dot v�lasszuk!");
+        System.out.println("A teszteleshez, a jobb oldali szomszedot valasszuk!");
         p1.useItem();
         if(p2.getCurrentTable() == p1.getCurrentTable()){
             System.out.println("Az eszkimo sikeresen kimentette a tarsat a vizbol");
@@ -298,6 +299,8 @@ public class Test {
     	System.out.println("e2 thp:" + e2.getThp());
 
     }
+    
+    
 
     public static void main(String[] args)
     {
