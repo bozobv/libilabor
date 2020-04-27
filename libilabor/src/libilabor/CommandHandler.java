@@ -162,19 +162,22 @@ public class CommandHandler {
 	
 	public void addPlayer(String type, String name, int index) {
 		if(type.equals("eskimo")){
-			Eskimo newPalyer = new Eskimo(testField.getIceTables().get(index));
-			newPalyer.setName(name);
-			testField.getIceTables().get(index).playerVisit(newPalyer);		
+			Eskimo newPlayer = new Eskimo(testField.getIceTables().get(index));
+			newPlayer.setName(name);
+			testField.getIceTables().get(index).playerVisit(newPlayer);	
+			testField.addPlayer(newPlayer);
 		}
 		else if(type.equals("scientist")) {
-			Scientist newPalyer = new Scientist(testField.getIceTables().get(index));
-			newPalyer.setName(name);
-			testField.getIceTables().get(index).playerVisit(newPalyer);
+			Scientist newPlayer = new Scientist(testField.getIceTables().get(index));
+			newPlayer.setName(name);
+			testField.getIceTables().get(index).playerVisit(newPlayer);
+			testField.addPlayer(newPlayer);
 		}
 
 	}
 
 	public void addBear(int index) {
+		PolarBear bear = new PolarBear();
 		
 	}
 
