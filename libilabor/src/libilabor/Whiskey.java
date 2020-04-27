@@ -15,6 +15,9 @@ public class Whiskey extends Instant
 		
 	}
 
-	public void writeOut() {}
+	public void writeOut() 
+	{
+		System.out.print("wh");
+	}
 
 }

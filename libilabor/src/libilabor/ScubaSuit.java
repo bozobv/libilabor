@@ -13,6 +13,9 @@ public class ScubaSuit extends Storable
     }
 
 
-	public void writeOut() {}
+	public void writeOut() 
+	{
+		System.out.print("sc");
+	}
 
 }
