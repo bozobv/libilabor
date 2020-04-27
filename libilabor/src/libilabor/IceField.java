@@ -11,6 +11,7 @@ public class IceField
 	//private int FrozenItemDrop = 6; 	// minel nagyobb a szam, annal kisebb az esely, hogy befagyott targy jon letre
 	private int blizzardFrequency = 9; //minel nagyobb a szam, annal kisebb az esely a hoviharra
 	private int blizzardSize = 0;
+	private boolean blizzardComing = false; // jelzi, hogy kovetkezo korben jon-e vihar
 	
 	public IceField()
 	{
@@ -153,7 +154,6 @@ public class IceField
 		// hovihar erkezesenek a randomizalasahoz
 		Random rand = new Random(); 
 		boolean playerDrowning = false; // ha az elozo korben valaki vizbeesett buvarruha nelkul, akkor igaz
-		boolean blizzardComing = false; // jelzi, hogy kovetkezo korben jon-e vihar
 		int i = 0;
 		while (i < characters.size())  // mindegyik jatekosnak meghivja a step fuggvenyet, az utolso
 									// jatekosnal ujrainditja a szamlalot
@@ -190,7 +190,6 @@ public class IceField
 			}
 		}
 	}
-
 	
 	public void endGame() 
 	{
@@ -229,13 +228,11 @@ public class IceField
 		}
 	}
 	
-
 	public void setPlayerInWater(boolean b) 
 	{
 		playerInWater = b;
 		System.out.println("ember a vizben!!!");
 	}
-	
 	
 	public boolean getPalyerInWater() 
 	{
@@ -243,43 +240,37 @@ public class IceField
 		return playerInWater;
 	}
 	
-	
 	public ArrayList<IceTable> getIceTables() 
 	{
 		return iceTables;
 	}
 
-	
 	public void setIceTables(ArrayList<IceTable> iceTables) 
 	{
 		this.iceTables = iceTables;
 	}
-
 	
-	public ArrayList<Character> getCharacters() 
+	public ArrayList<Character> getCharacter()
 	{
 		return characters;
 	}
-
 	
 	public void setPlayers(ArrayList<Character> characters) 
 	{
 		this.characters = characters;
+
 	}
-	
-	
-	public void addPlayer(Player NewPlayer)
+			
+	public void addPlayer(Character NewCharacter)
 	{
-		this.characters.add(NewPlayer); 
+		this.characters.add(NewCharacter); 
 	}
-	
-	
+		
 	public void victory() 
 	{
 		System.out.println("Gyozelem");
 	}
-	
-	
+		
 	/*public void setFrozenItemDrop(int frequency) 
 	{
 		if (frequency < 1) 
@@ -290,8 +281,7 @@ public class IceField
 		this.FrozenItemDrop = frequency;
 		
 	}*/
-	
-	
+		
 	public void setBlizzardFrequency(int frequency) 
 	{
 		if (frequency < 1) 
@@ -302,18 +292,15 @@ public class IceField
 		this.blizzardFrequency = frequency;
 	}
 	
-	
 	/*public int getFrozenItemDrop() 
 	{
 		return this.FrozenItemDrop;
 	}*/
 	
-	
 	public int getBlizzardFrequency() 
 	{
 		return this.blizzardFrequency;
 	}
-	
 	
 	public void addTable(String TableType, int idx)
 	{
@@ -339,19 +326,27 @@ public class IceField
 		}
 		this.iceTables.add(idx, newTable);
 	}
-
 	
 	public int getBlizzardSize() 
 	{
 		return blizzardSize;
 	}
 	
-
 	public void setBlizzardSize(int blizzardSize) 
 	{
 		if (blizzardSize > 0 && blizzardSize < 11 )
 			this.blizzardSize = blizzardSize;
 		else
 			System.out.println("A hovihar meret 1-tol 10-ig terjedhet ");
+	}
+	
+	public void save()
+	{
+		
+	}
+	
+	public void load()
+	{
+		
 	}
 }
