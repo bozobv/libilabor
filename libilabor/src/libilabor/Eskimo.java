@@ -12,4 +12,7 @@ public class Eskimo extends Player
 		Igloo Igl = new Igloo();
 		getCurrentTable().setIgloo(Igl);
 	}
+	
+	public void writeOut() {}
+
 }

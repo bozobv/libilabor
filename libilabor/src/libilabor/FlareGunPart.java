@@ -15,4 +15,6 @@ public class FlareGunPart extends Storable
 	public void used(Player p) {
 		p.repairFlareGun();
 	}
+	public void writeOut() {}
+
 }

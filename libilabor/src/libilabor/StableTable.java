@@ -11,4 +11,7 @@ public class StableTable extends IceTable
 		super();
 		this.setCapacity(99);
 	}
+	
+	public void writeOut() {}
+
 }

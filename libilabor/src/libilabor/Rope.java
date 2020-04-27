@@ -59,5 +59,8 @@ public class Rope extends Storable
 			s.close();
 		}
 	}
+	
+	public void writeOut() {}
+
 }
 

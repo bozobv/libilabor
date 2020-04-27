@@ -14,5 +14,8 @@ public class Food extends Instant
 		p.setThp(p.getThp()+1);
 		
 	}
+	
+	public void writeOut() {}
+
 
 }

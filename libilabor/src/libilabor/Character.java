@@ -13,4 +13,6 @@ public abstract class Character {
 		this.currentTable.removeCharacter(this);
 		this.currentTable = currentTable;
 	}
+	public void writeOut() {}
+
 }

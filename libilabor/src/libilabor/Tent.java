@@ -8,4 +8,6 @@ public class Tent extends Item {
 
 	}
 
+	public void writeOut() {}
+
 }

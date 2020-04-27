@@ -150,4 +150,7 @@ public abstract class Player extends Character
 		this.inventory = inventory;
 	}
 	
+	public void writeOut() {}
+
+	
 }

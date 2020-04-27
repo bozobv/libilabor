@@ -14,5 +14,6 @@ public class ScubaSuit extends Storable
     }
 
 
+	public void writeOut() {}
 
 }
