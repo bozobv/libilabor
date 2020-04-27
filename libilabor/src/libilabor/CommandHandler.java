@@ -263,7 +263,9 @@ public class CommandHandler {
 	    testField.getIceTables().get(index).setSnowHeight(height);
 	}
 
-	public void tableStats(int index) {
+	public void tableStats(int index) 
+	{
+		
 	}
 
 	public void setItem(String type, int index) {
@@ -293,7 +295,9 @@ public class CommandHandler {
 		testField.getIceTables().get(index).setItem(null);
 	}
 
-	public void getNb(int index) {
+	public void getNb(int index) 
+	{
+		
 	}
 
 	public void move(int index) {
@@ -420,8 +424,15 @@ public class CommandHandler {
 
 
 	public void killBear(int index) {
+		PolarBear removedAnimal = testField.getIceTables().get(index).getAnimalsOnTable().get(0);
 		testField.getIceTables().get(index).setAnimalsOnTable(null);
-
+		ArrayList<PolarBear> testAnimals = testField.getAnimal();
+		for (int i = 0; i < testAnimals.size(); i++)
+		{
+			if (testAnimals.get(i) == removedAnimal)
+				testAnimals.remove(i);
+		}
+		
 	}
 
 	public void gameStance() {
