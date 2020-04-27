@@ -241,6 +241,9 @@ public class CommandHandler {
 	}
 
 	public void dig(String name) {
+		for (Player player : this.testField.getPlayers()){
+			if(player.getName().equals(name))player.dig();
+		}
 	}
 
 	public void rope(String name, int index) {
