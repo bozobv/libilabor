@@ -10,7 +10,7 @@ public class IceField
 	private ArrayList<PolarBear> animals = new ArrayList<PolarBear>();
 	private ArrayList<Player> players = new ArrayList<Player>(); 
 	
-	//private int FrozenItemDrop = 6; 	// minel nagyobb a szam, annal kisebb az esely, hogy befagyott targy jon letre
+	private int FrozenItemDrop = 6; 	// minel nagyobb a szam, annal kisebb az esely, hogy befagyott targy jon letre
 	private int blizzardFrequency = 9; //minel nagyobb a szam, annal kisebb az esely a hoviharra
 	private int blizzardSize = 0;
 	private boolean blizzardComing = false; // jelzi, hogy kovetkezo korben jon-e vihar

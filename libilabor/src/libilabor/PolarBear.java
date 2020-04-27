@@ -2,13 +2,10 @@ package libilabor;
 
 public class PolarBear extends Character {
     
-	private IceTable currenttable;
 	
-	public IceTable getCurrenttable() {
-		return currenttable;
-	}
 	public void setCurrenttable(IceTable currenttable) {
-		this.currenttable = currenttable;
+		this.setTable(currenttable);
+		currenttable.removeAnimal(this);
 	}
     public void attack(){}
     public void step() {

@@ -162,5 +162,9 @@ public abstract class Player extends Character {
 
 	public void writeOut() {
 	}
+	public void setCurrentTable(IceTable i) {
+		this.setTable(i);
+		i.removePlayer(this);
+	}
 
 }
