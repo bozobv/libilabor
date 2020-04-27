@@ -8,6 +8,8 @@ public class IceField
 	private boolean playerInWater = false;
 	private ArrayList<IceTable> iceTables = new ArrayList<IceTable>();
 	private ArrayList<Character> characters = new ArrayList<Character>();
+	private ArrayList<Player> players = new ArrayList<Player>(); 
+	
 	//private int FrozenItemDrop = 6; 	// minel nagyobb a szam, annal kisebb az esely, hogy befagyott targy jon letre
 	private int blizzardFrequency = 9; //minel nagyobb a szam, annal kisebb az esely a hoviharra
 	private int blizzardSize = 0;
@@ -255,15 +257,15 @@ public class IceField
 		return characters;
 	}
 	
-	public void setPlayers(ArrayList<Character> characters) 
+	public void setPlayers(ArrayList<Player> players) 
 	{
-		this.characters = characters;
+		this.players = players;
 
 	}
 			
-	public void addPlayer(Character NewCharacter)
+	public void addPlayer(Player newPlayer)
 	{
-		this.characters.add(NewCharacter); 
+		this.players.add(newPlayer); 
 	}
 		
 	public void victory() 
@@ -340,11 +342,6 @@ public class IceField
 			System.out.println("A hovihar meret 1-tol 10-ig terjedhet ");
 	}
 	
-	
-	public void addCharacter ()
-	{
-		
-	}
 	
 	public void save()
 	{
