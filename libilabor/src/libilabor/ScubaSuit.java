@@ -5,8 +5,7 @@ public class ScubaSuit extends Storable
 	private static int SCUBASUIT_ID = 2;
 
 	public ScubaSuit() {
-		this.setId(SCUBASUIT_ID);	
-		
+		this.setId(SCUBASUIT_ID);
 	}
 	
     public void pickedUpBy(Player p) {
@@ -14,5 +13,6 @@ public class ScubaSuit extends Storable
     }
 
 
+	public void writeOut() {}
 
 }

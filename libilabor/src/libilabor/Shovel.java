@@ -13,5 +13,7 @@ public class Shovel extends Storable
     }
     public void broken(Player p){
 	}
+    
+	public void writeOut() {}
 
 }

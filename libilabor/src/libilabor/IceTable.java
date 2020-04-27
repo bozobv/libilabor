@@ -112,6 +112,7 @@ public abstract class IceTable
 		
 		charactersOnTable.remove(this.charactersOnTable.indexOf(character));
 	}
-
-
+	
+	public void writeOut() {}
+	
 }

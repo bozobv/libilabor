@@ -21,4 +21,7 @@ public class Scientist extends Player
 		System.out.println("a tabla kapacitasa:" + getCurrentTable().getNeighbours().get(answer).getCapacity());
 		scanner.close();
 	}
+	
+	public void writeOut() {}
+
 }

@@ -26,4 +26,6 @@ public class UnstableTable extends IceTable
 			this.flip();
 	}
 	
+	public void writeOut() {}
+
 }

@@ -35,4 +35,8 @@ public class Hole extends IceTable
 	public int getCapacity() {
 		return 0;
 	}
+	
+	public void writeOut() {}
+
+
 }

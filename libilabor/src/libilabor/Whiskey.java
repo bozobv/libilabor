@@ -15,4 +15,6 @@ public class Whiskey extends Instant
 		
 	}
 
+	public void writeOut() {}
+
 }
