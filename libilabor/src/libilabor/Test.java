@@ -23,8 +23,8 @@ public class Test {
         i.getIceTables().set(6,h);
         p1 = new Eskimo(s);
         p2 = new Eskimo(h);
-        s.getPlayers().add(p1);
-        h.getPlayers().add(p2);
+        s.getCharactersOnTable().add(p1);
+        h.getCharactersOnTable().add(p2);
         s.setFrozenItem(r);
         s.setIceField(i);
         h.setIceField(i);
@@ -94,14 +94,13 @@ public class Test {
         if(!i.getPalyerInWater()) {
         	System.out.println("A teszt sikeres volt a j�t�kos a buv�rruha miatt nincs vesz�lyben!");
         }
-        //scanner.close();
-        
+        scanner.close();  
     }
     public static void digTest(){
     	System.out.println("Stabil tabla peldanyostiva!");
         StableTable s=new StableTable();
         Eskimo p=new Eskimo(s);
-        s.getPlayers().add(p);       
+        s.getCharactersOnTable().add(p);       
         s.setSnowHeight(4);
         System.out.println("Tablan a ho meret: " + s.getSnowHeight());
         System.out.println("asas meghivva");
@@ -118,7 +117,7 @@ public class Test {
         Shovel shovel = new Shovel();
         System.out.println("Aso inventoryhoz adva");
         p.addToInventory(shovel);
-        s.getPlayers().add(p);
+        s.getCharactersOnTable().add(p);      
         System.out.println("Eszkimo as ");
         p.dig();
     }
@@ -131,10 +130,10 @@ public class Test {
 		t2.setCapacity(1);
 		System.out.println("p1 Eszkimo peldanyostiva!");
 		Eskimo p1 = new Eskimo(t1);
-		t1.getPlayers().add(p1);
+		t1.getCharactersOnTable().add(p1);      
 		System.out.println("p2 Eszkimo peldanyostiva!");
 		Eskimo p2 = new Eskimo(t1);
-		t1.getPlayers().add(p2);
+		t1.getCharactersOnTable().add(p2);      
 		System.out.println("i IceField peldanyostiva!");
 		IceField i = new IceField(3, 3, 0, 0);
 		t2.setIceField(i);
@@ -162,7 +161,7 @@ public class Test {
         System.out.println("Elso jatekos thp-ja: "+p1.getThp() +
         		"\t Masodik jatekos thp-ja: "+ p2.getThp() + 
         		"\n Ha mmind a ketto 0 akkor jo a teszt.");
-        //scanner.close();
+        scanner.close();
         scanner1.close();
 		
 	}
@@ -191,7 +190,7 @@ public class Test {
         if(i.getPalyerInWater()) {
         	System.out.println("A teszt sikeres volt a jatekos veszelyben van!");
         }
-        //scanner.close();    	
+        scanner.close();    	
 }
     public static void inventoryTest() 
     {
@@ -231,7 +230,7 @@ public class Test {
 			}
     	}
     	System.out.println("//scanner.close();");
-    	//scanner.close();
+    	scanner.close();
     }
     
     public static void playerVisitTest() 
@@ -242,7 +241,7 @@ public class Test {
     	StableTable it2= new StableTable();
     	System.out.println("Eszkimo peldanyositva! Az eszkimo az elso jegtablan all.");
     	Eskimo p = new Eskimo(it1);
-    	it1.getPlayers().add(p);
+    	it1.getCharactersOnTable().add(p);      
     	System.out.println("Eszkimo atlep a masik jegtablara!");
     	it2.playerVisit(p);
     	
@@ -284,8 +283,8 @@ public class Test {
     	System.out.println("e2 letrejott");
     	Eskimo e2 = new Eskimo(i.getIceTables().get(1));
 
-    	i.getIceTables().get(0).getPlayers().add(e1);
-    	i.getIceTables().get(1).getPlayers().add(e2);
+    	i.getIceTables().get(0).getCharactersOnTable().add(e1);      
+    	i.getIceTables().get(1).getCharactersOnTable().add(e2);      
     	System.out.println("e1 thp:" + e1.getThp());
     	System.out.println("e2 thp:" + e2.getThp());
 

@@ -9,14 +9,14 @@ public class Hole extends IceTable
 	}
 	public void playerVisit(Player p) {
 		
-		this.getPlayers().add(p);
+		this.getCharactersOnTable().add(p);
 		if(p.getInventory()[2] != null) return;
 		this.getIceField().setPlayerInWater(true);
 		
 	}
 	public void removePlayer(Player p) {
 		
-		this.getPlayers().remove(this.getPlayers().indexOf(p));
+		this.getCharactersOnTable().remove(this.getCharactersOnTable().indexOf(p));
 		this.getIceField().setPlayerInWater(false);
 		
 	}

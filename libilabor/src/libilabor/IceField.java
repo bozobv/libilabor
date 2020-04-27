@@ -7,7 +7,7 @@ public class IceField
 {
 	private boolean playerInWater = false;
 	private ArrayList<IceTable> iceTables = new ArrayList<IceTable>();
-	private ArrayList<Characters> characters = new ArrayList<Characters>();
+	private ArrayList<Character> characters = new ArrayList<Character>();
 	//private int FrozenItemDrop = 6; 	// minel nagyobb a szam, annal kisebb az esely, hogy befagyott targy jon letre
 	private int blizzardFrequency = 9; //minel nagyobb a szam, annal kisebb az esely a hoviharra
 	private int blizzardSize = 0;
@@ -155,7 +155,6 @@ public class IceField
 		Random rand = new Random(); 
 		boolean playerDrowning = false; // ha az elozo korben valaki vizbeesett buvarruha nelkul, akkor igaz
 		int i = 0;
-		
 		while (i < characters.size())  // mindegyik jatekosnak meghivja a step fuggvenyet, az utolso
 									// jatekosnal ujrainditja a szamlalot
 		{
@@ -253,17 +252,22 @@ public class IceField
 		this.iceTables = iceTables;
 	}
 	
-	public ArrayList<Characters> getCharacters() 
+
+	public ArrayList<Character> getCharacter()
 	{
 		return characters;
 	}
+
 	
-	public void setPlayers(ArrayList<Characters> characters) 
+	public void setPlayers(ArrayList<Character> characters) 
 	{
 		this.characters = characters;
+
 	}
+	
+
 		
-	public void addPlayer(Characters NewCharacter)
+	public void addPlayer(Character NewCharacter)
 	{
 		this.characters.add(NewCharacter); 
 	}

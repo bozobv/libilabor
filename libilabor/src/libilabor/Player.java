@@ -3,7 +3,7 @@ package libilabor;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public abstract class Player 
+public abstract class Player extends Character 
 {
 	private static final int INVENTORY_STARTING_SIZE=4;
 	public static int id=0;
@@ -13,7 +13,6 @@ public abstract class Player
 	private String Name;
 	private int thp;
 	private int work;
-	private IceTable currentTable;
 	private Storable[] inventory;
 	
 
@@ -23,7 +22,6 @@ public abstract class Player
 		Name = name;
 		this.thp = thp;
 		this.work = work;
-		this.currentTable = currentTable;
 		this.inventory = new Storable[INVENTORY_STARTING_SIZE];
 	}
 
@@ -51,7 +49,7 @@ public abstract class Player
 			}
 			work--;
 		}
-		//input.close();
+		input.close();
 	}		
 	
 	public void move(){
@@ -62,11 +60,14 @@ public abstract class Player
 		if (answer >= neighbours.size())
 		{
 			System.out.println("nincs ilyen szomszed");
+			scanner.close();
 			return;
 		}
 		neighbours.get(answer).playerVisit(this);
+		scanner.close();
 	}
 	
+	//TODO:weakShovel
 	public void useItem(){
 		Scanner input = new Scanner( System.in );
 		System.out.print( "Melyik itemet akarod hasznalni?:\n"+ 
@@ -76,7 +77,7 @@ public abstract class Player
 				"3:Shovel\n");
 		int player_choice =  input.nextInt();
 		if(inventory[player_choice]!=null)inventory[player_choice].used(this);
-		//input.close();
+		input.close();
 	}
 	
 	public abstract void useSkill();
@@ -96,7 +97,6 @@ public abstract class Player
 	}
 	public void addToInventory(Storable s){
 		if(inventory[s.getId()]==null) {
-			
 			inventory[s.getId()]=s;
 			currentTable.setFrozenItem(null);
 		}
@@ -140,11 +140,6 @@ public abstract class Player
 
 	public IceTable getCurrentTable() {
 		return currentTable;
-	}
-
-	public void setCurrentTable(IceTable currentTable) {
-		this.currentTable.removePlayer(this);
-		this.currentTable = currentTable;
 	}
 
 	public Storable[] getInventory() {

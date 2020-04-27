@@ -21,7 +21,7 @@ public class Rope extends Storable
 		ArrayList<IceTable> neighbours = user.getCurrentTable().getNeighbours();
 		boolean done=false;
 		while(!done){
-			ArrayList<Player> players = null;
+			ArrayList<Character> characters = null;
 			System.out.println("Melyik szomszedot szeretned kimenteni?( (j)obb,(b)al,(f)enti,(l)enti),(m)egse ");
 			Scanner s=new Scanner(System.in);
 			String input = s.nextLine();
@@ -29,30 +29,30 @@ public class Rope extends Storable
 				done=true;
 			}
 			else if(input.equals("j")){
-				players = new ArrayList<>();
-				players.addAll(neighbours.get(0).getPlayers());			//ha ez így nem működne faszán, akkor az ifekben csak a számot(az indexet) határozzuk meg, aztán az utsó ifben deklaráljuk csak a playerst
+				characters = new ArrayList<>();
+				characters.addAll(neighbours.get(0).getCharactersOnTable());			
 			}
 			else if(input.equals("b")){
-				players = new ArrayList<>();
-				players.addAll(neighbours.get(1).getPlayers());		//TODO map szélein nincs minden irány xd
+				characters = new ArrayList<>();
+				characters.addAll(neighbours.get(1).getCharactersOnTable());	
 			}
 			else if(input.equals("l")){
-				players = new ArrayList<>();
-				players.addAll(neighbours.get(2).getPlayers());
+				characters = new ArrayList<>();
+				characters.addAll(neighbours.get(2).getCharactersOnTable());
 			}
 			else if(input.equals("f")){
-				players = new ArrayList<>();
-				players.addAll(neighbours.get(3).getPlayers());
+				characters = new ArrayList<>();
+				characters.addAll(neighbours.get(3).getCharactersOnTable());
 			}
 			else{
 				System.out.println("Helytelen input");
 			}
-			if(players!=null){
-				if (players.size()==0){
+			if(characters!=null){
+				if (characters.size()==0){
 					System.out.println("Nincs senki ezen a mezon");
 				}
 				else{
-					players.get(0).setCurrentTable(user.getCurrentTable());
+					characters.get(0).setCurrentTable(user.getCurrentTable());
 					done=true;
 				}
 			}
