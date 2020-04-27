@@ -24,7 +24,7 @@ public class CommandHandler {
 
 			switch (inputWords[0]) {
 			case "move":
-				this.move(Integer.parseInt(inputWords[1]));
+				this.move(inputWords[1], Integer.parseInt(inputWords[2]));
 				break;
 			case "rope":
 				this.rope(inputWords[1], Integer.parseInt(inputWords[2]));
@@ -319,9 +319,9 @@ public class CommandHandler {
 		System.out.print(")");
 	}
 
-	public void move(int index) 
+	public void move(String name, int index) 
 	{
-		
+		searchPlayer(name);
 	}
 
 	public void pickUp(String name) {
