@@ -137,7 +137,8 @@ public class CommandHandler {
 	public void repairFlareGun(String name) {}
 	public void buildIgloo(String name) {}
 	public void scout(String name, int index) {}
-	public void setThp(int thp, String name) {}
+	public void setThp(int thp, String name) {
+	}
 	public void setWork(int work, String name) {}
 	public void callBlizzard(double possibility) {}
 	public void save(String saveFileName) {}
