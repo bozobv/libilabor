@@ -29,7 +29,7 @@ public class CommandHandler {
 				this.save(inputWords[1]);
 			}
 			else if(commandPart.equals("load")) {
-				this.save(inputWords[1]);
+				this.load(inputWords[1]);
 			}
 			else if(commandPart.concat(inputWords[1]).equals("add player")) {
 				this.addPlayer(inputWords[2], inputWords[3], Integer.parseInt(inputWords[4]));				
@@ -106,6 +106,9 @@ public class CommandHandler {
 			else if(commandPart.concat(inputWords[1]).equals("call blizzard")) {
 				this.callBlizzard(Double.parseDouble(inputWords[2]));
 			}
+			else if(commandPart.equals("exit")) {
+				exit = true;
+			}
 		}
 		scanner.close();
 
@@ -141,15 +144,11 @@ public class CommandHandler {
 	public void callBlizzard(double possibility) {}
 	public void save(String saveFileName) {}
 	public void load(String saveFileName) {}
-<<<<<<< HEAD
 	public void killBear(int index) {}
-=======
 	
 	public void gameStance()
-	{
-		
+	{		
 	}
->>>>>>> branch 'master' of https://github.com/bozobv/libilabor.git
 }
-	
+
 	
