@@ -17,7 +17,7 @@ public class Adrenalin extends Instant
 
 	public void writeOut() 
 	{
-		
+		System.out.print("adr");
 	}
 
 

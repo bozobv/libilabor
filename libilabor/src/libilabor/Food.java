@@ -15,7 +15,10 @@ public class Food extends Instant
 		
 	}
 	
-	public void writeOut() {}
+	public void writeOut() 
+	{
+		System.out.print("food");
+	}
 
 
 }
