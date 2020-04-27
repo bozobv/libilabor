@@ -1,13 +1,16 @@
 package libilabor;
 
-public class Tent extends Item {
+public class Tent extends Item implements Construction {
 
-	@Override
+
 	public void pickedUpBy(Player p) {
-		// TODO Auto-generated method stub
 
 	}
+	public void used(Player p){}
 
 	public void writeOut() {}
 
+	public void attacked() {
+
+	}
 }
