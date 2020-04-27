@@ -43,7 +43,7 @@ public abstract class Player extends Character
 			case 1: dig();
 			case 2: pickUp();
 			case 3: useSkill();
-			case 4: useItem();
+			//case 4: useItem();
 			case 5: repairFlareGun();
 			case 6: break;
 			}
@@ -67,17 +67,8 @@ public abstract class Player extends Character
 		scanner.close();
 	}
 
-	public void useItem(){
-		Scanner input = new Scanner( System.in );
-		System.out.print( "Melyik itemet akarod hasznalni?:\n"+ 
-				"0: FlarGunPart\n"+
-				"1:Rope\n"+
-				"2:ScubaSuit\n"+
-				"3:Shovel\n" +
-				"4:Tent\n");
-		int player_choice =  input.nextInt();
+	public void useItem(int player_choice){
 		if(inventory[player_choice]!=null)inventory[player_choice].used(this);
-		input.close();
 	}
 	
 	public abstract void useSkill();
@@ -150,8 +141,8 @@ public abstract class Player extends Character
 		this.inventory = inventory;
 	}
 
-	public void removeFromInventory(Storable s) {
-		inventory[s.getId()]=null;
+	public void removeFromInventory(int idx) {
+		inventory[idx]=null;
 	}
 	public void attacked(){
 		getCurrentTable().getIceField().endGame();

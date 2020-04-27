@@ -228,13 +228,54 @@ public class CommandHandler {
 	}
 
 	public void pickUp(String name) {
-
+		searchPlayer(name).pickUp();
 	}
 
 	public void addItem(String type, String name) {
+		Storable item;
+		switch(type){
+			case "fg":
+				item=new FlareGunPart();break;
+			case "r":
+				item=new Rope();break;
+			case "sc":
+				item=new ScubaSuit();break;
+			case "s":
+				item=new Shovel();break;
+			case "ws":
+				item=new WeakShovel();break;
+			case "t":
+				item=new Tent();break;
+			default:
+				System.out.println("Helytelen parameter!");
+				item=null;break;
+		}
+		if(item!=null){
+			searchPlayer(name).addToInventory(item);
+		}
 	}
 
 	public void removeItem(String type, String name) {
+		int idx;
+		switch(type){
+			case "fg":
+				idx=0;break;
+			case "r":
+				idx=1;break;
+			case "sc":
+				idx=2;break;
+			case "s":
+			case "ws":
+				idx=3;break;
+			case "t":
+				idx=4;break;
+			default:
+				System.out.println("Helytelen parameter!");
+				idx=-1;break;
+		}
+		if(idx>0){
+			searchPlayer(name).removeFromInventory(idx);
+		}
 	}
 
 	public void killCharacter(String name) {
@@ -250,6 +291,7 @@ public class CommandHandler {
 	}
 
 	public void repairFlareGun(String name) {
+
 	}
 
 	public void buildIgloo(String name) {

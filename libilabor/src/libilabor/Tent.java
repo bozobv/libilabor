@@ -1,6 +1,6 @@
 package libilabor;
 
-public class Tent extends Item implements Construction {
+public class Tent extends Storable implements Construction {
 
 
 	public Tent(){

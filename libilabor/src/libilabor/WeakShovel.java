@@ -15,7 +15,7 @@ public class WeakShovel extends Shovel
         if(durability==0){broken(p);}
     }
     public void broken(Player p){
-        p.removeFromInventory(this);
+        p.removeFromInventory(this.getId());
     }
     
     public void writeOut()
