@@ -1,6 +1,5 @@
 package libilabor;
 
-<<<<<<< HEAD
 import java.util.Scanner;
 
 public class CommandHandler {
@@ -19,6 +18,7 @@ public class CommandHandler {
 		}
 
 	}
+	
 	public void addPlayer(String type, String name,  int index) {}
 	public void addBear(int index) {}
 	public void blizzardChance(double possibility) {}
@@ -50,13 +50,8 @@ public class CommandHandler {
 	public void save(String saveFileName) {}
 	public void load(String saveFileName) {}
 	
-	
-=======
-public class CommandHandler 
-{
 	public void gameStance()
 	{
 		
 	}
->>>>>>> branch 'master' of https://github.com/bozobv/libilabor.git
 }

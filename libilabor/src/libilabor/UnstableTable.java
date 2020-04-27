@@ -26,6 +26,28 @@ public class UnstableTable extends IceTable
 			this.flip();
 	}
 	
-	public void writeOut() {}
+	public void writeOut() 
+	{
+		System.out.print("UT(" + this.getCapacity() + "," + this.getSnowHeight());
+		if(this.getFrozenItem() == null)
+			System.out.print("null");
+		else
+			this.getFrozenItem().writeOut();
+		System.out.print(",");
+		if(this.getConstruction() == null)
+			System.out.print("null");
+		else
+			this.getConstruction().writeOut();
+		System.out.print(",");
+		if(this.getCharactersOnTable() == null)
+			System.out.print("null");
+		else
+			for(int i = 0; i < this.getCharactersOnTable().size(); i++)
+			{
+				this.getCharactersOnTable().get(i).writeOut();
+				System.out.print(",");
+			}
+		System.out.print(")");		
+	}
 
 }

@@ -340,6 +340,11 @@ public class IceField
 			System.out.println("A hovihar meret 1-tol 10-ig terjedhet ");
 	}
 	
+	public void addCharacter ()
+	{
+		
+	}
+	
 	public void save()
 	{
 		
@@ -348,5 +353,14 @@ public class IceField
 	public void load()
 	{
 		
+	}
+	
+	public void writeOut()
+	{
+		for(int i = 0; i < iceTables.size(); i++ )
+		{
+			System.out.print(i);
+			iceTables.get(i).writeOut();
+		}
 	}
 }
