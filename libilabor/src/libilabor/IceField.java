@@ -266,6 +266,8 @@ public class IceField
 		return animals;
 	}
 	
+	
+	
 	public void setPlayers(ArrayList<Player> players) 
 	{
 		this.players = players;

@@ -247,7 +247,6 @@ public class CommandHandler {
 
 	public void setThp(int thp, String name) {
 		
-			
 	}
 
 	public void setWork(int work, String name) {
