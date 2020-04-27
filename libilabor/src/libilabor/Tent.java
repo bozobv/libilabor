@@ -11,7 +11,10 @@ public class Tent extends Item implements Construction {
 	}
 	public void used(Player p){}
 
-	public void writeOut() {}
+	public void writeOut() 
+	{
+		System.out.print("tent");
+	}
 
 	public void attacked(Player p) {
         p.attacked();
