@@ -75,7 +75,7 @@ public class CommandHandler {
 				}
 				break;
 			case "create":
-				if (inputWords[1] == "icefield")
+				if (inputWords[1].equals("icefield"))
 					this.createIceFiled(inputWords[2], Integer.parseInt(inputWords[3]),
 							Integer.parseInt(inputWords[4]));
 				break;
@@ -107,24 +107,24 @@ public class CommandHandler {
 				break;
 
 			case "table":
-				if (inputWords[1] == "stat")
+				if (inputWords[1].equals("stat"))
 					this.tableStats(Integer.parseInt(inputWords[2]));
 				break;
 
 			case "destroy":
-				if (inputWords[1] == "item")
+				if (inputWords[1].equals("item"))
 					this.destroyItem(Integer.parseInt(inputWords[2]));
 				break;
 			case "get":
-				if (inputWords[1] == "nb")
+				if (inputWords[1].equals("nb"))
 					this.getNb(Integer.parseInt(inputWords[2]));
 				break;
 			case "pick":
-				if (inputWords[1] == "up")
+				if (inputWords[1].equals("up"))
 					this.pickUp(inputWords[2]);
 				break;
 			case "remove":
-				if (inputWords[1] == "item")
+				if (inputWords[1].equals("item"))
 					this.removeItem(inputWords[2], inputWords[3]);
 				break;
 			case "kill":
@@ -140,16 +140,16 @@ public class CommandHandler {
 				}
 				break;
 			case "repair":
-				if (inputWords[1] == "flaregun")
+				if (inputWords[1].equals("flaregun"))
 					this.repairFlareGun(inputWords[2]);
 				break;
 			case "build":
-				if (inputWords[1] == "igloo")
+				if (inputWords[1].equals("igloo"))
 					this.buildIgloo(inputWords[2]);
 				break;
 
 			case "call":
-				if (inputWords[1] == "blizzard")
+				if (inputWords[1].equals("blizzard"))
 					this.callBlizzard(Double.parseDouble(inputWords[2]));
 				break;
 			default:
