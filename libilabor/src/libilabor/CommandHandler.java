@@ -159,13 +159,12 @@ public class CommandHandler {
 		}
 		scanner.close();
 
-<<<<<<< HEAD
+
 	}
 
-=======
-}	
+
 	
->>>>>>> branch 'master' of https://github.com/bozobv/libilabor.git
+
 	public Player searchPlayer(String name){
         for (int i=0;i<testField.getPlayers().size();i++){
             if(testField.getPlayers().get(i).getName().equals(name)){
