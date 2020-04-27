@@ -11,6 +11,7 @@ public class Hole extends IceTable
 		
 		this.getCharactersOnTable().add(p);
 		if(p.getInventory()[2] != null) return;
+		p.fallInHole();
 		this.getIceField().setPlayerInWater(true);
 		
 	}

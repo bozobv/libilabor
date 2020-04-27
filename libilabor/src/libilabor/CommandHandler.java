@@ -12,6 +12,8 @@ public class CommandHandler {
 		while (!exit) {
 			String input = scanner.nextLine();
 			String[] inputWords = input.split(" ");
+			String commandPart = inputWords[0];
+			
 			switch (inputWords[0]) {
 			case "move":
 				this.move(Integer.parseInt(inputWords[1]));
@@ -173,6 +175,7 @@ public class CommandHandler {
 			newPalyer.setName(name);
 			testField.getIceTables().get(index).playerVisit(newPalyer);
 		}
+
 	}
 
 	public void addBear(int index) {
@@ -210,6 +213,7 @@ public class CommandHandler {
 	}
 
 	public void destroyItem(int index) {
+		testField.getIceTables().get(index).setItem(null);
 	}
 
 	public void getNb(int index) {
@@ -219,6 +223,7 @@ public class CommandHandler {
 	}
 
 	public void pickUp(String name) {
+
 	}
 
 	public void addItem(String type, String name) {
