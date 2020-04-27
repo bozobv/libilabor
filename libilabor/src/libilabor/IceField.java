@@ -233,7 +233,7 @@ public class IceField
 			
 			for (int j = randomTable; j < randomTable + blizzardedTables; j++) 
 			{
-				iceTables.get(j).blizzardComing();
+				iceTables.get(j).blizzardComing(); 
 			}
 
 		}
