@@ -149,6 +149,11 @@ public class IceField
 				}
 			}
 		}
+		
+		/*for(int i = 0; i )
+		{
+			
+		}*/
 	}
 
 	public void turn() 
@@ -241,8 +246,7 @@ public class IceField
 	}
 	
 	public boolean getPalyerInWater() 
-	{
-		
+	{		
 		return playerInWater;
 	}
 	
@@ -266,7 +270,14 @@ public class IceField
 		return animals;
 	}
 	
+
 	
+
+	public ArrayList<Player> getPlayers()
+	{
+		return players;
+	}
+
 	
 	public void setPlayers(ArrayList<Player> players) 
 	{

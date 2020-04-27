@@ -246,10 +246,22 @@ public class CommandHandler {
 	}
 
 	public void setThp(int thp, String name) {
-		
+		for(int i = 0; i<testField.getPlayers().size();i++) {
+			if(testField.getPlayers().get(i).getName().equals(name)) {
+				testField.getPlayers().get(i).setThp(thp);
+				return;
+			}
+		}
+			
 	}
 
 	public void setWork(int work, String name) {
+		for(int i = 0; i<testField.getPlayers().size();i++) {
+			if(testField.getPlayers().get(i).getName().equals(name)) {
+				testField.getPlayers().get(i).setWork(work);
+				return;
+			}
+		}
 	}
 
 	public void callBlizzard(double possibility) {
