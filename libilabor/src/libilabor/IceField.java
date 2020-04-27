@@ -2,9 +2,14 @@ package libilabor;
 
 import java.util.Random;
 import java.util.ArrayList;
+import java.io.*;
 
-public class IceField 
+public class IceField implements java.io.Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private boolean playerInWater = false;
 	private ArrayList<IceTable> iceTables = new ArrayList<IceTable>();
 	private ArrayList<PolarBear> animals = new ArrayList<PolarBear>();
@@ -150,9 +155,16 @@ public class IceField
 			}
 		}
 		
+		//playerek elhelyezese a tablara
 		for(int i = 0; i < players.size(); i++ )
 		{
 			players.get(i).setCurrentTable(iceTables.get(0));
+		}
+		
+		//allatok elhelyezes random helyre
+		for(int i = 0; i < animals.size(); i++ )
+		{
+			animals.get(i).setCurrentTable(iceTables.get(rand.nextInt(iceTables.size() - 1) + 1));
 		}
 	}
 
@@ -367,12 +379,36 @@ public class IceField
 	
 	public void save()
 	{
-		
+		try {
+	         FileOutputStream fileOut = new FileOutputStream("/tmp/icefield.ser");
+	         ObjectOutputStream out = new ObjectOutputStream(fileOut);
+	         out.writeObject(this);
+	         out.close();
+	         fileOut.close();
+	         System.out.printf("Serialized data is saved in /tmp/icefield.ser");
+	      } catch (IOException i) {
+	         i.printStackTrace();
+	      }
 	}
 	
-	public void load()
+	public IceField load()
 	{
-		
+		IceField iF = this;
+		try {
+	         FileInputStream fileIn = new FileInputStream("/tmp/icefield.ser");
+	         ObjectInputStream in = new ObjectInputStream(fileIn);
+	         iF = (IceField) in.readObject();
+	         in.close();
+	         fileIn.close();
+	      } catch (IOException i) {
+	         i.printStackTrace();
+	         return iF;
+	      } catch (ClassNotFoundException c) {
+	         System.out.println("icefield class not found");
+	         c.printStackTrace();
+	         return iF;
+	      }
+		return iF;
 	}
 	
 	public void writeOut()
