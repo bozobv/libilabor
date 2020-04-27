@@ -141,15 +141,12 @@ public class CommandHandler {
 	public void callBlizzard(double possibility) {}
 	public void save(String saveFileName) {}
 	public void load(String saveFileName) {}
-<<<<<<< HEAD
 	public void killBear(int index) {}
-=======
 	
 	public void gameStance()
 	{
-		
+		testField.writeOut();
 	}
->>>>>>> branch 'master' of https://github.com/bozobv/libilabor.git
 }
 	
 	

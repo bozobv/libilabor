@@ -340,6 +340,7 @@ public class IceField
 			System.out.println("A hovihar meret 1-tol 10-ig terjedhet ");
 	}
 	
+	
 	public void addCharacter ()
 	{
 		
@@ -359,8 +360,20 @@ public class IceField
 	{
 		for(int i = 0; i < iceTables.size(); i++ )
 		{
-			System.out.print(i);
+			System.out.println(i);
 			iceTables.get(i).writeOut();
+			System.out.print("(");
+			ArrayList<IceTable> nbs = iceTables.get(i).getNeighbours();
+			for (int j = 0; j < nbs.size(); j++)
+			{
+				for(int k = 0; k < iceTables.size(); k++ )
+				{
+					if(nbs.get(j) == iceTables.get(k))
+						System.out.print(k + ", ");
+				}
+			}
+			System.out.print(")");
+
 		}
 	}
 }
