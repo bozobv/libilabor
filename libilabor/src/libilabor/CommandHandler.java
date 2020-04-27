@@ -278,7 +278,7 @@ public class CommandHandler {
 	public void setWork(int work, String name) {
 		for(int i = 0; i<testField.getPlayers().size();i++) {
 			if(testField.getPlayers().get(i).getName().equals(name)) {
-				testField.getPlayers().get(i).setWork(work);
+				testField.getPlayers().get(i).setWork(work); 
 				return;
 			}  
 		}
