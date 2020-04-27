@@ -150,8 +150,8 @@ public abstract class Player extends Character
 		this.inventory = inventory;
 	}
 
-	public void removeFromInventory(WeakShovel weakShovel) {
-		//TODO
+	public void removeFromInventory(Storable s) {
+		inventory[s.getId()]=null;
 	}
 	public void attacked(){
 		getCurrentTable().getIceField().endGame();

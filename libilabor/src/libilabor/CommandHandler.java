@@ -198,6 +198,7 @@ public class CommandHandler {
 	}
 
 	public void destroyItem(int index) {
+		testField.getIceTables().get(index).setItem(null);
 	}
 
 	public void getNb(int index) {
@@ -207,6 +208,7 @@ public class CommandHandler {
 	}
 
 	public void pickUp(String name) {
+
 	}
 
 	public void addItem(String type, String name) {
