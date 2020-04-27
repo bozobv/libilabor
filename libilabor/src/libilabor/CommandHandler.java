@@ -160,7 +160,14 @@ public class CommandHandler {
 		scanner.close();
 
 	}
-	
+	public Player searchPlayer(String name){
+        for (int i=0;i<testField.getPlayers().Count();i++){
+            if(testField.getPlayers().get(i).getName().equals(name)){
+                return testField.getPlayers().get(i);
+            }
+
+        }
+    }
 		
 	public void addPlayer(String type, String name, int index) {
 	}
