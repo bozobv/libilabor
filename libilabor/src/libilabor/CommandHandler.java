@@ -31,7 +31,7 @@ public class CommandHandler {
 				this.save(inputWords[1]);
 				break;
 			case "load":
-				this.load(inputWords[1]);
+				this.save(inputWords[1]);
 				break;
 			case "add":
 				switch (inputWords[1]) {
@@ -158,14 +158,31 @@ public class CommandHandler {
 			}
 		}
 		scanner.close();
+
 }	
 	
+	public Player searchPlayer(String name){
+        for (int i=0;i<testField.getPlayers().size();i++){
+            if(testField.getPlayers().get(i).getName().equals(name)){
+                return testField.getPlayers().get(i);
+            }
+        }
+        return null;
+    }
+		
+
 	public void addPlayer(String type, String name, int index) {
 		if(type.equals("eskimo")){
+
 			Eskimo newPlayer = new Eskimo(testField.getIceTables().get(index));
 			newPlayer.setName(name);
 			testField.getIceTables().get(index).playerVisit(newPlayer);	
 			testField.addPlayer(newPlayer);
+
+			Eskimo newPalyer = new Eskimo(testField.getIceTables().get(index));
+			newPalyer.setName(name);
+			testField.getIceTables().get(index).playerVisit(newPalyer);
+
 		}
 		else if(type.equals("scientist")) {
 			Scientist newPlayer = new Scientist(testField.getIceTables().get(index));
@@ -273,6 +290,4 @@ public class CommandHandler {
 	public void gameStance() {
 		testField.writeOut();
 	}
-
 }
-
