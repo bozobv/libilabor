@@ -65,7 +65,7 @@ public class Test {
     	st.setNeighbours(temp);
     	
     	Scientist sct = new Scientist(st);
-    	sct.useSkill();
+    	sct.useSkill(sct.getCurrentTable());
     }
 
     public static void scubaSuitTest(){
@@ -273,7 +273,7 @@ public class Test {
     	System.out.println("Eszkimo peldanyositva! Az eszkimo a jegtablan all.");
     	Eskimo p = new Eskimo(it1);
     	System.out.println("iglu epitve");
-    	p.useSkill();   	
+    	p.useSkill(p.getCurrentTable());   	
     }
 
     public static void blizzardTest() {
@@ -290,7 +290,7 @@ public class Test {
     	System.out.println("e2 thp:" + e2.getThp());
 
     	System.out.println("e1 iglut epit");
-    	e2.useSkill();
+    	e2.useSkill(e2.getCurrentTable());
 
     	System.out.println("Hvihat lefut");
     	i.Blizzard(10);

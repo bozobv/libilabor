@@ -1,7 +1,11 @@
 package libilabor;
 
 import java.util.Random;
+
+
+
 import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class CommandHandler {
@@ -81,8 +85,7 @@ public class CommandHandler {
 				break;
 			case "create":
 				if (inputWords[1] == "icefield")
-					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]),
-							Integer.parseInt(inputWords[4]));
+					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]),Integer.parseInt(inputWords[4]));
 				break;
 
 			case "set":
@@ -260,7 +263,10 @@ public class CommandHandler {
 	    testField.getIceTables().get(index).setSnowHeight(height);
 	}
 
-	public void tableStats(int index) {
+	public void tableStats(int index) 
+	{
+		System.out.print(index);
+		testField.getIceTables().get(index).writeOut() ;
 	}
 
 	public void setItem(String type, int index) {
@@ -290,7 +296,9 @@ public class CommandHandler {
 		testField.getIceTables().get(index).setItem(null);
 	}
 
-	public void getNb(int index) {
+	public void getNb(int index) 
+	{
+		
 	}
 
 	public void move(int index) {
@@ -375,12 +383,12 @@ public class CommandHandler {
 	public void buildIgloo(String name) {
 		for (Player player : this.testField.getPlayers()) {
 			if (player.getName().equals(name))
-				player.useSkill();
+				player.useSkill(player.getCurrentTable());
 		}
 	}
 
 	public void scout(String name, int index) {
-
+		
 	}
 
 	public void setThp(int thp, String name) {
@@ -417,8 +425,15 @@ public class CommandHandler {
 
 
 	public void killBear(int index) {
+		PolarBear removedAnimal = testField.getIceTables().get(index).getAnimalsOnTable().get(0);
 		testField.getIceTables().get(index).setAnimalsOnTable(null);
-
+		ArrayList<PolarBear> testAnimals = testField.getAnimal();
+		for (int i = 0; i < testAnimals.size(); i++)
+		{
+			if (testAnimals.get(i) == removedAnimal)
+				testAnimals.remove(i);
+		}
+		
 	}
 
 	public void gameStance() {

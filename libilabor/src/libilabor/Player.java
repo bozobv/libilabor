@@ -43,7 +43,7 @@ public abstract class Player extends Character
 				pickUp();
 				break;
 			case 3:
-				useSkill();
+				useSkill(this.getCurrentTable());
 				break;
 			case 4:
 				Scanner scanner = new Scanner(System.in);
@@ -83,7 +83,7 @@ public abstract class Player extends Character
 		if(inventory[player_choice]!=null)inventory[player_choice].used(this);
 	}
 	
-	public abstract void useSkill();
+	public abstract void useSkill(IceTable t);
 	
 	
 	public void dig(){

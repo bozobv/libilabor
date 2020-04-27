@@ -7,10 +7,10 @@ public class Eskimo extends Player
 		super("Eskimo"+ Player.id++, 5, 4, currentTable);
 	}
 	
-	public void useSkill() 
+	public void useSkill(IceTable t) 
 	{
 		Igloo Igl = new Igloo();
-		getCurrentTable().setConstruction(Igl);
+		t.setConstruction(Igl);
 	}
 	
 	public void writeOut() 
