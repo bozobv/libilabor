@@ -78,7 +78,7 @@ public abstract class IceTable
 	public void playerVisit(Player p) {
 		
 		this.playersOnTable.add(p);
-		p.setCurrentTable(this);
+		p.setTable(this);
 	}
 	
 

@@ -9,7 +9,7 @@ public class StableTable extends IceTable
 	public StableTable()
 	{
 		super();
-		this.setCapacity(99);
+		this.setCapacity(-1);
 	}
 	
 	public void writeOut() 

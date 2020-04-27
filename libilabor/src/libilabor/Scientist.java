@@ -8,19 +8,20 @@ public class Scientist extends Player
 		super("Scientist"+Player.id++,4,4,currentTable);
 	}
 	
-	public void useSkill() 
+	public void useSkill(IceTable t) 
 	{
-		System.out.println("Irja be melyik szomszedjat akarja megvizsgalni (szamot irjon) ");
-		Scanner scanner = new Scanner(System.in);
-		int answer = Integer.valueOf(scanner.nextLine());
-		if (answer >= getCurrentTable().getNeighbours().size())
-		{
-			System.out.println("nincs ilyen szomszed");
-			scanner.close();
-			return;
+		boolean tmp = false;
+		for(IceTable i : this.getCurrentTable().getNeighbours() ){
+			if(i.equals(t)) tmp = true;
 		}
-		System.out.println("a tabla kapacitasa:" + getCurrentTable().getNeighbours().get(answer).getCapacity());
-		scanner.close();
+		if(!tmp) {
+			int capacity = t.getCapacity();
+			if(capacity < 0) {
+				System.out.println("A vizsgalalt tabla kapacitasa: vegetelen");
+			}
+			else
+				System.out.println("A vizsgalalt tabla kapacitasa: " + Integer.toString(capacity));
+		}
 	}
 	
 	public void writeOut() 
