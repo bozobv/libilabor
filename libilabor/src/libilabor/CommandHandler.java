@@ -155,7 +155,7 @@ public class CommandHandler {
 
 			case "call":
 				if (inputWords[1].equals("blizzard"))
-					this.callBlizzard(Double.parseDouble(inputWords[2]));
+					this.callBlizzard(Integer.parseInt(inputWords[2]));
 				break;
 			default:
 				break;
@@ -402,7 +402,7 @@ public class CommandHandler {
 		}
 	}
 
-	public void callBlizzard(int size)
+	public void callBlizzard(int size) 
 	{
 		testField.Blizzard(size);
 	}
@@ -415,7 +415,10 @@ public class CommandHandler {
 		testField = testField.load();
 	}
 
+
 	public void killBear(int index) {
+		testField.getIceTables().get(index).setAnimalsOnTable(null);
+
 	}
 
 	public void gameStance() {
