@@ -260,7 +260,7 @@ public class CommandHandler {
 			if(testField.getPlayers().get(i).getName().equals(name)) {
 				testField.getPlayers().get(i).setWork(work);
 				return;
-			}
+			}  
 		}
 	}
 
