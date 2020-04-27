@@ -2,9 +2,9 @@ package libilabor;
 
 public class Tent extends Item implements Construction {
 
-
+	private static int TENT_ID=4;
 	public Tent(){
-		this.setId(4);
+		this.setId(TENT_ID);
 	}
 	public void pickedUpBy(Player p) {
 

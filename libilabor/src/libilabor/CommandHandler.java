@@ -253,6 +253,9 @@ public class CommandHandler {
 	}
 
 	public void setTent(String name) {
+		for (Player player : this.testField.getPlayers()){
+			if(player.getName().equals(name))player.useItem(4);
+		}
 	}
 
 	public void repairFlareGun(String name) {
