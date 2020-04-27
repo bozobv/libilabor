@@ -2,7 +2,13 @@ package libilabor;
 
 
 
+
+
+
 import java.util.Random;
+
+
+
 
 import java.util.Scanner;
 
@@ -83,8 +89,16 @@ public class CommandHandler {
 				break;
 			case "create":
 
+
+
+
 				if (inputWords[1] == "icefield")
+
 					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]), Integer.parseInt(inputWords[4]));
+
+					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]),
+							Integer.parseInt(inputWords[4]));
+
 				break;
 
 			case "set":
@@ -157,7 +171,7 @@ public class CommandHandler {
 
 			case "call":
 				if (inputWords[1].equals("blizzard"))
-					this.callBlizzard(Double.parseDouble(inputWords[2]));
+					this.callBlizzard(Integer.parseInt(inputWords[2]));
 				break;
 			default:
 				break;
@@ -340,7 +354,9 @@ public class CommandHandler {
 	public void setWork(int work, String name) {
 	}
 
-	public void callBlizzard(double possibility) {
+	public void callBlizzard(int size) 
+	{
+		testField.Blizzard(size);
 	}
 
 	public void save(String saveFileName) {
@@ -351,8 +367,10 @@ public class CommandHandler {
 		testField = testField.load();
 	}
 
+
 	public void killBear(int index) {
 		testField.getIceTables().get(index).setAnimalsOnTable(null);
+
 	}
 
 	public void gameStance() {
