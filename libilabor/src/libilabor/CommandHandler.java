@@ -1,10 +1,9 @@
 package libilabor;
 
-<<<<<<< HEAD
+
 
 import java.util.Random;
-=======
->>>>>>> branch 'master' of https://github.com/bozobv/libilabor.git
+
 import java.util.Scanner;
 
 public class CommandHandler {
@@ -83,14 +82,9 @@ public class CommandHandler {
 				}
 				break;
 			case "create":
-<<<<<<< HEAD
+
 				if (inputWords[1] == "icefield")
-					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]),
-=======
-				if (inputWords[1].equals("icefield"))
-					this.createIceFiled(inputWords[2], Integer.parseInt(inputWords[3]),
->>>>>>> branch 'master' of https://github.com/bozobv/libilabor.git
-							Integer.parseInt(inputWords[4]));
+					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]), Integer.parseInt(inputWords[4]));
 				break;
 
 			case "set":
