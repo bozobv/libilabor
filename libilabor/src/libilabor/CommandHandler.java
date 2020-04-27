@@ -262,7 +262,8 @@ public class CommandHandler {
 
 	public void tableStats(int index) 
 	{
-		
+		System.out.print(index);
+		testField.getIceTables().get(index).writeOut() ;
 	}
 
 	public void setItem(String type, int index) {
