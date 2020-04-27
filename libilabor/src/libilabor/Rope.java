@@ -52,7 +52,7 @@ public class Rope extends Storable
 					System.out.println("Nincs senki ezen a mezon");
 				}
 				else{
-					characters.get(0).setCurrentTable(user.getCurrentTable());
+					characters.get(0).setTable(user.getCurrentTable());
 					done=true;
 				}
 			}
