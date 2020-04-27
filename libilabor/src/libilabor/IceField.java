@@ -234,13 +234,11 @@ public class IceField
 		System.out.println("ember a vizben!!!");
 	}
 	
-	
 	public boolean getPalyerInWater() 
 	{
 		
 		return playerInWater;
 	}
-	
 	
 	public ArrayList<IceTable> getIceTables() 
 	{
@@ -252,21 +250,17 @@ public class IceField
 		this.iceTables = iceTables;
 	}
 	
-
 	public ArrayList<Character> getCharacter()
 	{
 		return characters;
 	}
-
 	
 	public void setPlayers(ArrayList<Character> characters) 
 	{
 		this.characters = characters;
 
 	}
-	
-
-		
+			
 	public void addPlayer(Character NewCharacter)
 	{
 		this.characters.add(NewCharacter); 
@@ -338,12 +332,21 @@ public class IceField
 		return blizzardSize;
 	}
 	
-
 	public void setBlizzardSize(int blizzardSize) 
 	{
 		if (blizzardSize > 0 && blizzardSize < 11 )
 			this.blizzardSize = blizzardSize;
 		else
 			System.out.println("A hovihar meret 1-tol 10-ig terjedhet ");
+	}
+	
+	public void save()
+	{
+		
+	}
+	
+	public void load()
+	{
+		
 	}
 }
