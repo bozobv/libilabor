@@ -285,10 +285,14 @@ public class CommandHandler {
 	public void callBlizzard(double possibility) {
 	}
 
-	public void save(String saveFileName) {
+	public void save(String saveFileName) 
+	{
+		testField.save();
 	}
 
-	public void load(String saveFileName) {
+	public void load(String saveFileName) 
+	{
+		testField = testField.load();
 	}
 
 	public void killBear(int index) {
