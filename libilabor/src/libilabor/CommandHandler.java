@@ -158,17 +158,13 @@ public class CommandHandler {
 			}
 		}
 		scanner.close();
-
-
-	}	
+}	
 	
-
-
 	public void addPlayer(String type, String name, int index) {
 		if(type.equals("eskimo")){
 			Eskimo newPalyer = new Eskimo(testField.getIceTables().get(index));
 			newPalyer.setName(name);
-			testField.getIceTables().get(index).playerVisit(newPalyer);					
+			testField.getIceTables().get(index).playerVisit(newPalyer);		
 		}
 		else if(type.equals("scientist")) {
 			Scientist newPalyer = new Scientist(testField.getIceTables().get(index));
