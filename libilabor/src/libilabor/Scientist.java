@@ -3,7 +3,8 @@ import java.util.Scanner;
 
 public class Scientist extends Player 
 {
-	public Scientist(IceTable currentTable) {
+	public Scientist(IceTable currentTable) 
+	{
 		super("Scientist"+Player.id++,4,4,currentTable);
 	}
 	
