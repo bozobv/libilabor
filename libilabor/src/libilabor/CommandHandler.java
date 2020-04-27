@@ -35,7 +35,7 @@ public class CommandHandler {
 				this.save(inputWords[1]);
 				break;
 			case "load":
-				this.save(inputWords[1]);
+				this.load(inputWords[1]);
 				break;
 			case "add":
 				switch (inputWords[1]) {

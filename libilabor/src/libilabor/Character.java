@@ -10,7 +10,7 @@ public abstract class Character {
 	public IceTable getCurrentTable() {
 		return currentTable;
 	}
-	public void setTable(IceTable currentTable) {
+	public void setCurrentTable(IceTable currentTable) {
 		this.currentTable = currentTable;
 	}
 
