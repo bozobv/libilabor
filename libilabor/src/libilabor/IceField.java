@@ -15,7 +15,7 @@ public class IceField implements java.io.Serializable
 	private ArrayList<PolarBear> animals = new ArrayList<PolarBear>();
 	private ArrayList<Player> players = new ArrayList<Player>(); 
 	
-	private int FrozenItemDrop = 6; 	// minel nagyobb a szam, annal kisebb az esely, hogy befagyott targy jon letre
+	//private int FrozenItemDrop = 6; 	// minel nagyobb a szam, annal kisebb az esely, hogy befagyott targy jon letre
 	private int blizzardFrequency = 9; //minel nagyobb a szam, annal kisebb az esely a hoviharra
 	private int blizzardSize = 0;
 	private boolean blizzardComing = false; // jelzi, hogy kovetkezo korben jon-e vihar
@@ -281,9 +281,6 @@ public class IceField implements java.io.Serializable
 	{
 		return animals;
 	}
-	
-
-	
 
 	public ArrayList<Player> getPlayers()
 	{
@@ -320,9 +317,9 @@ public class IceField implements java.io.Serializable
 		
 	public void setBlizzardFrequency(int frequency) 
 	{
-		if (frequency < 1) 
+		if (frequency < 1 || frequency > 10) 
 		{
-			System.out.println("Nullanal nagyobbnak kell lennie, te kis butus");
+			System.out.println("ez így nem jó, 1-től 10-ig lehet egész szám, te kis butus");
 			return;
 		}
 		this.blizzardFrequency = frequency;

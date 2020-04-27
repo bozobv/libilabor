@@ -1,12 +1,14 @@
 package libilabor;
 
-import java.lang.reflect.Array;
+import java.util.Random;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CommandHandler {
 
 	private IceField testField;
+	private int basicSnowHeight = 0;
+	private int FrozenItemDrop = 0;
 
 	public void handling() {
 		boolean exit = false;
@@ -15,7 +17,6 @@ public class CommandHandler {
 			String input = scanner.nextLine();
 			String[] inputWords = input.split(" ");
 			String commandPart = inputWords[0];
-			
 			switch (inputWords[0]) {
 			case "move":
 				this.move(Integer.parseInt(inputWords[1]));
@@ -44,7 +45,7 @@ public class CommandHandler {
 					this.addBear(Integer.parseInt(inputWords[2]));
 					break;
 				case "table":
-					this.addTable(inputWords[2], Integer.parseInt(inputWords[3]));
+					this.addTable(inputWords[2]);
 					break;
 				case "item":
 					this.addItem(inputWords[2], inputWords[3]);
@@ -59,7 +60,7 @@ public class CommandHandler {
 					this.blizzardChance(Integer.parseInt(inputWords[2]));
 					break;
 				case "size":
-					this.blizzardChance(Integer.parseInt(inputWords[2]));
+					this.blizzardSize(Integer.parseInt(inputWords[2]));
 					break;
 				default:
 					break;
@@ -71,7 +72,7 @@ public class CommandHandler {
 					this.iceFieldSnow(Integer.parseInt(inputWords[2]));
 					break;
 				case "items":
-					this.iceFieldItem(Double.parseDouble(inputWords[2]));
+					this.iceFieldItem(Integer.parseInt(inputWords[2]));
 					break;
 				default:
 					break;
@@ -79,7 +80,7 @@ public class CommandHandler {
 				break;
 			case "create":
 				if (inputWords[1].equals("icefield"))
-					this.createIceFiled(inputWords[2], Integer.parseInt(inputWords[3]),
+					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]),
 							Integer.parseInt(inputWords[4]));
 				break;
 
@@ -161,7 +162,12 @@ public class CommandHandler {
 		}
 		scanner.close();
 
+
 	}
+
+
+	
+
 	public Player searchPlayer(String name){
         for (int i=0;i<testField.getPlayers().size();i++){
             if(testField.getPlayers().get(i).getName().equals(name)){
@@ -171,8 +177,9 @@ public class CommandHandler {
         return null;
     }
 		
+
 	public void addPlayer(String type, String name, int index) {
-		if(type.equals("eskimo")){
+		if (type.equals("eskimo")) {
 
 			Eskimo newPlayer = new Eskimo(testField.getIceTables().get(index));
 			newPlayer.setName(name);
@@ -182,12 +189,16 @@ public class CommandHandler {
 			Eskimo newPalyer = new Eskimo(testField.getIceTables().get(index));
 			newPalyer.setName(name);
 			testField.getIceTables().get(index).playerVisit(newPalyer);
-		}
-		else if(type.equals("scientist")) {
+
+		} else if (type.equals("scientist")) {
 			Scientist newPlayer = new Scientist(testField.getIceTables().get(index));
 			newPlayer.setName(name);
 			testField.getIceTables().get(index).playerVisit(newPlayer);
 			testField.addPlayer(newPlayer);
+		}
+		else
+		{
+			System.out.println("az elvárt bemenet: add player eskimo/scientist name index ");
 		}
 
 	}
@@ -198,22 +209,45 @@ public class CommandHandler {
 		testField.getIceTables().get(index).getAnimalsOnTable().add(bear);
 	}
 
-	public void blizzardChance(double possibility) {
+	public void blizzardChance(int possibility) {
+		testField.setBlizzardFrequency(possibility);
 	}
 
-	public void blizzardSize(String size) {
+	public void blizzardSize(int size) {
+		testField.setBlizzardSize(size);
 	}
 
 	public void iceFieldSnow(int snowHeight) {
+		basicSnowHeight = snowHeight;
+
 	}
 
-	public void iceFieldItem(double itemPossibility) {
+	public void iceFieldItem(int itemPossibility) {
+		FrozenItemDrop = itemPossibility;
 	}
 
-	public void createIceFiled(String type, int height, int width) {
+	public void createIceField(String type, int height, int width) {
+		Random rand = new Random();
+		int h = rand.nextInt(10);
+		int w = rand.nextInt(10);
+		int d = rand.nextInt(10);
+		int s = rand.nextInt(10);
+		switch(type) {
+		case "empty": testField = new IceField(); break;
+		case "defined" : testField = new IceField(height, width, FrozenItemDrop, basicSnowHeight); break;
+		case "random": testField = new IceField(h, w, d, s); break;
+		default: break;
+		}
+
 	}
 
-	public void addTable(String type, int index) {
+	public void addTable(String type) {
+		switch(type) {
+		case "stable": StableTable t = new StableTable(); testField.getIceTables().add(t); break;
+		case "unstable": UnstableTable k = new UnstableTable(testField.getPlayers().size()); testField.getIceTables().add(k);
+						 break;
+		case "hole": Hole h = new Hole(); testField.getIceTables().add(h); break;
+		}
 	}
 
 	public void setNb(int index1, int index2) {
@@ -233,6 +267,26 @@ public class CommandHandler {
 	}
 
 	public void setItem(String type, int index) {
+		switch (type) {
+		case "FlarGunPart":
+			this.testField.getIceTables().get(index).setFrozenItem(new FlareGunPart());
+			break;
+		case "Rope":
+			this.testField.getIceTables().get(index).setFrozenItem(new Rope());
+			break;
+		case "ScubaSuit":
+			this.testField.getIceTables().get(index).setFrozenItem(new ScubaSuit());
+			break;
+		case "Shovel":
+			this.testField.getIceTables().get(index).setFrozenItem(new Shovel());
+			break;
+		case "Tent":
+			this.testField.getIceTables().get(index).setFrozenItem(new Tent());
+			break;
+		default:
+			break;
+
+		}
 	}
 
 	public void destroyItem(int index) {
@@ -322,9 +376,14 @@ public class CommandHandler {
 	}
 
 	public void buildIgloo(String name) {
+		for (Player player : this.testField.getPlayers()) {
+			if (player.getName().equals(name))
+				player.useSkill();
+		}
 	}
 
 	public void scout(String name, int index) {
+	
 	}
 
 	public void setThp(int thp, String name) {
@@ -334,28 +393,26 @@ public class CommandHandler {
 				return;
 			}
 		}
-
+			
 	}
 
 	public void setWork(int work, String name) {
 		for(int i = 0; i<testField.getPlayers().size();i++) {
 			if(testField.getPlayers().get(i).getName().equals(name)) {
-				testField.getPlayers().get(i).setWork(work);
+				testField.getPlayers().get(i).setWork(work); 
 				return;
-			}
+			}  
 		}
 	}
 
 	public void callBlizzard(double possibility) {
 	}
 
-	public void save(String saveFileName)
-	{
+	public void save(String saveFileName) {
 		testField.save();
 	}
 
-	public void load(String saveFileName)
-	{
+	public void load(String saveFileName) {
 		testField = testField.load();
 	}
 
@@ -366,3 +423,8 @@ public class CommandHandler {
 		testField.writeOut();
 	}
 }
+
+
+
+
+
