@@ -2,9 +2,12 @@ package libilabor;
 
 public class Igloo implements Construction {
 
-	public void writeOut() {}
+	public void writeOut() 
+	{
+		System.out.print("iglo");
+	}
 
-    public void attacked() {
+    public void attacked(Player p) {
 
     }
 }

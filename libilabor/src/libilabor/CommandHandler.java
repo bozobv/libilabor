@@ -4,6 +4,8 @@ package libilabor;
 import java.util.Scanner;
 
 public class CommandHandler {
+	
+	private IceField testField;
 
 	public void handling() {
 		boolean exit = false;
@@ -12,11 +14,101 @@ public class CommandHandler {
 			String input = scanner.nextLine();
 			String[] inputWords =  input.split(" ");
 			String commandPart = inputWords[0];
-			if(commandPart.equals("rope")) {
-				
+			if(commandPart.equals("move")) {
+				this.move(Integer.parseInt(inputWords[1]));
 			}
-
+			else if(commandPart.equals("rope")) {
+				this.rope(inputWords[1], Integer.parseInt(inputWords[2]));
+			}
+			else if(commandPart.equals("dig")) {
+				this.dig(inputWords[1]);
+			}
+			else if(commandPart.equals("scout")) {
+				this.scout(inputWords[1], Integer.parseInt(inputWords[2]));
+			}
+			else if(commandPart.equals("save")) {
+				this.save(inputWords[1]);
+			}
+			else if(commandPart.equals("load")) {
+				this.save(inputWords[1]);
+			}
+			else if(commandPart.concat(inputWords[1]).equals("add player")) {
+				this.addPlayer(inputWords[2], inputWords[3], Integer.parseInt(inputWords[4]));				
+			}
+			else if(commandPart.concat(inputWords[1]).equals("add bear")) {
+				this.addBear(Integer.parseInt(inputWords[2]));
+			}
+			else if(commandPart.concat(inputWords[1]).equals("blizzard chance")) {
+				this.blizzardChance(Integer.parseInt(inputWords[2]));
+			}
+			else if(commandPart.concat(inputWords[1]).equals("blizzard size")) {
+				this.blizzardChance(Integer.parseInt(inputWords[2]));
+			}
+			else if(commandPart.concat(inputWords[1]).equals("icefield snow")) {
+				this.iceFieldSnow(Integer.parseInt(inputWords[2]));
+			}
+			else if(commandPart.concat(inputWords[1]).equals("icefield items")) {
+				this.iceFieldItem(Double.parseDouble(inputWords[2]));
+			}
+			else if(commandPart.concat(inputWords[1]).equals("create icefield")) {
+				this.createIceFiled(inputWords[2], Integer.parseInt(inputWords[3]), Integer.parseInt(inputWords[4]));
+			}
+			else if(commandPart.concat(inputWords[1]).equals("add table")) {
+				this.addTable(inputWords[2], Integer.parseInt(inputWords[3]));
+			}
+			else if(commandPart.concat(inputWords[1]).equals("set nb")) {
+				this.setNb(Integer.parseInt(inputWords[2]), Integer.parseInt(inputWords[3]));
+			}
+			else if(commandPart.concat(inputWords[1]).equals("set snow")) {
+				this.setSnow(Integer.parseInt(inputWords[2]), Integer.parseInt(inputWords[3]));
+			}
+			else if(commandPart.concat(inputWords[1]).equals("table stat")) {
+				this.tableStats(Integer.parseInt(inputWords[2]));
+			}
+			else if(commandPart.concat(inputWords[1]).equals("set item")) {
+				this.setItem(inputWords[2], Integer.parseInt(inputWords[3]));
+			}
+			else if(commandPart.concat(inputWords[1]).equals("destroy item")) {
+				this.destroyItem(Integer.parseInt(inputWords[2]));
+			}
+			else if(commandPart.concat(inputWords[1]).equals("get nb")) {
+				this.getNb(Integer.parseInt(inputWords[2]));
+			}
+			else if(commandPart.concat(inputWords[1]).equals("pick up")) {
+				this.pickUp(inputWords[2]);
+			}
+			else if(commandPart.concat(inputWords[1]).equals("add item")) {
+				this.addItem(inputWords[2], inputWords[3]);
+			}
+			else if(commandPart.concat(inputWords[1]).equals("remove item")) {
+				this.removeItem(inputWords[2], inputWords[3]);
+			}
+			else if(commandPart.concat(inputWords[1]).equals("kill character")) {
+				this.killCharacter(inputWords[2]);
+			}
+			else if(commandPart.concat(inputWords[1]).equals("kill bear")) {
+				this.killBear(Integer.parseInt(inputWords[2]));
+			}
+			else if(commandPart.concat(inputWords[1]).equals("set tent")) {
+				this.setTent(inputWords[2]);
+			}
+			else if(commandPart.concat(inputWords[1]).equals("repair flaregun")) {
+				this.repairFlareGun(inputWords[2]);
+			}
+			else if(commandPart.concat(inputWords[1]).equals("build igloo")) {
+				this.buildIgloo(inputWords[2]);
+			}
+			else if(commandPart.concat(inputWords[1]).equals("set thp")) {
+				this.setThp(Integer.parseInt(inputWords[2]), inputWords[3]);
+			}
+			else if(commandPart.concat(inputWords[1]).equals("set work")) {
+				this.setWork(Integer.parseInt(inputWords[2]), inputWords[3]);
+			}
+			else if(commandPart.concat(inputWords[1]).equals("call blizzard")) {
+				this.callBlizzard(Double.parseDouble(inputWords[2]));
+			}
 		}
+		scanner.close();
 
 	}
 	
@@ -50,11 +142,15 @@ public class CommandHandler {
 	public void callBlizzard(double possibility) {}
 	public void save(String saveFileName) {}
 	public void load(String saveFileName) {}
+
+	public void killBear(int index) {}
+
 	
 
 	public void gameStance()
 	{
 		
 	}
+
 }
 

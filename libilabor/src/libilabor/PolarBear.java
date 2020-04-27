@@ -10,7 +10,7 @@ public class PolarBear extends Character {
     public void move() {
 
     }
-    
+    public void attacked(){}
 	public void writeOut() {}
 
 }

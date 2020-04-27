@@ -60,7 +60,10 @@ public class Rope extends Storable
 		}
 	}
 	
-	public void writeOut() {}
+	public void writeOut() 
+	{
+		System.out.print("r");
+	}
 
 }
 

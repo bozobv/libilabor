@@ -10,7 +10,7 @@ public abstract class IceTable
 	private int capacity;
 	private IceField iceField;
 	private ArrayList<Character> charactersOnTable;
-	private Igloo igloo;
+	private Construction construction;
 	private Item frozenItem = null;
 	private ArrayList<IceTable> neighbours;
 	
@@ -45,11 +45,11 @@ public abstract class IceTable
 	public void setPlayersOnTable(ArrayList<Character> charactersOnTable) {
 		this.charactersOnTable = charactersOnTable;
 	}
-	public Igloo getIgloo() {
-		return igloo;
+	public Construction getConstruction() {
+		return construction;
 	}
-	public void setIgloo(Igloo igloo) {
-		this.igloo = igloo;
+	public void setConstruction(Construction construction) {
+		this.construction = construction;
 	}
 	public Item getFrozenItem() {
 		return frozenItem;
@@ -81,7 +81,7 @@ public abstract class IceTable
 
 	public void blizzardComing() 
 	{
-		if (charactersOnTable != null && getIgloo() == null)
+		if (charactersOnTable != null && getConstruction() == null)
 		{
 			for (int i = 0; i < charactersOnTable.size(); i++)
 			{
