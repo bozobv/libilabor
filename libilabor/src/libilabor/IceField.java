@@ -7,7 +7,7 @@ public class IceField
 {
 	private boolean playerInWater = false;
 	private ArrayList<IceTable> iceTables = new ArrayList<IceTable>();
-	private ArrayList<Character> characters = new ArrayList<Character>();
+	private ArrayList<PolarBear> animals = new ArrayList<PolarBear>();
 	private ArrayList<Player> players = new ArrayList<Player>(); 
 	
 	//private int FrozenItemDrop = 6; 	// minel nagyobb a szam, annal kisebb az esely, hogy befagyott targy jon letre
@@ -157,10 +157,10 @@ public class IceField
 		Random rand = new Random(); 
 		boolean playerDrowning = false; // ha az elozo korben valaki vizbeesett buvarruha nelkul, akkor igaz
 		int i = 0;
-		while (i < characters.size())  // mindegyik jatekosnak meghivja a step fuggvenyet, az utolso
+		while (i < players.size())  // mindegyik jatekosnak meghivja a step fuggvenyet, az utolso
 									// jatekosnal ujrainditja a szamlalot
 		{
-			characters.get(i).step();
+			players.get(i).step();
 			// ha elozo korben valaki vizbeesett, es meg ebben
 			// a korben is benne van, akkor vege a jateknak
 			if (playerInWater == true && playerDrowning == true)
@@ -170,11 +170,15 @@ public class IceField
 			}
 			playerDrowning = playerInWater;
 
-			if (i < characters.size() - 1) // megnezi, hogy az utolso jaekosnal jar-e
+			if (i < players.size() - 1) // megnezi, hogy az utolso jaekosnal jar-e
 				i++;
 			else 
 			{
 				i = 0;
+				for(int j = 0; j < animals.size(); j++)
+				{
+					animals.get(i).step();
+				}
 				// ha az elozo korben jelezve lett, hogy erkezik hovihar, akkor ebben a
 				// korben meghivja a blizzard fuggvenyt
 				if (blizzardComing == true) 
@@ -252,9 +256,14 @@ public class IceField
 		this.iceTables = iceTables;
 	}
 	
-	public ArrayList<Character> getCharacter()
+	public void addAnimal(PolarBear newBear)
 	{
-		return characters;
+		this.animals.add(newBear); 
+	}
+	
+	public ArrayList<PolarBear> getAnimal()
+	{
+		return animals;
 	}
 	
 	public void setPlayers(ArrayList<Player> players) 
