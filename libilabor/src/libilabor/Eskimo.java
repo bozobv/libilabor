@@ -10,7 +10,7 @@ public class Eskimo extends Player
 	public void useSkill() 
 	{
 		Igloo Igl = new Igloo();
-		getCurrentTable().setIgloo(Igl);
+		getCurrentTable().setConstruction(Igl);
 	}
 	
 	public void writeOut() {}

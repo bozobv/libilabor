@@ -110,6 +110,7 @@ public class CommandHandler {
 		scanner.close();
 
 	}
+	
 	public void addPlayer(String type, String name,  int index) {}
 	public void addBear(int index) {}
 	public void blizzardChance(double possibility) {}
@@ -140,7 +141,15 @@ public class CommandHandler {
 	public void callBlizzard(double possibility) {}
 	public void save(String saveFileName) {}
 	public void load(String saveFileName) {}
+<<<<<<< HEAD
 	public void killBear(int index) {}
+=======
+	
+	public void gameStance()
+	{
+		
+	}
+>>>>>>> branch 'master' of https://github.com/bozobv/libilabor.git
 }
 	
 	
