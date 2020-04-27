@@ -66,15 +66,15 @@ public abstract class Player extends Character
 		neighbours.get(answer).playerVisit(this);
 		scanner.close();
 	}
-	
-	//TODO:weakShovel
+
 	public void useItem(){
 		Scanner input = new Scanner( System.in );
 		System.out.print( "Melyik itemet akarod hasznalni?:\n"+ 
 				"0: FlarGunPart\n"+
 				"1:Rope\n"+
 				"2:ScubaSuit\n"+
-				"3:Shovel\n");
+				"3:Shovel\n" +
+				"4:Tent\n");
 		int player_choice =  input.nextInt();
 		if(inventory[player_choice]!=null)inventory[player_choice].used(this);
 		input.close();
@@ -84,7 +84,7 @@ public abstract class Player extends Character
 	
 	
 	public void dig(){
-		if(inventory[3]!=null) currentTable.setSnowHeight(currentTable.getSnowHeight()-2);
+		if(inventory[3]!=null) inventory[3].used(this);
 		else currentTable.setSnowHeight(currentTable.getSnowHeight()-1);	
 	}
 	

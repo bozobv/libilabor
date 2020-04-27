@@ -4,7 +4,7 @@ public class Tent extends Item implements Construction {
 
 
 	public Tent(){
-		this.setId(5);
+		this.setId(4);
 	}
 	public void pickedUpBy(Player p) {
 
