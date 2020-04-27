@@ -3,7 +3,7 @@ package libilabor;
 public class PolarBear extends Character {
     
 	
-	public void setCurrenttable(IceTable currenttable) {
+	public void setCurrentTable(IceTable currenttable) {
 		this.setTable(currenttable);
 		currenttable.removeAnimal(this);
 	}
