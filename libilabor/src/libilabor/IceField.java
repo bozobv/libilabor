@@ -150,10 +150,10 @@ public class IceField
 			}
 		}
 		
-		/*for(int i = 0; i )
+		for(int i = 0; i < players.size(); i++ )
 		{
-			
-		}*/
+			players.get(i).setCurrentTable(iceTables.get(0));
+		}
 	}
 
 	public void turn() 
