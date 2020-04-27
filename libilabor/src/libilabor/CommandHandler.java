@@ -1,7 +1,11 @@
 package libilabor;
 
 import java.util.Random;
+
+
+
 import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class CommandHandler {
@@ -81,8 +85,7 @@ public class CommandHandler {
 				break;
 			case "create":
 				if (inputWords[1] == "icefield")
-					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]),
-							Integer.parseInt(inputWords[4]));
+					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]),Integer.parseInt(inputWords[4]));
 				break;
 
 			case "set":
@@ -380,12 +383,12 @@ public class CommandHandler {
 	public void buildIgloo(String name) {
 		for (Player player : this.testField.getPlayers()) {
 			if (player.getName().equals(name))
-				player.useSkill();
+				player.useSkill(player.getCurrentTable());
 		}
 	}
 
 	public void scout(String name, int index) {
-
+		
 	}
 
 	public void setThp(int thp, String name) {
