@@ -11,6 +11,9 @@ public class PolarBear extends Character {
 
     }
     public void attacked(){}
-	public void writeOut() {}
+	public void writeOut() 
+	{
+		System.out.print("pb");
+	}
 
 }

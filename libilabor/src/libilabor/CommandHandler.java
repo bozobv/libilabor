@@ -246,9 +246,7 @@ public class CommandHandler {
 	}
 
 	public void setThp(int thp, String name) {
-		for(int i = 0; i < testField.getCharacter().size(); i++) {
-			if(testField.getCharacter().get(i).
-		}
+		
 			
 	}
 
