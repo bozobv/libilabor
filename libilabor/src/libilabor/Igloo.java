@@ -4,7 +4,7 @@ public class Igloo implements Construction {
 
 	public void writeOut() {}
 
-    public void attacked() {
+    public void attacked(Player p) {
 
     }
 }

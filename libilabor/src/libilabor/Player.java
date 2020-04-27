@@ -149,8 +149,15 @@ public abstract class Player extends Character
 	public void setInventory(Storable[] inventory) {
 		this.inventory = inventory;
 	}
-	
+
+	public void removeFromInventory(WeakShovel weakShovel) {
+		//TODO
+	}
+	public void attacked(){
+		getCurrentTable().getIceField().endGame();
+	}
+
 	public void writeOut() {}
 
-	
+
 }
