@@ -1,11 +1,14 @@
 package libilabor;
 
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class CommandHandler {
 
 	private IceField testField;
+	private int basicSnowHeight = 0;
+	private int FrozenItemDrop = 0;
 
 	public void handling() {
 		boolean exit = false;
@@ -42,7 +45,7 @@ public class CommandHandler {
 					this.addBear(Integer.parseInt(inputWords[2]));
 					break;
 				case "table":
-					this.addTable(inputWords[2], Integer.parseInt(inputWords[3]));
+					this.addTable(inputWords[2]);
 					break;
 				case "item":
 					this.addItem(inputWords[2], inputWords[3]);
@@ -57,7 +60,7 @@ public class CommandHandler {
 					this.blizzardChance(Integer.parseInt(inputWords[2]));
 					break;
 				case "size":
-					this.blizzardChance(Integer.parseInt(inputWords[2]));
+					this.blizzardSize(Integer.parseInt(inputWords[2]));
 					break;
 				default:
 					break;
@@ -69,7 +72,7 @@ public class CommandHandler {
 					this.iceFieldSnow(Integer.parseInt(inputWords[2]));
 					break;
 				case "items":
-					this.iceFieldItem(Double.parseDouble(inputWords[2]));
+					this.iceFieldItem(Integer.parseInt(inputWords[2]));
 					break;
 				default:
 					break;
@@ -77,7 +80,7 @@ public class CommandHandler {
 				break;
 			case "create":
 				if (inputWords[1] == "icefield")
-					this.createIceFiled(inputWords[2], Integer.parseInt(inputWords[3]),
+					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]),
 							Integer.parseInt(inputWords[4]));
 				break;
 
@@ -206,22 +209,45 @@ public class CommandHandler {
 		testField.getIceTables().get(index).getAnimalsOnTable().add(bear);
 	}
 
-	public void blizzardChance(double possibility) {
+	public void blizzardChance(int possibility) {
+		testField.setBlizzardFrequency(possibility);
 	}
 
-	public void blizzardSize(String size) {
+	public void blizzardSize(int size) {
+		testField.setBlizzardSize(size);
 	}
 
 	public void iceFieldSnow(int snowHeight) {
+		basicSnowHeight = snowHeight;
+		
 	}
 
-	public void iceFieldItem(double itemPossibility) {
+	public void iceFieldItem(int itemPossibility) {
+		FrozenItemDrop = itemPossibility;
 	}
 
-	public void createIceFiled(String type, int height, int width) {
+	public void createIceField(String type, int height, int width) {
+		Random rand = new Random();
+		int h = rand.nextInt(10);
+		int w = rand.nextInt(10);
+		int d = rand.nextInt(10);
+		int s = rand.nextInt(10);
+		switch(type) {
+		case "empty": testField = new IceField(); break;
+		case "defined" : testField = new IceField(height, width, FrozenItemDrop, basicSnowHeight); break;
+		case "random": testField = new IceField(h, w, d, s); break;
+		default: break;
+		}
+		
 	}
 
-	public void addTable(String type, int index) {
+	public void addTable(String type) {
+		switch(type) {
+		case "stable": StableTable t = new StableTable(); testField.getIceTables().add(t); break;
+		case "unstable": UnstableTable k = new UnstableTable(testField.getPlayers().size()); testField.getIceTables().add(k); 
+						 break;
+		case "hole": Hole h = new Hole(); testField.getIceTables().add(h); break;
+		}
 	}
 
 	public void setNb(int index1, int index2) {
