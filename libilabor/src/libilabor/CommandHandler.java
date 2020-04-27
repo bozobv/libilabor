@@ -154,7 +154,7 @@ public class CommandHandler {
 
 			case "call":
 				if (inputWords[1].equals("blizzard"))
-					this.callBlizzard(Double.parseDouble(inputWords[2]));
+					this.callBlizzard(Integer.parseInt(inputWords[2]));
 				break;
 			default:
 				break;
