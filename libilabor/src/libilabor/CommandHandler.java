@@ -157,14 +157,11 @@ public class CommandHandler {
 		}
 		scanner.close();
 
-<<<<<<< HEAD
+
 	}	
 	
-=======
-	}
-	
-		
->>>>>>> branch 'master' of https://github.com/bozobv/libilabor.git
+
+
 	public void addPlayer(String type, String name, int index) {
 		if(type.equals("eskimo")){
 			Eskimo newPalyer = new Eskimo(testField.getIceTables().get(index));
@@ -177,11 +174,7 @@ public class CommandHandler {
 			testField.getIceTables().get(index).playerVisit(newPalyer);
 		}
 	}
-<<<<<<< HEAD
-=======
 
-
->>>>>>> branch 'master' of https://github.com/bozobv/libilabor.git
 	public void addBear(int index) {
 		
 	}
