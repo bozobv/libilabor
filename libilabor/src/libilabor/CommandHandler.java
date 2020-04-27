@@ -13,6 +13,7 @@ public class CommandHandler {
 			String input = scanner.nextLine();
 			String[] inputWords = input.split(" ");
 			String commandPart = inputWords[0];
+			
 			switch (inputWords[0]) {
 			case "move":
 				this.move(Integer.parseInt(inputWords[1]));
@@ -30,7 +31,7 @@ public class CommandHandler {
 				this.save(inputWords[1]);
 				break;
 			case "load":
-				this.save(inputWords[1]);
+				this.load(inputWords[1]);
 				break;
 			case "add":
 				switch (inputWords[1]) {
@@ -158,15 +159,27 @@ public class CommandHandler {
 		}
 		scanner.close();
 
-	}
+
+	}	
 	
-		
+
+
 	public void addPlayer(String type, String name, int index) {
+		if(type.equals("eskimo")){
+			Eskimo newPalyer = new Eskimo(testField.getIceTables().get(index));
+			newPalyer.setName(name);
+			testField.getIceTables().get(index).playerVisit(newPalyer);					
+		}
+		else if(type.equals("scientist")) {
+			Scientist newPalyer = new Scientist(testField.getIceTables().get(index));
+			newPalyer.setName(name);
+			testField.getIceTables().get(index).playerVisit(newPalyer);
+		}
 
 	}
-
 
 	public void addBear(int index) {
+		
 	}
 
 	public void blizzardChance(double possibility) {
@@ -200,6 +213,7 @@ public class CommandHandler {
 	}
 
 	public void destroyItem(int index) {
+		testField.getIceTables().get(index).setItem(null);
 	}
 
 	public void getNb(int index) {
@@ -209,6 +223,7 @@ public class CommandHandler {
 	}
 
 	public void pickUp(String name) {
+
 	}
 
 	public void addItem(String type, String name) {
@@ -259,4 +274,6 @@ public class CommandHandler {
 	public void gameStance() {
 		testField.writeOut();
 	}
+
 }
+
