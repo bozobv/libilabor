@@ -14,6 +14,9 @@ public class Shovel extends Storable
     }
 
 
-	public void writeOut() {}
+	public void writeOut() 
+	{
+		System.out.print("sh");
+	}
 
 }
