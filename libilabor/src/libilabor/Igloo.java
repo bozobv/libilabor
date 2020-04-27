@@ -1,5 +1,8 @@
 package libilabor;
 
-public class Igloo {
+public class Igloo implements Construction {
 
+    public void attacked() {
+
+    }
 }

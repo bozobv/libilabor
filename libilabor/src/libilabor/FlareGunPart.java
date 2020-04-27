@@ -6,7 +6,6 @@ public class FlareGunPart extends Storable
 	
 	public FlareGunPart() {
 		this.setId(FLAREGUNPART_ID);
-		
 	}
 	public void pickedUpBy(Player p) {
 		p.addToInventory(this);
