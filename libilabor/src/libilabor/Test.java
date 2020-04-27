@@ -34,7 +34,7 @@ public class Test {
             System.out.println("Az eszkimo sikeresen felvette a kotelet");
         }
         System.out.println("A teszteleshez, a jobb oldali szomszedot valasszuk!");
-        p1.useItem();
+        p1.useItem(1);
         if(p2.getCurrentTable() == p1.getCurrentTable()){
             System.out.println("Az eszkimo sikeresen kimentette a tarsat a vizbol");
         }
