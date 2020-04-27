@@ -30,19 +30,19 @@ public class Rope extends Storable
 			}
 			else if(input.equals("j")){
 				characters = new ArrayList<>();
-				characters.addAll(neighbours.get(0).getCharactersOnTable());			
+				characters.addAll(neighbours.get(0).getPlayersOnTable());			
 			}
 			else if(input.equals("b")){
 				characters = new ArrayList<>();
-				characters.addAll(neighbours.get(1).getCharactersOnTable());	
+				characters.addAll(neighbours.get(1).getPlayersOnTable());	
 			}
 			else if(input.equals("l")){
 				characters = new ArrayList<>();
-				characters.addAll(neighbours.get(2).getCharactersOnTable());
+				characters.addAll(neighbours.get(2).getPlayersOnTable());
 			}
 			else if(input.equals("f")){
 				characters = new ArrayList<>();
-				characters.addAll(neighbours.get(3).getCharactersOnTable());
+				characters.addAll(neighbours.get(3).getPlayersOnTable());
 			}
 			else{
 				System.out.println("Helytelen input");
@@ -52,7 +52,7 @@ public class Rope extends Storable
 					System.out.println("Nincs senki ezen a mezon");
 				}
 				else{
-					characters.get(0).setCurrentTable(user.getCurrentTable());
+					characters.get(0).setTable(user.getCurrentTable());
 					done=true;
 				}
 			}

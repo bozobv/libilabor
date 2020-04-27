@@ -171,20 +171,29 @@ public class CommandHandler {
 		
 	public void addPlayer(String type, String name, int index) {
 		if(type.equals("eskimo")){
+
+			Eskimo newPlayer = new Eskimo(testField.getIceTables().get(index));
+			newPlayer.setName(name);
+			testField.getIceTables().get(index).playerVisit(newPlayer);
+			testField.addPlayer(newPlayer);
+
 			Eskimo newPalyer = new Eskimo(testField.getIceTables().get(index));
 			newPalyer.setName(name);
 			testField.getIceTables().get(index).playerVisit(newPalyer);
 		}
 		else if(type.equals("scientist")) {
-			Scientist newPalyer = new Scientist(testField.getIceTables().get(index));
-			newPalyer.setName(name);
-			testField.getIceTables().get(index).playerVisit(newPalyer);
+			Scientist newPlayer = new Scientist(testField.getIceTables().get(index));
+			newPlayer.setName(name);
+			testField.getIceTables().get(index).playerVisit(newPlayer);
+			testField.addPlayer(newPlayer);
 		}
 
 	}
 
 	public void addBear(int index) {
-
+		PolarBear bear = new PolarBear();
+		bear.setCurrentTable(testField.getIceTables().get(index));
+		testField.getIceTables().get(index).getAnimalsOnTable().add(bear);
 	}
 
 	public void blizzardChance(double possibility) {
@@ -282,16 +291,21 @@ public class CommandHandler {
 	}
 
 	public void dig(String name) {
+		for (Player player : this.testField.getPlayers()){
+			if(player.getName().equals(name))player.dig();
+		}
 	}
 
 	public void rope(String name, int index) {
 	}
 
 	public void setTent(String name) {
+		for (Player player : this.testField.getPlayers()){
+			if(player.getName().equals(name))player.useItem(4);
+		}
 	}
 
 	public void repairFlareGun(String name) {
-
 	}
 
 	public void buildIgloo(String name) {
@@ -301,18 +315,35 @@ public class CommandHandler {
 	}
 
 	public void setThp(int thp, String name) {
+		for(int i = 0; i<testField.getPlayers().size();i++) {
+			if(testField.getPlayers().get(i).getName().equals(name)) {
+				testField.getPlayers().get(i).setThp(thp);
+				return;
+			}
+		}
+
 	}
 
 	public void setWork(int work, String name) {
+		for(int i = 0; i<testField.getPlayers().size();i++) {
+			if(testField.getPlayers().get(i).getName().equals(name)) {
+				testField.getPlayers().get(i).setWork(work);
+				return;
+			}
+		}
 	}
 
 	public void callBlizzard(double possibility) {
 	}
 
-	public void save(String saveFileName) {
+	public void save(String saveFileName)
+	{
+		testField.save();
 	}
 
-	public void load(String saveFileName) {
+	public void load(String saveFileName)
+	{
+		testField = testField.load();
 	}
 
 	public void killBear(int index) {

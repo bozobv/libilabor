@@ -27,25 +27,37 @@ public abstract class Player extends Character
 
 	//TODO ha meghal valaki, akkor az IceField EndGame fuggvenyet kell meghivni, de nem ismeri az IceFieldet
 	public void step() {
-		Scanner input = new Scanner( System.in );
-		System.out.print( "Mit akarsz csinalni:\n"+ 
-				"0: Mozgas\n" + 
-				"1: Asas\n" + 
-				"2: Targy felvetle\n" +
-				"3: Kepesseg hasznalata\n" + 
-				"4: Targy hasznalata\n" + 
-				"5: Raketa javitasa\n"+
-				"6: Semmit");
-		int player_choice =  input.nextInt();
-		while(this.work>0) {
-			switch(player_choice) {
-			case 0: move();
-			case 1: dig();
-			case 2: pickUp();
-			case 3: useSkill();
-			//case 4: useItem();
-			case 5: repairFlareGun();
-			case 6: break;
+		Scanner input = new Scanner(System.in);
+		System.out.print("Mit akarsz csinalni:\n" + "0: Mozgas\n" + "1: Asas\n" + "2: Targy felvetle\n"
+				+ "3: Kepesseg hasznalata\n" + "4: Targy hasznalata\n" + "5: Raketa javitasa\n" + "6: Semmit");
+		int player_choice = input.nextInt();
+		while (this.work > 0) {
+			switch (player_choice) {
+			case 0:
+				move();
+				break;
+			case 1:
+				dig();
+				break;
+			case 2:
+				pickUp();
+				break;
+			case 3:
+				useSkill();
+				break;
+			case 4:
+				Scanner scanner = new Scanner(System.in);
+				System.out.print("Melyik itemet akarod hasznalni?:\n" + "0: FlarGunPart\n" + "1:Rope\n"
+						+ "2:ScubaSuit\n" + "3:Shovel\n" + "4:Tent\n");
+				int ch = input.nextInt();
+				useItem(ch);
+				scanner.close();
+				break;
+			case 5:
+				repairFlareGun();
+				break;
+			case 6:
+				break;
 			}
 			work--;
 		}

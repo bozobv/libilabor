@@ -24,8 +24,8 @@ public class Test {
         i.getIceTables().set(6,h);
         p1 = new Eskimo(s);
         p2 = new Eskimo(h);
-        s.getCharactersOnTable().add(p1);
-        h.getCharactersOnTable().add(p2);
+        s.getPlayersOnTable().add(p1);
+        h.getPlayersOnTable().add(p2);
         s.setFrozenItem(r);
         s.setIceField(i);
         h.setIceField(i);
@@ -34,7 +34,7 @@ public class Test {
             System.out.println("Az eszkimo sikeresen felvette a kotelet");
         }
         System.out.println("A teszteleshez, a jobb oldali szomszedot valasszuk!");
-        p1.useItem();
+        p1.useItem(1);
         if(p2.getCurrentTable() == p1.getCurrentTable()){
             System.out.println("Az eszkimo sikeresen kimentette a tarsat a vizbol");
         }
@@ -101,7 +101,7 @@ public class Test {
     	System.out.println("Stabil tabla peldanyostiva!");
         StableTable s=new StableTable();
         Eskimo p=new Eskimo(s);
-        s.getCharactersOnTable().add(p);       
+        s.getPlayersOnTable().add(p);       
         s.setSnowHeight(4);
         System.out.println("Tablan a ho meret: " + s.getSnowHeight());
         System.out.println("asas meghivva");
@@ -118,7 +118,7 @@ public class Test {
         Shovel shovel = new Shovel();
         System.out.println("Aso inventoryhoz adva");
         p.addToInventory(shovel);
-        s.getCharactersOnTable().add(p);      
+        s.getPlayersOnTable().add(p);      
         System.out.println("Eszkimo as ");
         p.dig();
     }
@@ -131,10 +131,10 @@ public class Test {
 		t2.setCapacity(1);
 		System.out.println("p1 Eszkimo peldanyostiva!");
 		Eskimo p1 = new Eskimo(t1);
-		t1.getCharactersOnTable().add(p1);      
+		t1.getPlayersOnTable().add(p1);      
 		System.out.println("p2 Eszkimo peldanyostiva!");
 		Eskimo p2 = new Eskimo(t1);
-		t1.getCharactersOnTable().add(p2);      
+		t1.getPlayersOnTable().add(p2);      
 		System.out.println("i IceField peldanyostiva!");
 		IceField i = new IceField(3, 3, 0, 0);
 		t2.setIceField(i);
@@ -242,7 +242,7 @@ public class Test {
     	StableTable it2= new StableTable();
     	System.out.println("Eszkimo peldanyositva! Az eszkimo az elso jegtablan all.");
     	Eskimo p = new Eskimo(it1);
-    	it1.getCharactersOnTable().add(p);      
+    	it1.getPlayersOnTable().add(p);      
     	System.out.println("Eszkimo atlep a masik jegtablara!");
     	it2.playerVisit(p);
     	
@@ -284,8 +284,8 @@ public class Test {
     	System.out.println("e2 letrejott");
     	Eskimo e2 = new Eskimo(i.getIceTables().get(1));
 
-    	i.getIceTables().get(0).getCharactersOnTable().add(e1);      
-    	i.getIceTables().get(1).getCharactersOnTable().add(e2);      
+    	i.getIceTables().get(0).getPlayersOnTable().add(e1);      
+    	i.getIceTables().get(1).getPlayersOnTable().add(e2);      
     	System.out.println("e1 thp:" + e1.getThp());
     	System.out.println("e2 thp:" + e2.getThp());
 

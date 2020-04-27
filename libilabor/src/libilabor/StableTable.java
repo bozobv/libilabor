@@ -25,12 +25,12 @@ public class StableTable extends IceTable
 		else
 			this.getConstruction().writeOut();
 		System.out.print(",");
-		if(this.getCharactersOnTable() == null)
+		if(this.getPlayersOnTable() == null)
 			System.out.print("null");
 		else
-			for(int i = 0; i < this.getCharactersOnTable().size(); i++)
+			for(int i = 0; i < this.getPlayersOnTable().size(); i++)
 			{
-				this.getCharactersOnTable().get(i).writeOut();
+				this.getPlayersOnTable().get(i).writeOut();
 				System.out.print(",");
 			}
 		System.out.print(")");		
