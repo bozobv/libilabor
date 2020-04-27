@@ -161,8 +161,6 @@ public class CommandHandler {
 
 
 	}
-
-
 	
 
 	public Player searchPlayer(String name){
@@ -196,6 +194,10 @@ public class CommandHandler {
 			testField.getIceTables().get(index).playerVisit(newPlayer);
 			testField.addPlayer(newPlayer);
 		}
+		else 
+		{
+			System.out.println("az elvárt bemenet: add player eskimo/scientist name index ");
+		}
 
 	}
 
@@ -206,10 +208,12 @@ public class CommandHandler {
 		testField.getIceTables().get(index).getAnimalsOnTable().add(bear);
 	}
 
-	public void blizzardChance(double possibility) {
+	public void blizzardChance(int possibility) {
+		testField.setBlizzardFrequency(possibility);
 	}
 
-	public void blizzardSize(String size) {
+	public void blizzardSize(int size) {
+		testField.setBlizzardSize(size);
 	}
 
 	public void iceFieldSnow(int snowHeight) {
