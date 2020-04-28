@@ -14,9 +14,7 @@ public abstract class Player extends Character
 	private int thp;
 	private int work;
 	private Storable[] inventory;
-	
 
-	
 	public Player(String name, int thp, int work, IceTable currentTable) {
 		super(currentTable);
 		Name = name;
