@@ -52,7 +52,8 @@ public class CommandHandler {
 				case "table":
 					if (inputWords[2].equals("unstable"))
 						this.addUnstableTable(Integer.parseInt(inputWords[3]));
-					this.addTable(inputWords[2]);
+					else
+						this.addTable(inputWords[2]);
 					break;
 				case "item":
 					this.addItem(inputWords[2], inputWords[3]);
@@ -265,10 +266,19 @@ public class CommandHandler {
 	}
 
 	public void setNb(int index1, int index2) {
-        ArrayList<IceTable> i1=testField.getIceTables().get(index1).getNeighbours();
-        i1.add(testField.getIceTables().get(index1));
-        ArrayList<IceTable> i2=testField.getIceTables().get(index2).getNeighbours();
-        i2.add(testField.getIceTables().get(index2));
+		if (index1 > testField.getIceTables().size() || index2 > testField.getIceTables().size() )
+		{
+			System.out.println("nincs ilyen indexu tabla");
+		}
+        ArrayList<IceTable> i1 = testField.getIceTables().get(index1).getNeighbours();
+        for(int i = 0; i < i1.size(); i++)
+        {
+        	if (i1.get(i) == testField.getIceTables().get(index2))
+        		return;
+        }
+        i1.add(testField.getIceTables().get(index2));
+        ArrayList<IceTable> i2 = testField.getIceTables().get(index2).getNeighbours();
+        i2.add(testField.getIceTables().get(index1));
 	    testField.getIceTables().get(index1).setNeighbours(i2);
 	    testField.getIceTables().get(index2).setNeighbours(i1);
 	}
