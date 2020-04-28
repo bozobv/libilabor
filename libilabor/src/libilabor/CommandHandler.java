@@ -93,7 +93,13 @@ public class CommandHandler {
 
 
 				if (inputWords[1].equals("icefield"))
+					if(inputWords[2].equals("empty"))
+						this.createEmptyIceField();
+					else {
 					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]),Integer.parseInt(inputWords[4]));
+
+
+					}
 
 				break;
 
@@ -180,6 +186,11 @@ public class CommandHandler {
 		scanner.close();
 
 	}	
+
+	private void createEmptyIceField() 
+	{
+		testField = new IceField();
+	}
 
 	public Player searchPlayer(String name){
         for (int i=0;i<testField.getPlayers().size();i++){
@@ -462,7 +473,6 @@ public class CommandHandler {
 
 
 	public void killBear(int index) {
-		testField.getIceTables().get(index).setAnimalsOnTable(null);
 		
 		ArrayList<PolarBear> testAnimals = testField.getAnimal();
 		for (int i = 0; i < testAnimals.size(); i++) {
