@@ -6,23 +6,55 @@ import java.io.*;
 
 public class IceField implements java.io.Serializable
 {
+	/**
+	 * szerializaciohoz szukseges ID
+	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * ez a bool akkor true hogyha egy jatekos veszelyben van tehat lyukba eset
+	 */
 	private boolean playerInWater = false;
+	/**
+	 * a mezon levo tablak listaja
+	 */
 	private ArrayList<IceTable> iceTables = new ArrayList<IceTable>();
+	/**
+	 * a mezon levo allatok listaja
+	 */
 	private ArrayList<PolarBear> animals = new ArrayList<PolarBear>();
+	/**
+	 * a mezon levo jatekosok listaja
+	 */
 	private ArrayList<Player> players = new ArrayList<Player>(); 
 	
-	//private int FrozenItemDrop = 6; 	// minel nagyobb a szam, annal kisebb az esely, hogy befagyott targy jon letre
+	/**
+	 * a hovihar eslyehez hasznalt szam
+	 */
 	private int blizzardFrequency = 9; //minel nagyobb a szam, annal kisebb az esely a hoviharra
+	/**
+	 * a hovihar merete
+	 */
 	private int blizzardSize = 0;
-	private boolean blizzardComing = false; // jelzi, hogy kovetkezo korben jon-e vihar
+	/**
+	 * jelzi, hogy kovetkezo korben jon-e vihar
+	 */
+	private boolean blizzardComing = false; 
 	
+	/**
+	 * default konstruktor ures mezo letrehozasahoz
+	 */
 	public IceField()
 	{
 		StableTable nextStableTable = new StableTable();
 		iceTables.add(nextStableTable);
 	}
-	
+	/**
+	 * konstruktor parameterekkel itt inicializalunk mindent es hozzuk a mezot a jatek kezdesehez megfelelo allapotea
+	 * @param height a jegtablak sorainak szama
+	 * @param width a jegtablak oszlopainak szama
+	 * @param FrozenItemDrop a itemek eselye tablankent
+	 * @param snowHeight a maximalis homagassag ami lehet tablan
+	 */
 	public IceField(int height, int width, int FrozenItemDrop, int snowHeight) 
 	{
 		if (height < 2 || width < 2) 
@@ -165,6 +197,9 @@ public class IceField implements java.io.Serializable
 		}
 	}
 
+	/**
+	 * a kor menetenek lebonyolitasa
+	 */
 	public void turn() 
 	{
 		// hovihar erkezesenek a randomizalasahoz
@@ -210,12 +245,17 @@ public class IceField implements java.io.Serializable
 			}
 		}
 	}
-	
+	/**
+	 * a jatek veget intezo fuggveny
+	 */
 	public void endGame() 
 	{
 		System.out.println("Legalabb egy jatekos megfulladt, elbuktatok a kuldetest!");
 	}
-
+	/**
+	 * hovihar esemenye
+	 * @param size a hovihar merete
+	 */
 	public void Blizzard(int size) 
 	{
 		// hovihar  helyenek randomizalasahoz
@@ -248,54 +288,84 @@ public class IceField implements java.io.Serializable
 		}
 	}
 	
+	/**
+	 * setter a playerInWater valtozonak
+	 * @param b uj ereteke
+	 */
 	public void setPlayerInWater(boolean b) 
 	{
 		playerInWater = b;
 		System.out.println("ember a vizben!!!");
 	}
-	
+	/**
+	 * gettere a playerInWater valtozonak
+	 * @return a valtozo referenciaja
+	 */
 	public boolean getPalyerInWater() 
 	{		
 		return playerInWater;
 	}
-	
+	/**
+	 * getter az iceTables valtozohoz
+	 * @return a valtozo referenciaja
+	 */
 	public ArrayList<IceTable> getIceTables() 
 	{
 		return iceTables;
 	}
-
+	/**
+	 * Setter az iceTables valtozonak
+	 * @param iceTables uj erteke a valtozonak
+	 */
 	public void setIceTables(ArrayList<IceTable> iceTables) 
 	{
 		this.iceTables = iceTables;
 	}
-	
+	/**
+	 * hozzad egy medvet a mezo animals listajahoz
+	 * @param newBear a hozzadott medve
+	 */
 	public void addAnimal(PolarBear newBear)
 	{
 		this.animals.add(newBear); 
 	}
-	
+	/**
+	 * Getter az animals valtozohoz
+	 * @return a valtozo referenciaja
+	 */
 	public ArrayList<PolarBear> getAnimal()
 	{
 		return animals;
 	}
-
+	/**
+	 * Getter a players valtozohoz
+	 * @return a valtozo referenciaja
+	 */
 	public ArrayList<Player> getPlayers()
 	{
 		return players;
 	}
 
-	
+	/**
+	 * Setter a players valtozohoz
+	 * @param players a valtozo uj erteke
+	 */
 	public void setPlayers(ArrayList<Player> players) 
 	{
 		this.players = players;
 
 	}
-			
+	/**
+	 * hozzaad egy uj jatekost a players listahoz
+	 * @param newPlayer a hozzaadott jatekos
+	 */
 	public void addPlayer(Player newPlayer)
 	{
 		this.players.add(newPlayer); 
 	}
-		
+	/**
+	 * a nyeres logika
+	 */
 	public void victory() 
 	{
 		System.out.println("Gyozelem");
@@ -311,7 +381,10 @@ public class IceField implements java.io.Serializable
 		this.FrozenItemDrop = frequency;
 		
 	}*/
-		
+	/**
+	 * setter a blizzardFrequency valtozohoz
+	 * @param frequency a valtozo uj erteke
+	 */
 	public void setBlizzardFrequency(int frequency) 
 	{
 		if (frequency < 1 || frequency > 10) 
@@ -326,42 +399,27 @@ public class IceField implements java.io.Serializable
 	{
 		return this.FrozenItemDrop;
 	}*/
-	
+	/**
+	 * getter a blizzardFrequency valtozohoz
+	 * @return a valtozo referenciaja
+	 */
 	public int getBlizzardFrequency() 
 	{
 		return this.blizzardFrequency;
 	}
-	
-	public void addTable(String TableType, int idx)
-	{
-		IceTable newTable;
-		if(TableType == "stable")
-		{
-			newTable = new StableTable();
-		}
-		
-		else if(TableType == "unstable")
-		{
-			newTable = new StableTable();
-		}
-		
-		else if(TableType == "hole")
-		{
-			newTable = new StableTable();
-		}
-		else
-		{
-			System.out.println("Nincs ilyen jegtablafajta. Lehetosegek: stable , unstable . hole");
-			return;
-		}
-		this.iceTables.add(idx, newTable);
-	}
-	
+
+	/**
+	 * getter a blizzardSize valtozohoz
+	 * @return a valtozo referenciaja
+	 */
 	public int getBlizzardSize() 
 	{
 		return blizzardSize;
 	}
-	
+	/**
+	 * setter a blizzardSize valtozohoz
+	 * @param blizzardSize a valtozo uj erteke
+	 */
 	public void setBlizzardSize(int blizzardSize) 
 	{
 		if (blizzardSize > 0 && blizzardSize < 11 )
@@ -370,7 +428,9 @@ public class IceField implements java.io.Serializable
 			System.out.println("A hovihar meret 1-tol 10-ig terjedhet ");
 	}
 	
-	
+	/**
+	 * mentes fuggvenye
+	 */
 	public void save()
 	{
 		try {
@@ -384,7 +444,10 @@ public class IceField implements java.io.Serializable
 	         i.printStackTrace();
 	      }
 	}
-	
+	/**
+	 * visszatoltes fuggvenye
+	 * @return az eppen betoltendo mezovel
+	 */
 	public IceField load()
 	{
 		IceField iF = this;
@@ -404,7 +467,9 @@ public class IceField implements java.io.Serializable
 	      }
 		return iF;
 	}
-	
+	/**
+	 * kiirja a mezo adatait
+	 */
 	public void writeOut()
 	{
 		for(int i = 0; i < iceTables.size(); i++ )
