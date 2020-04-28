@@ -213,14 +213,16 @@ public class CommandHandler {
 
 			Eskimo newPlayer = new Eskimo(testField.getIceTables().get(index));
 			newPlayer.setName(name);
-			testField.getIceTables().get(index).playerVisit(newPlayer);
+			testField.getIceTables().get(index).getPlayersOnTable().add(newPlayer);
 			testField.addPlayer(newPlayer);
+			newPlayer.setCurrentTable(testField.getIceTables().get(index));
 
 		} else if (type.equals("scientist")) {
 			Scientist newPlayer = new Scientist(testField.getIceTables().get(index));
 			newPlayer.setName(name);
-			testField.getIceTables().get(index).playerVisit(newPlayer);
+			testField.getIceTables().get(index).getPlayersOnTable().add(newPlayer);
 			testField.addPlayer(newPlayer);
+			newPlayer.setCurrentTable(testField.getIceTables().get(index));
 		} else {
 			System.out.println("az elvárt bemenet: add player eskimo/scientist name index ");
 		}
@@ -265,14 +267,16 @@ public class CommandHandler {
 	}
 	public void addUnstableTable( int cap) {
 		
-		UnstableTable k = new UnstableTable(cap); testField.getIceTables().add(k); 
+		UnstableTable k = new UnstableTable(cap); 
+		testField.getIceTables().add(k); 
+		k.setIceField(testField);
 		
 	}
 	
 	public void addTable(String type) {
 		switch(type) {
-		case "stable": StableTable t = new StableTable(); testField.getIceTables().add(t); break;
-		case "hole": Hole h = new Hole(); testField.getIceTables().add(h); break;
+		case "stable": StableTable t = new StableTable(); testField.getIceTables().add(t); t.setIceField(testField); ; break;
+		case "hole": Hole h = new Hole(); testField.getIceTables().add(h);h.setIceField(testField); break;
 		}
 	}
 

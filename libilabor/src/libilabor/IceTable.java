@@ -82,7 +82,7 @@ public abstract class IceTable implements java.io.Serializable
 	 * @return az iceField referenciaja
 	 * */
 	public IceField getIceField() {
-		return iceField;
+		return this.iceField;
 	}
 	/**Setter a iceField adattagnak
 	 * @param iceField iceField uj erteke
@@ -129,9 +129,11 @@ public abstract class IceTable implements java.io.Serializable
 	/**Ez a fuggveny felel a jatekos egyik tablarol a masikra valo leptesere
 	 * @param p eppen a tablara lepo jatekos
 	 * */
-	public void playerVisit(Player p) {
+	public void playerVisit(Player p) 
+	{	
 		
 		this.playersOnTable.add(p);
+		p.getCurrentTable().removePlayer(p);
 		p.setCurrentTable(this);
 	}
 	/**A hovihar kezelese az tablan*/
