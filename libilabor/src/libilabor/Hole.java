@@ -15,10 +15,10 @@ public class Hole extends IceTable implements java.io.Serializable
 		
 		this.getPlayersOnTable().add(p);
 		p.getCurrentTable().removePlayer(p);
-		if(p.getInventory()[2] == null) {
-		p.fallInHole();
-		if (this.getIceField() == null)
-		this.getIceField().setPlayerInWater(true);
+		if(p.getInventory()[2] == null) 
+		{
+			p.fallInHole();
+			this.getIceField().setPlayerInWater(true);
 		}
 		p.setCurrentTable(this);	
 	}
@@ -28,7 +28,8 @@ public class Hole extends IceTable implements java.io.Serializable
 	public void removePlayer(Player p) {
 		
 		this.getPlayersOnTable().remove(this.getPlayersOnTable().indexOf(p));
-		this.getIceField().setPlayerInWater(false);
+		if (this.getPlayersOnTable() == null)
+			this.getIceField().setPlayerInWater(false);
 		
 	}
 	/**visszater a tablan levo targgyal

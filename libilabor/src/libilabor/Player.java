@@ -45,12 +45,22 @@ import java.util.Scanner;
 	 * A jatekos move-ja
 	 * @param it 
 	 */
-	public void move(IceTable it) {
+	public void move(IceTable it) 
+	{
+		if (this.getWork() < 1)
+		{
+			System.out.println("nincs eleg munkaja");
+			return;
+		}
 		ArrayList<IceTable> neighbours = this.getCurrentTable().getNeighbours();
 		for (IceTable iceTable : neighbours) 
 		{
 			if (it == iceTable && this.work > 0)
+			{
+				this.setWork(this.getWork()-1 );
 				iceTable.playerVisit(this);
+			}
+				
 		}
 	}
 	/**
@@ -59,8 +69,16 @@ import java.util.Scanner;
 	 */
 	public void useItem(int player_choice,int idx)
 	{
+		if (this.getWork() < 1)
+		{
+			System.out.println("nincs eleg munkaja");
+			return;
+		}
 		if (inventory[player_choice] != null)
+		{
 			inventory[player_choice].used(this,idx);
+			this.setWork(this.getWork()-1 );
+		}
 	}
 	/**
 	 * A player kepessegenek elsutese.
@@ -71,7 +89,14 @@ import java.util.Scanner;
 	/**
 	 * A player as
 	 */
-	public void dig() {
+	public void dig() 
+	{
+		if (this.getWork() < 1)
+		{
+			System.out.println("nincs eleg munkaja");
+			return;
+		}
+		this.setWork(this.getWork()-1 );
 		if (inventory[3] != null) {
 			inventory[3].used(this,0);
 		} else {
@@ -83,8 +108,10 @@ import java.util.Scanner;
 	/**
 	 * A befagyott targyfelvetele
 	 */
-	public void pickUp(){
-		if(this.getCurrentTable().getSnowHeight()>0)return;
+	public void pickUp()
+	{
+		if(this.getCurrentTable().getSnowHeight() > 0 || this.getCurrentTable().getFrozenItem() == null )
+			return;
 		this.getCurrentTable().getFrozenItem().pickedUpBy(this);
 	}
 	/**
@@ -93,10 +120,10 @@ import java.util.Scanner;
 	 */
 
 	public void addToInventory(Storable s) {
-		if (inventory[s.getId()] == null) {
+		/*if (inventory[s.getId()] == null)*/ 
 			inventory[s.getId()] = s;
 			this.getCurrentTable().setFrozenItem(null);
-		}
+		
 	}
 	/**
 	 * A flaregun osszeszerelese 
@@ -158,6 +185,8 @@ import java.util.Scanner;
 	 * 
 	 */
 	public void setWork(int work) {
+		if (work > 5)
+			return;
 		this.work = work;
 	}
 	// @Override

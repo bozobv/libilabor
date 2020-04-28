@@ -15,6 +15,12 @@ public class Eskimo extends Player implements java.io.Serializable
 	 */
 	public void useSkill(IceTable t) 
 	{
+		if (this.getWork() < 1)
+		{
+			System.out.println("nincs eleg munkaja");
+			return;
+		}
+		this.setWork(this.getWork()-1 );
 		Igloo Igl = new Igloo();
 		t.setConstruction(Igl);
 	}
