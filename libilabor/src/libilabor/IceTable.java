@@ -136,6 +136,8 @@ public abstract class IceTable
 	}
 	/**A hovihar kezelese az tablan*/
 	public void blizzardComing() {
+		if(this.snowHeight < 5)
+			this.setSnowHeight(snowHeight + 1);
 		if (playersOnTable != null && getConstruction() == null) {
 			for (int i = 0; i < playersOnTable.size(); i++) {
 				int newThp = (playersOnTable.get(i)).getThp() - 1;
@@ -164,7 +166,6 @@ public abstract class IceTable
 	 * @param character torolni kivant jatekos
 	 * */
 	public void removePlayer(Player character) {
-		
 		playersOnTable.remove(this.playersOnTable.indexOf(character));
 	}
 	/**eltavolitja a paramterkent kapott medvet a tablarol

@@ -31,7 +31,8 @@ public class WeakShovel extends Shovel
      * @param p a jatekos aki hasznalja
      */
     public void used(Player p){
-        p.getCurrentTable().setSnowHeight(2);
+        p.getCurrentTable().setSnowHeight(p.getCurrentTable().getSnowHeight()-2);
+        if(p.getCurrentTable().getSnowHeight()<=0)p.getCurrentTable().setSnowHeight(0);
         durability--;
         if(durability==0){broken(p);}
     }

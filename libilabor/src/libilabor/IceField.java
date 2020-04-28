@@ -263,7 +263,7 @@ public class IceField implements java.io.Serializable
 		// hovihar helyenek randomizalasa
 		int randomTable = rand.nextInt(iceTables.size());
 		// hovihar merete tablameret / arany
-		int blizzardedTables = iceTables.size() / (10 - size); 
+		int blizzardedTables = iceTables.size() / (11 - size); 
 		// meghivjuk az erintett tablakra a blizzardcomming fuggvenyt 
 		if (randomTable + blizzardedTables > iceTables.size()) 
 		{

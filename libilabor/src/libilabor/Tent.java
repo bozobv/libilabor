@@ -41,7 +41,7 @@ public class Tent extends Storable implements Construction {
 	 */
 	public void writeOut()
 	{
-		System.out.print("t");
+		System.out.print("tent");
 	}
 
 }

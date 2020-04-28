@@ -13,7 +13,7 @@ public abstract class Instant extends Item
 	/**
 	 * Az instan item-et egy adott jatekos felvette.
 	 *
-	 * @param p  a targyat felvevo jatekos
+	 * @param p 
 	 */  
 	
 	public abstract void  pickedUpBy(Player p); 
