@@ -37,7 +37,7 @@ public abstract class IceTable
 		return playersOnTable;
 	}
 	/**Setter a playersOnTable adattagnak
-	 * @param a playersOnTable uj erteke
+	 * @param playersOnTable playersOnTable uj erteke
 	 * */
 	public void setPlayersOnTable(ArrayList<Player> playersOnTable) {
 		this.playersOnTable = playersOnTable;
@@ -49,7 +49,7 @@ public abstract class IceTable
 		return animalsOnTable;
 	}
 	/**Setter a animalsOnTable adattagnak
-	 * @param az animalsOnTable uj erteke
+	 * @param animalsOnTable animalsOnTable uj erteke
 	 * */
 	public void setAnimalsOnTable(ArrayList<PolarBear> animalsOnTable) {
 		this.animalsOnTable = animalsOnTable;
@@ -61,7 +61,7 @@ public abstract class IceTable
 		return snowHeight;
 	}
 	/**Setter a snowHeight adattagnak
-	 * @param snowheight uj erteke
+	 * @param snowHeight snowheight uj erteke
 	 * */
 	public void setSnowHeight(int snowHeight) {
 		this.snowHeight = snowHeight;
@@ -73,7 +73,7 @@ public abstract class IceTable
 		return capacity;
 	}
 	/**Setter a capacity adattagnak
-	 * @param a capacity uj erteke
+	 * @param capacity capacity uj erteke
 	 * */
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
@@ -85,7 +85,7 @@ public abstract class IceTable
 		return iceField;
 	}
 	/**Setter a iceField adattagnak
-	 * @param iceField uj erteke
+	 * @param iceField iceField uj erteke
 	 * */
 	public void setIceField(IceField iceField) {
 		this.iceField = iceField;
@@ -97,7 +97,7 @@ public abstract class IceTable
 		return construction;
 	}
 	/**Setter a construction adattagnak
-	 * @param a construction uj erteke
+	 * @param construction construction uj erteke
 	 * */
 	public void setConstruction(Construction construction) {
 		this.construction = construction;
@@ -109,7 +109,7 @@ public abstract class IceTable
 		return frozenItem;
 	}
 	/**Setter a forzenItem adattagnak
-	 * @param a frozenItem uj erteke
+	 * @param frozenItem frozenItem uj erteke
 	 * */
 	public void setFrozenItem(Item frozenItem) {
 		this.frozenItem = frozenItem;
@@ -121,13 +121,13 @@ public abstract class IceTable
 		return neighbours;
 	}
 	/**Setter a neighbours adattagnak
-	 * @param a neighbours lista uj erteke
+	 * @param neighbours neighbours lista uj erteke
 	 * */
 	public void setNeighbours(ArrayList<IceTable> neighbours) {
 		this.neighbours = neighbours;
 	}
 	/**Ez a fuggveny felel a jatekos egyik tablarol a masikra valo leptesere
-	 * @param az eppen a tablara lepo jatekos
+	 * @param p eppen a tablara lepo jatekos
 	 * */
 	public void playerVisit(Player p) {
 		
@@ -161,14 +161,14 @@ public abstract class IceTable
 		return parts;
 	}
 	/**eltavlitja a parameterkent kapott jatekost a tablarol
-	 * @param a torolni kivant jatekos
+	 * @param character torolni kivant jatekos
 	 * */
 	public void removePlayer(Player character) {
 		
 		playersOnTable.remove(this.playersOnTable.indexOf(character));
 	}
 	/**eltavolitja a paramterkent kapott medvet a tablarol
-	 * @param a torolni kivant medve
+	 * @param character torolni kivant medve
 	 * */
 	public void removeAnimal(PolarBear character) {
 		
@@ -180,7 +180,7 @@ public abstract class IceTable
 			construction.attacked(playersOnTable.get(0));
 		}
 	}
-	/**kiiro függvény*/
+	/**kiiro fuggveny*/
 	public abstract void writeOut();
 
 }
