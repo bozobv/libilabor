@@ -19,6 +19,9 @@ public class CommandHandler {
 			String[] inputWords = input.split(" ");
 
 			switch (inputWords[0]) {
+				case "attack":
+					attack();
+					break;
 				case "exit":
 					exit=true;
 					break;
@@ -228,6 +231,7 @@ public class CommandHandler {
 	public void addBear(int index) {
 		PolarBear bear = new PolarBear(testField.getIceTables().get(index));
 		testField.getIceTables().get(index).getAnimalsOnTable().add(bear);
+		testField.addAnimal(bear);
 	}
 
 	public void blizzardChance(int possibility) {
@@ -495,6 +499,10 @@ public class CommandHandler {
 				testAnimals.remove(i);
 		}
 
+	}
+	public void attack(){
+		if(testField.getAnimal().size()>0)
+		testField.getAnimal().get(0).attack();
 	}
 
 	public void gameStance() {
