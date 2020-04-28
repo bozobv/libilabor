@@ -290,8 +290,8 @@ public class CommandHandler {
         i1.add(testField.getIceTables().get(index2));
         ArrayList<IceTable> i2 = testField.getIceTables().get(index2).getNeighbours();
         i2.add(testField.getIceTables().get(index1));
-	    testField.getIceTables().get(index1).setNeighbours(i2);
-	    testField.getIceTables().get(index2).setNeighbours(i1);
+	    testField.getIceTables().get(index1).setNeighbours(i1);
+	    testField.getIceTables().get(index2).setNeighbours(i2);
 	}
 
 	public void setSnow(int index, int height) {
