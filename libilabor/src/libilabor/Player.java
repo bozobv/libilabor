@@ -41,11 +41,8 @@ public abstract class Player extends Character implements java.io.Serializable {
 		for (IceTable iceTable : neighbours) 
 		{
 			if (it == iceTable)
-			{
-				this.getCurrentTable().removePlayer(this);
 				iceTable.playerVisit(this);
-			}
-		}	
+		}
 	}
 
 	public void useItem(int player_choice,int idx) {
