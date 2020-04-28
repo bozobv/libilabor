@@ -47,6 +47,7 @@ public class IceField implements java.io.Serializable
 	{
 		StableTable nextStableTable = new StableTable();
 		iceTables.add(nextStableTable);
+		nextStableTable.setIceField(this);
 	}
 	/**
 	 * konstruktor parameterekkel itt inicializalunk mindent es hozzuk a mezot a jatek kezdesehez megfelelo allapotea
