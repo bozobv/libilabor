@@ -2,6 +2,9 @@ package libilabor;
 
 public class PolarBear extends Character {
 
+	public PolarBear(IceTable it) {
+		super(it);
+	}
 	@Override
 	public void setCurrentTable(IceTable currenttable) {
 		this.getCurrentTable().removeAnimal(this);
