@@ -30,7 +30,7 @@ public class WeakShovel extends Shovel implements java.io.Serializable
      * ez a fv hivodik meg, mikor hasznaljak a targyat
      * @param p a jatekos aki hasznalja
      */
-    public void used(Player p){
+    public void used(Player p,int idx){
         p.getCurrentTable().setSnowHeight(p.getCurrentTable().getSnowHeight()-2);
         if(p.getCurrentTable().getSnowHeight()<=0)p.getCurrentTable().setSnowHeight(0);
         durability--;

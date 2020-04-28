@@ -24,7 +24,7 @@ public class FlareGunPart extends Storable implements java.io.Serializable
 	 * ez a fv hivodik meg, mikor hasznaljak a targyat
 	 * @param p a jatekos aki a targyat hasznalja
 	 */
-	public void used(Player p) {
+	public void used(Player p,int idx) {
 		p.repairFlareGun();
 	}
 
