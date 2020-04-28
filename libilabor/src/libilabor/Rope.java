@@ -41,6 +41,7 @@ public class Rope extends Storable implements java.io.Serializable
 		else{
 			System.out.println("a kivalasztott tabla tul messze van");
 		}
+		user.removeFromInventory(1);
 		/*boolean done=false;
 		while(!done){
 			ArrayList<Character> characters = null;
