@@ -415,7 +415,7 @@ public class CommandHandler {
 	public void buildIgloo(String name) {
 		for (Player player : this.testField.getPlayers()) {
 			if (player.getName().equals(name))
-				player.useSkill();
+				player.useSkill(player.currentTable);
 		}
 	}
 
@@ -463,7 +463,7 @@ public class CommandHandler {
 
 	public void killBear(int index) {
 		testField.getIceTables().get(index).setAnimalsOnTable(null);
-
+		
 		ArrayList<PolarBear> testAnimals = testField.getAnimal();
 		for (int i = 0; i < testAnimals.size(); i++) {
 			if (testAnimals.get(i) == removedAnimal)
