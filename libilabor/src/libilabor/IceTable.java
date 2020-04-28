@@ -155,9 +155,10 @@ public abstract class IceTable implements java.io.Serializable
 		
 		int parts = 0; 
 		
-		for(Character p: this.playersOnTable) {
-			
-			if(((Player) p).getInventory()[1] != null) {				
+		for(Character p: this.playersOnTable) 
+		{
+			if(((Player) p).getInventory()[1] != null) 
+			{				
 				parts++;
 			}
 		}
