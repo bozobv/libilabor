@@ -1,19 +1,36 @@
 package libilabor;
 
+/**
+ * lapat osztaly
+ */
 public class Shovel extends Storable 
 {
-	private static int SHOVEL=3;
+	/**
+	 * konstruktor, ami beallitja az id-t a megfelelo ertekre
+	 */
 	public Shovel() {
-		this.setId(SHOVEL);
+		this.setId(3);
 	}
+
+	/**
+	 * ez a fv hivodik meg, mikor hasznaljak a targyat
+	 * @param p a jatekos aki a targyat hasznalja
+	 */
 	public void used(Player p){
 		p.getCurrentTable().setSnowHeight(2);
 	}
+
+	/**
+	 * ez a fv hivodik meg, mikor felveszik a targyat
+	 * @param p a jatekos akinel a targy eltarolodik
+	 */
     public void pickedUpBy(Player p) {
         p.addToInventory(this);
     }
 
-
+	/**
+	 * kiir dolgokat
+	 */
 	public void writeOut() 
 	{
 		System.out.print("sh");

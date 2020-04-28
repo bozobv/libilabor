@@ -22,8 +22,9 @@ public class Eskimo extends Player
 		{
 			if (inv[i] != null)
 			{
-				inv[i].writeOut();
 				System.out.print(", ");
+				inv[i].writeOut();
+				
 			}
 		}
 		System.out.print("),");		
