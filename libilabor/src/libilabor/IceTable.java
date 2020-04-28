@@ -151,13 +151,12 @@ public abstract class IceTable implements java.io.Serializable
 	}
 	
 	/**megvizsgalja hogy hany flareGunPart van a tablan*/
-	public int checkFlareGunPart() {
-		
+	public int checkFlareGunPart() 
+	{
 		int parts = 0; 
-		
-		for(Character p: this.playersOnTable) 
+		for(Player p: this.playersOnTable) 
 		{
-			if(((Player) p).getInventory()[1] != null) 
+			if(p.getInventory()[0] != null) 
 			{				
 				parts++;
 			}

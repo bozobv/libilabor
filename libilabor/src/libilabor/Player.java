@@ -80,7 +80,7 @@ public abstract class Player extends Character implements java.io.Serializable {
 	}
 
 	public void repairFlareGun() {
-		 if (this.getCurrentTable().checkFlareGunPart() == 3)
+		 if (this.getCurrentTable().checkFlareGunPart() > 2)
 			 System.out.println("GYŐZELEEEEEEEEEEEEM");
 	}
 
