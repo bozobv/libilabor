@@ -23,11 +23,13 @@ public class CommandHandler {
 				break;
 			case "move":
 				switch(inputWords[1]) {
-				case "player":this.movePlayer(inputWords[1], Integer.parseInt(inputWords[2]));
-				case "bear": this.moveBear( Integer.parseInt(inputWords[1]), Integer.parseInt(inputWords[2]));
+				case "player":this.movePlayer(inputWords[2], Integer.parseInt(inputWords[3]));
+				break;
+				case "bear": this.moveBear( Integer.parseInt(inputWords[2]), Integer.parseInt(inputWords[3]));
 				break;
 				default: break;
 				}
+				break;
 				
 			case "rope":
 				this.rope(inputWords[1], Integer.parseInt(inputWords[2]));
@@ -374,15 +376,20 @@ public class CommandHandler {
 	}
 
 	public void moveBear(int honnan, int hova) {
-		PolarBear pb=testField.getIceTables().get(honnan).getAnimalsOnTable().get(0);
-		IceTable temp = null;
-		for (IceTable it : pb.getCurrentTable().getNeighbours()) {
-			if (it == testField.getIceTables().get(hova))
-				temp = it;
+		if(testField.getIceTables().get(honnan).getAnimalsOnTable().size()>0){
+			PolarBear pb=testField.getIceTables().get(honnan).getAnimalsOnTable().get(0);
+			if(pb.getCurrentTable().getNeighbours().contains(testField.getIceTables().get(hova))){
+				pb.move(testField.getIceTables().get(hova));
+			}
+			else{
+				System.out.println("tul tavol van a tabla");
+			}
 		}
-		if (temp != null) {
-			pb.move(temp);
+		else{
+			System.out.println("nincs allat a mezon");
 		}
+
+
 		
 	}
 	public void pickUp(String name) {

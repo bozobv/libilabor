@@ -18,12 +18,12 @@ public class PolarBear extends Character implements java.io.Serializable{
 	 * ezzel a fv-nyel allitjuk be, hogy a jegesmedve melyik jegtablan all jelenleg
 	 * @param currenttable a tabla amire be szeretnék allitani
 	 */
-	@Override
+	/*@Override
 	public void setCurrentTable(IceTable currenttable) {
 		this.getCurrentTable().removeAnimal(this);
 		this.setCurrentTable(currenttable);
 		this.getCurrentTable().getAnimalsOnTable().add(this);
-	}
+	}*/
 
 	/**
 	 * ez a fv hivodik meg, mikor tamad a medve
@@ -44,12 +44,7 @@ public class PolarBear extends Character implements java.io.Serializable{
 	 * @param it a tabla amire mozdulni szeretne
 	 */
     public void move(IceTable it) {
-    	ArrayList<IceTable> neighbours = this.getCurrentTable().getNeighbours();
-		for (IceTable iceTable : neighbours) 
-		{
-			if (it == iceTable)
-				iceTable.polarBearVisit(this);
-			}
+    	it.polarBearVisit(this);
     }
 
 	/**
