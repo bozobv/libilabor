@@ -459,6 +459,8 @@ public class CommandHandler {
 	}
 
 	public void gameStance() {
-		testField.writeOut();
+		if(testField!=null){
+			testField.writeOut();
+		}
 	}
 }
