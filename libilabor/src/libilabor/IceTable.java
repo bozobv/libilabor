@@ -129,7 +129,8 @@ public abstract class IceTable implements java.io.Serializable
 	/**Ez a fuggveny felel a jatekos egyik tablarol a masikra valo leptesere
 	 * @param p eppen a tablara lepo jatekos
 	 * */
-	public void playerVisit(Player p) {
+	public void playerVisit(Player p) 
+	{	
 		
 		this.playersOnTable.add(p);
 		p.setCurrentTable(this);
