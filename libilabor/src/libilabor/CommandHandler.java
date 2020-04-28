@@ -22,8 +22,13 @@ public class CommandHandler {
 				exit = true;
 				break;
 			case "move":
-				this.move(inputWords[1], Integer.parseInt(inputWords[2]));
+				switch(inputWords[1]) {
+				case "player":this.movePlayer(inputWords[1], Integer.parseInt(inputWords[2]));
+				case "bear": this.moveBear( Integer.parseInt(inputWords[1]), Integer.parseInt(inputWords[2]));
 				break;
+				default: break;
+				}
+				
 			case "rope":
 				this.rope(inputWords[1], Integer.parseInt(inputWords[2]));
 				break;
@@ -356,7 +361,7 @@ public class CommandHandler {
 
 	}
 
-	public void move(String name, int index) {
+	public void movePlayer(String name, int index) {
 		Player player = searchPlayer(name);
 		IceTable temp = null;
 		for (IceTable it : player.getCurrentTable().getNeighbours()) {
@@ -368,6 +373,18 @@ public class CommandHandler {
 		}
 	}
 
+	public void moveBear(int honnan, int hova) {
+		PolarBear pb=testField.getIceTables().get(honnan).getAnimalsOnTable().get(0);
+		IceTable temp = null;
+		for (IceTable it : pb.getCurrentTable().getNeighbours()) {
+			if (it == testField.getIceTables().get(hova))
+				temp = it;
+		}
+		if (temp != null) {
+			pb.move(temp);
+		}
+		
+	}
 	public void pickUp(String name) {
 		searchPlayer(name).pickUp();
 	}

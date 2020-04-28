@@ -136,7 +136,10 @@ public abstract class IceTable implements java.io.Serializable
 		p.getCurrentTable().removePlayer(p);
 		p.setCurrentTable(this);
 	}
-	
+	/**Ez a fuggveny felel a jegesmedve egyik tablarol a masikra valo leptesere
+	 * 
+	 * @param pb a tablara lepo jatekos
+	 */
 	public void polarBearVisit(PolarBear pb) 
 	{	
 		this.animalsOnTable.add(pb);
