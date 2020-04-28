@@ -1,15 +1,13 @@
 package libilabor;
 
 import java.util.Random;
-
-
-
 import java.util.ArrayList;
-
 import java.util.Scanner;
+
 
 public class CommandHandler {
 
+	
 	private IceField testField;
 	private int basicSnowHeight = 0;
 	private int FrozenItemDrop = 0;
@@ -84,7 +82,11 @@ public class CommandHandler {
 				break;
 			case "create":
 				if (inputWords[1].equals("icefield"))
+					if(inputWords[2].equals("empty"))
+						this.createEmptyIceField();
+					else {
 					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]),Integer.parseInt(inputWords[4]));
+					}
 				break;
 
 			case "set":
@@ -171,6 +173,11 @@ public class CommandHandler {
 
 	}	
 
+	private void createEmptyIceField() 
+	{
+		testField = new IceField();
+	}
+
 	public Player searchPlayer(String name){
         for (int i=0;i<testField.getPlayers().size();i++){
             if(testField.getPlayers().get(i).getName().equals(name)){
@@ -205,8 +212,7 @@ public class CommandHandler {
 	}
 
 	public void addBear(int index) {
-		PolarBear bear = new PolarBear();
-		bear.setCurrentTable(testField.getIceTables().get(index));
+		PolarBear bear = new PolarBear(testField.getIceTables().get(index));
 		testField.getIceTables().get(index).getAnimalsOnTable().add(bear);
 	}
 
@@ -312,7 +318,14 @@ public class CommandHandler {
 	}
 
 	public void move(String name, int index) {
-		searchPlayer(name);
+		Player player= searchPlayer(name);
+		IceTable temp=null;
+		for (IceTable it : player.getCurrentTable().getNeighbours()) {
+			if(it==testField.getIceTables().get(index))temp=it;
+		}
+		if(temp!=null) {
+			player.move(temp);
+		}
 	}
 
 	public void pickUp(String name) {

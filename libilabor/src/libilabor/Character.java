@@ -1,10 +1,14 @@
 package libilabor;
 
 public abstract class Character {
-	protected IceTable currentTable;
+	private IceTable currentTable;
 
-	public abstract void step();
-	public abstract void move();
+	public Character(IceTable it) {
+		currentTable=it;
+	}
+	
+	//public abstract void step();
+	public abstract void move(IceTable it);
 	public abstract  void attacked();
 	
 	public IceTable getCurrentTable() {
