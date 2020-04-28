@@ -1,15 +1,13 @@
 package libilabor;
 
 import java.util.Random;
-
-
-
 import java.util.ArrayList;
-
 import java.util.Scanner;
+
 
 public class CommandHandler {
 
+	
 	private IceField testField;
 	private int basicSnowHeight = 0;
 	private int FrozenItemDrop = 0;
@@ -312,7 +310,14 @@ public class CommandHandler {
 	}
 
 	public void move(String name, int index) {
-		searchPlayer(name);
+		Player player= searchPlayer(name);
+		IceTable temp=null;
+		for (IceTable it : player.getCurrentTable().getNeighbours()) {
+			if(it==testField.getIceTables().get(index))temp=it;
+		}
+		if(temp!=null) {
+			player.move(temp);
+		}
 	}
 
 	public void pickUp(String name) {

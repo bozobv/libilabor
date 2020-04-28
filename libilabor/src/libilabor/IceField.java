@@ -177,7 +177,7 @@ public class IceField implements java.io.Serializable
 		while (i < players.size())  // mindegyik jatekosnak meghivja a step fuggvenyet, az utolso
 									// jatekosnal ujrainditja a szamlalot
 		{
-			players.get(i).step();
+			//players.get(i).step();
 			// ha elozo korben valaki vizbeesett, es meg ebben
 			// a korben is benne van, akkor vege a jateknak
 			if (playerInWater == true && playerDrowning == true)
