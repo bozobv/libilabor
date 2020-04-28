@@ -84,7 +84,7 @@ public class CommandHandler {
 				}
 				break;
 			case "create":
-				if (inputWords[1] == "icefield")
+				if (inputWords[1].equals("icefield"))
 					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]),Integer.parseInt(inputWords[4]));
 				break;
 
@@ -193,10 +193,6 @@ public class CommandHandler {
 			newPlayer.setName(name);
 			testField.getIceTables().get(index).playerVisit(newPlayer);
 			testField.addPlayer(newPlayer);
-
-			Eskimo newPalyer = new Eskimo(testField.getIceTables().get(index));
-			newPalyer.setName(name);
-			testField.getIceTables().get(index).playerVisit(newPalyer);
 
 		} else if (type.equals("scientist")) {
 			Scientist newPlayer = new Scientist(testField.getIceTables().get(index));

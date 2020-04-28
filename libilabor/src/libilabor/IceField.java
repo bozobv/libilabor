@@ -158,7 +158,7 @@ public class IceField implements java.io.Serializable
 		//playerek elhelyezese a tablara
 		for(int i = 0; i < players.size(); i++ )
 		{
-			players.get(i).setTable(iceTables.get(0));
+			players.get(i).setCurrentTable(iceTables.get(0));
 		}
 		
 		//allatok elhelyezes random helyre

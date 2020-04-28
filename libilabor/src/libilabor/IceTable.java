@@ -11,7 +11,7 @@ public abstract class IceTable
 	private IceField iceField;
 	private ArrayList<Player> playersOnTable;
 	private ArrayList<PolarBear> animalsOnTable;
-	private Construction construction;
+	private Construction construction=null;
 	private Item frozenItem = null;
 	private ArrayList<IceTable> neighbours;
 	
@@ -76,9 +76,8 @@ public abstract class IceTable
 	}
 
 	public void playerVisit(Player p) {
-		
 		this.playersOnTable.add(p);
-		p.setTable(this);
+		p.setCurrentTable(this);
 	}
 	
 
@@ -126,6 +125,11 @@ public abstract class IceTable
 	public void removeAnimal(PolarBear character) {
 		
 		animalsOnTable.remove(this.animalsOnTable.indexOf(character));
+	}
+	public void attacked(){
+		if(construction!=null&&playersOnTable.size()>0){
+			construction.attacked(playersOnTable.get(0));
+		}
 	}
 	
 	public void writeOut() {}

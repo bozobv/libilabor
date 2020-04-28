@@ -140,9 +140,11 @@ public abstract class Player extends Character
 	public void setWork(int work) {
 		this.work = work;
 	}
-
-	public IceTable getCurrentTable() {
-		return currentTable;
+	@Override
+	public void setCurrentTable(IceTable currenttable){
+		this.currentTable.removePlayer(this);
+		this.currentTable=currenttable;
+		currenttable.getPlayersOnTable().add(this);
 	}
 
 	public Storable[] getInventory() {
