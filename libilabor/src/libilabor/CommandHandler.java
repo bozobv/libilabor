@@ -339,6 +339,15 @@ public class CommandHandler {
 		case "t":
 			this.testField.getIceTables().get(index).setFrozenItem(new Tent());
 			break;
+		case "wh":
+			this.testField.getIceTables().get(index).setFrozenItem(new Whiskey());
+			break;
+		case "f":
+			this.testField.getIceTables().get(index).setFrozenItem(new Food());
+			break;
+		case "a":
+			this.testField.getIceTables().get(index).setFrozenItem(new Adrenalin());
+			break;
 		default:
 			break;
 
