@@ -425,7 +425,6 @@ public class IceField implements java.io.Serializable
 				}
 			}
 			System.out.print(")");
-
 		}
 	}
 }
