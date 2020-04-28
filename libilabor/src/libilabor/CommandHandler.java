@@ -24,7 +24,7 @@ public class CommandHandler {
 
 			switch (inputWords[0]) {
 			case "move":
-				this.move(Integer.parseInt(inputWords[1]));
+				this.move(inputWords[1], Integer.parseInt(inputWords[2]));
 				break;
 			case "rope":
 				this.rope(inputWords[1], Integer.parseInt(inputWords[2]));
@@ -135,6 +135,10 @@ public class CommandHandler {
 				if (inputWords[1].equals("item"))
 					this.removeItem(inputWords[2], inputWords[3]);
 				break;
+			case "character":
+				if (inputWords[1].equals("stats"))
+					this.characterStats(inputWords[2]);
+				break;
 			case "kill":
 				switch (inputWords[1]) {
 				case "character":
@@ -177,7 +181,11 @@ public class CommandHandler {
         return null;
     }
 		
-
+	public void characterStats(String name)
+	{
+		searchPlayer(name).writeOut();
+	}
+	
 	public void addPlayer(String type, String name, int index) {
 		if (type.equals("eskimo")) {
 
@@ -298,10 +306,22 @@ public class CommandHandler {
 
 	public void getNb(int index) 
 	{
-		
+		System.out.print("(");
+		ArrayList<IceTable> nbs = testField.getIceTables().get(index).getNeighbours();
+		for (int j = 0; j < nbs.size(); j++)
+		{
+			for(int k = 0; k < testField.getIceTables().size(); k++ )
+			{
+				if(nbs.get(j) == testField.getIceTables().get(k))
+					System.out.print(k + ", ");
+			}
+		}
+		System.out.print(")");
 	}
 
-	public void move(int index) {
+	public void move(String name, int index) 
+	{
+		searchPlayer(name);
 	}
 
 	public void pickUp(String name) {
