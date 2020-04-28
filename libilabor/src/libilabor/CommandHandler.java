@@ -267,14 +267,16 @@ public class CommandHandler {
 	}
 	public void addUnstableTable( int cap) {
 		
-		UnstableTable k = new UnstableTable(cap); testField.getIceTables().add(k); 
+		UnstableTable k = new UnstableTable(cap); 
+		testField.getIceTables().add(k); 
+		k.setIceField(testField);
 		
 	}
 	
 	public void addTable(String type) {
 		switch(type) {
-		case "stable": StableTable t = new StableTable(); testField.getIceTables().add(t); break;
-		case "hole": Hole h = new Hole(); testField.getIceTables().add(h); break;
+		case "stable": StableTable t = new StableTable(); testField.getIceTables().add(t); t.setIceField(testField); ; break;
+		case "hole": Hole h = new Hole(); testField.getIceTables().add(h);h.setIceField(testField); break;
 		}
 	}
 

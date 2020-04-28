@@ -38,11 +38,11 @@ public abstract class Player extends Character implements java.io.Serializable {
 
 	public void move(IceTable it) {
 		ArrayList<IceTable> neighbours = this.getCurrentTable().getNeighbours();
-		for (IceTable iceTable : neighbours) {
-			if (it == iceTable)
+		for (IceTable iceTable : neighbours) 
+		{
+			if (it == iceTable && this.work > 0)
 				iceTable.playerVisit(this);
 		}
-
 	}
 
 	public void useItem(int player_choice,int idx) {
