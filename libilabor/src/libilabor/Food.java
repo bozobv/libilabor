@@ -11,7 +11,7 @@ public class Food extends Instant
 	/**
 	 * A food-t egy adott jatekos felvette. A food eggyel noveli a THP-t 
 	 *
-	 * @param p  a targyat felvevo jatekos
+	 * @param p  
 	 */  
 	//  
 	public void pickedUpBy(Player p) {

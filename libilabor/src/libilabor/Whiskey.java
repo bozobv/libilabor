@@ -12,7 +12,7 @@ public class Whiskey extends Instant
 	/**
 	 * A whiskey-t egy adott jatekos felvette. A whiskey 2-vel noveli a thp-t. 
 	 *
-	 * @param p  a targyat felvevo jatekos
+	 * @param p  
 	 */  
 	public void pickedUpBy(Player p) {
 		p.setThp(p.getThp()+2);
