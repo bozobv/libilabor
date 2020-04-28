@@ -7,11 +7,17 @@ public class Adrenalin extends Instant
 		
 	}
 	
-	// Az Adrenalin megnoveli a munkat eggyel.
+	/**
+	 * Az adrenalin-t egy adott jatekos felvette. Az Adrenalin megnoveli a munkat eggyel.
+	 *
+	 * @param p  a targyat felvevo jatekos
+	 */  
 	public void pickedUpBy(Player p) {
 		p.setWork(p.getWork()+1);
 	}
-
+	/**
+	 * Kiirja az adrenalin azonositojat.
+	 */  
 	public void writeOut() 
 	{
 		System.out.print("adr");
