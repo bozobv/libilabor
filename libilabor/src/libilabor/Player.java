@@ -9,7 +9,7 @@ public abstract class Player extends Character
 	public static int id=0;
 	
 	
-	
+	//
 	private String Name;
 	private int thp;
 	private int work;
