@@ -10,9 +10,16 @@ public abstract class Instant extends Item
 		this.setId(INSTANT_ID);
 	}
 
+	/**
+	 * Az instan item-et egy adott jatekos felvette.
+	 *
+	 * @param p  a targyat felvevo jatekos
+	 */  
 	
 	public abstract void  pickedUpBy(Player p); 
-	
+	/**
+	 * Kiirja az instant item azonositojat.
+	 */ 
 	public abstract void writeOut();
 
 } 

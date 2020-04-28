@@ -4,7 +4,9 @@ package libilabor;
 import java.util.*;
 public class UnstableTable extends IceTable 
 {
-	
+	/**konstruktor
+	 * @param cap megadja hogy a kapacitas max mekkora lehet
+	 * */
 	public UnstableTable(int cap) 
 	{
 		super();
@@ -12,12 +14,16 @@ public class UnstableTable extends IceTable
 		int c = rand.nextInt(cap) + 1; //+1, hogy ne legyen nulla
 		this.setCapacity(c);
 	}
+	/**felboritja a tablat*/
 	void flip() {
 
 		for(Character p: this.getPlayersOnTable()) {
 			((Player)p).setThp(0);
 		}
 	}
+	/**atveszi a jatekost es megvizsgalja hogy fel kell e borulni vagy sem
+	 * @param p az atvett jatekos
+	 * */
 	public void playerVisit(Player p) {
 		
 		this.getPlayersOnTable().add(p);
@@ -26,6 +32,7 @@ public class UnstableTable extends IceTable
 			this.flip();
 	}
 	
+	/**kiirja a tabla adatait*/
 	public void writeOut() 
 	{
 		System.out.print("UT(" + this.getCapacity() + "," + this.getSnowHeight());
