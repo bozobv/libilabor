@@ -14,7 +14,7 @@ public class StableTable extends IceTable
 	
 	public void writeOut() 
 	{
-		System.out.print("ST(" + this.getCapacity() + "," + this.getSnowHeight());
+		System.out.print("ST(" + this.getCapacity() + "," + this.getSnowHeight() + ",");
 		if(this.getFrozenItem() == null)
 			System.out.print("null");
 		else

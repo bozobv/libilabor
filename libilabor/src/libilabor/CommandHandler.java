@@ -170,6 +170,7 @@ public class CommandHandler {
 			default:
 				break;
 			}
+			gameStance();
 		}
 		scanner.close();
 

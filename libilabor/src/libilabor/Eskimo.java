@@ -17,6 +17,7 @@ public class Eskimo extends Player
 	{
 		System.out.print("es(" + this.getName() + ", " + this.getThp() + ", " + this.getWork());
 		Storable[] inv = this.getInventory();
+
 		for (int i = 0; i < 5 ; i++)
 		{
 			if (inv[i] != null)

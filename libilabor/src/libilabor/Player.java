@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public abstract class Player extends Character 
 {
-	private static final int INVENTORY_STARTING_SIZE=4;
+	private static final int INVENTORY_STARTING_SIZE=5;
 	public static int id=0;
 	
 	
@@ -142,7 +142,7 @@ public abstract class Player extends Character
 	}
 	@Override
 	public void setCurrentTable(IceTable currenttable){
-		this.currentTable.removePlayer(this);
+		//this.currentTable.removePlayer(this);
 		this.currentTable=currenttable;
 		currenttable.getPlayersOnTable().add(this);
 	}
