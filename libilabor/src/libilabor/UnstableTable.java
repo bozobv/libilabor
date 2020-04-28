@@ -35,7 +35,7 @@ public class UnstableTable extends IceTable
 	/**kiirja a tabla adatait*/
 	public void writeOut() 
 	{
-		System.out.print("UT(" + this.getCapacity() + "," + this.getSnowHeight());
+		System.out.print("UT(" + this.getCapacity() + "," + this.getSnowHeight() + ",");
 		if(this.getFrozenItem() == null)
 			System.out.print("null");
 		else
