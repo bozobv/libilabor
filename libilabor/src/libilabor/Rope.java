@@ -27,9 +27,21 @@ public class Rope extends Storable implements java.io.Serializable
 	 * ez a fv hivodik meg, mikor hasznaljak a targyat
 	 * @param user a jatekos aki hasznalja a tarygat
 	 */
-	public void used(Player user) {
+	public void used(Player user,int idx) {
+		IceTable it=user.getCurrentTable().getIceField().getIceTables().get(idx);
 		ArrayList<IceTable> neighbours = user.getCurrentTable().getNeighbours();
-		boolean done=false;
+		if(neighbours.contains(it)){
+			if(it.getPlayersOnTable().size()>0){
+				it.getPlayersOnTable().get(0).setCurrentTable(user.getCurrentTable());
+			}
+			else{
+				System.out.println("nincs jatekos a kivalasztott tablan");
+			}
+		}
+		else{
+			System.out.println("a kivalasztott tabla tul messze van");
+		}
+		/*boolean done=false;
 		while(!done){
 			ArrayList<Character> characters = null;
 			System.out.println("Melyik szomszedot szeretned kimenteni?( (j)obb,(b)al,(f)enti,(l)enti),(m)egse ");
@@ -67,8 +79,9 @@ public class Rope extends Storable implements java.io.Serializable
 				}
 			}
 			s.close();
-		}
+		}*/
 	}
+
 
 	/**
 	 * kiir dolgokat
