@@ -55,7 +55,7 @@ public class PolarBear extends Character implements java.io.Serializable{
 	 */
 	public void writeOut() 
 	{
-		System.out.print("pb");
+		System.out.print(",pb");
 	}
 
 }

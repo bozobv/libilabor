@@ -4,14 +4,17 @@ import java.util.Scanner;
 public class Scientist extends Player implements java.io.Serializable
 {
 	/**
-	 * 
-	 * @param currentTable
+	 * konstruktor 
+	 * @param currentTable ezen a tablan hozza letre a kutatot
 	 */
 	public Scientist(IceTable currentTable) 
 	{
 		super("Scientist"+Player.id++,4,4,currentTable);
 	}
-	
+	/**
+	 * itt hasznalja a kutato a kepesseget
+	 * @param t ezen a tablan hasznalja
+	 */
 	public void useSkill(IceTable t) 
 	{
 		boolean tmp = false;
@@ -27,10 +30,12 @@ public class Scientist extends Player implements java.io.Serializable
 				System.out.println("A vizsgalalt tabla kapacitasa: " + Integer.toString(capacity));
 		}
 	}
-	
+	/**
+	 * kiirja a kutato adatait
+	 */
 	public void writeOut() 
 	{
-		System.out.print("sc(" + this.getName() + ", " + this.getThp() + ", " + this.getWork());
+		System.out.print(",sc(" + this.getName() + ", " + this.getThp() + ", " + this.getWork());
 		Storable[] inv = this.getInventory();
 		for (int i = 0; i < 5 ; i++)
 		{
