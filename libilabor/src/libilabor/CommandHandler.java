@@ -220,7 +220,7 @@ public class CommandHandler {
 			testField.addPlayer(newPlayer);
 			newPlayer.setCurrentTable(testField.getIceTables().get(index));
 		} else {
-			System.out.println("az elvárt bemenet: add player eskimo/scientist name index ");
+			System.out.println("az elvart bemenet: add player eskimo/scientist name index ");
 		}
 
 	}
