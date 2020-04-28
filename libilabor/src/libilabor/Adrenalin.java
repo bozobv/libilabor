@@ -3,9 +3,6 @@ package libilabor;
 public class Adrenalin extends Instant 
 {
 
-
-	
-
 	public Adrenalin(){
 		
 	}
