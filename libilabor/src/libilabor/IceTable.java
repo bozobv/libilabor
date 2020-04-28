@@ -166,12 +166,6 @@ public abstract class IceTable {
 		} else {
 			System.out.println("null" + ", ");
 		}
-		//szomszed resz
-		System.out.println("(");
-		for (IceTable it : neighbours) {
-			System.out.println(/*ide kellenenek az indexek*/", ");
-		}
-		System.out.println(")");
 	}
 
 }
