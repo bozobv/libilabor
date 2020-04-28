@@ -10,6 +10,6 @@ public abstract class Storable extends Item
 		System.out.println("Ezt az eszkozt nem lehet hasznalni");
 	}
 	
-	public void writeOut() {}
+	public abstract void writeOut();
 
 }

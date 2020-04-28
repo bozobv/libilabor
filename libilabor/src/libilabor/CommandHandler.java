@@ -1,11 +1,6 @@
 package libilabor;
-
 import java.util.Random;
-
-
 import java.util.ArrayList;
-
-
 import java.util.Scanner;
 
 public class CommandHandler {
@@ -38,7 +33,7 @@ public class CommandHandler {
 				this.save(inputWords[1]);
 				break;
 			case "load":
-				this.save(inputWords[1]);
+				this.load(inputWords[1]);
 				break;
 			case "add":
 				switch (inputWords[1]) {
@@ -84,9 +79,6 @@ public class CommandHandler {
 				break;
 			case "create":
 
-
-
-
 				if (inputWords[1] == "icefield")
 
 
@@ -98,6 +90,10 @@ public class CommandHandler {
 
 					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]),
 							Integer.parseInt(inputWords[4]));
+
+
+				if (inputWords[1].equals("icefield"))
+					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]),Integer.parseInt(inputWords[4]));
 
 				break;
 
@@ -183,21 +179,22 @@ public class CommandHandler {
 		}
 		scanner.close();
 
-	}
+	}	
 
-	public Player searchPlayer(String name) {
-		for (int i = 0; i < testField.getPlayers().size(); i++) {
-			if (testField.getPlayers().get(i).getName().equals(name)) {
-				return testField.getPlayers().get(i);
-			}
-		}
-		return null;
-	}
-
-	public void characterStats(String name) {
+	public Player searchPlayer(String name){
+        for (int i=0;i<testField.getPlayers().size();i++){
+            if(testField.getPlayers().get(i).getName().equals(name)){
+                return testField.getPlayers().get(i);
+            }
+        }
+        return null;
+    }
+		
+	public void characterStats(String name)
+	{
 		searchPlayer(name).writeOut();
 	}
-
+	
 	public void addPlayer(String type, String name, int index) {
 		if (type.equals("eskimo")) {
 
@@ -205,10 +202,6 @@ public class CommandHandler {
 			newPlayer.setName(name);
 			testField.getIceTables().get(index).playerVisit(newPlayer);
 			testField.addPlayer(newPlayer);
-
-			Eskimo newPalyer = new Eskimo(testField.getIceTables().get(index));
-			newPalyer.setName(name);
-			testField.getIceTables().get(index).playerVisit(newPalyer);
 
 		} else if (type.equals("scientist")) {
 			Scientist newPlayer = new Scientist(testField.getIceTables().get(index));
@@ -237,7 +230,7 @@ public class CommandHandler {
 
 	public void iceFieldSnow(int snowHeight) {
 		basicSnowHeight = snowHeight;
-
+		
 	}
 
 	public void iceFieldItem(int itemPossibility) {
@@ -250,41 +243,25 @@ public class CommandHandler {
 		int w = rand.nextInt(10);
 		int d = rand.nextInt(10);
 		int s = rand.nextInt(10);
-		switch (type) {
-		case "empty":
-			testField = new IceField();
-			break;
-		case "defined":
-			testField = new IceField(height, width, FrozenItemDrop, basicSnowHeight);
-			break;
-		case "random":
-			testField = new IceField(h, w, d, s);
-			break;
-		default:
-			break;
+		switch(type) {
+		case "empty": testField = new IceField(); break;
+		case "defined" : testField = new IceField(height, width, FrozenItemDrop, basicSnowHeight); break;
+		case "random": testField = new IceField(h, w, d, s); break;
+		default: break;
 		}
-
+		
 	}
 
 	public void addTable(String type) {
-		switch (type) {
-		case "stable":
-			StableTable t = new StableTable();
-			testField.getIceTables().add(t);
-			break;
-		case "unstable":
-			UnstableTable k = new UnstableTable(testField.getPlayers().size());
-			testField.getIceTables().add(k);
-			break;
-		case "hole":
-			Hole h = new Hole();
-			testField.getIceTables().add(h);
-			break;
+		switch(type) {
+		case "stable": StableTable t = new StableTable(); testField.getIceTables().add(t); break;
+		case "unstable": UnstableTable k = new UnstableTable(testField.getPlayers().size()); testField.getIceTables().add(k); 
+						 break;
+		case "hole": Hole h = new Hole(); testField.getIceTables().add(h); break;
 		}
 	}
 
 	public void setNb(int index1, int index2) {
-
 		ArrayList<IceTable> i1 = testField.getIceTables().get(index1).getNeighbours();
 		i1.add(testField.getIceTables().get(index1));
 		ArrayList<IceTable> i2 = testField.getIceTables().get(index2).getNeighbours();
@@ -295,16 +272,12 @@ public class CommandHandler {
 	}
 
 	public void setSnow(int index, int height) {
-
 		testField.getIceTables().get(index).setSnowHeight(height);
-
 	}
 
 	public void tableStats(int index) {
-
 		System.out.print(index);
 		testField.getIceTables().get(index).writeOut();
-
 	}
 
 	public void setItem(String type, int index) {
@@ -323,7 +296,7 @@ public class CommandHandler {
 			break;
 		case "ws":
 			this.testField.getIceTables().get(index).setFrozenItem(new WeakShovel());
-			break;	
+			break;
 		case "t":
 			this.testField.getIceTables().get(index).setFrozenItem(new Tent());
 			break;
@@ -362,31 +335,24 @@ public class CommandHandler {
 	public void addItem(String type, String name) {
 
 		Storable item;
-		switch (type) {
-		case "fg":
-			item = new FlareGunPart();
-			break;
-		case "r":
-			item = new Rope();
-			break;
-		case "sc":
-			item = new ScubaSuit();
-			break;
-		case "s":
-			item = new Shovel();
-			break;
-		case "ws":
-			item = new WeakShovel();
-			break;
-		case "t":
-			item = new Tent();
-			break;
-		default:
-			System.out.println("Helytelen parameter!");
-			item = null;
-			break;
+		switch(type){
+			case "fg":
+				item=new FlareGunPart();break;
+			case "r":
+				item=new Rope();break;
+			case "sc":
+				item=new ScubaSuit();break;
+			case "s":
+				item=new Shovel();break;
+			case "ws":
+				item=new WeakShovel();break;
+			case "t":
+				item=new Tent();break;
+			default:
+				System.out.println("Helytelen parameter!");
+				item=null;break;
 		}
-		if (item != null) {
+		if(item!=null){
 			searchPlayer(name).addToInventory(item);
 		}
 
@@ -395,64 +361,55 @@ public class CommandHandler {
 	public void removeItem(String type, String name) {
 
 		int idx;
-		switch (type) {
-		case "fg":
-			idx = 0;
-			break;
-		case "r":
-			idx = 1;
-			break;
-		case "sc":
-			idx = 2;
-			break;
-		case "s":
-		case "ws":
-			idx = 3;
-			break;
-		case "t":
-			idx = 4;
-			break;
-		default:
-			System.out.println("Helytelen parameter!");
-			idx = -1;
-			break;
+		switch(type){
+			case "fg":
+				idx=0;break;
+			case "r":
+				idx=1;break;
+			case "sc":
+				idx=2;break;
+			case "s":
+			case "ws":
+				idx=3;break;
+			case "t":
+				idx=4;break;
+			default:
+				System.out.println("Helytelen parameter!");
+				idx=-1;break;
 		}
-		if (idx > 0) {
+		if(idx>0){
 			searchPlayer(name).removeFromInventory(idx);
 		}
 
 	}
 
 	public void killCharacter(String name) {
-
 		searchPlayer(name).getCurrentTable().removePlayer(searchPlayer(name));
 
 	}
 
 	public void dig(String name) {
-		for (Player player : this.testField.getPlayers()) {
-			if (player.getName().equals(name))
-				player.dig();
+		for (Player player : this.testField.getPlayers()){
+			if(player.getName().equals(name))player.dig();
 		}
 	}
-
+    //nem tudunk a rope used-jának infokat adni inne, mindenképp szükséges plusz felhasználói interakció
+    //ezek mellett felesleges az indexet átadni a függvénynek
 	public void rope(String name, int index) {
+
 
 		searchPlayer(name).useItem(1);
 
 	}
 
 	public void setTent(String name) {
-		for (Player player : this.testField.getPlayers()) {
-			if (player.getName().equals(name))
-				player.useItem(4);
+		for (Player player : this.testField.getPlayers()){
+			if(player.getName().equals(name))player.useItem(4);
 		}
 	}
 
 	public void repairFlareGun(String name) {
-
 		searchPlayer(name).useItem(0);
-
 	}
 
 	public void buildIgloo(String name) {
@@ -468,8 +425,9 @@ public class CommandHandler {
 
 	public void setThp(int thp, String name) {
 
-		for (int i = 0; i < testField.getPlayers().size(); i++) {
-			if (testField.getPlayers().get(i).getName().equals(name)) {
+		for(int i = 0; i<testField.getPlayers().size();i++) {
+			if(testField.getPlayers().get(i).getName().equals(name)) {
+
 				testField.getPlayers().get(i).setThp(thp);
 				return;
 			}
@@ -480,10 +438,9 @@ public class CommandHandler {
 
 	public void setWork(int work, String name) {
 
-		
+		for(int i = 0; i<testField.getPlayers().size();i++) {
+			if(testField.getPlayers().get(i).getName().equals(name)) {
 
-		for (int i = 0; i < testField.getPlayers().size(); i++) {
-			if (testField.getPlayers().get(i).getName().equals(name)) {
 				testField.getPlayers().get(i).setWork(work);
 				return;
 			}
@@ -503,6 +460,7 @@ public class CommandHandler {
 		testField = testField.load();
 	}
 
+
 	public void killBear(int index) {
 		testField.getIceTables().get(index).setAnimalsOnTable(null);
 
@@ -511,7 +469,6 @@ public class CommandHandler {
 			if (testAnimals.get(i) == removedAnimal)
 				testAnimals.remove(i);
 		}
-
 
 	}
 

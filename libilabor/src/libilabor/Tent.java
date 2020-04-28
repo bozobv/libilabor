@@ -13,7 +13,7 @@ public class Tent extends Storable implements Construction {
 
 	public void writeOut() 
 	{
-		System.out.print("tent");
+		System.out.print("t");
 	}
 
 	public void attacked(Player p) {
