@@ -5,16 +5,21 @@ import java.util.Scanner;
 
 public abstract class Player extends Character 
 {
+	/** az inventory kezdo merete*/
 	private static final int INVENTORY_STARTING_SIZE=5;
+	/** az player egyedi azonositoja*/
 	public static int id=0;
 	
 	
-	//
+	/** a jatekos neve*/
 	private String Name;
+	/** a jatekos thp-ja*/
 	private int thp;
+	/** a jatekos work-je*/
 	private int work;
+	/** a jatekos inventoryja*/
 	private Storable[] inventory;
-
+	/**A player konstruktora inicalizalja a szukseges adattagokat*/
 	public Player(String name, int thp, int work, IceTable currentTable) {
 		super(currentTable);
 		Name = name;
@@ -61,7 +66,10 @@ public abstract class Player extends Character
 		}
 		input.close();
 	}		*/
-	
+	/**
+	 * A jatekos move-ja
+	 * @param it 
+	 */
 	public void move(IceTable it){
 		ArrayList<IceTable> neighbours=this.getCurrentTable().getNeighbours();
 		for (IceTable iceTable : neighbours) {
@@ -69,20 +77,29 @@ public abstract class Player extends Character
 		}
 		
 	}
-
+   /**
+    * A player hasznalja a megadott indexu itemet
+    * @param player_choice
+    */
 	public void useItem(int player_choice){
 		if(inventory[player_choice]!=null)inventory[player_choice].used(this);
 	}
-	
+	/**
+	 * A player kepessegenek elsutese.
+	 * 
+	 * @param t
+	 */
 	public abstract void useSkill(IceTable t);
 	
-	
+	/**
+	 * A player as
+	 */
 	public void dig(){
 		if(inventory[3]!=null) inventory[3].used(this);
 		else this.getCurrentTable().setSnowHeight(this.getCurrentTable().getSnowHeight()-1);	
 	}
 	/**
-	 * 
+	 * A befagyott targyfelvetele
 	 */
 	public void pickUp(){
 		if(this.getCurrentTable().getSnowHeight()>0)return;
