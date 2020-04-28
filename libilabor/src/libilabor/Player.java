@@ -48,16 +48,16 @@ public abstract class Player extends Character implements java.io.Serializable {
 		}	
 	}
 
-	public void useItem(int player_choice) {
+	public void useItem(int player_choice,int idx) {
 		if (inventory[player_choice] != null)
-			inventory[player_choice].used(this);
+			inventory[player_choice].used(this,idx);
 	}
 
 	public abstract void useSkill(IceTable t);
 
 	public void dig() {
 		if (inventory[3] != null) {
-			inventory[3].used(this);
+			inventory[3].used(this,0);
 		} else {
 			this.getCurrentTable().setSnowHeight(this.getCurrentTable().getSnowHeight() - 1);
 		}
