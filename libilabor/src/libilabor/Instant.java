@@ -13,6 +13,6 @@ public abstract class Instant extends Item
 	
 	public abstract void  pickedUpBy(Player p); 
 	
-	public void writeOut() {}
+	public abstract void writeOut();
 
 } 

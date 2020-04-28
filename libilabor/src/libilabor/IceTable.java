@@ -133,39 +133,6 @@ public abstract class IceTable
 
 	
 
-	public void writeOut() {
-		// tabla resz
-		System.out.println(this.getClass() == StableTable.class ? "ST"
-				: this.getClass() == UnstableTable.class ? "US" : this.getClass() == Hole.class ? "H" : "" + "(");
-		System.out.print(capacity + ", " + snowHeight + ", ");
-		System.out.println(this.frozenItem.getId() == 0 ? "fg"
-				: this.frozenItem.getId() == 1 ? "r"
-						: this.frozenItem.getId() == 2 ? "sc"
-								: this.frozenItem.getClass() == Shovel.class ? "s"
-										: this.frozenItem.getClass() == WeakShovel.class ? "ws"
-												: this.frozenItem.getId() == 4 ? "t" : "null" + ", ");
-		//player resz
-		if (playersOnTable.size() > 0) {
-			for (Player player : playersOnTable) {
-				// player class
-				System.out.println(player.getClass() == Eskimo.class ? "es"
-						: player.getClass() == Scientist.class ? "sc" : "" + "(");
-				// player stats
-				System.out.println(player.getName() + ", " + player.getThp() + ", " + player.getWork() + ", ");
-				// player inventory
-				for (Storable st : player.getInventory()) {
-					System.out.println(st.getId() == 0 ? "fg"
-							: st.getId() == 1 ? "r"
-									: st.getId() == 2 ? "sc"
-											: st.getClass() == Shovel.class ? "s"
-													: st.getClass() == WeakShovel.class ? "ws"
-															: st.getId() == 4 ? "t" : "" + ", ");
-				}
-				System.out.println(")");
-			}
-		} else {
-			System.out.println("null" + ", ");
-		}
-	}
+	public abstract void writeOut();
 
 }
