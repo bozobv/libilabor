@@ -47,6 +47,8 @@ public class CommandHandler {
 					this.addBear(Integer.parseInt(inputWords[2]));
 					break;
 				case "table":
+					if (inputWords[2].equals("unstable"))
+						this.addUnstableTable(Integer.parseInt(inputWords[3]));
 					this.addTable(inputWords[2]);
 					break;
 				case "item":
@@ -248,12 +250,15 @@ public class CommandHandler {
 		}
 		
 	}
-
+	public void addUnstableTable( int cap) {
+		
+		UnstableTable k = new UnstableTable(cap); testField.getIceTables().add(k); 
+		
+	}
+	
 	public void addTable(String type) {
 		switch(type) {
 		case "stable": StableTable t = new StableTable(); testField.getIceTables().add(t); break;
-		case "unstable": UnstableTable k = new UnstableTable(testField.getPlayers().size()); testField.getIceTables().add(k); 
-						 break;
 		case "hole": Hole h = new Hole(); testField.getIceTables().add(h); break;
 		}
 	}
