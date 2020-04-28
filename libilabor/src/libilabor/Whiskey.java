@@ -16,6 +16,7 @@ public class Whiskey extends Instant implements java.io.Serializable
 	 */  
 	public void pickedUpBy(Player p) {
 		p.setThp(p.getThp()+2);
+		p.getCurrentTable().setFrozenItem(null);
 		
 	}
 	/**

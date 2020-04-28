@@ -14,6 +14,7 @@ public class Adrenalin extends Instant implements java.io.Serializable
 	 */  
 	public void pickedUpBy(Player p) {
 		p.setWork(p.getWork()+1);
+		p.getCurrentTable().setFrozenItem(null);
 	}
 	/**
 	 * Kiirja az adrenalin azonositojat.
