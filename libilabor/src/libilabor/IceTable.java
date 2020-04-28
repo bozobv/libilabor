@@ -132,6 +132,7 @@ public abstract class IceTable implements java.io.Serializable
 	public void playerVisit(Player p) {
 		
 		this.playersOnTable.add(p);
+		p.getCurrentTable().removePlayer(p);
 		p.setCurrentTable(this);
 	}
 	/**A hovihar kezelese az tablan*/

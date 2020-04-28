@@ -213,14 +213,16 @@ public class CommandHandler {
 
 			Eskimo newPlayer = new Eskimo(testField.getIceTables().get(index));
 			newPlayer.setName(name);
-			testField.getIceTables().get(index).playerVisit(newPlayer);
+			testField.getIceTables().get(index).getPlayersOnTable().add(newPlayer);
 			testField.addPlayer(newPlayer);
+			newPlayer.setCurrentTable(testField.getIceTables().get(index));
 
 		} else if (type.equals("scientist")) {
 			Scientist newPlayer = new Scientist(testField.getIceTables().get(index));
 			newPlayer.setName(name);
-			testField.getIceTables().get(index).playerVisit(newPlayer);
+			testField.getIceTables().get(index).getPlayersOnTable().add(newPlayer);
 			testField.addPlayer(newPlayer);
+			newPlayer.setCurrentTable(testField.getIceTables().get(index));
 		} else {
 			System.out.println("az elvárt bemenet: add player eskimo/scientist name index ");
 		}
