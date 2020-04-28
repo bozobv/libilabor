@@ -2,10 +2,6 @@ package libilabor;
 
 import java.util.Random;
 
-
-
-import java.util.ArrayList;
-
 import java.util.Scanner;
 
 public class CommandHandler {
@@ -84,8 +80,17 @@ public class CommandHandler {
 				}
 				break;
 			case "create":
+
+
+
+
 				if (inputWords[1] == "icefield")
-					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]),Integer.parseInt(inputWords[4]));
+
+					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]), Integer.parseInt(inputWords[4]));
+
+					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]),
+							Integer.parseInt(inputWords[4]));
+
 				break;
 
 			case "set":
@@ -251,22 +256,12 @@ public class CommandHandler {
 	}
 
 	public void setNb(int index1, int index2) {
-        ArrayList<IceTable> i1=testField.getIceTables().get(index1).getNeighbours();
-        i1.add(testField.getIceTables().get(index1));
-        ArrayList<IceTable> i2=testField.getIceTables().get(index2).getNeighbours();
-        i2.add(testField.getIceTables().get(index2));
-	    testField.getIceTables().get(index1).setNeighbours(i2);
-	    testField.getIceTables().get(index2).setNeighbours(i1);
 	}
 
 	public void setSnow(int index, int height) {
-	    testField.getIceTables().get(index).setSnowHeight(height);
 	}
 
-	public void tableStats(int index) 
-	{
-		System.out.print(index);
-		testField.getIceTables().get(index).writeOut() ;
+	public void tableStats(int index) {
 	}
 
 	public void setItem(String type, int index) {
@@ -296,94 +291,49 @@ public class CommandHandler {
 		testField.getIceTables().get(index).setItem(null);
 	}
 
-	public void getNb(int index) 
-	{
-		
+	public void getNb(int index) {
 	}
 
 	public void move(int index) {
 	}
 
 	public void pickUp(String name) {
-		searchPlayer(name).pickUp();
+
 	}
 
 	public void addItem(String type, String name) {
-		Storable item;
-		switch(type){
-			case "fg":
-				item=new FlareGunPart();break;
-			case "r":
-				item=new Rope();break;
-			case "sc":
-				item=new ScubaSuit();break;
-			case "s":
-				item=new Shovel();break;
-			case "ws":
-				item=new WeakShovel();break;
-			case "t":
-				item=new Tent();break;
-			default:
-				System.out.println("Helytelen parameter!");
-				item=null;break;
-		}
-		if(item!=null){
-			searchPlayer(name).addToInventory(item);
-		}
 	}
 
 	public void removeItem(String type, String name) {
-		int idx;
-		switch(type){
-			case "fg":
-				idx=0;break;
-			case "r":
-				idx=1;break;
-			case "sc":
-				idx=2;break;
-			case "s":
-			case "ws":
-				idx=3;break;
-			case "t":
-				idx=4;break;
-			default:
-				System.out.println("Helytelen parameter!");
-				idx=-1;break;
-		}
-		if(idx>0){
-			searchPlayer(name).removeFromInventory(idx);
-		}
 	}
 
 	public void killCharacter(String name) {
-	    searchPlayer(name).getCurrentTable().removePlayer(searchPlayer(name));
 	}
 
 	public void dig(String name) {
-		for (Player player : this.testField.getPlayers()){
-			if(player.getName().equals(name))player.dig();
+		for (Player player : this.testField.getPlayers()) {
+			if (player.getName().equals(name))
+				player.dig();
 		}
 	}
-    //nem tudunk a rope used-jának infokat adni inne, mindenképp szükséges plusz felhasználói interakció
-    //ezek mellett felesleges az indexet átadni a függvénynek
+
 	public void rope(String name, int index) {
-	    searchPlayer(name).useItem(1);
 	}
 
 	public void setTent(String name) {
-		for (Player player : this.testField.getPlayers()){
-			if(player.getName().equals(name))player.useItem(4);
+		for (Player player : this.testField.getPlayers()) {
+			if (player.getName().equals(name))
+				player.useItem(4);
 		}
 	}
 
 	public void repairFlareGun(String name) {
-	    searchPlayer(name).useItem(0);
 	}
 
 	public void buildIgloo(String name) {
 		for (Player player : this.testField.getPlayers()) {
 			if (player.getName().equals(name))
-				player.useSkill(player.getCurrentTable());
+				player.useSkill();
 		}
 	}
 
@@ -392,22 +342,11 @@ public class CommandHandler {
 	}
 
 	public void setThp(int thp, String name) {
-		for(int i = 0; i<testField.getPlayers().size();i++) {
-			if(testField.getPlayers().get(i).getName().equals(name)) {
-				testField.getPlayers().get(i).setThp(thp);
-				return;
-			}
-		}
-
+		searchPlayer(name).setThp(thp);
 	}
 
 	public void setWork(int work, String name) {
-		for(int i = 0; i<testField.getPlayers().size();i++) {
-			if(testField.getPlayers().get(i).getName().equals(name)) {
-				testField.getPlayers().get(i).setWork(work);
-				return;
-			}
-		}
+		searchPlayer(name).setWork(work);
 	}
 
 	public void callBlizzard(int size) 
@@ -425,15 +364,8 @@ public class CommandHandler {
 
 
 	public void killBear(int index) {
-		PolarBear removedAnimal = testField.getIceTables().get(index).getAnimalsOnTable().get(0);
 		testField.getIceTables().get(index).setAnimalsOnTable(null);
-		ArrayList<PolarBear> testAnimals = testField.getAnimal();
-		for (int i = 0; i < testAnimals.size(); i++)
-		{
-			if (testAnimals.get(i) == removedAnimal)
-				testAnimals.remove(i);
-		}
-		
+
 	}
 
 	public void gameStance() {
