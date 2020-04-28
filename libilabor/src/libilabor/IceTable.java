@@ -82,7 +82,7 @@ public abstract class IceTable implements java.io.Serializable
 	 * @return az iceField referenciaja
 	 * */
 	public IceField getIceField() {
-		return iceField;
+		return this.iceField;
 	}
 	/**Setter a iceField adattagnak
 	 * @param iceField iceField uj erteke

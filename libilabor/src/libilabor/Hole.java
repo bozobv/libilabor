@@ -14,10 +14,12 @@ public class Hole extends IceTable implements java.io.Serializable
 	public void playerVisit(Player p) {
 		
 		this.getPlayersOnTable().add(p);
-		if(p.getInventory()[2] != null) return;
+		p.getCurrentTable().removePlayer(p);
 		p.fallInHole();
+		if (this.getIceField() == null)
+			System.out.println("kulaaaaaaa");
 		this.getIceField().setPlayerInWater(true);
-		
+		p.setCurrentTable(this);	
 	}
 	/**eltavolitja a jatekost a tablarol es a playerInWater boolt falsera allitja
 	 * @param p a torlendo jatekos

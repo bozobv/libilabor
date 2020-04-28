@@ -40,7 +40,7 @@ public abstract class Player extends Character implements java.io.Serializable {
 		ArrayList<IceTable> neighbours = this.getCurrentTable().getNeighbours();
 		for (IceTable iceTable : neighbours) 
 		{
-			if (it == iceTable)
+			if (it == iceTable && this.work > 0)
 				iceTable.playerVisit(this);
 		}
 	}
