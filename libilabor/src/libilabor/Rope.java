@@ -3,20 +3,30 @@ package libilabor;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
+/**
+ * a kotelt megvalosito osztaly
+ */
 public class Rope extends Storable
 {
-	
-	private static int ROPE_ID=1;
-	
+	/**
+	 * konstruktor, beallitja az id-t a megfelelo ertekre
+	 */
 	public Rope() {
-		this.setId(ROPE_ID);
-		
+		this.setId(1);
 	}
+
+	/**
+	 * ez a fv hivodik meg, mikor felveszik a targyat
+	 * @param p a jatekos akinel a targy eltarolodik
+	 */
 	public void pickedUpBy(Player p) {
 		p.addToInventory(this);
 	}
 
+	/**
+	 * ez a fv hivodik meg, mikor hasznaljak a targyat
+	 * @param user a jatekos aki hasznalja a tarygat
+	 */
 	public void used(Player user) {
 		ArrayList<IceTable> neighbours = user.getCurrentTable().getNeighbours();
 		boolean done=false;
@@ -59,7 +69,10 @@ public class Rope extends Storable
 			s.close();
 		}
 	}
-	
+
+	/**
+	 * kiir dolgokat
+	 */
 	public void writeOut() 
 	{
 		System.out.print("r");

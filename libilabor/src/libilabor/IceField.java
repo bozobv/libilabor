@@ -6,9 +6,6 @@ import java.io.*;
 
 public class IceField implements java.io.Serializable
 {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private boolean playerInWater = false;
 	private ArrayList<IceTable> iceTables = new ArrayList<IceTable>();
@@ -102,7 +99,7 @@ public class IceField implements java.io.Serializable
 			{
 				FlareGunPart flg = new FlareGunPart();
 				iceTables.get(RandomNumber).setFrozenItem(flg);
-				if (iceTables.get(RandomNumber).getItem() != null)
+				if (iceTables.get(RandomNumber).getFrozenItem() != null)
 					FGPOnField++;
 			}
 		}

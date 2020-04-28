@@ -19,6 +19,9 @@ public class CommandHandler {
 			String[] inputWords = input.split(" ");
 
 			switch (inputWords[0]) {
+				case "exit":
+					exit=true;
+					break;
 			case "move":
 				this.move(inputWords[1], Integer.parseInt(inputWords[2]));
 				break;
@@ -176,8 +179,6 @@ public class CommandHandler {
 				if (inputWords[1].equals("blizzard"))
 					this.callBlizzard(Integer.parseInt(inputWords[2]));
 				break;
-			default:
-				break;
 			}
 			gameStance();
 		}
@@ -315,7 +316,7 @@ public class CommandHandler {
 	}
 
 	public void destroyItem(int index) {
-		testField.getIceTables().get(index).setItem(null);
+		testField.getIceTables().get(index).setFrozenItem(null);
 	}
 
 	public void getNb(int index) {
@@ -408,8 +409,6 @@ public class CommandHandler {
 			if(player.getName().equals(name))player.dig();
 		}
 	}
-    //nem tudunk a rope used-jának infokat adni inne, mindenképp szükséges plusz felhasználói interakció
-    //ezek mellett felesleges az indexet átadni a függvénynek
 	public void rope(String name, int index) {
 
 
