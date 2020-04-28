@@ -15,7 +15,7 @@ public abstract class Storable extends Item implements java.io.Serializable
 	 * akkor hivodik meg, ha az adott targyat hasznaljak
 	 * @param p a jatekos aki a targyat hasznalja
 	 */
-	public void used(Player p){
+	public void used(Player p,int idx){
 		System.out.println("Ezt az eszkozt nem lehet hasznalni");
 	}
 
