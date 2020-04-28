@@ -24,7 +24,8 @@ public class Tent extends Storable implements Construction, java.io.Serializable
 	 * ez a fv hivodik meg, mikor hasznaljak a targyat
 	 * @param p a jatekos aki a targyat hasznalja
 	 */
-	public void used(Player p, int idx){
+
+	public void used(Player p,int idx){
 		p.getCurrentTable().setConstruction(this);
 		p.removeFromInventory(4);
 	}

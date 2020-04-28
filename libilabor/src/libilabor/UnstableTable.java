@@ -27,7 +27,8 @@ public class UnstableTable extends IceTable implements java.io.Serializable
 	public void playerVisit(Player p) {
 		
 		this.getPlayersOnTable().add(p);
-		
+		p.getCurrentTable().removePlayer(p);
+		p.setCurrentTable(this);
 		if(this.getPlayersOnTable().size() > this.getCapacity())
 			this.flip();
 	}
