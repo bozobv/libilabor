@@ -84,7 +84,11 @@ public class CommandHandler {
 				break;
 			case "create":
 				if (inputWords[1].equals("icefield"))
+					if(inputWords[2].equals("empty"))
+						this.createEmptyIceField();
+					else {
 					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]),Integer.parseInt(inputWords[4]));
+					}
 				break;
 
 			case "set":
@@ -170,6 +174,11 @@ public class CommandHandler {
 		scanner.close();
 
 	}	
+
+	private void createEmptyIceField() 
+	{
+		testField = new IceField();
+	}
 
 	public Player searchPlayer(String name){
         for (int i=0;i<testField.getPlayers().size();i++){
