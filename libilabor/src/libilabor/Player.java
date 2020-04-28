@@ -9,7 +9,7 @@ public abstract class Player extends Character
 	public static int id=0;
 	
 	
-	
+	//
 	private String Name;
 	private int thp;
 	private int work;
@@ -81,7 +81,9 @@ public abstract class Player extends Character
 		if(inventory[3]!=null) inventory[3].used(this);
 		else this.getCurrentTable().setSnowHeight(this.getCurrentTable().getSnowHeight()-1);	
 	}
-	
+	/**
+	 * 
+	 */
 	public void pickUp(){
 		if(this.getCurrentTable().getSnowHeight()>0)return;
 		Item frozenitem=this.getCurrentTable().getFrozenItem();
@@ -89,34 +91,59 @@ public abstract class Player extends Character
 			frozenitem.pickedUpBy(this);
 		}
 	}
+	/**
+	 * Adott targy hozzaadasa az inventoryhoz
+	 * @param s 
+	 */
 	public void addToInventory(Storable s){
 		if(inventory[s.getId()]==null) {
 			inventory[s.getId()]=s;
 			this.getCurrentTable().setFrozenItem(null);
 		}
 	}
-
+	/**
+	 * A flaregun osszeszerelese 
+	 */
 	public void repairFlareGun() {
 		this.getCurrentTable().checkFlareGunPart();
 	}
 	
+	/**
+	 * Ha valaki beleesik a lyukba annak a work-je 0
+	 *  
+	 */
 	public void fallInHole() {
 		work=0;
 	}
 	
-	//Setters&Getters
+	/**
+	 * Getter a name-hez.
+	 * @return name 
+	 */
 	public String getName() {
 		return Name;
 	}
+	/**
+	 * Setter a name-hez.
+	 * 
+	 */
 
 	public void setName(String name) {
 		Name = name;
 	}
 
+	/**
+	 * Getter a thp-hez.
+	 * @return thp 
+	 */
 	public int getThp() {
 		return thp;
 	}
 
+	/**
+	 * Setter a thp-hoz.
+	 *  
+	 */
 	public void setThp(int thp) {
 		this.thp = thp;
 		//ha thp egy ala csokken, a jateknak vege
@@ -124,10 +151,18 @@ public abstract class Player extends Character
 			this.getCurrentTable().getIceField().endGame();
 	}
 
+	/**
+	 * Getter a work-hoz.
+	 * @return work 
+	 */
 	public int getWork() {
 		return work;
 	}
 
+	/**
+	 * Setter a work-hoz.
+	 * 
+	 */
 	public void setWork(int work) {
 		this.work = work;
 	}
@@ -138,22 +173,37 @@ public abstract class Player extends Character
 		//this.setCurrentTable(currenttable);
 		currenttable.getPlayersOnTable().add(this);
 	}*/
-
+	/**
+	 * Setter az inventoryhoz
+	 * @return inventory 
+	 */
 	public Storable[] getInventory() {
 		return inventory;
 	}
 
+	/**
+	 * Setter az inventoryhoz
+	 * @param inventory 
+	 */
 	public void setInventory(Storable[] inventory) {
 		this.inventory = inventory;
 	}
-
+	/**
+	 * Egy targy kivetele az inventorybol
+	 * @param idx 
+	 */  
 	public void removeFromInventory(int idx) {
 		inventory[idx]=null;
 	}
+	/**
+	 * A jatekos-t tamadas erte. Ezzel veget ert a jatek.
+	 */  
 	public void attacked(){
 		getCurrentTable().getIceField().endGame();
 	}
-
+	/**
+	 * Kiirja a player azonositojat.
+	 */  
 	public abstract void writeOut();
 
 
