@@ -340,7 +340,7 @@ public class CommandHandler {
 	}
 
 	public void pickUp(String name) {
-
+		searchPlayer(name).pickUp();
 	}
 
 	public void addItem(String type, String name) {
@@ -473,7 +473,7 @@ public class CommandHandler {
 
 
 	public void killBear(int index) {
-		
+		PolarBear removedAnimal = testField.getIceTables().get(index).getAnimalsOnTable().get(0);
 		ArrayList<PolarBear> testAnimals = testField.getAnimal();
 		for (int i = 0; i < testAnimals.size(); i++) {
 			if (testAnimals.get(i) == removedAnimal)
