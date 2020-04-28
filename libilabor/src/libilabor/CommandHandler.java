@@ -296,7 +296,7 @@ public class CommandHandler {
 	}
 
 	public void destroyItem(int index) {
-		testField.getIceTables().get(index).setItem(null);
+		testField.getIceTables().get(index).setFrozenItem(null);
 	}
 
 	public void getNb(int index) {

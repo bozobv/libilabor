@@ -102,7 +102,7 @@ public class IceField implements java.io.Serializable
 			{
 				FlareGunPart flg = new FlareGunPart();
 				iceTables.get(RandomNumber).setFrozenItem(flg);
-				if (iceTables.get(RandomNumber).getItem() != null)
+				if (iceTables.get(RandomNumber).getFrozenItem() != null)
 					FGPOnField++;
 			}
 		}
