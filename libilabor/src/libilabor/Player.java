@@ -85,10 +85,7 @@ import java.util.Scanner;
 	 */
 	public void pickUp(){
 		if(this.getCurrentTable().getSnowHeight()>0)return;
-		Item frozenitem=this.getCurrentTable().getFrozenItem();
-		if(inventory[frozenitem.getId()]==null) {
-			frozenitem.pickedUpBy(this);
-		}
+		this.getCurrentTable().getFrozenItem().pickedUpBy(this);
 	}
 	/**
 	 * Adott targy hozzaadasa az inventoryhoz
