@@ -3,7 +3,7 @@ package libilabor;
 /**
  * az iglut megvalósító osztály
  */
-public class Igloo implements Construction {
+public class Igloo implements Construction, java.io.Serializable {
 	/**
 	 * kiir dolgokat
 	 */

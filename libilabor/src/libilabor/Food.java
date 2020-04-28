@@ -1,6 +1,6 @@
 package libilabor;
 
-public class Food extends Instant 
+public class Food extends Instant implements java.io.Serializable
 {
 
 

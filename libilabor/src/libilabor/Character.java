@@ -3,7 +3,7 @@ package libilabor;
 /**
  * a karaktereket osszefogo absztrakt osztaly
  */
-public abstract class Character {
+public abstract class Character implements java.io.Serializable {
 	/**
 	 * az a tabla, amelyen a karakter jelenleg tartozkodik
 	 */

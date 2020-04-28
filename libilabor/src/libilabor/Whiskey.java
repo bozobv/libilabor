@@ -1,6 +1,6 @@
 package libilabor;
 
-public class Whiskey extends Instant 
+public class Whiskey extends Instant implements java.io.Serializable 
 {
 
 

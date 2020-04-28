@@ -3,7 +3,7 @@ package libilabor;
 /**
  * absztrakt osztaly, ami a jatekosok altal eltarolhato targyak kozos viselkedeset irja le
  */
-public abstract class Storable extends Item
+public abstract class Storable extends Item implements java.io.Serializable
 {
 	/**
 	 * absztrakt fv, akkor fog meghivodni a leszarmazottaknal, ha egy jatekos felveszi oket

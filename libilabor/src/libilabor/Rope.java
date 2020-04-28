@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * a kotelt megvalosito osztaly
  */
-public class Rope extends Storable
+public class Rope extends Storable implements java.io.Serializable
 {
 	/**
 	 * konstruktor, beallitja az id-t a megfelelo ertekre

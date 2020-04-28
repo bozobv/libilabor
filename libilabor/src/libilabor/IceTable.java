@@ -3,7 +3,7 @@ package libilabor;
 import java.util.ArrayList;
 
 
-public abstract class IceTable 
+public abstract class IceTable implements java.io.Serializable
 {
 	/**A ho magassaga a tablan*/
 	private int snowHeight;

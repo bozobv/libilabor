@@ -1,6 +1,6 @@
 package libilabor;
 
-public abstract class Instant extends Item 
+public abstract class Instant extends Item implements java.io.Serializable
 {
 	private static int  INSTANT_ID=4;
 

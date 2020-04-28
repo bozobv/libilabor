@@ -1,6 +1,6 @@
 package libilabor;
 
-public class Eskimo extends Player 
+public class Eskimo extends Player implements java.io.Serializable
 {
 	/**
 	 * konstruktor

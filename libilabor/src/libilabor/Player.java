@@ -3,7 +3,7 @@ package libilabor;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public abstract class Player extends Character {
+public abstract class Player extends Character implements java.io.Serializable {
 	private static final int INVENTORY_STARTING_SIZE = 5;
 	public static int id = 0;
 
