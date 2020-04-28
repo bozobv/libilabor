@@ -33,6 +33,12 @@ public class StableTable extends IceTable
 				this.getPlayersOnTable().get(i).writeOut();
 				System.out.print(",");
 			}
+		if(this.getAnimalsOnTable() != null)
+			for(int i = 0; i < this.getAnimalsOnTable().size(); i++)
+			{
+				this.getAnimalsOnTable().get(i).writeOut();
+				System.out.print(",");
+			}
 		System.out.print(")");		
 	}
 

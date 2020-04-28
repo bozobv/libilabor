@@ -4,7 +4,7 @@ public abstract class Character {
 	private IceTable currentTable;
 
 	public Character(IceTable it) {
-		currentTable=it;
+		currentTable = it;
 	}
 	
 	//public abstract void step();
@@ -14,7 +14,10 @@ public abstract class Character {
 	public IceTable getCurrentTable() {
 		return currentTable;
 	}
-	public abstract void setCurrentTable(IceTable currentTable);
+	public void setCurrentTable(IceTable inCurrentTable)
+	{
+		currentTable = inCurrentTable;
+	}
 
 	public void writeOut() {}
 

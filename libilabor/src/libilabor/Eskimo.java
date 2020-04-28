@@ -26,7 +26,7 @@ public class Eskimo extends Player
 				System.out.print(", ");
 			}
 		}
-		System.out.print("),");
+		System.out.print(")");
 
 		
 	}
