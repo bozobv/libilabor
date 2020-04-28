@@ -6,14 +6,18 @@ public class StableTable extends IceTable
 	/*public int getCapacity() {
 		return this.getIceField().getPlayers().size();
 	}*/
-	/**konstruktorban beallitjuk a capacityt -1-r hogy egyszeruen meg tudjuk kulonboztetni a tobbitol*/
+	/**
+	 * konstruktorban beallitjuk a capacityt -1-r hogy egyszeruen meg tudjuk kulonboztetni a tobbitol
+	 */
 	public StableTable()
 	{
 		super();
 		this.setCapacity(-1);
 	}
 	
-	/**kiirja a tabla adatait a kimenetre*/
+	/**
+	 * kiirja a tabla adatait a kimenetre
+	 */
 	public void writeOut() 
 	{
 		System.out.print("ST(" + this.getCapacity() + "," + this.getSnowHeight() + ",");
