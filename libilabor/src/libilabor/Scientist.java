@@ -36,7 +36,7 @@ public class Scientist extends Player
 				System.out.print(", ");
 			}
 		}
-		System.out.print("),");
+		System.out.print(")");
 	}
 
 }
