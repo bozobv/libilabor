@@ -7,7 +7,8 @@ public class Shovel extends Storable
 		this.setId(SHOVEL);
 	}
 	public void used(Player p){
-		p.getCurrentTable().setSnowHeight(2);
+		p.getCurrentTable().setSnowHeight(p.getCurrentTable().getSnowHeight()-2);
+		if(p.getCurrentTable().getSnowHeight()<=0)p.getCurrentTable().setSnowHeight(0);
 	}
     public void pickedUpBy(Player p) {
         p.addToInventory(this);

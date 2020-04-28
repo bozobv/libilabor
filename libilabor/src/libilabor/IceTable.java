@@ -117,7 +117,6 @@ public abstract class IceTable
 	}
 	
 	public void removePlayer(Player character) {
-		
 		playersOnTable.remove(this.playersOnTable.indexOf(character));
 	}
 	public void removeAnimal(PolarBear character) {
