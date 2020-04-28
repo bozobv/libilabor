@@ -136,6 +136,15 @@ public abstract class IceTable implements java.io.Serializable
 		p.getCurrentTable().removePlayer(p);
 		p.setCurrentTable(this);
 	}
+	
+	public void polarBearVisit(PolarBear pb) 
+	{	
+		this.animalsOnTable.add(pb);
+		pb.getCurrentTable().removeAnimal(pb);
+		pb.setCurrentTable(this);
+		attacked();
+	}
+	
 	/**A hovihar kezelese az tablan*/
 	public void blizzardComing() {
 		if(this.snowHeight < 5)
