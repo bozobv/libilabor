@@ -435,7 +435,7 @@ public class CommandHandler {
 	public void buildIgloo(String name) {
 		for (Player player : this.testField.getPlayers()) {
 			if (player.getName().equals(name))
-				player.useSkill(player.currentTable);
+				player.useSkill(player.getCurrentTable());
 		}
 	}
 
