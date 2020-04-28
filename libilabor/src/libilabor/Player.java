@@ -160,7 +160,7 @@ public abstract class Player extends Character
 		getCurrentTable().getIceField().endGame();
 	}
 
-	public void writeOut() {}
+	public abstract void writeOut();
 
 
 }
