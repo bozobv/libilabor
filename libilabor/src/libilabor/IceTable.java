@@ -179,8 +179,16 @@ public abstract class IceTable implements java.io.Serializable
 	}
 	/**ez tortenik ha medve lep ide*/
 	public void attacked(){
-		if(construction!=null&&playersOnTable.size()>0){
-			construction.attacked(playersOnTable.get(0));
+		if(playersOnTable.size()>0){
+			if(construction!=null){
+				construction.attacked(playersOnTable.get(0));
+			}
+			else{
+				playersOnTable.get(0).attacked();
+			}
+		}
+		else{
+			System.out.println("nincs jatekos a tablan");
 		}
 	}
 	/**kiiro fuggveny*/
