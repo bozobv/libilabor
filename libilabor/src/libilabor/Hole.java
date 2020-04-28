@@ -59,14 +59,17 @@ public class Hole extends IceTable implements java.io.Serializable
 			System.out.print("null");
 		else
 			this.getConstruction().writeOut();
-		System.out.print(",");
 		if(this.getPlayersOnTable() == null)
-			System.out.print("null");
+			System.out.print(",null");
 		else
 			for(int i = 0; i < this.getPlayersOnTable().size(); i++)
 			{
 				this.getPlayersOnTable().get(i).writeOut();
-				System.out.print(",");
+			}
+		if(this.getAnimalsOnTable() != null)
+			for(int i = 0; i < this.getAnimalsOnTable().size(); i++)
+			{
+				this.getAnimalsOnTable().get(i).writeOut();
 			}
 		System.out.print(")");		
 	}
