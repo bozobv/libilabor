@@ -86,12 +86,7 @@ public class CommandHandler {
 
 					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]), Integer.parseInt(inputWords[4]));
 
-					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]),
-							Integer.parseInt(inputWords[4]));
-
-
-					this.createIceField(inputWords[2], Integer.parseInt(inputWords[3]),
-							Integer.parseInt(inputWords[4]));
+					
 
 
 				if (inputWords[1].equals("icefield"))
