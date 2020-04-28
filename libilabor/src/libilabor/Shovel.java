@@ -3,7 +3,7 @@ package libilabor;
 /**
  * lapat osztaly
  */
-public class Shovel extends Storable 
+public class Shovel extends Storable implements java.io.Serializable
 {
 	/**
 	 * konstruktor, ami beallitja az id-t a megfelelo ertekre

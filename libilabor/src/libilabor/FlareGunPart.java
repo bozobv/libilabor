@@ -3,7 +3,7 @@ package libilabor;
 /**
  * a flaregundarabot megvalosito osztaly
  */
-public class FlareGunPart extends Storable 
+public class FlareGunPart extends Storable implements java.io.Serializable
 {
 	/**
 	 * konstruktor, beallitja az id-t a megfelelo ertekre

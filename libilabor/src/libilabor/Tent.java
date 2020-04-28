@@ -3,7 +3,7 @@ package libilabor;
 /**
  * satort megvalosito osztaly
  */
-public class Tent extends Storable implements Construction {
+public class Tent extends Storable implements Construction, java.io.Serializable {
 
 	/**
 	 * konstruktor, beallitja az id-t a megfelelo ertekre
@@ -41,7 +41,7 @@ public class Tent extends Storable implements Construction {
 	 */
 	public void writeOut()
 	{
-		System.out.print("t");
+		System.out.print("tent");
 	}
 
 }

@@ -2,7 +2,7 @@ package libilabor;
 
 
 import java.util.*;
-public class UnstableTable extends IceTable 
+public class UnstableTable extends IceTable implements java.io.Serializable
 {
 	/**konstruktor
 	 * @param cap megadja hogy a kapacitas max mekkora lehet
@@ -35,7 +35,7 @@ public class UnstableTable extends IceTable
 	/**kiirja a tabla adatait*/
 	public void writeOut() 
 	{
-		System.out.print("UT(" + this.getCapacity() + "," + this.getSnowHeight());
+		System.out.print("UT(" + this.getCapacity() + "," + this.getSnowHeight() + ",");
 		if(this.getFrozenItem() == null)
 			System.out.print("null");
 		else

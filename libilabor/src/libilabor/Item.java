@@ -1,6 +1,6 @@
 package libilabor;
 
-public abstract class Item 
+public abstract class Item implements java.io.Serializable
 {
 	/**
 	 * a targy azonositoja

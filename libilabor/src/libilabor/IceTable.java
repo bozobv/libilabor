@@ -3,7 +3,7 @@ package libilabor;
 import java.util.ArrayList;
 
 
-public abstract class IceTable 
+public abstract class IceTable implements java.io.Serializable
 {
 	/**A ho magassaga a tablan*/
 	private int snowHeight;
@@ -136,6 +136,8 @@ public abstract class IceTable
 	}
 	/**A hovihar kezelese az tablan*/
 	public void blizzardComing() {
+		if(this.snowHeight < 5)
+			this.setSnowHeight(snowHeight + 1);
 		if (playersOnTable != null && getConstruction() == null) {
 			for (int i = 0; i < playersOnTable.size(); i++) {
 				int newThp = (playersOnTable.get(i)).getThp() - 1;

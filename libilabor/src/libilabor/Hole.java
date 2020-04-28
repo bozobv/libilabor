@@ -1,6 +1,6 @@
 package libilabor;
 
-public class Hole extends IceTable 
+public class Hole extends IceTable implements java.io.Serializable
 {	
 	/**konstruktor*/
 	public Hole() {

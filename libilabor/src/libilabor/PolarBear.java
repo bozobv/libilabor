@@ -3,7 +3,7 @@ package libilabor;
 /**
  * a jegesmedvet megvalosito osztaly
  */
-public class PolarBear extends Character {
+public class PolarBear extends Character implements java.io.Serializable{
 	/**
 	 * konstruktor
 	 * @param it a jegtabla amire a jegesmedvet letrehozzuk
