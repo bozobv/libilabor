@@ -154,7 +154,9 @@ public abstract class Player extends Character
 	public void attacked(){
 		getCurrentTable().getIceField().endGame();
 	}
-
+	/**
+	 * Kiirja a player azonositojat.
+	 */  
 	public abstract void writeOut();
 
 
