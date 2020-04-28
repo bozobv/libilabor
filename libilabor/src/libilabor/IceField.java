@@ -122,56 +122,6 @@ public class IceField implements java.io.Serializable
 			iceTables.get(i).setNeighbours(neighbours);	
 		}
 		
-		
-		
-		// random item letrehozas es lepakolas
-		int NumberOfItems = 8;
-		int ItemSetChance = rand.nextInt(FrozenItemDrop);
-		int RandomItem = rand.nextInt(NumberOfItems);
-		for (int i = 0; i < iceTables.size(); i++) 
-		{
-			if (iceTables.get(i).getFrozenItem() != null) 
-			{
-				if (ItemSetChance == 0) {
-					switch (RandomItem) {
-					case 0:
-						Item Adr = new Adrenalin();
-						iceTables.get(i).setFrozenItem(Adr);
-						break;
-					case 1:
-						Item F = new Food();
-						iceTables.get(i).setFrozenItem(F);
-						break;
-					case 2:
-						Item SS = new ScubaSuit();
-						iceTables.get(i).setFrozenItem(SS);
-						break;
-					case 3:
-						Item Sh = new Shovel();
-						iceTables.get(i).setFrozenItem(Sh);
-						break;
-					case 4:
-						Item R = new Rope();
-						iceTables.get(i).setFrozenItem(R);
-						break;
-					case 5:
-						Item Wh = new Whiskey();
-						iceTables.get(i).setFrozenItem(Wh);
-						break;
-					case 6:
-						Item WSh = new WeakShovel();
-						iceTables.get(i).setFrozenItem(WSh);
-						break;
-					case 7:
-						Item T = new Tent();
-						iceTables.get(i).setFrozenItem(T);
-						break;
-					default:
-					}
-				}
-			}
-		}
-		
 		// itemek elhelyezese
 		// FlareGunParts elhelyezes:
 		int FGPOnField = 0;
@@ -188,7 +138,61 @@ public class IceField implements java.io.Serializable
 						FGPOnField++;
 					}
 			}
+		}		
+		
+		// random item letrehozas es lepakolas
+		int NumberOfItems = 8;
+		int ItemSetChance = rand.nextInt(FrozenItemDrop);
+		
+		for (int i = 0; i < iceTables.size(); i++) 
+		{
+			if (iceTables.get(i).getFrozenItem() == null)
+			{
+					if (ItemSetChance == FrozenItemDrop - 1)
+					{
+						int RandomItem = rand.nextInt(NumberOfItems);
+						switch (RandomItem) 
+						{
+						case 0:
+							Item Adr = new Adrenalin();
+							iceTables.get(i).setFrozenItem(Adr);
+							break;
+						case 1:
+							Item F = new Food();
+							iceTables.get(i).setFrozenItem(F);
+							break;
+						case 2:
+							Item SS = new ScubaSuit();
+							iceTables.get(i).setFrozenItem(SS);
+							break;
+						case 3:
+							Item Sh = new Shovel();
+							iceTables.get(i).setFrozenItem(Sh);
+							break;
+						case 4:
+							Item R = new Rope();
+							iceTables.get(i).setFrozenItem(R);
+							break;
+						case 5:
+							Item Wh = new Whiskey();
+							iceTables.get(i).setFrozenItem(Wh);
+							break;
+						case 6:
+							Item WSh = new WeakShovel();
+							iceTables.get(i).setFrozenItem(WSh);
+							break;
+						case 7:
+							Item T = new Tent();
+							iceTables.get(i).setFrozenItem(T);
+							break;
+						default:
+						}
+					}
+			}
+			
 		}
+		
+		
 		//playerek elhelyezese a tablara
 		for(int i = 0; i < players.size(); i++ )
 		{
