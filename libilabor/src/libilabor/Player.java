@@ -45,7 +45,8 @@ public abstract class Player extends Character implements java.io.Serializable {
 		}
 	}
 
-	public void useItem(int player_choice,int idx) {
+	public void useItem(int player_choice,int idx)
+	{
 		if (inventory[player_choice] != null)
 			inventory[player_choice].used(this,idx);
 	}
@@ -79,7 +80,8 @@ public abstract class Player extends Character implements java.io.Serializable {
 	}
 
 	public void repairFlareGun() {
-		this.getCurrentTable().checkFlareGunPart();
+		 if (this.getCurrentTable().checkFlareGunPart() == 3)
+			 System.out.println("GYŐZELEEEEEEEEEEEEM");
 	}
 
 	public void fallInHole() {
