@@ -40,7 +40,7 @@ public class Hole extends IceTable
 	
 	public void writeOut() 
 	{
-		System.out.print("H(" + this.getCapacity() + "," + this.getSnowHeight());
+		System.out.print("H(" + this.getCapacity() + "," + this.getSnowHeight() + ",");
 		System.out.print("null,");
 		if(this.getConstruction() == null)
 			System.out.print("null");
