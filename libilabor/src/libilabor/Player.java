@@ -76,6 +76,7 @@ import java.util.Scanner;
 			inventory[3].used(this,0);
 		} else {
 			this.getCurrentTable().setSnowHeight(this.getCurrentTable().getSnowHeight() - 1);
+			if(this.getCurrentTable().getSnowHeight()<=0)this.getCurrentTable().setSnowHeight(0);
 		}
 	}
 	

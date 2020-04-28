@@ -1,5 +1,7 @@
 package libilabor;
 
+import java.util.ArrayList;
+
 /**
  * a jegesmedvet megvalosito osztaly
  */
@@ -42,7 +44,12 @@ public class PolarBear extends Character implements java.io.Serializable{
 	 * @param it a tabla amire mozdulni szeretne
 	 */
     public void move(IceTable it) {
-
+    	ArrayList<IceTable> neighbours = this.getCurrentTable().getNeighbours();
+		for (IceTable iceTable : neighbours) 
+		{
+			if (it == iceTable)
+				iceTable.polarBearVisit(this);
+			}
     }
 
 	/**
