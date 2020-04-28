@@ -14,7 +14,7 @@ public class StableTable extends IceTable
 	
 	public void writeOut() 
 	{
-		System.out.print("ST(" + this.getCapacity() + "," + this.getSnowHeight());
+		System.out.print("ST(" + this.getCapacity() + "," + this.getSnowHeight() + ",");
 		if(this.getFrozenItem() == null)
 			System.out.print("null");
 		else
@@ -31,6 +31,12 @@ public class StableTable extends IceTable
 			for(int i = 0; i < this.getPlayersOnTable().size(); i++)
 			{
 				this.getPlayersOnTable().get(i).writeOut();
+				System.out.print(",");
+			}
+		if(this.getAnimalsOnTable() != null)
+			for(int i = 0; i < this.getAnimalsOnTable().size(); i++)
+			{
+				this.getAnimalsOnTable().get(i).writeOut();
 				System.out.print(",");
 			}
 		System.out.print(")");		
