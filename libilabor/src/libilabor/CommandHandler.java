@@ -185,7 +185,7 @@ public class CommandHandler {
 
 	}	
 
-	private void createEmptyIceField() 
+	public void createEmptyIceField() 
 	{
 		testField = new IceField();
 	}
@@ -256,7 +256,7 @@ public class CommandHandler {
 		switch(type) {
 		case "empty": testField = new IceField(); break;
 		case "defined" : testField = new IceField(height, width, FrozenItemDrop, basicSnowHeight); break;
-		case "random": testField = new IceField(h, w, d, s); break;
+		case "random": testField = new IceField(height, width, d, s); break;
 		default: break;
 		}
 		

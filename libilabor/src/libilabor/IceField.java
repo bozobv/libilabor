@@ -122,20 +122,7 @@ public class IceField implements java.io.Serializable
 			iceTables.get(i).setNeighbours(neighbours);	
 		}
 		
-		// itemek elhelyezese
-		// FlareGunParts elhelyezes:
-		int FGPOnField = 0;
-		while (FGPOnField <= 3) 
-		{
-			int RandomNumber = rand.nextInt(height * width - 1);
-			if (iceTables.get(RandomNumber).getFrozenItem() == null) 
-			{
-				FlareGunPart flg = new FlareGunPart();
-				iceTables.get(RandomNumber).setFrozenItem(flg);
-				if (iceTables.get(RandomNumber).getFrozenItem() != null)
-					FGPOnField++;
-			}
-		}
+		
 		
 		// random item letrehozas es lepakolas
 		int NumberOfItems = 8;
@@ -185,6 +172,23 @@ public class IceField implements java.io.Serializable
 			}
 		}
 		
+		// itemek elhelyezese
+		// FlareGunParts elhelyezes:
+		int FGPOnField = 0;
+		while (FGPOnField <= 2) 
+		{
+			int RandomNumber = rand.nextInt(height * width);
+			if (iceTables.get(RandomNumber).getFrozenItem() == null) 
+			{
+				FlareGunPart flg = new FlareGunPart();
+				iceTables.get(RandomNumber).setFrozenItem(flg);
+
+				if (iceTables.get(RandomNumber).getFrozenItem() != null)
+					{
+						FGPOnField++;
+					}
+			}
+		}
 		//playerek elhelyezese a tablara
 		for(int i = 0; i < players.size(); i++ )
 		{
