@@ -32,11 +32,12 @@ public class Scientist extends Player
 		{
 			if (inv[i] != null)
 			{
-				inv[i].writeOut();
 				System.out.print(", ");
+				inv[i].writeOut();
+				
 			}
 		}
-		System.out.print("),");
+		System.out.print(")");
 	}
 
 }

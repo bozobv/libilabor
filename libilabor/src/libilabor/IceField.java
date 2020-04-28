@@ -174,7 +174,7 @@ public class IceField implements java.io.Serializable
 		while (i < players.size())  // mindegyik jatekosnak meghivja a step fuggvenyet, az utolso
 									// jatekosnal ujrainditja a szamlalot
 		{
-			players.get(i).step();
+			//players.get(i).step();
 			// ha elozo korben valaki vizbeesett, es meg ebben
 			// a korben is benne van, akkor vege a jateknak
 			if (playerInWater == true && playerDrowning == true)
@@ -409,7 +409,7 @@ public class IceField implements java.io.Serializable
 	{
 		for(int i = 0; i < iceTables.size(); i++ )
 		{
-			System.out.println(i);
+			System.out.print(i);
 			iceTables.get(i).writeOut();
 			System.out.print("(");
 			ArrayList<IceTable> nbs = iceTables.get(i).getNeighbours();
@@ -421,7 +421,7 @@ public class IceField implements java.io.Serializable
 						System.out.print(k + ", ");
 				}
 			}
-			System.out.print(")");
+			System.out.println(")");
 		}
 	}
 }
