@@ -18,7 +18,7 @@ public abstract class Player extends Character
 
 	
 	public Player(String name, int thp, int work, IceTable currentTable) {
-		super();
+		super(currentTable);
 		Name = name;
 		this.thp = thp;
 		this.work = work;

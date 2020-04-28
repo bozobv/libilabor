@@ -212,8 +212,7 @@ public class CommandHandler {
 	}
 
 	public void addBear(int index) {
-		PolarBear bear = new PolarBear();
-		bear.setCurrentTable(testField.getIceTables().get(index));
+		PolarBear bear = new PolarBear(testField.getIceTables().get(index));
 		testField.getIceTables().get(index).getAnimalsOnTable().add(bear);
 	}
 
