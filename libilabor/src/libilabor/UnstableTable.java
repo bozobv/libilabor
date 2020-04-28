@@ -2,7 +2,7 @@ package libilabor;
 
 
 import java.util.*;
-public class UnstableTable extends IceTable 
+public class UnstableTable extends IceTable implements java.io.Serializable
 {
 	/**konstruktor
 	 * @param cap megadja hogy a kapacitas max mekkora lehet

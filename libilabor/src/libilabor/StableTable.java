@@ -1,7 +1,7 @@
 package libilabor;
 
 
-public class StableTable extends IceTable 
+public class StableTable extends IceTable implements java.io.Serializable
 {
 	/*public int getCapacity() {
 		return this.getIceField().getPlayers().size();

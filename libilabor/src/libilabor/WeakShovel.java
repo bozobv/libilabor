@@ -3,7 +3,7 @@ package libilabor;
 /**
  * a torekeny asot megvalosito osztaly
  */
-public class WeakShovel extends Shovel 
+public class WeakShovel extends Shovel implements java.io.Serializable
 {
     /**
      * az aso tartossaga

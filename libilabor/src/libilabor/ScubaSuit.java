@@ -3,7 +3,7 @@ package libilabor;
 /**
  * a buvarruhat megvalosito osztaly
  */
-public class ScubaSuit extends Storable 
+public class ScubaSuit extends Storable implements java.io.Serializable
 {
 	/**
 	 * konstruktor, ami beallitja az id-t a megfelelo ertekre

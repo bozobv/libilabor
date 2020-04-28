@@ -366,17 +366,17 @@ public class CommandHandler {
 
 		Storable item;
 		switch(type){
-			case "fg":
+			case "flaregun":
 				item=new FlareGunPart();break;
-			case "r":
+			case "rope":
 				item=new Rope();break;
-			case "sc":
+			case "scubasuit":
 				item=new ScubaSuit();break;
-			case "s":
+			case "shovel":
 				item=new Shovel();break;
-			case "ws":
+			case "weakshovel":
 				item=new WeakShovel();break;
-			case "t":
+			case "tent":
 				item=new Tent();break;
 			default:
 				System.out.println("Helytelen parameter!");
