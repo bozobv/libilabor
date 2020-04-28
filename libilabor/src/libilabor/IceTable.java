@@ -180,7 +180,7 @@ public abstract class IceTable
 			construction.attacked(playersOnTable.get(0));
 		}
 	}
-	/**kiiro függvény*/
+	/**kiiro fuggveny*/
 	public abstract void writeOut();
 
 }
