@@ -17,7 +17,8 @@ public class Shovel extends Storable
 	 * @param p a jatekos aki a targyat hasznalja
 	 */
 	public void used(Player p){
-		p.getCurrentTable().setSnowHeight(2);
+		p.getCurrentTable().setSnowHeight(p.getCurrentTable().getSnowHeight()-2);
+		if(p.getCurrentTable().getSnowHeight()<=0)p.getCurrentTable().setSnowHeight(0);
 	}
 
 	/**

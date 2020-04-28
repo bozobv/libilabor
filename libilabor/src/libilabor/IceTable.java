@@ -166,7 +166,6 @@ public abstract class IceTable
 	 * @param character torolni kivant jatekos
 	 * */
 	public void removePlayer(Player character) {
-		
 		playersOnTable.remove(this.playersOnTable.indexOf(character));
 	}
 	/**eltavolitja a paramterkent kapott medvet a tablarol
