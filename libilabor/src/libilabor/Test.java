@@ -9,7 +9,7 @@ public class Test {
 
     public static void main(String[] args)
     {
-    	String filePath = new File("").getAbsolutePath();
+    	/*String filePath = new File("").getAbsolutePath();
     	File file1 = new File(filePath +"/libilabor/src/kimenet.txt"); 
     	File file2 = new File(filePath +"/libilabor/src/elvart_kimenet.txt");
     	try{  
@@ -18,7 +18,7 @@ public class Test {
     	}   
     	catch (IOException e){  
     	e.printStackTrace();    
-    	}         
+    	}  /*/       
     	
     	
     	CommandHandler ch = new CommandHandler();

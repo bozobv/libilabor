@@ -185,12 +185,7 @@ public class CommandHandler {
 					this.callBlizzard(Integer.parseInt(inputWords[2]));
 				break;
 			}
-			try {
-				CompareTexts.writeToKimenet(gameStance());
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} 
+				/*CompareTexts.writeToKimenet(*/gameStance();
 		}
 		scanner.close();
 

@@ -34,40 +34,40 @@ public class UnstableTable extends IceTable implements java.io.Serializable
 	public String writeOut() 
 	{
 		String tmp = "";
-		tmp.concat("UT(" + this.getCapacity() + "," + this.getSnowHeight() + ",");
+		tmp =tmp.concat("UT(" + this.getCapacity() + "," + this.getSnowHeight() + ",");
 		System.out.print(tmp);
 		if(this.getFrozenItem() == null) {
-			tmp.concat("null");
+			tmp =tmp.concat("null");
 			System.out.print("null");
 		}
 		else {
-			tmp.concat(this.getFrozenItem().writeOut());
-			tmp.concat(",");
+			tmp =tmp.concat(this.getFrozenItem().writeOut());
+			tmp =tmp.concat(",");
 			System.out.print(",");
 		}
 		if(this.getConstruction() == null) {
-			tmp.concat("null");
+			tmp =tmp.concat("null");
 			System.out.print("null");
 		}
 		else {
-			tmp.concat(this.getConstruction().writeOut());
+			tmp =tmp.concat(this.getConstruction().writeOut());
 		}
 		if(this.getPlayersOnTable() == null) {
 			System.out.print(",null");
-			tmp.concat(",null");
+			tmp =tmp.concat(",null");
 		}
 		else
 			for(int i = 0; i < this.getPlayersOnTable().size(); i++)
 			{
-				tmp.concat(this.getPlayersOnTable().get(i).writeOut());
+				tmp =tmp.concat(this.getPlayersOnTable().get(i).writeOut());
 			}
 		if(this.getAnimalsOnTable() != null)
 			for(int i = 0; i < this.getAnimalsOnTable().size(); i++)
 			{
-				tmp.concat(this.getAnimalsOnTable().get(i).writeOut());
+				tmp =tmp.concat(this.getAnimalsOnTable().get(i).writeOut());
 			}
 		System.out.print(")");
-		tmp.concat(")");
+		tmp =tmp.concat(")");
 		return tmp;
 	}
 
