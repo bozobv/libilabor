@@ -27,11 +27,11 @@ public class StableTable extends IceTable implements java.io.Serializable
 			tmp.concat("null");
 			System.out.print("null");
 		}
-		else {
+		else 
 			tmp =tmp.concat(this.getFrozenItem().writeOut());
 			tmp =tmp.concat(",");
 			System.out.print(",");
-		}
+		
 		if(this.getConstruction() == null) {
 			tmp =tmp.concat("null");
 			System.out.print("null");
