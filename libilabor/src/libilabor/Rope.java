@@ -87,9 +87,10 @@ public class Rope extends Storable implements java.io.Serializable
 	/**
 	 * kiir dolgokat
 	 */
-	public void writeOut() 
+	public String writeOut() 
 	{
 		System.out.print("r");
+		return "r";
 	}
 
 }

@@ -19,9 +19,10 @@ public class Adrenalin extends Instant implements java.io.Serializable
 	/**
 	 * Kiirja az adrenalin azonositojat.
 	 */  
-	public void writeOut() 
+	public String writeOut() 
 	{
 		System.out.print("adr");
+		return "adr";
 	}
 
 

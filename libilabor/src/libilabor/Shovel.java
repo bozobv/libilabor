@@ -32,9 +32,10 @@ public class Shovel extends Storable implements java.io.Serializable
 	/**
 	 * kiir dolgokat
 	 */
-	public void writeOut() 
+	public String writeOut() 
 	{
 		System.out.print("sh");
+		return "sh";
 	}
 
 }

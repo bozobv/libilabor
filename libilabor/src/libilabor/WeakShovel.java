@@ -48,8 +48,9 @@ public class WeakShovel extends Shovel implements java.io.Serializable
     /**
      * kiir dolgokat
      */
-    public void writeOut()
+    public String writeOut()
     {
     	System.out.print("wsh");
+    	return "wsh";
     }
 }

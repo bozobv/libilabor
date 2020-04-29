@@ -22,6 +22,6 @@ public abstract class Storable extends Item implements java.io.Serializable
 	/**
 	 * ezzel irja ki a dolgokat
 	 */
-	public abstract void writeOut();
+	public abstract String writeOut();
 
 }

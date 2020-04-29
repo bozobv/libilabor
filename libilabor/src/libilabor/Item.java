@@ -38,7 +38,7 @@ public abstract class Item implements java.io.Serializable
 	 * kiirja az item adatait
 	 * absztrakt mert minden leszarmozatnak peldanyositani kell
 	 */
-	public void writeOut() {}
+	public abstract String writeOut();
 
 }
 

@@ -7,9 +7,10 @@ public class Igloo implements Construction, java.io.Serializable {
 	/**
 	 * kiir dolgokat
 	 */
-	public void writeOut() 
+	public String writeOut() 
 	{
 		System.out.print("iglo");
+		return "iglo";
 	}
 
 	/**

@@ -23,9 +23,10 @@ public class ScubaSuit extends Storable implements java.io.Serializable
 	/**
 	 * kiir dolgokat
 	 */
-	public void writeOut() 
+	public String writeOut() 
 	{
 		System.out.print("sc");
+		return "sc";
 	}
 
 }
