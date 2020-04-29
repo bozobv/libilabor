@@ -39,10 +39,8 @@ public class Eskimo extends Player implements java.io.Serializable
 			if (inv[i] != null)
 			{
 				str.concat(", ");
-				str.concat(inv[i].writeOut());
 				System.out.print(", ");
-				inv[i].writeOut();
-				
+				str.concat(inv[i].writeOut());			
 			}
 		}
 		str.concat(")");
