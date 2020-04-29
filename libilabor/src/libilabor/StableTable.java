@@ -18,20 +18,21 @@ public class StableTable extends IceTable implements java.io.Serializable
 	/**
 	 * kiirja a tabla adatait a kimenetre
 	 */
-	public void writeOut() 
+	public String writeOut() 
 	{
-		System.out.print("ST(" + this.getCapacity() + "," + this.getSnowHeight() + ",");
+		String tmp ="";
+		tmp.concat("ST(" + this.getCapacity() + "," + this.getSnowHeight() + ",");
 		if(this.getFrozenItem() == null)
-			System.out.print("null");
+			tmp.concat("null");
 		else
 			this.getFrozenItem().writeOut();
-		System.out.print(",");
+		tmp.concat(",");
 		if(this.getConstruction() == null)
-			System.out.print("null");
+			tmp.concat("null");
 		else
 			this.getConstruction().writeOut();
 		if(this.getPlayersOnTable() == null)
-			System.out.print(",null");
+			tmp.concat(",null");
 		else
 			for(int i = 0; i < this.getPlayersOnTable().size(); i++)
 			{
@@ -42,7 +43,8 @@ public class StableTable extends IceTable implements java.io.Serializable
 			{
 				this.getAnimalsOnTable().get(i).writeOut();
 			}
-		System.out.print(")");		
+		tmp.concat(")");		
+		return tmp;
 	}
 
 }
