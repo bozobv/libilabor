@@ -42,6 +42,7 @@ public class Tent extends Storable implements Construction, java.io.Serializable
 	 */
 	public String writeOut()
 	{
+		System.out.print("tent");
 		return "tent";
 	}
 

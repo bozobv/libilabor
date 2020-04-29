@@ -25,6 +25,7 @@ public class ScubaSuit extends Storable implements java.io.Serializable
 	 */
 	public String writeOut() 
 	{
+		System.out.print("sc");
 		return "sc";
 	}
 

@@ -9,6 +9,7 @@ public class Igloo implements Construction, java.io.Serializable {
 	 */
 	public String writeOut() 
 	{
+		System.out.print("iglo");
 		return "iglo";
 	}
 

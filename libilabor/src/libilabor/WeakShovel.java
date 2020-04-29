@@ -50,6 +50,7 @@ public class WeakShovel extends Shovel implements java.io.Serializable
      */
     public String writeOut()
     {
+    	System.out.print("wsh");
     	return "wsh";
     }
 }

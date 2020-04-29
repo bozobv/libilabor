@@ -34,6 +34,7 @@ public class Shovel extends Storable implements java.io.Serializable
 	 */
 	public String writeOut() 
 	{
+		System.out.print("sh");
 		return "sh";
 	}
 

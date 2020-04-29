@@ -33,6 +33,7 @@ public class FlareGunPart extends Storable implements java.io.Serializable
 	 */
 	public String writeOut() 
 	{
+		System.out.print("fg");
 		return "fg";
 	}
 

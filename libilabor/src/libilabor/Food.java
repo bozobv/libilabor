@@ -24,6 +24,7 @@ public class Food extends Instant implements java.io.Serializable
 	 */  
 	public String writeOut() 
 	{
+		System.out.print("food");
 		return "food";
 	}
 

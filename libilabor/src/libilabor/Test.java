@@ -25,9 +25,8 @@ public class Test {
     	CommandHandler ch = new CommandHandler();
     	ch.handling();
     	
-    	CompareTexts ct= new CompareTexts();
     	try {
-			ct.compare();
+			CompareTexts.compare();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
