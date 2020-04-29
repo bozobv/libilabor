@@ -50,6 +50,6 @@ public abstract class Character implements java.io.Serializable {
 	/**
 	 * kiir dolgokat
 	 */
-	public void writeOut() {}
+	public abstract String writeOut();
 
 }

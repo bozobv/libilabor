@@ -55,9 +55,10 @@ public class PolarBear extends Character implements java.io.Serializable{
 	/**
 	 * kiir infokat
 	 */
-	public void writeOut() 
+	public String writeOut() 
 	{
 		System.out.print(",pb");
+		return ", pb";
 	}
 
 }

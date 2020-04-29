@@ -27,8 +27,10 @@ public class Eskimo extends Player implements java.io.Serializable
 	/**
 	 * kiirja az eszkimo adatait
 	 */
-	public void writeOut() 
+	public String writeOut() 
 	{
+		String str="";
+		str.concat(",es(" + this.getName() + ", " + this.getThp() + ", " + this.getWork());
 		System.out.print(",es(" + this.getName() + ", " + this.getThp() + ", " + this.getWork());
 		Storable[] inv = this.getInventory();
 
@@ -36,14 +38,16 @@ public class Eskimo extends Player implements java.io.Serializable
 		{
 			if (inv[i] != null)
 			{
+				str.concat(", ");
+				str.concat(inv[i].writeOut());
 				System.out.print(", ");
 				inv[i].writeOut();
 				
 			}
 		}
+		str.concat(")");
 		System.out.print(")");		
-		
-
+		return str;
 	}
 
 }

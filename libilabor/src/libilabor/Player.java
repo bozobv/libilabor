@@ -226,6 +226,6 @@ import java.util.Scanner;
 	/**
 	 * Kiirja a player azonositojat.
 	 */ 
-	public abstract void writeOut();
+	public abstract String writeOut();
 
 }
