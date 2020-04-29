@@ -21,6 +21,10 @@ public class Test {
     	e.printStackTrace();    
     	}         
     	
+    	
+    	CommandHandler ch = new CommandHandler();
+    	ch.handling();
+    	
     	CompareTexts ct= new CompareTexts();
     	try {
 			ct.compare();
@@ -28,7 +32,5 @@ public class Test {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	CommandHandler ch = new CommandHandler();
-    	ch.handling();
     }
  }
