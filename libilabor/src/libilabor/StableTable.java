@@ -20,30 +20,41 @@ public class StableTable extends IceTable implements java.io.Serializable
 	 */
 	public String writeOut() 
 	{
-		String tmp ="";
+		String tmp = "";
 		tmp.concat("ST(" + this.getCapacity() + "," + this.getSnowHeight() + ",");
-		if(this.getFrozenItem() == null)
+		System.out.print(tmp);
+		if(this.getFrozenItem() == null) {
 			tmp.concat("null");
-		else
-			this.getFrozenItem().writeOut();
-		tmp.concat(",");
-		if(this.getConstruction() == null)
+			System.out.print("null");
+		}
+		else {
+			tmp.concat(this.getFrozenItem().writeOut());
+			tmp.concat(",");
+			System.out.print(",");
+		}
+		if(this.getConstruction() == null) {
 			tmp.concat("null");
-		else
-			this.getConstruction().writeOut();
-		if(this.getPlayersOnTable() == null)
+			System.out.print("null");
+		}
+		else {
+			tmp.concat(this.getConstruction().writeOut());
+		}
+		if(this.getPlayersOnTable() == null) {
+			System.out.print(",null");
 			tmp.concat(",null");
+		}
 		else
 			for(int i = 0; i < this.getPlayersOnTable().size(); i++)
 			{
-				this.getPlayersOnTable().get(i).writeOut();
+				tmp.concat(this.getPlayersOnTable().get(i).writeOut());
 			}
 		if(this.getAnimalsOnTable() != null)
 			for(int i = 0; i < this.getAnimalsOnTable().size(); i++)
 			{
-				this.getAnimalsOnTable().get(i).writeOut();
+				tmp.concat(this.getAnimalsOnTable().get(i).writeOut());
 			}
-		tmp.concat(")");		
+		System.out.print(")");
+		tmp.concat(")");
 		return tmp;
 	}
 
