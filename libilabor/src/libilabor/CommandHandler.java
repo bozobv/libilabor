@@ -1,6 +1,7 @@
 package libilabor;
 
 import java.util.Random;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -184,7 +185,12 @@ public class CommandHandler {
 					this.callBlizzard(Integer.parseInt(inputWords[2]));
 				break;
 			}
-			gameStance();
+			try {
+				CompareTexts.writeToKimenet(gameStance());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
 		}
 		scanner.close();
 
@@ -550,9 +556,11 @@ public class CommandHandler {
 
 	}
 
-	public void gameStance() {
+	public String gameStance() {
+		String str="";
 		if (testField != null) {
-			testField.writeOut();
+			str= testField.writeOut();
 		}
+		return str;
 	}
 }
