@@ -20,6 +20,6 @@ public abstract class Instant extends Item implements java.io.Serializable
 	/**
 	 * Kiirja az instant item azonositojat.
 	 */ 
-	public abstract void writeOut();
+	public abstract String writeOut();
 
 } 

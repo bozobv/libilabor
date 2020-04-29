@@ -55,16 +55,17 @@ public class Hole extends IceTable implements java.io.Serializable
 		return 0;
 	}
 	/**kiirja a lyuk adatait*/
-	public void writeOut() 
+	public String writeOut() 
 	{
-		System.out.print("H(" + this.getCapacity() + "," + this.getSnowHeight() + ",");
-		System.out.print("null,");
+		String tmp = "";
+		tmp.concat("H(" + Integer.toString(this.getCapacity()) + "," + Integer.toString(this.getSnowHeight()) + ",");
+		tmp.concat("null,");
 		if(this.getConstruction() == null)
-			System.out.print("null");
+			tmp.concat("null");
 		else
 			this.getConstruction().writeOut();
 		if(this.getPlayersOnTable() == null)
-			System.out.print(",null");
+			tmp.concat(",null");
 		else
 			for(int i = 0; i < this.getPlayersOnTable().size(); i++)
 			{
@@ -75,7 +76,8 @@ public class Hole extends IceTable implements java.io.Serializable
 			{
 				this.getAnimalsOnTable().get(i).writeOut();
 			}
-		System.out.print(")");		
+		tmp.concat(")");
+		return tmp;
 	}
 
 

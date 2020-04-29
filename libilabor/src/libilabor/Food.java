@@ -22,9 +22,9 @@ public class Food extends Instant implements java.io.Serializable
 	/**
 	 * Kiirja a food azonositojat.
 	 */  
-	public void writeOut() 
+	public String writeOut() 
 	{
-		System.out.print("food");
+		return "food";
 	}
 
 

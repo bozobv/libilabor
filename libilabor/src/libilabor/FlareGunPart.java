@@ -31,9 +31,9 @@ public class FlareGunPart extends Storable implements java.io.Serializable
 	/**
 	 * kiir dolgokat
 	 */
-	public void writeOut() 
+	public String writeOut() 
 	{
-		System.out.print("fg");
+		return "fg";
 	}
 
 }

@@ -209,6 +209,6 @@ public abstract class IceTable implements java.io.Serializable
 		}
 	}
 	/**kiiro fuggveny*/
-	public abstract void writeOut();
+	public abstract String writeOut();
 
 }

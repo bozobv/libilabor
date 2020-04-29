@@ -22,9 +22,9 @@ public class Whiskey extends Instant implements java.io.Serializable
 	/**
 	 * Kiirja a whiskey azonositojat.
 	 */  
-	public void writeOut() 
+	public String writeOut() 
 	{
-		System.out.print("wh");
+		return "wh";
 	}
 
 }

@@ -13,5 +13,5 @@ public interface Construction  {
     /**
      * kiirja a dolgokat
      */
-    void writeOut();
+     abstract String writeOut();
 }
