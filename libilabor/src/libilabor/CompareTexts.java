@@ -1,12 +1,14 @@
 package libilabor;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class CompareTexts {
-	public void compare() throws IOException {
+	public static void compare() throws IOException {
 		String filePath = new File("").getAbsolutePath();
 		BufferedReader reader1 = new BufferedReader(new FileReader(filePath +"/libilabor/src/kimenet.txt"));
 		BufferedReader reader2 = new BufferedReader(new FileReader(filePath +"/libilabor/src/elvart_kimenet.txt"));
@@ -43,5 +45,17 @@ public class CompareTexts {
 
 		reader1.close();
 		reader2.close();
+	}
+	public static void writeToKimenet(String s) throws IOException{
+		String filePath = new File("").getAbsolutePath();
+		BufferedWriter writer = new BufferedWriter(new FileWriter(filePath +"/libilabor/src/kimenet.txt"));
+		writer.write(s);
+	    writer.close();	
+	}
+	public static void writeToElvartKimenet(String s) throws IOException{
+		String filePath = new File("").getAbsolutePath();
+		BufferedWriter writer = new BufferedWriter(new FileWriter(filePath +"/libilabor/src/elvart_kimenet.txt"));
+		writer.write(s);
+	    writer.close();	
 	}
 }

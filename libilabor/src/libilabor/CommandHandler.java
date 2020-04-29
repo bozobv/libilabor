@@ -10,7 +10,7 @@ public class CommandHandler {
 	private int basicSnowHeight = 0;
 	private int FrozenItemDrop = 0;
 
-	public void handling() {
+	public  void handling() {
 		boolean exit = false;
 		Scanner scanner = new Scanner(System.in);
 		while (!exit) {
@@ -191,6 +191,8 @@ public class CommandHandler {
 	}
 
 
+	
+	
 	public void createEmptyIceField() 
 	{
 		testField = new IceField();
