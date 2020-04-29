@@ -479,12 +479,16 @@ public class IceField implements java.io.Serializable
 	/**
 	 * kiirja a mezo adatait
 	 */
-	public void writeOut()
+	public String writeOut()
 	{
+		String str="";
 		for(int i = 0; i < iceTables.size(); i++ )
 		{
+			str.concat(String.valueOf(i));
 			System.out.print(i);
-			iceTables.get(i).writeOut();
+			str.concat(iceTables.get(i).writeOut());
+			
+			str.concat("(");
 			System.out.print("(");
 			ArrayList<IceTable> nbs = iceTables.get(i).getNeighbours();
 			for (int j = 0; j < nbs.size(); j++)
@@ -492,10 +496,12 @@ public class IceField implements java.io.Serializable
 				for(int k = 0; k < iceTables.size(); k++ )
 				{
 					if(nbs.get(j) == iceTables.get(k))
-						System.out.print(k + ", ");
+						str.concat(k + ", ");
 				}
 			}
+			str.concat(")");
 			System.out.println(")");
 		}
+		return str;
 	}
 }

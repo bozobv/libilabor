@@ -1,7 +1,7 @@
 package libilabor;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 /**
  * a kotelt megvalosito osztaly
