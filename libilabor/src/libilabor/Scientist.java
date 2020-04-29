@@ -1,5 +1,5 @@
 package libilabor;
-import java.util.Scanner;
+
 
 public class Scientist extends Player implements java.io.Serializable
 {

@@ -1,6 +1,5 @@
 package libilabor;
 
-import java.util.ArrayList;
 
 /**
  * a jegesmedvet megvalosito osztaly

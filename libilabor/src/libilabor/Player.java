@@ -1,7 +1,7 @@
 package libilabor;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 	public abstract class Player extends Character implements java.io.Serializable {
 	/** az inventory kezdo merete*/
