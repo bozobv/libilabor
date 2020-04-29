@@ -11,7 +11,7 @@ public class CommandHandler {
 	private int basicSnowHeight = 0;
 	private int FrozenItemDrop = 0;
 
-	public  void handling() {
+	public  void handling() throws IOException {
 		boolean exit = false;
 		Scanner scanner = new Scanner(System.in);
 		while (!exit) {
@@ -185,7 +185,7 @@ public class CommandHandler {
 					this.callBlizzard(Integer.parseInt(inputWords[2]));
 				break;
 			}
-				/*CompareTexts.writeToKimenet(*/gameStance();
+				CompareTexts.writeToKimenet(gameStance());
 		}
 		scanner.close();
 

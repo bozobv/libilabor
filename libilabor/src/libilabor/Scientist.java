@@ -44,20 +44,20 @@ public class Scientist extends Player implements java.io.Serializable
 	public String writeOut() 
 	{
 		String str="";
-		str.concat(",sc(" + this.getName() + ", " + this.getThp() + ", " + this.getWork());
-		System.out.print(",sc(" + this.getName() + ", " + this.getThp() + ", " + this.getWork());
+		str=str.concat(",sc(" + this.getName() + ", " + this.getThp() + ", " + this.getWork());
+		System.out.print(str);
 		Storable[] inv = this.getInventory();
 		for (int i = 0; i < 5 ; i++)
 		{
 			if (inv[i] != null)
 			{
-				str.concat(", ");
+				str=str.concat(", ");
 				System.out.print(", ");
-				str.concat(inv[i].writeOut());
+				str=str.concat(inv[i].writeOut());
 	
 			}
 		}
-		str.concat(")");
+		str=str.concat(")");
 		System.out.print(")");
 		return str;
 	}

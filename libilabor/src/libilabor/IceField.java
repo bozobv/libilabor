@@ -484,11 +484,11 @@ public class IceField implements java.io.Serializable
 		String str="";
 		for(int i = 0; i < iceTables.size(); i++ )
 		{
-			str.concat(String.valueOf(i));
+			str=str.concat(String.valueOf(i));
 			System.out.print(i);
-			str.concat(iceTables.get(i).writeOut());
+			str=str.concat(iceTables.get(i).writeOut());
 			
-			str.concat("(");
+			str=str.concat("(");
 			System.out.print("(");
 			ArrayList<IceTable> nbs = iceTables.get(i).getNeighbours();
 			for (int j = 0; j < nbs.size(); j++)
@@ -496,10 +496,10 @@ public class IceField implements java.io.Serializable
 				for(int k = 0; k < iceTables.size(); k++ )
 				{
 					if(nbs.get(j) == iceTables.get(k))
-						str.concat(k + ", ");
+						str=str.concat(k + ", ");
 				}
 			}
-			str.concat(")");
+			str=str.concat(")\n");
 			System.out.println(")");
 		}
 		return str;
