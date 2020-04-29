@@ -189,17 +189,22 @@ public abstract class IceTable implements java.io.Serializable
 		
 		animalsOnTable.remove(this.animalsOnTable.indexOf(character));
 	}
-	/**ez tortenik ha medve lep ide*/
+	/**a medve megtaámadja a playereket, ha vannak*/
 	public void attacked(){
-		if(playersOnTable.size()>0){
-			if(construction!=null){
+		if(playersOnTable.size() > 0)
+		{
+			if(construction != null)
+			{
 				construction.attacked(playersOnTable.get(0));
 			}
-			else{
-				playersOnTable.get(0).attacked();
+			else
+			{
+				//for(int i = 0; i < playersOnTable.size(); i++)
+					playersOnTable.get(0).attacked();
 			}
 		}
-		else{
+		else
+		{
 			System.out.println("nincs jatekos a tablan");
 		}
 	}

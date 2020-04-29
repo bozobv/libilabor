@@ -1,13 +1,15 @@
 package libilabor;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
 public class CompareTexts {
 	public void compare() throws IOException {
-		BufferedReader reader1 = new BufferedReader(new FileReader("C:\file1.txt"));
-		BufferedReader reader2 = new BufferedReader(new FileReader("C:\file2.txt"));
+		String filePath = new File("").getAbsolutePath();
+		BufferedReader reader1 = new BufferedReader(new FileReader(filePath +"/libilabor/src/kimenet.txt"));
+		BufferedReader reader2 = new BufferedReader(new FileReader(filePath +"/libilabor/src/elvart_kimenet.txt"));
 		String line1 = reader1.readLine();
 		String line2 = reader2.readLine();
 		boolean areEqual = true;

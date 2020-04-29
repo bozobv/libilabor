@@ -17,11 +17,18 @@ public class Scientist extends Player implements java.io.Serializable
 	 */
 	public void useSkill(IceTable t) 
 	{
+		if (this.getWork() < 1)
+		{
+			System.out.println("nincs eleg munkaja");
+			return;
+		}
 		boolean tmp = false;
 		for(IceTable i : this.getCurrentTable().getNeighbours() ){
 			if(i.equals(t)) tmp = true;
 		}
 		if(tmp) {
+			
+			this.setWork(this.getWork()-1 );
 			int capacity = t.getCapacity();
 			if(capacity < 0) {
 				System.out.println("A vizsgalalt tabla kapacitasa: vegetelen");

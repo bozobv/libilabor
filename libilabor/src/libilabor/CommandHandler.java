@@ -23,11 +23,12 @@ public class CommandHandler {
 				break;
 			case "move":
 				switch(inputWords[1]) {
-				case "player":this.movePlayer(inputWords[1], Integer.parseInt(inputWords[2]));
-				case "bear": this.moveBear( Integer.parseInt(inputWords[1]), Integer.parseInt(inputWords[2]));
+				 
+				case "bear": this.moveBear( Integer.parseInt(inputWords[2]), Integer.parseInt(inputWords[3]));
 				break;
-				default: break;
+				default: this.movePlayer(inputWords[1], Integer.parseInt(inputWords[2])); break;
 				}
+				break;
 				
 			case "rope":
 				this.rope(inputWords[1], Integer.parseInt(inputWords[2]));
@@ -122,10 +123,10 @@ public class CommandHandler {
 					this.setTent(inputWords[2]);
 					break;
 				case "work":
-					this.setWork(Integer.parseInt(inputWords[2]), inputWords[3]);
+					this.setWork(inputWords[2], Integer.parseInt(inputWords[3]));
 					break;
 				case "thp":
-					this.setThp(Integer.parseInt(inputWords[2]), inputWords[3]);
+					this.setThp(inputWords[2], Integer.parseInt(inputWords[3]));
 					break;
 				default:
 					break;
@@ -146,9 +147,8 @@ public class CommandHandler {
 				if (inputWords[1].equals("nb"))
 					this.getNb(Integer.parseInt(inputWords[2]));
 				break;
-			case "pick":
-				if (inputWords[1].equals("up"))
-					this.pickUp(inputWords[2]);
+			case "pickup":
+					this.pickUp(inputWords[1]);
 				break;
 			case "remove":
 				if (inputWords[1].equals("item"))
@@ -343,7 +343,7 @@ public class CommandHandler {
 		case "f":
 			this.testField.getIceTables().get(index).setFrozenItem(new Food());
 			break;
-		case "a":
+		case "adr":
 			this.testField.getIceTables().get(index).setFrozenItem(new Adrenalin());
 			break;
 		default:
@@ -383,9 +383,12 @@ public class CommandHandler {
 	}
 
 	public void moveBear(int honnan, int hova) {
-		PolarBear pb=testField.getIceTables().get(honnan).getAnimalsOnTable().get(0);
+		if (testField.getIceTables().get(honnan).getAnimalsOnTable() == null)
+			return;
+		PolarBear pb = testField.getIceTables().get(honnan).getAnimalsOnTable().get(0);
 		IceTable temp = null;
-		for (IceTable it : pb.getCurrentTable().getNeighbours()) {
+		for (IceTable it : pb.getCurrentTable().getNeighbours()) 
+		{
 			if (it == testField.getIceTables().get(hova))
 				temp = it;
 		}
@@ -435,7 +438,7 @@ public class CommandHandler {
 
 		int idx;
 		switch (type) {
-		case "fg":
+		case "f":
 			idx = 0;
 			break;
 		case "r":
@@ -501,7 +504,7 @@ public class CommandHandler {
 		searchPlayer(name).useSkill(this.testField.getIceTables().get(index));
 	}
 
-	public void setThp(int thp, String name) {
+	public void setThp(String name, int thp ) {
 
 		for (int i = 0; i < testField.getPlayers().size(); i++) {
 			if (testField.getPlayers().get(i).getName().equals(name)) {
@@ -513,7 +516,7 @@ public class CommandHandler {
 
 	}
 
-	public void setWork(int work, String name) {
+	public void setWork(String name, int work) {
 
 		for (int i = 0; i < testField.getPlayers().size(); i++) {
 			if (testField.getPlayers().get(i).getName().equals(name)) {

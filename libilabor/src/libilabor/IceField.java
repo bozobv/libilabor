@@ -259,7 +259,7 @@ public class IceField implements java.io.Serializable
 	 */
 	public void endGame() 
 	{
-		System.out.println("Legalabb egy jatekos megfulladt, elbuktatok a kuldetest!");
+		System.out.println("Legalabb egy jatekos meghalt, elbuktatok a kuldetest!");
 	}
 	/**
 	 * hovihar esemenye
