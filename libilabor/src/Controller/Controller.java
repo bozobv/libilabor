@@ -10,7 +10,7 @@ public class Controller
 	
 	public Controller createController() {
 		view=new Graphics();
-		Menu menu=view.initializeMenu();
+		view.initializeMenu();
 		
 		//TODO implementalni a menu reszt meg mindenfele if-et hogy jo adatokat adott-e meg ilyenek ha nem fuck off
 		//----------------------------------------
@@ -26,20 +26,17 @@ public class Controller
 	}
 	
 	public void startGame(){
-		GameArea gameArea=view.initializeGameArea();
-		
+		view.initializeGameArea();	
 	}
 	
 	public void endGame(){
-		EndGame endGame=view.initializeEndGame();
+		view.initializeEndGame();
 	}
 	
-	public void refreshGraphics(){
-		view.refreshGraphics();
+	public void refreshGraphics(IModell modell){
+		view.refreshGraphics(modell);
 	}
 	
-	public void play(){
-		
-		
+	public void play(){	
 	}
 }
