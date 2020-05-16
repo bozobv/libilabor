@@ -1,4 +1,4 @@
-package libilabor;
+package Modell;
 
 /**
  * absztrakt osztaly, ami a jatekosok altal eltarolhato targyak kozos viselkedeset irja le

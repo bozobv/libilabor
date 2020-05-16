@@ -1,4 +1,4 @@
-package libilabor;
+package Modell;
 
 
 public class StableTable extends IceTable implements java.io.Serializable

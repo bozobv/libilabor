@@ -1,4 +1,4 @@
-package libilabor;
+package Modell;
 
 /**
  * a karaktereket osszefogo absztrakt osztaly
