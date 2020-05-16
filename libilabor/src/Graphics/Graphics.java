@@ -11,18 +11,25 @@ public class Graphics implements IView {
 		// TODO Auto-generated method stub
 	}
 	@Override
-	public void updateGraphics(){
+	public void refreshGraphics(){
 		// TODO Auto-generated method stub
+		garea.refresh();
 	}
 
 	@Override
 	public Menu initializeMenu() {
-		// TODO Auto-generated method stub
-		return new Menu();
+		menu = new Menu();
+		return menu;
 	}
 	
 	public EndGame initializeEndGame() {
+		eg= new EndGame();
+		return eg;
+	}
+	@Override
+	public GameArea initializeGameArea() {
 		// TODO Auto-generated method stub
-		return new EndGame();
+		garea= new GameArea();
+		return garea;
 	}
 }

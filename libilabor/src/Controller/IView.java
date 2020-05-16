@@ -4,10 +4,12 @@ public interface IView {
 	
 	public void initialize();
 	
-	public void updateGraphics();
+	public void refreshGraphics();
 	
 	public Menu initializeMenu();
 	
 	public EndGame initializeEndGame();
+	
+	public GameArea initializeGameArea();
 	
 }

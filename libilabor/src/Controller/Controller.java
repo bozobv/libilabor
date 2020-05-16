@@ -25,19 +25,20 @@ public class Controller
 		this.modell=new Map(height, width, FrozenItemDrop, snowHeight);
 	}
 	
-	void startGame(){
+	public void startGame(){
+		GameArea gameArea=view.initializeGameArea();
 		
 	}
 	
-	void endGame(){
+	public void endGame(){
 		EndGame endGame=view.initializeEndGame();
 	}
 	
-	void refreshGraphics(){
-		view.updateGraphics();
+	public void refreshGraphics(){
+		view.refreshGraphics();
 	}
 	
-	void play(){
+	public void play(){
 		
 		
 	}
