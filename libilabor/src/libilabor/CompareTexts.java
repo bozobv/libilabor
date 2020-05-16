@@ -10,8 +10,8 @@ import java.io.IOException;
 public class CompareTexts {
 	public static void compare() throws IOException {
 		String filePath = new File("").getAbsolutePath();
-		BufferedReader reader1 = new BufferedReader(new FileReader(filePath +"/libilabor/src/kimenet.txt"));
-		BufferedReader reader2 = new BufferedReader(new FileReader(filePath +"/libilabor/src/elvart_kimenet.txt"));
+		BufferedReader reader1 = new BufferedReader(new FileReader(filePath +"/kimenet.txt"));
+		BufferedReader reader2 = new BufferedReader(new FileReader(filePath +"/elvart_kimenet.txt"));
 		String line1 = reader1.readLine();
 		String line2 = reader2.readLine();
 		boolean areEqual = true;
@@ -48,13 +48,13 @@ public class CompareTexts {
 	}
 	public static void writeToKimenet(String s) throws IOException{
 		String filePath = new File("").getAbsolutePath();
-		BufferedWriter writer = new BufferedWriter(new FileWriter(filePath +"/libilabor/src/kimenet.txt"));
+		BufferedWriter writer = new BufferedWriter(new FileWriter(filePath +"/kimenet.txt"));
 		writer.write(s);
 	    writer.close();	
 	}
 	public static void writeToElvartKimenet(String s) throws IOException{
 		String filePath = new File("").getAbsolutePath();
-		BufferedWriter writer = new BufferedWriter(new FileWriter(filePath +"/libilabor/src/elvart_kimenet.txt"));
+		BufferedWriter writer = new BufferedWriter(new FileWriter(filePath +"/elvart_kimenet.txt"));
 		writer.write(s);
 	    writer.close();	
 	}

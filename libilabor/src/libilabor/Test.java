@@ -10,8 +10,8 @@ public class Test {
     public static void main(String[] args)
     {
     	String filePath = new File("").getAbsolutePath();
-    	File file1 = new File(filePath +"/libilabor/src/kimenet.txt"); 
-    	File file2 = new File(filePath +"/libilabor/src/elvart_kimenet.txt");
+    	File file1 = new File(filePath +"/kimenet.txt"); 
+    	File file2 = new File(filePath +"/elvart_kimenet.txt");
     	try{  
     	file1.createNewFile(); 
     	file2.createNewFile();
