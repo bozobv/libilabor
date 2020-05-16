@@ -7,7 +7,8 @@ import Controller.*;
 public class Map implements IModell 
 {
 	private IceField iceField;
-	private CommandHandler commandHandler;
+	private int basicSnowHeight = 0;
+	private int FrozenItemDrop = 0;
 	
 	public Map(int height, int width, int FrozenItemDrop, int snowHeight){
 		iceField= new IceField(height, width, FrozenItemDrop, snowHeight);
