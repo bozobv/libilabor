@@ -1,4 +1,4 @@
-package libilabor;
+package Modell;
 
 public class Adrenalin extends Instant implements java.io.Serializable
 {

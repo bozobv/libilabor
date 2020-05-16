@@ -1,5 +1,4 @@
-package libilabor;
-import Graphics.*;
+package Modell;
 
 import java.util.Random;
 import java.util.ArrayList;

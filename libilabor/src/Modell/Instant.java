@@ -1,4 +1,4 @@
-package libilabor;
+package Modell;
 
 public abstract class Instant extends Item implements java.io.Serializable
 {

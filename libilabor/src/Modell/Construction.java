@@ -1,4 +1,4 @@
-package libilabor;
+package Modell;
 
 /**
  * interfesz, ami a jegtablara epitheto dolgokat fogja ossze

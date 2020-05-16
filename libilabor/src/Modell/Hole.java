@@ -1,4 +1,4 @@
-package libilabor;
+package Modell;
 
 public class Hole extends IceTable implements java.io.Serializable
 {	

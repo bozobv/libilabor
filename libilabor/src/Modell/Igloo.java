@@ -1,4 +1,4 @@
-package libilabor;
+package Modell;
 
 /**
  * az iglut megvalósító osztály

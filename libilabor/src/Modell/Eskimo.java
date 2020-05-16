@@ -1,4 +1,4 @@
-package libilabor;
+package Modell;
 
 public class Eskimo extends Player implements java.io.Serializable
 {

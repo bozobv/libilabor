@@ -1,4 +1,4 @@
-package libilabor;
+package Modell;
 
 import java.util.Random;
 import java.io.IOException;
