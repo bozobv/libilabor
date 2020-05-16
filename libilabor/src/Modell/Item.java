@@ -1,4 +1,4 @@
-package libilabor;
+package Modell;
 
 public abstract class Item implements java.io.Serializable
 {

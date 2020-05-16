@@ -7,6 +7,9 @@ import java.util.Scanner;
 
 public class CommandHandler {
 
+	public CommandHandler(IceField iceField) {
+		testField=iceField;
+	}
 	private IceField testField;
 	private int basicSnowHeight = 0;
 	private int FrozenItemDrop = 0;

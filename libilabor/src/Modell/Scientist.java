@@ -1,4 +1,4 @@
-package libilabor;
+package Modell;
 
 
 public class Scientist extends Player implements java.io.Serializable

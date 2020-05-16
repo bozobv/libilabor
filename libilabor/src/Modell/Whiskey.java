@@ -1,4 +1,4 @@
-package libilabor;
+package Modell;
 
 public class Whiskey extends Instant implements java.io.Serializable 
 {

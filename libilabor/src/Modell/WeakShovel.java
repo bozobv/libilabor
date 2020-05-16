@@ -1,4 +1,4 @@
-package libilabor;
+package Modell;
 
 /**
  * a torekeny asot megvalosito osztaly

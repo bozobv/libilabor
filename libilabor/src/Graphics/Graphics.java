@@ -1,13 +1,28 @@
 package Graphics;
+import Controller.*;
 
-public class Graphics {
+public class Graphics implements IView {
 	Menu menu;
 	GameArea garea;
 	EndGame eg;
 	
-	void initialize()
-	{}
+	@Override
+	public void initialize(){
+		// TODO Auto-generated method stub
+	}
+	@Override
+	public void updateGraphics(){
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public Menu initializeMenu() {
+		// TODO Auto-generated method stub
+		return new Menu();
+	}
 	
-	void updateGraphics()
-	{}
+	public EndGame initializeEndGame() {
+		// TODO Auto-generated method stub
+		return new EndGame();
+	}
 }
