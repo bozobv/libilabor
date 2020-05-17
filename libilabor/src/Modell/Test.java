@@ -41,5 +41,6 @@ public class Test {
     	
     	Graphics graphics = new Graphics();
     	graphics.initializeMenu();
+    	graphics.initializeNewGameMenu();
     }
  }

@@ -1,4 +1,6 @@
 package Graphics;
+import java.awt.Color;
+import java.awt.Dimension;
 
 import java.awt.Container;
 import java.awt.Dimension;
@@ -31,6 +33,6 @@ public class EndGame implements ActionListener
 	if(e.getSource().equals(exit)) {		
 		frame.dispose();
 	}
-		
 	}
 }
+		
