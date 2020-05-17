@@ -2,7 +2,9 @@ package Graphics;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
 import java.awt.Panel;
@@ -23,19 +25,19 @@ public class NewGameWindow extends JFrame
 {
 	private final JComboBox  jcbItems, jcbSnow, jcbEs, jcbSc, jcbPb;
 	private final JPanel p1, p2, p3 ,p4 ,p5, p6;
-	private final JLabel lItems/*, lSnow, lEs, lSc, lPb*/;
+	private final JLabel lItems, lSnow, lEs, lSc, lPb;
 	private final JButton  bStart;
 	
 	private boolean decode = false;
 	
 	public NewGameWindow() throws HeadlessException {
-		super("Új játék, fijam");
+		super("szia, dugunk?");
 //		this.setTitle("SwingLab");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setSize(400, 700);
+		this.setSize(500, 700);
 		GridLayout lm = new GridLayout();
-		lm.setRows(5); //plusz a gomb ?
-		lm.setColumns(2);
+		lm.setRows(6); //plusz a gomb ?
+		lm.setColumns(1);
 		this.setLayout(lm);
 				
 		//felső panel
@@ -67,23 +69,63 @@ public class NewGameWindow extends JFrame
 		Object itemDrop[]=new Object[10];
 		for (int i = 0; i < 10; i++)
 			itemDrop[i] = i + 1;
-		
+		//dolgok
 		jcbItems = new JComboBox(itemDrop);
-		lItems = new JLabel("KUKI", JLabel.LEFT);
+		jcbItems.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
+		jcbItems.setBackground(new Color(69, 143, 152));
+		lItems = new JLabel("szex targyak", JLabel.LEFT);
 		lItems.setBackground(new Color(69, 143, 152));
+		lItems.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
+		
 		p1.add(lItems);
 		p1.add(jcbItems);
 		
+		//hav
 		jcbSnow = new JComboBox(snow);
+		jcbSnow.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
+		jcbSnow.setBackground(new Color(69, 143, 152));
+		
+		lSnow = new JLabel("hanyast kapunk", JLabel.LEFT);
+		lSnow.setBackground(new Color(69, 143, 152));
+		lSnow.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
+		
+		p2.add(lSnow);
 		p2.add(jcbSnow);
 
+		//eszkimow
 		jcbEs =  new JComboBox(player);
+		jcbEs.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
+		jcbEs.setBackground(new Color(69, 143, 152));
+		
+		lEs = new JLabel("bidlek szexessege", JLabel.LEFT);
+		lEs.setBackground(new Color(69, 143, 152));
+		lEs.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
+		
+		p3.add(lEs);
 		p3.add(jcbEs);
 
+		//kuttatok
 		jcbSc =  new JComboBox(player);
+		jcbSc.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
+		jcbSc.setBackground(new Color(69, 143, 152));
+		
+		lSc = new JLabel("Mate bolcsessege", JLabel.LEFT);
+		lSc.setBackground(new Color(69, 143, 152));
+		lSc.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
+		
+		p4.add(lSc);
 		p4.add(jcbSc);
 
+		//medv
 		jcbPb =  new JComboBox(player);
+		jcbPb.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
+		jcbPb.setBackground(new Color(69, 143, 152));
+		
+		lPb = new JLabel("Apro ferfiassaga", JLabel.LEFT);
+		lPb.setBackground(new Color(69, 143, 152));
+		lPb.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
+		
+		p5.add(lPb);
 		p5.add(jcbPb);
 
 					
@@ -96,6 +138,10 @@ public class NewGameWindow extends JFrame
 		bStart = new JButton();
 		bStart.setText("Kezdjunk testwer!");
 		bStart.addActionListener(new OkButtonActionListener());
+		bStart.setFont(new Font(Font.MONOSPACED,Font.BOLD,25));
+		bStart.setPreferredSize(new Dimension(350,100));
+		bStart.setBackground(new Color(69, 143, 152));
+		
 		
 		p6.add(bStart);
 		//------------------------------------------------
