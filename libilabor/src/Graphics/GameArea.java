@@ -12,27 +12,27 @@ import java.awt.event.ActionListener;
 
 public class GameArea implements ActionListener
 {
-	private JFrame frame=new JFrame("jatszas");
-	private JMenuBar menuBar=new JMenuBar();
-	private JMenu menu=new JMenu("Menu");
-	private JMenuItem saveItem=new JMenuItem("Save");
-	private JMenuItem quitItem=new JMenuItem("Quit");
+	private JFrame frame = new JFrame("jatszas");
+	private JMenuBar menuBar = new JMenuBar();
+	private JMenu menu = new JMenu("Menu");
+	private JMenuItem saveItem = new JMenuItem("Save");
+	private JMenuItem quitItem = new JMenuItem("Quit");
 	private Container grid = new Container();
-	private JButton move=new JButton("Move");
-	private JButton dig=new JButton("Dig");
-	private JButton skill=new JButton("Skill");
-	private JButton pickUp=new JButton("Pick up");
-	private JButton endTurn=new JButton("End turn");
-	private JLabel thp=new JLabel("THP:");
-	private JLabel work=new JLabel("Work:");
-	private JButton flare=new JButton();
-	private JLabel shovel=new JLabel();
-	private JButton rope=new JButton();
-	private JButton tent=new JButton();
-	private JLabel scuba=new JLabel();
-	private JLabel name=new JLabel("Lakatos Dzsesszpero");
+	private JButton move = new JButton("Move");
+	private JButton dig = new JButton("Dig");
+	private JButton skill = new JButton("Skill");
+	private JButton pickUp = new JButton("Pick up");
+	private JButton endTurn = new JButton("End turn");
+	private JLabel thp = new JLabel("THP:");
+	private JLabel work = new JLabel("Work:");
+	private JButton flare = new JButton();
+	private JLabel shovel = new JLabel();
+	private JButton rope = new JButton();
+	private JButton tent = new JButton();
+	private JLabel scuba = new JLabel();
+	private JLabel name = new JLabel("Lakatos Dzsesszpero");
 	private JPanel panel = new JPanel();
-	private Container map=new Container();
+	private Container map = new Container();
 	private JButton[][] icetables;
 
 
@@ -49,12 +49,12 @@ public class GameArea implements ActionListener
 		frame.setJMenuBar(menuBar);
 
 		//maga a map (en?)
-        icetables=new JButton[m.getHeight()][m.getWidth()];
+        icetables = new JButton[m.getHeight()][m.getWidth()];
         map.setLayout(new GridLayout(m.getHeight(),m.getWidth(),30,30));
         //soronkent toltodik, balrol jobbra
-        for (int i=0;i<m.getHeight();i++){
-            for (int j=0;j<m.getWidth();j++){
-                JButton b=new JButton();
+        for (int i = 0;i < m.getHeight(); i++){
+            for (int j = 0;j < m.getWidth(); j++){
+                JButton b = new JButton();
                 b.setBackground(new Color(255,255,255));
                 map.add(b);
             }
