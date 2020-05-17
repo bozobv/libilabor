@@ -40,11 +40,20 @@ public class Test {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
-
+		
 
         Controller c=new Controller();
         c.initializeMenu();
-
+        
+        CommandHandler ch = new CommandHandler();
+		try 
+		{
+			ch.handling();
+		} catch (IOException e1) 
+		{
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
     	//Graphics graphics = new Graphics();
     	//graphics.initializeMenu();
@@ -52,3 +61,5 @@ public class Test {
     	//graphics.initializeEndGame();
     }
  }
+
+    	

@@ -206,6 +206,23 @@ public class IceField implements java.io.Serializable
 		}
 	}
 
+	public IceField( int FrozenItemDrop, int snowHeight, int EscimoNumber, int ScientistNumber, int PolarBNumber)
+	{
+		if (EscimoNumber + ScientistNumber < 3)
+		{
+			System.out.println("tobb mint harom jatekos kell");
+		}
+		if (FrozenItemDrop < 0 || FrozenItemDrop > 9)
+		{
+			System.out.println("A befagyott targyak eselyenek 0 es 9 kozott kell lennie");
+			return;
+		}	
+		
+		
+		
+		
+	}
+	
 	/**
 	 * a kor menetenek lebonyolitasa
 	 */
@@ -443,12 +460,12 @@ public class IceField implements java.io.Serializable
 	public void save()
 	{
 		try {
-	         FileOutputStream fileOut = new FileOutputStream("/tmp/icefield.ser");
+	         FileOutputStream fileOut = new FileOutputStream(new File("elsopalya.ser"));
 	         ObjectOutputStream out = new ObjectOutputStream(fileOut);
 	         out.writeObject(this);
 	         out.close();
 	         fileOut.close();
-	         System.out.printf("Serialized data is saved in /tmp/icefield.ser");
+	         System.out.printf("Serialized data is saved in elsopalya.ser");
 	      } catch (IOException i) {
 	         i.printStackTrace();
 	      }
@@ -461,7 +478,7 @@ public class IceField implements java.io.Serializable
 	{
 		IceField iF = this;
 		try {
-	         FileInputStream fileIn = new FileInputStream("/tmp/icefield.ser");
+	         FileInputStream fileIn = new FileInputStream("elsopalya.ser");
 	         ObjectInputStream in = new ObjectInputStream(fileIn);
 	         iF = (IceField) in.readObject();
 	         in.close();
@@ -470,7 +487,7 @@ public class IceField implements java.io.Serializable
 	         i.printStackTrace();
 	         return iF;
 	      } catch (ClassNotFoundException c) {
-	         System.out.println("icefield class not found");
+	         System.out.println("elsopalya class not found");
 	         c.printStackTrace();
 	         return iF;
 	      }
