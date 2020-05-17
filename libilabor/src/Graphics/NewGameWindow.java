@@ -172,7 +172,7 @@ public class NewGameWindow extends JFrame implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
 		if(actionEvent.getSource().equals(bStart)){
-			controller.initializeMap(5,5,jcbItems.getSelectedIndex()+1,jcbSnow.getSelectedIndex()+1);
+			controller.initializeMap(6,6,jcbItems.getSelectedIndex()+1,jcbSnow.getSelectedIndex()+1);
 			
 			//csicska eszkimók
 			for(int i=0;i<jcbEs.getSelectedIndex()+1;i++) {
