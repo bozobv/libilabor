@@ -1,4 +1,6 @@
 package Graphics;
+import Controller.Controller;
+
 import javax.swing.*;
 
 import java.awt.*;
@@ -11,8 +13,10 @@ public class Menu  implements ActionListener {
 	private Container container;
 	private JButton newGame, loadGame, exit;
 	private JFrame frame=new JFrame("Welcome to Eskibros game!");
-	public Menu() 
+	private Controller controller;
+	public Menu(Controller _controller)
 	{
+	    controller=_controller;
 		frame.setPreferredSize(new Dimension(500,500));
 		JPanel panel = new JPanel();
         panel.setLayout(new GridBagLayout());
@@ -63,8 +67,7 @@ public class Menu  implements ActionListener {
 			frame.dispose();
 		}
 		else if(actionEvent.getSource().equals(newGame)){
-			//GameArea ga = new GameArea();
-			NewGameWindow ngw = new NewGameWindow();
+			NewGameWindow n = new NewGameWindow(controller);
 
 			frame.dispose();
 		}

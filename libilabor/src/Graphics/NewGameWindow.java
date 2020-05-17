@@ -1,5 +1,7 @@
 package Graphics;
 
+import Controller.Controller;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -35,12 +37,14 @@ public class NewGameWindow extends JFrame implements ActionListener
 	private final JButton  bStart;
 	Color ourgreen = new Color(69, 143, 152), textBlue = new Color(200,200,255);
 	//private Container grid = new Container();
+	private Controller controller;
 
 	private boolean decode = false;
 	
-	public NewGameWindow()  {
+	public NewGameWindow(Controller _controller)  {
 		super("new game");
 
+		controller=_controller;
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setSize(600, 700);
 		JPanel panel = new JPanel();
@@ -168,7 +172,8 @@ public class NewGameWindow extends JFrame implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
 		if(actionEvent.getSource().equals(bStart)){
-			GameArea ga = new GameArea(null);
+			controller.initializeMap(5,5,jcbItems.getSelectedIndex()+1,jcbSnow.getSelectedIndex()+1);
+			controller.startGame();
 			this.dispose();
 		}
 		

@@ -33,4 +33,5 @@ public class Controller
 	public void initializeMenu(){
 	    view.initializeMenu(this);
     }
+
 }

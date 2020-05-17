@@ -22,7 +22,7 @@ public class Graphics implements IView {
 
 	@Override
 	public void initializeMenu(Controller controller) {
-		menu = new Menu();
+		menu = new Menu(controller);
 	}
 	
 	public void initializeEndGame() {
@@ -30,10 +30,7 @@ public class Graphics implements IView {
 
 	}
 	
-	public void initializeNewGameMenu() {
-		ngm = new NewGameWindow();
 
-	}
 	
 	@Override
 	public void initializeGameArea(IModell modell) {
