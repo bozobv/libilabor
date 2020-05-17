@@ -2,19 +2,18 @@ package Graphics;
 import javax.swing.*;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class Menu extends JFrame implements MouseListener{
+public class Menu  implements ActionListener {
 	private Container container;
 	private JButton newGame, loadGame, exit;
+	private JFrame frame=new JFrame("Welcome to Eskibros game!");
 	public Menu() 
 	{
-		//Frame
-		/*JFrame frame = new JFrame("kuki");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
-		
-		super("Welcome to Eskibros game!");			
+		frame.setPreferredSize(new Dimension(500,500));
 		JPanel panel = new JPanel();
         panel.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -28,16 +27,17 @@ public class Menu extends JFrame implements MouseListener{
         
       //New Game Button
       		newGame=new JButton("New Game");
+			newGame.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
       		newGame.setPreferredSize(new Dimension(100,50));
       		newGame.setBackground(new Color(69, 143, 152));
-      		this.addMouseListener(this);
+      		newGame.addActionListener(this);
       		panel.add(newGame, c);
         
       //Load Game Button
       		loadGame=new JButton("Load Game");
       		loadGame.setPreferredSize(new Dimension(100,50));
       		loadGame.setBackground(new Color(69, 143, 152));
-      		this.addMouseListener(this);
+      		loadGame.addActionListener(this);
       		panel.add(loadGame, c);
         
         
@@ -46,48 +46,26 @@ public class Menu extends JFrame implements MouseListener{
       		exit=new JButton("Exit");
       		exit.setPreferredSize(new Dimension(100,50));
       		exit.setBackground(new Color(69, 143, 152));
-      		this.addMouseListener(this);
+      		exit.addActionListener(this);
         panel.add(exit, c);
-        this.add(panel);
-        this.pack();
-        this.setVisible(true);
-        this.getContentPane().setBackground(new Color(179, 228, 233));
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frame.add(panel);
+        frame.pack();
+        frame.setVisible(true);
+        frame.getContentPane().setBackground(new Color(179, 228, 233));
+        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
 	}
 	@Override
-	public void mouseClicked(MouseEvent e) {
-		if (SwingUtilities.isLeftMouseButton((MouseEvent) e)) {
-			if (e.getSource() == newGame) {
-				//TODO new game gombra lett kattintva
-				
-			} else if (e.getSource() == loadGame) {
-				//TODO load game gombra lett kattintva
-				
-			} else if (e.getSource() == exit) {
-				//nem m�k�dik ez a szar
-				this.dispose();
-			}
+	public void actionPerformed(ActionEvent actionEvent) {
+		if(actionEvent.getSource().equals(exit)){
+			frame.dispose();
 		}
-		
-	}
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		else if(actionEvent.getSource().equals(newGame)){
+
+		}
+		else if(actionEvent.getSource().equals(loadGame)){
+
+		}
+
 	}
 }
