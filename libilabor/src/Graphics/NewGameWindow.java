@@ -168,7 +168,7 @@ public class NewGameWindow extends JFrame implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
 		if(actionEvent.getSource().equals(bStart)){
-			GameArea ga = new GameArea();
+			GameArea ga = new GameArea(null);
 			this.dispose();
 		}
 		

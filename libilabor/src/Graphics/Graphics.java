@@ -21,9 +21,8 @@ public class Graphics implements IView {
 	}
 
 	@Override
-	public void initializeMenu() {
+	public void initializeMenu(Controller controller) {
 		menu = new Menu();
-		
 	}
 	
 	public void initializeEndGame() {
@@ -37,9 +36,8 @@ public class Graphics implements IView {
 	}
 	
 	@Override
-	public void initializeGameArea() {
-		// TODO Auto-generated method stub
-		garea= new GameArea();
+	public void initializeGameArea(IModell modell) {
+		garea= new GameArea(modell);
 
 	}
 }

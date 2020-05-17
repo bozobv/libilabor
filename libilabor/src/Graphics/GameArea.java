@@ -6,8 +6,10 @@ import javax.swing.*;
 import javax.swing.border.Border;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class GameArea 
+public class GameArea implements ActionListener
 {
 	private JFrame frame=new JFrame("jatszas");
 	private JMenuBar menuBar=new JMenuBar();
@@ -31,8 +33,8 @@ public class GameArea
 	private JPanel panel = new JPanel();
 
 
-	public GameArea(){
-		frame.setSize(new Dimension(1200,800));
+	public GameArea(IModell m){
+		frame.setSize(new Dimension(1360,768));
 		frame.setLayout(new BorderLayout());
 		frame.getContentPane().setBackground(new Color(28,102,222));
 		panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
@@ -109,8 +111,18 @@ public class GameArea
 		frame.setVisible(true);
 		frame.setResizable(false);
 
+        saveItem.addActionListener(this);
+        quitItem.addActionListener(this);
+
 	}
 	public void refresh(IModell modell) {
 		
 	}
+
+    @Override
+    public void actionPerformed(ActionEvent actionEvent) {
+        if(actionEvent.getSource().equals(quitItem)){
+            System.exit(0);
+        }
+    }
 }

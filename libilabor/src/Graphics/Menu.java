@@ -10,7 +10,7 @@ import java.awt.event.MouseListener;
 public class Menu  implements ActionListener {
 	private Container container;
 	private JButton newGame, loadGame, exit;
-	private JFrame frame = new JFrame("Welcome to Eskibros game!");
+	private JFrame frame=new JFrame("Welcome to Eskibros game!");
 	public Menu() 
 	{
 		frame.setPreferredSize(new Dimension(500,500));
@@ -65,6 +65,7 @@ public class Menu  implements ActionListener {
 		else if(actionEvent.getSource().equals(newGame)){
 			//GameArea ga = new GameArea();
 			NewGameWindow ngw = new NewGameWindow();
+
 			frame.dispose();
 		}
 		else if(actionEvent.getSource().equals(loadGame)){
