@@ -1,8 +1,9 @@
 package Graphics;
+import Controller.*;
 
 public class GameArea 
 {
-	public void refresh() {
+	public void refresh(IModell modell) {
 		
 	}
 }

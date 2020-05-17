@@ -1,5 +1,8 @@
 package Graphics;
+import java.awt.*;
+import javax.swing.*;
 import Controller.*;
+import Modell.*;
 
 public class Graphics implements IView {
 	Menu menu;
@@ -11,25 +14,25 @@ public class Graphics implements IView {
 		// TODO Auto-generated method stub
 	}
 	@Override
-	public void refreshGraphics(){
+	public void refreshGraphics(IModell modell){
 		// TODO Auto-generated method stub
-		garea.refresh();
+		garea.refresh(modell);
 	}
 
 	@Override
-	public Menu initializeMenu() {
+	public void initializeMenu() {
 		menu = new Menu();
-		return menu;
+		
 	}
 	
-	public EndGame initializeEndGame() {
+	public void initializeEndGame() {
 		eg= new EndGame();
-		return eg;
+
 	}
 	@Override
-	public GameArea initializeGameArea() {
+	public void initializeGameArea() {
 		// TODO Auto-generated method stub
 		garea= new GameArea();
-		return garea;
+
 	}
 }
