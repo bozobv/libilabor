@@ -27,7 +27,7 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-public class NewGameWindow extends JFrame
+public class NewGameWindow extends JFrame implements ActionListener
 {
 	private final JComboBox  jcbItems, jcbSnow, jcbEs, jcbSc, jcbPb;
 	//private final JPanel p1Left, p2Left, p3Left ,p4Left ,p5Left, p6Left, p1Right, p2Right, p3Right ,p4Right ,p5Right;
@@ -155,6 +155,8 @@ public class NewGameWindow extends JFrame
   	  bStart.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
   	  bStart.setPreferredSize(new Dimension(100,50));
   	  bStart.setBackground(new Color(69, 143, 152));
+  	  bStart.addActionListener(this);
+
   	  panel.add(bStart, c);
     
   	  add(panel);
@@ -163,7 +165,15 @@ public class NewGameWindow extends JFrame
 		setVisible(true);
 	}
 	
-	
+	@Override
+	public void actionPerformed(ActionEvent actionEvent) {
+		if(actionEvent.getSource().equals(bStart)){
+			GameArea ga = new GameArea();
+			this.dispose();
+		}
+		
+
+	}
 	
 	
 }
