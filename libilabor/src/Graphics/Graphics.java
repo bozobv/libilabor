@@ -8,6 +8,7 @@ public class Graphics implements IView {
 	Menu menu;
 	GameArea garea;
 	EndGame eg;
+	NewGameWindow ngm;
 	
 	@Override
 	public void initialize(){
@@ -26,9 +27,15 @@ public class Graphics implements IView {
 	}
 	
 	public void initializeEndGame() {
-		eg= new EndGame();
+		eg = new EndGame();
 
 	}
+	
+	public void initializeNewGameMenu() {
+		ngm = new NewGameWindow();
+
+	}
+	
 	@Override
 	public void initializeGameArea() {
 		// TODO Auto-generated method stub

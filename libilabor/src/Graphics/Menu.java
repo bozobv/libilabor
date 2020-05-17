@@ -10,9 +10,6 @@ public class Menu extends JFrame implements MouseListener{
 	private JButton newGame, loadGame, exit;
 	public Menu() 
 	{
-		//Frame
-		/*JFrame frame = new JFrame("kuki");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
 		
 		super("Welcome to Eskibros game!");			
 		JPanel panel = new JPanel();
@@ -43,7 +40,7 @@ public class Menu extends JFrame implements MouseListener{
         
         
       //Exit Button
-      		exit=new JButton("Exit");
+      		exit = new JButton("Exit");
       		exit.setPreferredSize(new Dimension(100,50));
       		exit.setBackground(new Color(69, 143, 152));
       		this.addMouseListener(this);
@@ -51,13 +48,16 @@ public class Menu extends JFrame implements MouseListener{
         this.add(panel);
         this.pack();
         this.setVisible(true);
+		setResizable(true);
         this.getContentPane().setBackground(new Color(179, 228, 233));
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (SwingUtilities.isLeftMouseButton((MouseEvent) e)) {
-			if (e.getSource() == newGame) {
+			if (e.getSource() == newGame) 
+			{
+				
 				//TODO new game gombra lett kattintva
 				
 			} else if (e.getSource() == loadGame) {
