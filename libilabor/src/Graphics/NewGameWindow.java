@@ -34,7 +34,7 @@ public class NewGameWindow extends JFrame
 		super("szia, dugunk?");
 //		this.setTitle("SwingLab");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setSize(500, 700);
+		this.setSize(700, 700);
 		GridLayout lm = new GridLayout();
 		lm.setRows(6); //plusz a gomb ?
 		lm.setColumns(1);
@@ -55,7 +55,7 @@ public class NewGameWindow extends JFrame
 		add(p4);
 		add(p5);
 		add(p6);
-
+		//karakterek
 		Object player[]=new Object[10];
 		for (int i = 0; i < 10; i++)
 			player[i] = i;
@@ -74,41 +74,45 @@ public class NewGameWindow extends JFrame
 		jcbItems.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
 		jcbItems.setBackground(new Color(69, 143, 152));
 		lItems = new JLabel("szex targyak", JLabel.LEFT);
-		lItems.setBackground(new Color(69, 143, 152));
+		lItems.setBackground(Color.red);
 		lItems.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
-		
+		//panel
 		p1.add(lItems);
 		p1.add(jcbItems);
 		
 		//hav
+		//legordulo hav
 		jcbSnow = new JComboBox(snow);
 		jcbSnow.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
 		jcbSnow.setBackground(new Color(69, 143, 152));
-		
+		//hav kiirasa
 		lSnow = new JLabel("hanyast kapunk", JLabel.LEFT);
 		lSnow.setBackground(new Color(69, 143, 152));
 		lSnow.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
-		
+		//panelhez adas
 		p2.add(lSnow);
 		p2.add(jcbSnow);
 
+		
 		//eszkimow
+		//legordulo fos
 		jcbEs =  new JComboBox(player);
 		jcbEs.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
 		jcbEs.setBackground(new Color(69, 143, 152));
-		
+		//szoveg
 		lEs = new JLabel("bidlek szexessege", JLabel.LEFT);
 		lEs.setBackground(new Color(69, 143, 152));
 		lEs.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
-		
+		//panel
 		p3.add(lEs);
 		p3.add(jcbEs);
 
 		//kuttatok
+		//legordulo fos
 		jcbSc =  new JComboBox(player);
 		jcbSc.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
 		jcbSc.setBackground(new Color(69, 143, 152));
-		
+		//szoveg
 		lSc = new JLabel("Mate bolcsessege", JLabel.LEFT);
 		lSc.setBackground(new Color(69, 143, 152));
 		lSc.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
@@ -116,15 +120,16 @@ public class NewGameWindow extends JFrame
 		p4.add(lSc);
 		p4.add(jcbSc);
 
-		//medv
+		//medv		
+		//legordulo fos
 		jcbPb =  new JComboBox(player);
 		jcbPb.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
 		jcbPb.setBackground(new Color(69, 143, 152));
-		
+		//szoveg
 		lPb = new JLabel("Apro ferfiassaga", JLabel.LEFT);
 		lPb.setBackground(new Color(69, 143, 152));
 		lPb.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
-		
+		//panel
 		p5.add(lPb);
 		p5.add(jcbPb);
 
