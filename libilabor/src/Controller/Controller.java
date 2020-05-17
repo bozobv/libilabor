@@ -10,7 +10,7 @@ public class Controller
 	IView view=new Graphics();
 	
 	public void initializeMap(int height, int width, int FrozenItemDrop, int snowHeight) {
-        modell=new Map(height,width,FrozenItemDrop, snowHeight);
+        modell = new Map(height,width,FrozenItemDrop, snowHeight);
 	}
 	
 	public void startGame()
