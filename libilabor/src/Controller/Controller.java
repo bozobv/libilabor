@@ -19,8 +19,7 @@ public class Controller
 		
 		Controller controller= new Controller(height, width, FrozenItemDrop, snowHeight);
 		return controller;
-	}
-	
+	}	
 	private Controller(int height, int width, int FrozenItemDrop, int snowHeight) 
 	{
 		this.modell=new Map(height, width, FrozenItemDrop, snowHeight);
@@ -31,9 +30,6 @@ public class Controller
 		view.initializeGameArea();	
 	}
 	
-
-
-
 	public void endGame(){
 		view.initializeEndGame();
 
