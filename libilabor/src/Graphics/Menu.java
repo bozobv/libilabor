@@ -13,7 +13,7 @@ public class Menu  implements ActionListener {
 	private JFrame frame=new JFrame("Welcome to Eskibros game!");
 	public Menu() 
 	{
-
+		frame.setPreferredSize(new Dimension(500,500));
 		JPanel panel = new JPanel();
         panel.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -35,6 +35,7 @@ public class Menu  implements ActionListener {
         
       //Load Game Button
       		loadGame=new JButton("Load Game");
+      		loadGame.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
       		loadGame.setPreferredSize(new Dimension(100,50));
       		loadGame.setBackground(new Color(69, 143, 152));
       		loadGame.addActionListener(this);
@@ -43,12 +44,12 @@ public class Menu  implements ActionListener {
         
         
       //Exit Button
-      		exit = new JButton("Exit");
+      		exit=new JButton("Exit");
+      		exit.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
       		exit.setPreferredSize(new Dimension(100,50));
       		exit.setBackground(new Color(69, 143, 152));
       		exit.addActionListener(this);
         panel.add(exit, c);
-
         frame.add(panel);
         frame.pack();
         frame.setVisible(true);
@@ -57,7 +58,6 @@ public class Menu  implements ActionListener {
         frame.setResizable(false);
 	}
 	@Override
-
 	public void actionPerformed(ActionEvent actionEvent) {
 		if(actionEvent.getSource().equals(exit)){
 			frame.dispose();
