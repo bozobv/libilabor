@@ -10,7 +10,7 @@ import java.awt.event.MouseListener;
 public class Menu  implements ActionListener {
 	private Container container;
 	private JButton newGame, loadGame, exit;
-	private JFrame frame=new JFrame("Welcome to Eskibros game!");
+	private JFrame frame = new JFrame("Welcome to Eskibros game!");
 	public Menu() 
 	{
 		frame.setPreferredSize(new Dimension(500,500));
