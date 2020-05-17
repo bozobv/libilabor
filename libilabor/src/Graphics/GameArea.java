@@ -48,13 +48,17 @@ public class GameArea implements ActionListener
 		menuBar.add(menu);
 		frame.setJMenuBar(menuBar);
 
-		//maga a map
+		//maga a map (en?)
         icetables=new JButton[m.getHeight()][m.getWidth()];
         map.setLayout(new GridLayout(m.getHeight(),m.getWidth(),30,30));
-        for (int i=0;i<m.getHeight()*m.getWidth();i++){
+        //soronkent toltodik, balrol jobbra
+        for (int i=0;i<m.getHeight();i++){
+            for (int j=0;j<m.getWidth();j++){
                 JButton b=new JButton();
                 b.setBackground(new Color(255,255,255));
                 map.add(b);
+            }
+
         }
         frame.add(map);
 
