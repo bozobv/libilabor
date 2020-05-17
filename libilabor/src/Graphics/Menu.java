@@ -8,9 +8,13 @@ import java.awt.event.MouseListener;
 public class Menu extends JFrame implements MouseListener{
 	private Container container;
 	private JButton newGame, loadGame, exit;
-	public Menu() {
+	public Menu() 
+	{
 		//Frame
-		super("Welecome to Eskibros game!");			
+		/*JFrame frame = new JFrame("kuki");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
+		
+		super("Welcome to Eskibros game!");			
 		JPanel panel = new JPanel();
         panel.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -87,4 +91,3 @@ public class Menu extends JFrame implements MouseListener{
 		
 	}
 }
-

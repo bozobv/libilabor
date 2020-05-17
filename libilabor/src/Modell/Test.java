@@ -39,7 +39,7 @@ public class Test {
 			e.printStackTrace();
 		}*/
     	
-    	Graphics graphics=new Graphics();
+    	Graphics graphics = new Graphics();
     	graphics.initializeMenu();
     }
  }
