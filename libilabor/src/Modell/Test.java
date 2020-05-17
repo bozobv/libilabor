@@ -3,6 +3,8 @@ package Modell;
 import java.io.File;
 import java.io.IOException;
 
+import javax.swing.JFrame;
+
 import Controller.Controller;
 import Graphics.Graphics;
 
@@ -42,5 +44,6 @@ public class Test {
     	Graphics graphics = new Graphics();
     	graphics.initializeMenu();
     	//graphics.initializeNewGameMenu();
+    	graphics.initializeEndGame();
     }
  }
