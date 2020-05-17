@@ -3,13 +3,16 @@ package Modell;
 import java.io.File;
 import java.io.IOException;
 
+import Controller.Controller;
+import Graphics.Graphics;
+
 
 
 public class Test {
 
     public static void main(String[] args)
     {
-    	String filePath = new File("").getAbsolutePath();
+    /*	String filePath = new File("").getAbsolutePath();
     	File file1 = new File(filePath +"/kimenet.txt"); 
     	File file2 = new File(filePath +"/elvart_kimenet.txt");
     	try{  
@@ -34,6 +37,9 @@ public class Test {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
+    	
+    	Graphics graphics=new Graphics();
+    	graphics.initializeMenu();
     }
  }

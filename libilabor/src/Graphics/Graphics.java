@@ -1,6 +1,9 @@
 package Graphics;
+import java.awt.*;
+import javax.swing.*;
 import Controller.*;
 import Modell.*;
+
 public class Graphics implements IView {
 	Menu menu;
 	GameArea garea;
@@ -19,7 +22,7 @@ public class Graphics implements IView {
 	@Override
 	public void initializeMenu() {
 		menu = new Menu();
-
+		
 	}
 	
 	public void initializeEndGame() {
