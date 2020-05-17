@@ -6,10 +6,10 @@ public interface IView {
 	
 	public void refreshGraphics(IModell modell);
 	
-	public void initializeMenu();
+	public void initializeMenu(Controller controller);
 	
 	public void initializeEndGame();
 	
-	public void initializeGameArea();
+	public void initializeGameArea(IModell modell);
 	
 }

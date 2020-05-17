@@ -40,10 +40,15 @@ public class Test {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
-    	
-    	Graphics graphics = new Graphics();
-    	graphics.initializeMenu();
-    	graphics.initializeNewGameMenu();
-    	graphics.initializeEndGame();
+
+
+        Controller c=new Controller();
+        c.initializeMenu();
+
+
+    	//Graphics graphics = new Graphics();
+    	//graphics.initializeMenu();
+    	//graphics.initializeNewGameMenu();
+    	//graphics.initializeEndGame();
     }
  }

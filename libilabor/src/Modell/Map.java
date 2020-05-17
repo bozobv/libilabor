@@ -13,7 +13,9 @@ public class Map implements IModell
 	public Map(int height, int width, int FrozenItemDrop, int snowHeight){
 		iceField= new IceField(height, width, FrozenItemDrop, snowHeight);
 	}
-	
+
+
+
 	public void createEmptyIceField() 
 	{
 		iceField = new IceField();
