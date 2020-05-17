@@ -34,7 +34,7 @@ public class Graphics implements IView {
 	
 	@Override
 	public void initializeGameArea(IModell modell) {
-		garea= new GameArea(modell);
+		garea= new GameArea((Map) modell);
 
 	}
 }

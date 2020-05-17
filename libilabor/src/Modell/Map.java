@@ -9,8 +9,22 @@ public class Map implements IModell
 	private IceField iceField;
 	private int basicSnowHeight = 0;
 	private int FrozenItemDrop = 0;
-	
-	public Map(int height, int width, int FrozenItemDrop, int snowHeight){
+	private int height;
+	private int width;
+
+	public IceField getIceField() {
+		return iceField;
+	}
+	public int getHeight(){
+		return height;
+	}
+	public int getWidth(){
+		return width;
+	}
+
+	public Map(int _height, int _width, int FrozenItemDrop, int snowHeight){
+		height=_height;
+		width=_width;
 		iceField= new IceField(height, width, FrozenItemDrop, snowHeight);
 	}
 

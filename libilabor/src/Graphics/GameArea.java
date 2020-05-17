@@ -1,5 +1,6 @@
 package Graphics;
 import Controller.*;
+import Modell.Map;
 
 import javax.swing.*;
 
@@ -31,9 +32,11 @@ public class GameArea implements ActionListener
 	private JLabel scuba=new JLabel();
 	private JLabel name=new JLabel("Lakatos Dzsesszpero");
 	private JPanel panel = new JPanel();
+	private Container map=new Container();
+	private JButton[][] icetables;
 
 
-	public GameArea(IModell m){
+	public GameArea(Map m){
 		frame.setSize(new Dimension(1360,768));
 		frame.setLayout(new BorderLayout());
 		frame.getContentPane().setBackground(new Color(28,102,222));
@@ -45,6 +48,17 @@ public class GameArea implements ActionListener
 		menuBar.add(menu);
 		frame.setJMenuBar(menuBar);
 
+		//maga a map
+        icetables=new JButton[m.getHeight()][m.getWidth()];
+        map.setLayout(new GridLayout(m.getHeight(),m.getWidth(),30,30));
+        for (int i=0;i<m.getHeight();i++){
+            for (int j=0;j<m.getWidth();j++){
+                JButton b=new JButton();
+                b.setBackground(new Color(255,255,255));
+                icetables[i][j]=b;
+            }
+        }
+        frame.add(map,BorderLayout.CENTER);
 
         panel.add(name);
         name.setFont(new Font(Font.MONOSPACED,Font.BOLD,20));
