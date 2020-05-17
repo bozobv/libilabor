@@ -63,7 +63,8 @@ public class Menu  implements ActionListener {
 			frame.dispose();
 		}
 		else if(actionEvent.getSource().equals(newGame)){
-
+			GameArea ga=new GameArea();
+			frame.dispose();
 		}
 		else if(actionEvent.getSource().equals(loadGame)){
 
