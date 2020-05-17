@@ -42,7 +42,7 @@ public class NewGameWindow extends JFrame implements ActionListener
 	private boolean decode = false;
 	
 	public NewGameWindow(Controller _controller)  {
-		super("new game");
+		super("Tavesz baktalo muro phral");
 
 		controller=_controller;
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -155,7 +155,7 @@ public class NewGameWindow extends JFrame implements ActionListener
   			panel.add(lPb, c);
   	  		panel.add(jcbPb, c);
   	  		
-  	  bStart=new JButton("ZSAAAAA");
+  	  bStart=new JButton("ZSAMO");
   	  bStart.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
   	  bStart.setPreferredSize(new Dimension(100,50));
   	  bStart.setBackground(new Color(69, 143, 152));
@@ -172,7 +172,22 @@ public class NewGameWindow extends JFrame implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
 		if(actionEvent.getSource().equals(bStart)){
-			controller.initializeMap(5,5,jcbItems.getSelectedIndex()+1,jcbSnow.getSelectedIndex()+1);
+			controller.initializeMap(6,6,jcbItems.getSelectedIndex()+1,jcbSnow.getSelectedIndex()+1);
+			
+			//csicska eszkimók
+			for(int i=0;i<jcbEs.getSelectedIndex()+1;i++) {
+				controller.getModell().addPlayer("eskimo", "name", 0);
+			}
+			//csanád kutatók
+			for(int i=0;i<jcbSc.getSelectedIndex()+1;i++) {
+				controller.getModell().addPlayer("scientist", "name", 0);
+			}
+			
+			//klyles
+			for(int i=0;i<jcbPb.getSelectedIndex()+1;i++) {
+				controller.getModell().addBear(5);
+			}
+			
 			controller.startGame();
 			this.dispose();
 		}

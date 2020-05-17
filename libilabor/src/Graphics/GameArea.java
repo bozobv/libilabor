@@ -48,17 +48,19 @@ public class GameArea implements ActionListener
 		menuBar.add(menu);
 		frame.setJMenuBar(menuBar);
 
-		//maga a map
+		//maga a map (en?)
         icetables=new JButton[m.getHeight()][m.getWidth()];
         map.setLayout(new GridLayout(m.getHeight(),m.getWidth(),30,30));
+        //soronkent toltodik, balrol jobbra
         for (int i=0;i<m.getHeight();i++){
             for (int j=0;j<m.getWidth();j++){
                 JButton b=new JButton();
                 b.setBackground(new Color(255,255,255));
-                icetables[i][j]=b;
+                map.add(b);
             }
+
         }
-        frame.add(map,BorderLayout.CENTER);
+        frame.add(map);
 
         panel.add(name);
         name.setFont(new Font(Font.MONOSPACED,Font.BOLD,20));
@@ -119,8 +121,14 @@ public class GameArea implements ActionListener
         scuba.setBackground(new Color(179,228,233));
         //-----
 
+
         panel.add(grid);
-		frame.add(panel, BorderLayout.LINE_END);
+        JPanel panelka=new JPanel();
+        panelka.setLayout(new BoxLayout(panelka,BoxLayout.X_AXIS));
+        panelka.add(Box.createRigidArea(new Dimension(40,0)));
+        panelka.add(panel);
+        panelka.setBackground(new Color(28,102,222));
+		frame.add(panelka, BorderLayout.LINE_END);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		frame.setResizable(false);
