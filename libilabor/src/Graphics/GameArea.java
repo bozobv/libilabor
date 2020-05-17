@@ -33,6 +33,7 @@ public class GameArea implements ActionListener
 	private JLabel name=new JLabel("Lakatos Dzsesszpero");
 	private JPanel panel = new JPanel();
 	private Container map=new Container();
+	private JPanel mappanel=new JPanel();
 	private JButton[][] icetables;
 
 
@@ -56,9 +57,11 @@ public class GameArea implements ActionListener
                 JButton b=new JButton();
                 b.setBackground(new Color(255,255,255));
                 icetables[i][j]=b;
+                map.add(b);
             }
         }
-        frame.add(map,BorderLayout.CENTER);
+        mappanel.add(map);
+        frame.add(mappanel,BorderLayout.LINE_START);
 
         panel.add(name);
         name.setFont(new Font(Font.MONOSPACED,Font.BOLD,20));
