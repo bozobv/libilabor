@@ -100,13 +100,6 @@ public interface IModell {
 	 * */
 	
 	public void destroyItem(int index);
-	
-	/**
-	 * A szomszed lekerdezesere
-	 * @param index 
-	 * */
-	public void getNb(int index);
-
 	/**
 	 * player mozgatasa
 	 * @param a jatekos neve aki mozdulni akar
@@ -211,11 +204,6 @@ public interface IModell {
 	 * @param index A mezo indexe ahonnan a medvet el akarjuk tavolitani
 	 */
 	public void killBear(int index);
-	/**
-	 * A jatek kiirasat megvalosito parancs
-	 * @return A jatek kiirasa stringkent
-	 */
-	public String gameStance();
 	/**
 	 * Visszaadja a soron levo jatekost
 	 * @return A soron levo jatekos
