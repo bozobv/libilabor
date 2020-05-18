@@ -1,5 +1,7 @@
 package Graphics;
 import java.awt.*;
+import java.io.IOException;
+
 import javax.swing.*;
 import Controller.*;
 import Modell.*;
@@ -31,13 +33,9 @@ public class Graphics implements IView {
 		eg = new EndGame(controller);
 
 	}
-	
-
-	
 	@Override
 	public void initializeGameArea(IModell modell) {
-		garea= new GameArea((Map) modell);
-
+			garea= new GameArea((Map) modell);
 	}
 
 	@Override
