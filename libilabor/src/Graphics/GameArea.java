@@ -37,15 +37,15 @@ public class GameArea implements ActionListener {
 	private JLabel lname = new JLabel("Name: " + name);
 	private JPanel panel = new JPanel();
 	private Container map = new Container();
-
+	private Map m;
 	// private JButton[][] icetables;
 
 	private JPanel[][] icetables;
 	String field;
 
-	public GameArea(Map m) {
-		
-		frame.setSize(new Dimension(1360, 768));
+	public GameArea(Map _m) {
+		m=_m;
+		frame.setSize(new Dimension(1600, 900));
 		frame.setLayout(new BorderLayout());
 		frame.getContentPane().setBackground(new Color(28, 102, 222));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -291,7 +291,10 @@ public class GameArea implements ActionListener {
 							default: break;						
 						}
 					}
-					
+					JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
+					b.setText(Integer.toString(currentState.getIceField().getIceTables().get(count).getSnowHeight()));
+					buttonNumber++;
+
 					count++;
 				}
 
@@ -310,7 +313,7 @@ public class GameArea implements ActionListener {
 			//TODO mentesfuggveny
 		}
 		if(actionEvent.getSource().equals(dig)){
-
+			m.dig(m.getCurrentPlayer().getName());
 		}
 
 	}
