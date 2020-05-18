@@ -43,14 +43,28 @@ public class GameArea implements ActionListener
 		frame.setSize(new Dimension(1360,768));
 		frame.setLayout(new BorderLayout());
 		frame.getContentPane().setBackground(new Color(28,102,222));
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		frame.setResizable(false);
+		frame.setJMenuBar(menuBar);
+        JPanel panelka=new JPanel();
+        panelka.setLayout(new BoxLayout(panelka,BoxLayout.X_AXIS));
+        panelka.add(Box.createRigidArea(new Dimension(40,0)));
+        panel.add(grid);
+        panelka.add(panel);
+        frame.add(panelka, BorderLayout.LINE_END);
+        panelka.setBackground(new Color(28,102,222));
 		panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
 		panel.setBackground(new Color(28,102,222));
 		grid.setLayout(new GridLayout(6,2,10,10));
 		menu.add(saveItem);
 		menu.add(quitItem);
 		menuBar.add(menu);
-		frame.setJMenuBar(menuBar);
-
+		frame.add(map);
+	    panel.add(name);
+	    panel.add(Box.createRigidArea(new Dimension(0,10)));
+	    
+	    
 		//maga a map (en?)
         icetables = new JButton[m.getHeight()][m.getWidth()];
         map.setLayout(new GridLayout(m.getHeight(),m.getWidth(),30,30));
@@ -74,7 +88,7 @@ public class GameArea implements ActionListener
             e.printStackTrace();
         }
         
-        
+        //PALYAELEMEK KIRAJZOLASA
         //soronkent toltodik, balrol jobbra
         for (int i = 0;i < m.getHeight(); i++)
         {
@@ -97,17 +111,18 @@ public class GameArea implements ActionListener
             }
 
         }
-        frame.add(map);
-
-        panel.add(name);
+        
+       
+       //NEV JOBB FELUL
         name.setFont(new Font(Font.MONOSPACED,Font.BOLD,20));
         name.setSize(new Dimension(200,40));
         name.setAlignmentX(Component.CENTER_ALIGNMENT);
         name.setOpaque(true);
         name.setBackground(new Color(179,228,233));
 
-        panel.add(Box.createRigidArea(new Dimension(0,10)));
-
+        
+        //GOMBOK JOBB OLDALT
+        //--------------------------------------------------------------
 		grid.add(thp);
 		grid.add(work);
 		//-----
@@ -157,23 +172,17 @@ public class GameArea implements ActionListener
         scuba.setOpaque(true);
         scuba.setBackground(new Color(179,228,233));
         //-----
-
-
-        panel.add(grid);
-        JPanel panelka=new JPanel();
-        panelka.setLayout(new BoxLayout(panelka,BoxLayout.X_AXIS));
-        panelka.add(Box.createRigidArea(new Dimension(40,0)));
-        panelka.add(panel);
-        panelka.setBackground(new Color(28,102,222));
-		frame.add(panelka, BorderLayout.LINE_END);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-		frame.setResizable(false);
-
         saveItem.addActionListener(this);
         quitItem.addActionListener(this);
+        //--------------------------------------------------------------------
 
 	}
+	
+	public void clearMapView() {
+		
+		
+	}
+	
 	public void refresh(IModell modell) {
 		
 	}

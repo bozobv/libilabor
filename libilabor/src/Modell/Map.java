@@ -377,7 +377,9 @@ public class Map implements IModell
 		if (name == "new") iceField = iceField.loadNewGame();
 		else {
 				iceField = iceField.load();
+				
 		}
+		iceField.writeOut();
 	}
 
 	public void killBear(int index) {
