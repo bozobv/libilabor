@@ -356,6 +356,7 @@ public class GameArea implements ActionListener {
 		    m.getCurrentPlayer().useSkill(m.getCurrentPlayer().getCurrentTable());
 		    refresh(m);
         }
+
 		if(actionEvent.getSource().equals(move)){
 			ActionListener secondClickListener= new ActionListener() {
 				@Override
@@ -390,6 +391,9 @@ public class GameArea implements ActionListener {
 			}
 		    refresh(m);
         }
-
+		if(actionEvent.getSource().equals(endTurn)){
+		    m.nextPlayer();
+		    refresh(m);
+        }
 	}
 }
