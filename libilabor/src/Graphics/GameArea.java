@@ -149,6 +149,7 @@ public class GameArea implements ActionListener {
 		// -----
 		dig.setBackground(new Color(69, 143, 152));
 		dig.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
+		dig.addActionListener(this);
 		shovel.setOpaque(true);
 		shovel.setBackground(new Color(179, 228, 233));
 		// -----
@@ -157,6 +158,7 @@ public class GameArea implements ActionListener {
 		// -----
 		skill.setBackground(new Color(69, 143, 152));
 		skill.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
+		skill.addActionListener(this);
 		rope.setBackground(new Color(179, 228, 233));
 		// -----
 		grid.add(pickUp);
@@ -164,6 +166,7 @@ public class GameArea implements ActionListener {
 		// -----
 		pickUp.setBackground(new Color(69, 143, 152));
 		pickUp.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
+		pickUp.addActionListener(this);
 		tent.setBackground(new Color(179, 228, 233));
 		// -----
 		grid.add(endTurn);
@@ -171,6 +174,7 @@ public class GameArea implements ActionListener {
 		// -----
 		endTurn.setBackground(new Color(69, 143, 152));
 		endTurn.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
+		endTurn.addActionListener(this);
 		scuba.setOpaque(true);
 		scuba.setBackground(new Color(179, 228, 233));
 		// -----
@@ -300,5 +304,12 @@ public class GameArea implements ActionListener {
 		if (actionEvent.getSource().equals(quitItem)) {
 			System.exit(0);
 		}
+		if(actionEvent.getSource().equals(saveItem)){
+			//TODO mentesfuggveny
+		}
+		if(actionEvent.getSource().equals(dig)){
+
+		}
+
 	}
 }
