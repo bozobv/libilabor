@@ -3,21 +3,45 @@ package Graphics;
 import Controller.*;
 import Modell.*;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import javax.swing.border.Border;
-import java.awt.Graphics;
-import java.awt.geom.Line2D;
+
 import java.awt.*;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
-public class GameArea implements ActionListener {
+public class GameArea extends JFrame implements ActionListener {
+
+
+	@Override
+	public void paint(Graphics g) {
+	
+		super.paint(g);
+		String path = System.getProperty("user.dir") +"\\kepek_jatekba";
+		 BufferedImage image = null;
+			try {
+				image = ImageIO.read(new File(path+"/hatter.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			//g.drawImage();
+			g.drawImage(image,7,53,1300,839,null);
+			refresh(m);
+		
+	}
+	
+	
+
 	private String name, thp, work;
-	private JFrame frame = new JFrame("jatszas");
+	//private JFrame frame = new JFrame("jatszas");
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenu menu = new JMenu("Menu");
 	private JMenuItem saveItem = new JMenuItem("Save");
@@ -46,19 +70,20 @@ public class GameArea implements ActionListener {
 
 	public GameArea(Map _m) {
 		m=_m;
-		frame.setSize(new Dimension(1600, 900));
-		frame.setLayout(new BorderLayout());
-		frame.getContentPane().setBackground(new Color(28, 102, 222));
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-		frame.setResizable(false);
-		frame.setJMenuBar(menuBar);
+		setSize(new Dimension(1600, 900));
+		
+		setLayout(new BorderLayout());
+		getContentPane().setBackground(new Color(28, 102, 222));
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		setResizable(false);
+		setJMenuBar(menuBar);
 		JPanel panelka = new JPanel();
 		panelka.setLayout(new BoxLayout(panelka, BoxLayout.X_AXIS));
 		panelka.add(Box.createRigidArea(new Dimension(40, 0)));
 		panel.add(grid);
 		panelka.add(panel);
-		frame.add(panelka, BorderLayout.LINE_END);
+		add(panelka, BorderLayout.LINE_END);
 		panelka.setBackground(new Color(28, 102, 222));
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		panel.setBackground(new Color(28, 102, 222));
@@ -66,7 +91,7 @@ public class GameArea implements ActionListener {
 		menu.add(saveItem);
 		menu.add(quitItem);
 		menuBar.add(menu);
-		frame.add(map);
+		add(map);
 		panel.add(lname);
 		panel.add(Box.createRigidArea(new Dimension(0, 10)));
 
@@ -114,6 +139,7 @@ public class GameArea implements ActionListener {
 				} else {
 					icetables[i][j] = null;
 					JLabel l = new JLabel();
+					l.setVisible(false);
 					l.setBackground(Color.blue);
 					map.add(l);
 				}
@@ -562,8 +588,10 @@ public class GameArea implements ActionListener {
 	}
 
 	public void dispose() {
-		frame.dispose();
+		dispose();
 	}
+	
+	
 	
 	
 	
