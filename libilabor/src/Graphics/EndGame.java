@@ -61,7 +61,7 @@ public class EndGame implements ActionListener {
 		if(e.getSource().equals(restart)) {
 			frame.dispose();
 			controller.dispose();
-			controller.startGame();
+			controller.newGame();
 		}
 
 	}

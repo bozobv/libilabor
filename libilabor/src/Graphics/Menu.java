@@ -68,11 +68,12 @@ public class Menu  implements ActionListener {
 		}
 		else if(actionEvent.getSource().equals(newGame)){
 			
-			controller.initializeMap(8, 8, /*jcbItems.getSelectedIndex() +*/ 1, /*jcbSnow.getSelectedIndex() + */1);	
+			//controller.initializeMap(8, 8, /*jcbItems.getSelectedIndex() +*/ 1, /*jcbSnow.getSelectedIndex() + */1);
 			
-			controller.getModell().load("new");
-			controller.setIfController();
-			controller.startGame();
+			//controller.getModell().load("new");
+			//controller.setIfController();
+			//controller.startGame();
+			controller.newGame();
 			
 			//kisbirtok nagybirtok ciganyokkal nem birtok
 			frame.dispose();
