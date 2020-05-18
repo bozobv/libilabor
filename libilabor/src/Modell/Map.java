@@ -4,9 +4,9 @@ import java.util.Random;
 
 import Controller.*;
 
-public class Map implements IModell 
+public class Map implements IModell , java.io.Serializable
 {
-	private IceField iceField;
+	private IceField iceField ;
 	private int basicSnowHeight = 0;
 	private int FrozenItemDrop = 0;
 	private int height;
@@ -30,6 +30,13 @@ public class Map implements IModell
 		height=_height;
 		width=_width;
 		iceField = new IceField(height, width, FrozenItemDrop, snowHeight);
+		iceField.setController(controller);
+	}
+	
+	public Map(Controller controller)
+	{
+		iceField = new IceField();
+		iceField.load();
 		iceField.setController(controller);
 	}
 
@@ -373,8 +380,9 @@ public class Map implements IModell
 		iceField.Blizzard(size);
 	}
 
-	public void save(String saveFileName) {
-		iceField.save();
+	public void save(String saveFileName) 
+	{
+		this.getIceField().save();
 	}
 
 	public void load(String name) {
@@ -385,7 +393,7 @@ public class Map implements IModell
 		}
 		else {
 				iceField = iceField.load();
-				
+				currentPlayer = iceField.getPlayers().get(0).getName();
 		}
 	}
 

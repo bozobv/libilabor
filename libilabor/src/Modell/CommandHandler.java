@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CommandHandler {
+public class CommandHandler implements java.io.Serializable{
 
 	private IceField testField;
 	private int basicSnowHeight = 0;

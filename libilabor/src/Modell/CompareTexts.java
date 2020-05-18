@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class CompareTexts {
+public class CompareTexts implements java.io.Serializable {
 	public static void compare() throws IOException {
 		String filePath = new File("").getAbsolutePath();
 		BufferedReader reader1 = new BufferedReader(new FileReader(filePath +"/kimenet.txt"));

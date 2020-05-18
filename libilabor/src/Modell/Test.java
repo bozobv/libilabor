@@ -10,7 +10,7 @@ import Graphics.Graphics;
 
 
 
-public class Test {
+public class Test implements java.io.Serializable {
 
     public static void main(String[] args)
     {
