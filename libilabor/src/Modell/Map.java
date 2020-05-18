@@ -11,6 +11,7 @@ public class Map implements IModell
 	private int FrozenItemDrop = 0;
 	private int height;
 	private int width;
+	private Player currentPlayer;
 
 	public IceField getIceField() {
 		return iceField;
@@ -25,10 +26,8 @@ public class Map implements IModell
 	public Map(int _height, int _width, int FrozenItemDrop, int snowHeight){
 		height=_height;
 		width=_width;
-		iceField= new IceField(height, width, FrozenItemDrop, snowHeight);
+		iceField = new IceField(height, width, FrozenItemDrop, snowHeight);
 	}
-
-
 
 	public void createEmptyIceField() 
 	{
@@ -374,7 +373,11 @@ public class Map implements IModell
 	}
 
 	public void load(String name) {
-		if (name == "new") iceField = iceField.loadNewGame();
+		if (name == "new") 
+		{
+			iceField = iceField.loadNewGame();
+			currentPlayer = iceField.getPlayers().get(0);
+		}
 		else {
 				iceField = iceField.load();
 				
@@ -382,22 +385,56 @@ public class Map implements IModell
 		iceField.writeOut();
 	}
 
-	public void killBear(int index) {
+	public void killBear(int index) 
+	{
 		PolarBear removedAnimal = iceField.getIceTables().get(index).getAnimalsOnTable().get(0);
 		ArrayList<PolarBear> testAnimals = iceField.getAnimal();
-		for (int i = 0; i < testAnimals.size(); i++) {
+		for (int i = 0; i < testAnimals.size(); i++) 
+		{
 			if (testAnimals.get(i) == removedAnimal)
 				testAnimals.remove(i);
 		}
 
 	}
 
-	public String gameStance() {
+	public String gameStance() 
+	{
 		String str="";
-		if (iceField != null) {
+		if (iceField != null) 
+		{
 			str= iceField.writeOut();
 		}
 		return str;
+	}
+	
+	
+	//ezek még nincsenek késze, csak commitolok
+	public void nextTurn()
+	{
+		if (currentPlayer == iceField.getPlayers().get(iceField.getPlayers().size()))
+			currentPlayer = iceField.getPlayers().get(0);
+		else
+			for (int i = 0; i < iceField.getPlayers().size(); i++) 
+			{
+				if (iceField.getPlayers().get(i).getName().equals(currentPlayer.getName())) 
+				{
+					currentPlayer = iceField.getPlayers().get(i + 1);
+				}
+			}
+	}
+	
+	public void game()
+	{
+		
+	}
+	
+	public String[] getPlayerData()
+	{
+		String[] cpString = new String[2];
+		///String[0] = currentPlayer.getName();
+		
+		
+		return null;
 	}
 	
 	
