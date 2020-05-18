@@ -232,6 +232,7 @@ public class GameArea implements ActionListener {
 							buttonNumber++;
 						}						
 					}
+					
 					for(PolarBear polarBear : currentState.getIceField().getIceTables().get(count).getAnimalsOnTable()) {
 						JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
 						ImageIcon image = new ImageIcon(path+"/polarbear.png");
