@@ -108,6 +108,7 @@ public class GameArea implements ActionListener {
 					icetables[i][j] = panelka2;
 					panelka2.setVisible(true);
 				} else {
+					icetables[i][j] = null;
 					JLabel l = new JLabel();
 					l.setBackground(Color.blue);
 					map.add(l);
@@ -353,6 +354,41 @@ public class GameArea implements ActionListener {
 		}
 		if(actionEvent.getSource().equals(skill)){
 		    m.getCurrentPlayer().useSkill(m.getCurrentPlayer().getCurrentTable());
+		    refresh(m);
+        }
+
+		if(actionEvent.getSource().equals(move)){
+			ActionListener secondClickListener= new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					int index=0;
+					JPanel iceField= (JPanel)((Button)e.getSource()).getParent();
+					for (int i = 0; i < m.getWidth(); i++) {
+						for (int j = 0; j < m.getHeight(); j++) {
+							if(icetables[i][j]!=null) {
+								if(icetables[i][j]!=iceField) {
+									
+									index++;
+								}
+
+							}
+						}
+					}
+					
+					String name=m.getCurrentPlayer().getName();
+					m.movePlayer(name, index);
+				}
+			};
+		    for (JPanel[] jPanels : icetables) {
+				for (JPanel jPanel : jPanels) {
+					if(jPanel!=null) {
+						for (int i = 0; i < 9; i++) {
+							Button b= (Button)jPanel.getComponent(i);
+							b.addActionListener(secondClickListener);
+						}
+					}
+				}
+			}
 		    refresh(m);
         }
 		if(actionEvent.getSource().equals(endTurn)){
