@@ -135,10 +135,7 @@ public class GameArea implements ActionListener
                     panelka2.add(b6);panelka2.add(b7);panelka2.add(b8);panelka2.add(b9);  
                     map.add(panelka2);
                     icetables[i][j]=panelka2;
-                    panelka2.setVisible(true);
-                    
-                    
-                    
+                    panelka2.setVisible(true);   
             	}
             	else
             	{
@@ -222,7 +219,14 @@ public class GameArea implements ActionListener
 	public void clearMapView() {
 		for (JPanel[] jButton : icetables) {
 			for (JPanel jButton2 : jButton) {
-				jButton2.setBackground(new Color(255,255,255));
+				if(jButton2!=null) {
+					jButton2.setBackground(new Color(255,255,255));
+					for (int i = 0; i < 9; i++) {
+						JButton button=(JButton)jButton2.getComponent(i);
+						button.setIcon(null);
+						button.setBackground(Color.WHITE);
+					}
+				}
 			}
 		}
 
