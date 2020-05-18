@@ -59,9 +59,9 @@ import java.util.ArrayList;
 			{
 				this.setWork(this.getWork()-1 );
 				iceTable.playerVisit(this);
-			}
-				
+			}	
 		}
+
 	}
 	/**
 	    * A player hasznalja a megadott indexu itemet
