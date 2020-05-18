@@ -6,6 +6,7 @@ public class Food extends Instant implements java.io.Serializable
 
 
 	public Food(){
+		this.setId(6);
 	}
 
 	/**

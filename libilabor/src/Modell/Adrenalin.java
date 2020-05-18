@@ -4,7 +4,7 @@ public class Adrenalin extends Instant implements java.io.Serializable
 {
 
 	public Adrenalin(){
-		
+		this.setId(5);
 	}
 	
 	/**

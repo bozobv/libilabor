@@ -227,8 +227,65 @@ public class GameArea implements ActionListener {
 							ImageIcon image = new ImageIcon("kepek_jatekba/scient.png");
 							b.setIcon(image);							
 							buttonNumber++;
-						}
+						}						
+					}
+					for(PolarBear polarBear : currentState.getIceField().getIceTables().get(count).getAnimalsOnTable()) {
+						JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
+						ImageIcon image = new ImageIcon("kepek_jatekba/polarbear.png");
+						b.setIcon(image);
+						buttonNumber++;
+					}
+					if(currentState.getIceField().getIceTables().get(count).getFrozenItem() != null ) {
+						JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
+						ImageIcon image;
+						switch(currentState.getIceField().getIceTables().get(count).getFrozenItem().getId()) 
+						{
 						
+							case 0: image = new ImageIcon("kepek_jatekba/flaregun.png");
+									b.setIcon(image);
+									buttonNumber++;
+									break;
+							case 1: image = new ImageIcon("kepek_jatekba/rope.png");
+									b.setIcon(image);
+									buttonNumber++;
+									break;
+							case 2:  image = new ImageIcon("kepek_jatekba/scuba.png");
+									b.setIcon(image);
+									buttonNumber++;
+									break;
+							case 3: if(currentState.getIceField().getIceTables().get(count).getFrozenItem().getClass() == Shovel.class) 
+									{
+										image = new ImageIcon("kepek_jatekba/shovel.png");
+										b.setIcon(image);
+										buttonNumber++;
+										break;
+									}
+									else 
+									{
+										 image = new ImageIcon("kepek_jatekba/weakshovel.png");
+										b.setIcon(image);
+										buttonNumber++;
+										break;
+									}
+							case 4: image = new ImageIcon("kepek_jatekba/tent.png");
+									b.setIcon(image);
+									buttonNumber++;
+									break;
+							case 5: image = new ImageIcon("kepek_jatekba/adrenalin.png");
+									b.setIcon(image);
+									buttonNumber++;
+									break;
+							case 6: image = new ImageIcon("kepek_jatekba/food.png");
+									b.setIcon(image);
+									buttonNumber++;
+									break;
+							case 7: image = new ImageIcon("kepek_jatekba/whiskey.png");
+									b.setIcon(image);
+									buttonNumber++;
+									break;
+							default: break;
+						
+						}
 					}
 					count++;
 				}

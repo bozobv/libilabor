@@ -2,12 +2,12 @@ package Modell;
 
 public abstract class Instant extends Item implements java.io.Serializable
 {
-	private static int  INSTANT_ID=4;
+	private static int  INSTANT_ID = 5;
 
 
 
 	public Instant(){
-		this.setId(INSTANT_ID);
+		
 	}
 
 	/**

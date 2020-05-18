@@ -6,7 +6,7 @@ public class Whiskey extends Instant implements java.io.Serializable
 
 
 	public Whiskey(){
-		
+		this.setId(7);
 	}
 	
 	/**
