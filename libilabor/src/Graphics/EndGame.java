@@ -38,7 +38,7 @@ public class EndGame implements ActionListener {
 		title.setHorizontalAlignment(JLabel.CENTER);
 		
 		p= new JPanel();
-		p.setLayout(new GridLayout(3,1));
+		p.setLayout(new GridLayout(3,1, 30,30 ));
 		p.add(title);
 		p.add(restart);
 		p.add(exit);
