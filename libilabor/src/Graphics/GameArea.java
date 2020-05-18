@@ -324,11 +324,16 @@ public class GameArea implements ActionListener {
 		if(actionEvent.getSource().equals(dig)){
 			m.dig(m.getCurrentPlayer().getName());
 			refresh(m);
+			refresh(m);
 		}
 		if(actionEvent.getSource().equals(pickUp)) {
 			m.getCurrentPlayer().pickUp();
 			refresh(m);
 		}
+		if(actionEvent.getSource().equals(skill)){
+		    m.getCurrentPlayer().useSkill(m.getCurrentPlayer().getCurrentTable());
+		    refresh(m);
+        }
 
 	}
 }
