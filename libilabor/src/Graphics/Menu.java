@@ -10,10 +10,27 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class Menu  implements ActionListener {
+	/**
+	 * a menuelemeket tartalmazo kontener
+	 */
 	private Container container;
+	/**
+	 * Az uj jatek, jatek betoltese es kilepes gombok a menuben
+	 */
 	private JButton newGame, loadGame, exit;
+	/**
+	 * A Menu ablak
+	 */
 	private JFrame frame=new JFrame("Welcome to Eskibros game!");
+	/**
+	 * A Controller amely a nezetet kezeli
+	 */
 	private Controller controller;
+	
+	/**
+	 * A menu konstruktora, amely a kinezetet osszerakja es inicializalja a valtozokat
+	 * @param _controller a controller amely ot kezeli
+	 */
 	public Menu(Controller _controller)
 	{
 	    controller=_controller;
@@ -61,6 +78,10 @@ public class Menu  implements ActionListener {
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         frame.setResizable(false);
 	}
+	
+	/**
+	 * A menu gombjaihoz rendelt action listener, hogy a kattintásukat le lehessen kezelni
+	 */
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
 		if(actionEvent.getSource().equals(exit)){
