@@ -472,10 +472,6 @@ public class Map implements IModell
 	@Override
 	public void setIfController(Controller controller) {
 		iceField.setController(controller);
-		iceField.getPlayers().get(0).addToInventory(new FlareGunPart());
-		iceField.getPlayers().get(1).addToInventory(new FlareGunPart());
-		iceField.getPlayers().get(2).addToInventory(new FlareGunPart());
-
 	}
 
 	
