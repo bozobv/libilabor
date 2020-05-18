@@ -31,6 +31,7 @@ public class Controller
 	public void play(){	
 
 	}
+	
 	public void initializeMenu(){
 	    view.initializeMenu(this);
     }

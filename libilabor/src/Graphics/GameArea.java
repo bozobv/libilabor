@@ -15,6 +15,7 @@ import java.util.Scanner;
 
 public class GameArea implements ActionListener
 {
+	private String name, thp, work;
 	private JFrame frame = new JFrame("jatszas");
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenu menu = new JMenu("Menu");
@@ -26,16 +27,20 @@ public class GameArea implements ActionListener
 	private JButton skill = new JButton("Skill");
 	private JButton pickUp = new JButton("Pick up");
 	private JButton endTurn = new JButton("End turn");
-	private JLabel thp = new JLabel("THP:");
-	private JLabel work = new JLabel("Work:");
+	private JLabel lthp = new JLabel("thp: " + thp);
+	private JLabel lwork = new JLabel("work:" + work);
 	private JButton flare = new JButton();
 	private JLabel shovel = new JLabel();
 	private JButton rope = new JButton();
 	private JButton tent = new JButton();
 	private JLabel scuba = new JLabel();
-	private JLabel name = new JLabel("Lakatos Dzsesszpero");
+	private JLabel lname = new JLabel("Name: " + name);
 	private JPanel panel = new JPanel();
 	private Container map = new Container();
+	
+	//private JButton[][] icetables;
+	
+	
 	private JPanel[][] icetables;
 
 
@@ -61,7 +66,7 @@ public class GameArea implements ActionListener
 		menu.add(quitItem);
 		menuBar.add(menu);
 		frame.add(map);
-	    panel.add(name);
+	    panel.add(lname);
 	    panel.add(Box.createRigidArea(new Dimension(0,10)));
 	    
 	    
@@ -88,6 +93,7 @@ public class GameArea implements ActionListener
             e.printStackTrace();
         }
         
+        
         //PALYAELEMEK KIRAJZOLASA
         //soronkent toltodik, balrol jobbra
         for (int i = 0;i < m.getHeight(); i++)
@@ -111,10 +117,7 @@ public class GameArea implements ActionListener
                     }
                     map.add(panelka2);
                     icetables[i][j]=panelka2;
-                    panelka2.setVisible(true);
-                    
-                    
-                    
+                    panelka2.setVisible(true);   
             	}
             	else
             	{
@@ -129,25 +132,25 @@ public class GameArea implements ActionListener
         
        
        //NEV JOBB FELUL
-        name.setFont(new Font(Font.MONOSPACED,Font.BOLD,20));
-        name.setSize(new Dimension(200,40));
-        name.setAlignmentX(Component.CENTER_ALIGNMENT);
-        name.setOpaque(true);
-        name.setBackground(new Color(179,228,233));
+        lname.setFont(new Font(Font.MONOSPACED,Font.BOLD,20));
+        lname.setSize(new Dimension(200,40));
+        lname.setAlignmentX(Component.CENTER_ALIGNMENT);
+        lname.setOpaque(true);
+        lname.setBackground(new Color(179,228,233));
 
         
         //GOMBOK JOBB OLDALT
         //--------------------------------------------------------------
-		grid.add(thp);
-		grid.add(work);
+		grid.add(lthp);
+		grid.add(lwork);
 		//-----
-        thp.setPreferredSize(new Dimension(100,100));
-        thp.setFont(new Font(Font.MONOSPACED,Font.BOLD,20));
-        thp.setOpaque(true);
-        thp.setBackground(new Color(179,228,233));
-        work.setFont(new Font(Font.MONOSPACED,Font.BOLD,20));
-        work.setOpaque(true);
-        work.setBackground(new Color(179,228,233));
+        lthp.setPreferredSize(new Dimension(100,100));
+        lthp.setFont(new Font(Font.MONOSPACED,Font.BOLD,20));
+        lthp.setOpaque(true);
+        lthp.setBackground(new Color(179,228,233));
+        lwork.setFont(new Font(Font.MONOSPACED,Font.BOLD,20));
+        lwork.setOpaque(true);
+        lwork.setBackground(new Color(179,228,233));
         //-----
 
         grid.add(move);
@@ -198,13 +201,20 @@ public class GameArea implements ActionListener
 	public void clearMapView() {
 		for (JPanel[] jButton : icetables) {
 			for (JPanel jButton2 : jButton) {
-				jButton2.setBackground(new Color(255,255,255));
+				if(jButton2!=null) {
+					jButton2.setBackground(new Color(255,255,255));
+					for (int i = 0; i < 9; i++) {
+						JButton button=(JButton)jButton2.getComponent(i);
+						button.setIcon(null);
+						button.setBackground(Color.WHITE);
+					}
+				}
 			}
 		}
 
 		
-		name.setBackground(new Color(179,228,233));
-		name.setText("");
+		lname.setBackground(new Color(179,228,233));
+		lname.setText("");
 		
 		flare.setBackground(new Color(179,228,233));
 		shovel.setBackground(new Color(179,228,233));
