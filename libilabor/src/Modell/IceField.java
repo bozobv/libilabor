@@ -1,5 +1,7 @@
 package Modell;
 
+import Controller.Controller;
+
 import java.util.Random;
 import java.util.ArrayList;
 import java.io.*;
@@ -43,6 +45,10 @@ public class IceField implements java.io.Serializable
 	/**
 	 * default konstruktor ures mezo letrehozasahoz
 	 */
+	private Controller controller;
+	public void setController(Controller _controller){
+		controller=_controller;
+	}
 	public IceField()
 	{
 		StableTable nextStableTable = new StableTable();
@@ -56,8 +62,9 @@ public class IceField implements java.io.Serializable
 	 * @param FrozenItemDrop a itemek eselye tablankent
 	 * @param snowHeight a maximalis homagassag ami lehet tablan
 	 */
-	public IceField(int height, int width, int FrozenItemDrop, int snowHeight) 
+	public IceField(int height, int width, int FrozenItemDrop, int snowHeight)
 	{
+
 		if (height < 2 || width < 2) 
 		{
 			System.out.println("Tul kicsi, a meret a lenyeg, a magassagnak es a szelessegnek 1-nel nagyobbnak kell lennie");
@@ -277,6 +284,7 @@ public class IceField implements java.io.Serializable
 	public void endGame() 
 	{
 		System.out.println("Legalabb egy jatekos meghalt, elbuktatok a kuldetest!");
+		controller.endGame();
 	}
 	/**
 	 * hovihar esemenye

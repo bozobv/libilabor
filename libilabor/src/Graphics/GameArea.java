@@ -370,7 +370,6 @@ public class GameArea implements ActionListener {
 						for (int j = 0; j < m.getHeight(); j++) {
 							if(icetables[i][j]!=null) {
 								if(icetables[i][j]!=iceField) {	
-									System.out.println("baktalo");
 									index++;
 								}
 								else {
@@ -402,5 +401,9 @@ public class GameArea implements ActionListener {
 		    m.nextPlayer();
 		    refresh(m);
         }
+	}
+
+	public void dispose() {
+		frame.dispose();
 	}
 }

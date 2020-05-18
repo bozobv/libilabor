@@ -24,9 +24,11 @@ public class Graphics implements IView {
 	public void initializeMenu(Controller controller) {
 		menu = new Menu(controller);
 	}
-	
-	public void initializeEndGame() {
-		eg = new EndGame();
+
+
+
+	public void initializeEndGame(Controller controller) {
+		eg = new EndGame(controller);
 
 	}
 	
@@ -36,5 +38,10 @@ public class Graphics implements IView {
 	public void initializeGameArea(IModell modell) {
 		garea= new GameArea((Map) modell);
 
+	}
+
+	@Override
+	public void dispose() {
+		garea.dispose();
 	}
 }
