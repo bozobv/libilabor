@@ -1,6 +1,6 @@
 package Graphics;
 import Controller.*;
-import Modell.Map;
+import Modell.*;
 
 import javax.swing.*;
 
@@ -96,10 +96,31 @@ public class GameArea implements ActionListener
             {
             	if (field.charAt(i * m.getWidth() + j )  == '1')
             	{
-            		JButton b = new JButton();
+            		/*JButton b = new JButton();
             		b.setBackground(new Color(255,255,255));
             		map.add(b);
                     System.out.println("b");
+                    */
+                    JPanel panelka2=new JPanel();
+                    panelka2.setLayout(new GridLayout(3,3));
+                    
+                    JButton b1=new JButton("1");  
+                    JButton b2=new JButton("2");  
+                    JButton b3=new JButton("3");  
+                    JButton b4=new JButton("4");  
+                    JButton b5=new JButton("5");  
+                    JButton b6=new JButton("6");  
+                    JButton b7=new JButton("7");  
+                    JButton b8=new JButton("8");  
+                    JButton b9=new JButton("9");  
+                    b1.setBackground(new Color(255,255,255));    
+                    panelka2.add(b1);panelka2.add(b2);panelka2.add(b3);panelka2.add(b4);panelka2.add(b5);  
+                    panelka2.add(b6);panelka2.add(b7);panelka2.add(b8);panelka2.add(b9);  
+                    map.add(panelka2);
+                    panelka2.setVisible(true);
+                    
+                    
+                    
             	}
             	else
             	{
@@ -179,13 +200,32 @@ public class GameArea implements ActionListener
         
 	}
 	
-	public void clearMapView(Map m) {
+
+	public void clearMapView() {
+		for (JButton[] jButton : icetables) {
+			for (JButton jButton2 : jButton) {
+				jButton2.setBackground(new Color(255,255,255));
+			}
+		}
+
 		
+		name.setBackground(new Color(179,228,233));
+		name.setText("");
 		
-		
+		flare.setBackground(new Color(179,228,233));
+		shovel.setBackground(new Color(179,228,233));
+	 	rope.setBackground(new Color(179,228,233));
+		tent.setBackground(new Color(179,228,233));
+		scuba.setBackground(new Color(179,228,233));
 	}
 	
+	
+	
 	public void refresh(IModell modell) {
+		this.clearMapView();
+		
+		//ide kene az ujrarajzolas 0-rol
+		
 		
 	}
 
