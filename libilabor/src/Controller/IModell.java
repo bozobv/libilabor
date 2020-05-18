@@ -32,8 +32,6 @@ public interface IModell {
 	public void setItem(String type, int index);
 
 	public void destroyItem(int index);
-	
-	public void getNb(int index);
 
 	public void movePlayer(String name, int index);
 	
@@ -71,7 +69,6 @@ public interface IModell {
 	
 	public void killBear(int index);
 
-	public String gameStance();
 	
 	public Player getCurrentPlayer();
 	
