@@ -418,10 +418,6 @@ public class GameArea implements ActionListener {
 		
 	}
 
-	
-    
- 
-	
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
 		if (actionEvent.getSource().equals(quitItem)) {
