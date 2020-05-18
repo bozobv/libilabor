@@ -193,6 +193,7 @@ public class GameArea implements ActionListener {
 						JButton button = (JButton) jButton2.getComponent(i);
 						button.setIcon(null);
 						button.setBackground(Color.WHITE);
+						button.setText("");
 					}
 				}
 			}
