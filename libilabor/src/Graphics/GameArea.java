@@ -362,7 +362,7 @@ public class GameArea implements ActionListener {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					int index=0;
-					JPanel iceField= (JPanel)((Button)e.getSource()).getParent();
+					JPanel iceField= (JPanel)((JButton)e.getSource()).getParent();
 					for (int i = 0; i < m.getWidth(); i++) {
 						for (int j = 0; j < m.getHeight(); j++) {
 							if(icetables[i][j]!=null) {
@@ -383,7 +383,7 @@ public class GameArea implements ActionListener {
 				for (JPanel jPanel : jPanels) {
 					if(jPanel!=null) {
 						for (int i = 0; i < 9; i++) {
-							Button b= (Button)jPanel.getComponent(i);
+							JButton b= (JButton)jPanel.getComponent(i);
 							b.addActionListener(secondClickListener);
 						}
 					}
