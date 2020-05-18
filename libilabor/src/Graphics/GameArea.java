@@ -176,9 +176,11 @@ public class GameArea implements ActionListener
         quitItem.addActionListener(this);
         //--------------------------------------------------------------------
 
+        
 	}
 	
-	public void clearMapView() {
+	public void clearMapView(Map m) {
+		
 		
 		
 	}
