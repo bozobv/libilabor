@@ -230,6 +230,7 @@ public class GameArea implements ActionListener {
 						}
 						
 					}
+					
 					count++;
 				}
 
