@@ -50,4 +50,10 @@ public class Controller
 	public void dispose() {
 		view.dispose();
 	}
+	public void newGame(){
+		initializeMap(8, 8, /*jcbItems.getSelectedIndex() +*/ 1, /*jcbSnow.getSelectedIndex() + */1);
+		getModell().load("new");
+		setIfController();
+		startGame();
+	}
 }
