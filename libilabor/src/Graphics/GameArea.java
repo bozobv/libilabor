@@ -134,6 +134,7 @@ public class GameArea implements ActionListener
                     panelka2.add(b1);panelka2.add(b2);panelka2.add(b3);panelka2.add(b4);panelka2.add(b5);  
                     panelka2.add(b6);panelka2.add(b7);panelka2.add(b8);panelka2.add(b9);  
                     map.add(panelka2);
+                    icetables[i][j]=panelka2;
                     panelka2.setVisible(true);
                     
                     
