@@ -421,12 +421,12 @@ public class Map implements IModell
 	{
 		boolean playerDrowning = false; 
 		
-		if (currentPlayer == iceField.getPlayers().get(iceField.getPlayers().size()).getName())
+		if (currentPlayer == iceField.getPlayers().get(iceField.getPlayers().size() - 1).getName())
 		{
 			//ha az utso játékos volt, ezek történnek:
 			//currentplayer az első játékos lesz
 			currentPlayer = iceField.getPlayers().get(0).getName();
-			
+
 			//állatok lépnek
 			for(int j = 0; j < iceField.getAnimal().size(); j++)
 			{
@@ -451,12 +451,17 @@ public class Map implements IModell
 			}
 		}
 		else
-			for (int i = 0; i < iceField.getPlayers().size(); i++) 
 			{
-				//ha nem az utso jatekos, akkor csak siman a currentplayert allitjuk a kovire
-				if (iceField.getPlayers().get(i).getName().equals(currentPlayer)) 
+				boolean gotit = false;
+				int i = 0;
+				while(gotit == false)
 				{
-					currentPlayer = iceField.getPlayers().get(i + 1).getName();
+					if (iceField.getPlayers().get(i).getName() == currentPlayer)
+					{
+						currentPlayer = iceField.getPlayers().get(i + 1).getName();
+						gotit = true;
+					}
+					i++;
 				}
 			}
 	}
