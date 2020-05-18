@@ -59,9 +59,9 @@ import java.util.ArrayList;
 			{
 				this.setWork(this.getWork()-1 );
 				iceTable.playerVisit(this);
-			}
-				
+			}	
 		}
+
 	}
 	/**
 	    * A player hasznalja a megadott indexu itemet
@@ -133,8 +133,10 @@ import java.util.ArrayList;
 	 */
 	public void repairFlareGun() {
 
-		 if (this.getCurrentTable().checkFlareGunPart() > 2)
+		 if (this.getCurrentTable().checkFlareGunPart() > 2){
 			 System.out.println("GyoZELEEEEEEEEEEEEM");
+			 getCurrentTable().getIceField().win();
+		 }
 	}
 	/**
 	 * Ha valaki beleesik a lyukba annak a work-je 0

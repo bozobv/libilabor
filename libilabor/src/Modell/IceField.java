@@ -468,7 +468,7 @@ public class IceField implements java.io.Serializable
 	public void save()
 	{
 		try {
-	         FileOutputStream fileOut = new FileOutputStream(new File("mentett.ser"));
+	         FileOutputStream fileOut = new FileOutputStream(new File("mentett.ser")); //ez mentett
 	         ObjectOutputStream out = new ObjectOutputStream(fileOut);
 	         out.writeObject(this);
 	         out.close();
@@ -554,5 +554,9 @@ public class IceField implements java.io.Serializable
 			System.out.println(")");
 		}
 		return str;
+	}
+
+	public void win() {
+		controller.win();
 	}
 }
