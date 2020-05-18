@@ -256,7 +256,7 @@ public class GameArea implements ActionListener {
 						b.setIcon(image);
 						buttonNumber++;
 					}
-					if(currentState.getIceField().getIceTables().get(count).getFrozenItem() != null && currentState.getIceField().getIceTables().get(count).getSnowHeight() == 0) {
+					if(currentState.getIceField().getIceTables().get(count).getFrozenItem() != null /*&& currentState.getIceField().getIceTables().get(count).getSnowHeight() == 0*/) {
 						JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
 						ImageIcon image;
 						switch(currentState.getIceField().getIceTables().get(count).getFrozenItem().getId()) 
@@ -310,7 +310,7 @@ public class GameArea implements ActionListener {
 					if(currentState.getIceField().getIceTables().get(count).getConstruction()!=null){
 						if(currentState.getIceField().getIceTables().get(count).getConstruction().getClass()==Tent.class){
 							JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
-							ImageIcon image = new ImageIcon(path+"/tent.png");
+							ImageIcon image = new ImageIcon(path+"/tentCONSTRUCTION.png");
 							b.setIcon(image);
 							buttonNumber++;
 						}
