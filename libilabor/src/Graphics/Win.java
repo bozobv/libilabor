@@ -6,12 +6,23 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ * A gyozelem utan felugro ablak megjelenitesere szolgal. 
+ * Implementalja az ActionListenert.
+ * 
+ * 
+ *
+ */
 public class Win implements ActionListener {
-    private JFrame frame;
-    private Controller controller;
+    /**az ablak jframeje*/
+	private JFrame frame;
+    /**kontroller*/
+	private Controller controller;
+    /**az exit, restart gombok*/
     private JButton restart, exit;
+    /**A gratulalo szovegnek*/
     private JLabel title;
+    /**panel*/
     private JPanel p;
 
     public Win(Controller _controller) {
@@ -50,6 +61,10 @@ public class Win implements ActionListener {
 
     }
 
+    /**
+     * A bizonyos gombok megnyomasainak hatasaira.
+     * @param actionEvent 
+     */
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         if (actionEvent.getSource().equals(exit)) {

@@ -4,21 +4,56 @@ import java.util.Random;
 
 import Modell.*;
 public interface IModell {
-	
+	/**
+	 * Egy adott jatekost jellemzo adatok
+	 * @param name az aso jatekos neve
+	 */
 	public void characterStats(String name);
-
+	/**
+	 * A player as
+	 * @param type a jatekos tipusa
+	 * @param name az aso jatekos neve
+	 * @param index index, hogy a jatekos melyik icetablere kerul.
+	 */
 	public void addPlayer(String type, String name, int index);
 
+	/**
+	 * Maci hozzaadasa
+	 * @param index hogy hova
+	 */
 	public void addBear(int index);
+	/**
+	 * Hovihar
+	 * @param possibility a hovihar eselye
+	 */
 
 	public void blizzardChance(int possibility);
 
+	/**
+	 * A hovihar meretenek beallitasa
+	 * @param size a meret
+	 */
 	public void blizzardSize(int size) ;
 
+	/**
+	 * ho magassaganak beallitasa
+	 * @param snowHeight a ho magassaga
+	 */
 	public void iceFieldSnow(int snowHeight);
+	/**
+	 * item beallitasa
+	 * @param itemPossibility item valoszinusege
+	 */
 
 	public void iceFieldItem(int itemPossibility) ;
 
+	/**
+	 * Icefield keszitese
+	 * @param type icefield tipusa
+	 * @param height magassag
+	 * @param width szelesseg
+	 */
+	
 	public void createIceField(String type, int height, int width);
 	
 	public void addUnstableTable(int cap);
@@ -47,6 +82,10 @@ public interface IModell {
 
 	public void killCharacter(String name);
 	
+	/**
+	 * A player as
+	 * @param name az aso jatekos neve
+	 */
 	public void dig(String name) ;
 
 	public void rope(String name, int index);
