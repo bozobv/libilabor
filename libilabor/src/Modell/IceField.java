@@ -555,4 +555,8 @@ public class IceField implements java.io.Serializable
 		}
 		return str;
 	}
+
+	public void win() {
+		controller.win();
+	}
 }

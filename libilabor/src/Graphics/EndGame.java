@@ -1,11 +1,6 @@
 package Graphics;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.Container;
+import java.awt.*;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -50,6 +45,8 @@ public class EndGame implements ActionListener {
 		frame.add(p,BorderLayout.CENTER);
 		frame.pack();
 		frame.setVisible(true);
+		Dimension dim= Toolkit.getDefaultToolkit().getScreenSize();
+		frame.setLocation(dim.width/2-frame.getSize().width/2,dim.height/2-frame.getSize().height/2);
 
 	}
 

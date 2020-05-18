@@ -144,6 +144,7 @@ public class GameArea implements ActionListener {
 		move.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
 		move.addActionListener(this);
 		flare.setBackground(new Color(179, 228, 233));
+		flare.addActionListener(this);
 		// -----
 		grid.add(move);
 		grid.add(flare);
@@ -164,6 +165,7 @@ public class GameArea implements ActionListener {
 		skill.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
 		skill.addActionListener(this);
 		rope.setBackground(new Color(179, 228, 233));
+		rope.addActionListener(this);
 		// -----
 		grid.add(pickUp);
 		grid.add(tent);
@@ -172,6 +174,7 @@ public class GameArea implements ActionListener {
 		pickUp.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
 		pickUp.addActionListener(this);
 		tent.setBackground(new Color(179, 228, 233));
+		tent.addActionListener(this);
 		// -----
 		grid.add(endTurn);
 		grid.add(scuba);
@@ -486,6 +489,18 @@ public class GameArea implements ActionListener {
 		    m.nextPlayer();
 		    refresh(m);
         }
+		if(actionEvent.getSource().equals(flare)){
+			m.getCurrentPlayer().useItem(0,0);
+			refresh(m);
+		}
+		if(actionEvent.getSource().equals(tent)){
+			m.getCurrentPlayer().useItem(4,0);
+			refresh(m);
+		}
+		if(actionEvent.getSource().equals(rope)){
+			m.getCurrentPlayer().useItem(1,0);
+			refresh(m);
+		}
 	}
 
 	public void dispose() {

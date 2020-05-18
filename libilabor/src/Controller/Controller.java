@@ -56,4 +56,8 @@ public class Controller
 		setIfController();
 		startGame();
 	}
+
+	public void win() {
+		Win nyeres=new Win(this);
+	}
 }
