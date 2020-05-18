@@ -136,14 +136,15 @@ public class GameArea implements ActionListener {
 		lwork.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
 		lwork.setOpaque(true);
 		lwork.setBackground(new Color(179, 228, 233));
-		// -----
 
-		grid.add(move);
-		grid.add(flare);
 		// -----
 		move.setBackground(new Color(69, 143, 152));
 		move.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
+		move.addActionListener(this);
 		flare.setBackground(new Color(179, 228, 233));
+		// -----
+		grid.add(move);
+		grid.add(flare);
 		// -----
 		grid.add(dig);
 		grid.add(shovel);
@@ -356,40 +357,45 @@ public class GameArea implements ActionListener {
 		    m.getCurrentPlayer().useSkill(m.getCurrentPlayer().getCurrentTable());
 		    refresh(m);
         }
-
 		if(actionEvent.getSource().equals(move)){
+
+			
 			ActionListener secondClickListener= new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					int index=0;
-					JPanel iceField= (JPanel)((Button)e.getSource()).getParent();
+					JPanel iceField= (JPanel)((JButton)e.getSource()).getParent();
 					for (int i = 0; i < m.getWidth(); i++) {
 						for (int j = 0; j < m.getHeight(); j++) {
 							if(icetables[i][j]!=null) {
-								if(icetables[i][j]!=iceField) {
-									
+								if(icetables[i][j]!=iceField) {	
+									System.out.println("baktalo");
 									index++;
+									String name=m.getCurrentPlayer().getName();
+									m.movePlayer(name, index);
+									refresh(m);
+									return;
 								}
 
 							}
 						}
 					}
 					
-					String name=m.getCurrentPlayer().getName();
-					m.movePlayer(name, index);
+					
 				}
 			};
 		    for (JPanel[] jPanels : icetables) {
 				for (JPanel jPanel : jPanels) {
 					if(jPanel!=null) {
 						for (int i = 0; i < 9; i++) {
-							Button b= (Button)jPanel.getComponent(i);
+							System.out.println("tavesz");
+							JButton b= (JButton)jPanel.getComponent(i);
 							b.addActionListener(secondClickListener);
 						}
 					}
 				}
 			}
-		    refresh(m);
+		    
         }
 		if(actionEvent.getSource().equals(endTurn)){
 		    m.nextPlayer();
