@@ -300,7 +300,14 @@ public class GameArea implements ActionListener {
 						}
 					}
 					JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
-					b.setText(Integer.toString(currentState.getIceField().getIceTables().get(count).getSnowHeight()));
+					int snowHeight=currentState.getIceField().getIceTables().get(count).getSnowHeight();
+					b.setText(snowHeight>0? Integer.toString(snowHeight):"");
+					if(snowHeight == 0) {
+						for (Component comps: b.getParent().getComponents()) {
+							comps.setBackground(new Color(179, 228, 233));
+						}
+						
+					}
 					buttonNumber++;
 
 					count++;
@@ -323,11 +330,16 @@ public class GameArea implements ActionListener {
 		if(actionEvent.getSource().equals(dig)){
 			m.dig(m.getCurrentPlayer().getName());
 			refresh(m);
+			refresh(m);
 		}
 		if(actionEvent.getSource().equals(pickUp)) {
 			m.getCurrentPlayer().pickUp();
 			refresh(m);
 		}
+		if(actionEvent.getSource().equals(skill)){
+		    m.getCurrentPlayer().useSkill(m.getCurrentPlayer().getCurrentTable());
+		    refresh(m);
+        }
 
 	}
 }
