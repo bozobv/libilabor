@@ -16,7 +16,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class GameArea implements ActionListener {
+public class GameArea implements ActionListener  {
 	private String name, thp, work;
 	private JFrame frame = new JFrame("jatszas");
 	private JMenuBar menuBar = new JMenuBar();
@@ -219,8 +219,8 @@ public class GameArea implements ActionListener {
 
 	public void refresh(IModell modell) {
 		this.clearMapView();
-		String path = System.getProperty("user.dir") +"\\kepek_jatekba";		//ez a windows
-		//String path = System.getProperty("user.dir") +"/kepek_jatekba";			//ez a linuxos
+		//String path = System.getProperty("user.dir") +"\\kepek_jatekba";		//ez a windows
+		String path = System.getProperty("user.dir") +"/kepek_jatekba";			//ez a linuxos
 		
 		name = m.getCurrentPlayer().getName();
 		thp = String.valueOf(m.getCurrentPlayer().getThp());
@@ -431,7 +431,7 @@ public class GameArea implements ActionListener {
 			System.exit(0);
 		}
 		if(actionEvent.getSource().equals(saveItem)){
-			//TODO mentesfuggveny
+			m.save("mentett");
 		}
 		if(actionEvent.getSource().equals(dig)){
 			m.dig(m.getCurrentPlayer().getName());
