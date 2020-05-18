@@ -219,8 +219,8 @@ public class GameArea implements ActionListener  {
 
 	public void refresh(IModell modell) {
 		this.clearMapView();
-		//String path = System.getProperty("user.dir") +"\\kepek_jatekba";		//ez a windows
-		String path = System.getProperty("user.dir") +"/kepek_jatekba";			//ez a linuxos
+		String path = System.getProperty("user.dir") +"\\kepek_jatekba";		//ez a windows
+		//String path = System.getProperty("user.dir") +"/kepek_jatekba";			//ez a linuxos
 		
 		name = m.getCurrentPlayer().getName();
 		thp = String.valueOf(m.getCurrentPlayer().getThp());
