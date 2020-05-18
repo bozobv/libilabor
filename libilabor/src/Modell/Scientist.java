@@ -27,8 +27,6 @@ public class Scientist extends Player implements java.io.Serializable
 			if(i.equals(t)) tmp = true;
 		}
 		if(tmp) {
-			
-			this.setWork(this.getWork()-1 );
 			int capacity = t.getCapacity();
 			getCurrentTable().getIceField().getController().scientistSkillWindow(capacity);
 			if(capacity < 0) {
@@ -37,7 +35,7 @@ public class Scientist extends Player implements java.io.Serializable
 			else
 				System.out.println("A vizsgalalt tabla kapacitasa: " + Integer.toString(capacity));
 		}
-		this.setWork(this.getWork()-1);;
+		this.setWork(this.getWork()-1);
 	}
 	/**
 	 * kiirja a kutato adatait
