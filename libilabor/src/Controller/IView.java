@@ -13,4 +13,6 @@ public interface IView {
 	public void initializeGameArea(IModell modell);
 
     void dispose();
+
+	void scientistSkillWindow(int cap);
 }

@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Win implements ActionListener {
-    private JFrame frame=new JFrame("juhuu");
+    private JFrame frame;
     private Controller controller;
     private JButton restart, exit;
     private JLabel title;
@@ -16,7 +16,7 @@ public class Win implements ActionListener {
 
     public Win(Controller _controller) {
         controller=_controller;
-        frame = new JFrame("juhu");
+        frame = new JFrame("Congratulations!");
         frame.setPreferredSize(new Dimension(300, 300));
 
         restart = new JButton();
@@ -31,7 +31,7 @@ public class Win implements ActionListener {
         exit.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
         exit.setText("Exit");
 
-        title = new JLabel("gyozelem");
+        title = new JLabel("You won!");
         title.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
         title.setHorizontalAlignment(JLabel.CENTER);
 

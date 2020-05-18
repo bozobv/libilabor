@@ -477,24 +477,6 @@ public class Map implements IModell
 		iceField.setController(controller);
 	}
 
-	
-	
-	/*public String[] getCurrentPlayerData()
-	{
-		//ez fölösleges :)
-		String[] cpString = new String[8];
-		cpString[0] = currentPlayer;
-		cpString[1] = String.valueOf(currentPlayer.getThp());
-		cpString[2] = String.valueOf(currentPlayer.getWork());
-		
-		Storable[] cpInventory = currentPlayer.getInventory();
-		for (int i = 0; i<5; i++)
-		{
-			cpString[3 + i] = cpInventory[i].writeOut();
-		}
-		return cpString;
-	}*/
-	
-	
-	
+
+
 }

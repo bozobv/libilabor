@@ -49,6 +49,9 @@ public class IceField implements java.io.Serializable
 	public void setController(Controller _controller){
 		controller=_controller;
 	}
+	public Controller getController(){
+		return controller;
+	};
 	public IceField()
 	{
 		StableTable nextStableTable = new StableTable();

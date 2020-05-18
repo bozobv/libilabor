@@ -442,7 +442,55 @@ public class GameArea implements ActionListener {
 			refresh(m);
 		}
 		if(actionEvent.getSource().equals(skill)){
-		    m.getCurrentPlayer().useSkill(m.getCurrentPlayer().getCurrentTable());
+			if(m.getCurrentPlayer().getClass()==Eskimo.class){
+				m.getCurrentPlayer().useSkill(m.getCurrentPlayer().getCurrentTable());
+			}
+			else{
+				ActionListener secondClickListener= new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						int index=0;
+						JPanel iceField= (JPanel)((JButton)e.getSource()).getParent();
+						outerloop:
+						for (int i = 0; i < m.getWidth(); i++) {
+							for (int j = 0; j < m.getHeight(); j++) {
+								if(icetables[i][j]!=null) {
+									if(icetables[i][j]!=iceField) {
+										index++;
+									}
+									else {
+										m.getCurrentPlayer().useSkill(m.getIceField().getIceTables().get(index));
+										refresh(m);
+										for (JPanel[] jPanels : icetables) {
+											for (JPanel jPanel : jPanels) {
+												if(jPanel!=null) {
+													for (int k = 0; k < 9; k++) {
+														JButton b= (JButton)jPanel.getComponent(k);
+														b.removeActionListener(this);
+													}
+												}
+											}
+										}
+										break outerloop;
+									}
+								}
+							}
+						}
+
+
+					}
+				};
+				for (JPanel[] jPanels : icetables) {
+					for (JPanel jPanel : jPanels) {
+						if(jPanel!=null) {
+							for (int i = 0; i < 9; i++) {
+								JButton b= (JButton)jPanel.getComponent(i);
+								b.addActionListener(secondClickListener);
+							}
+						}
+					}
+				}
+			}
 		    refresh(m);
         }
 		if(actionEvent.getSource().equals(move)){
@@ -558,5 +606,17 @@ public class GameArea implements ActionListener {
 
 	public void dispose() {
 		frame.dispose();
+	}
+
+	public void scientistSkillWindow(int cap) {
+		if(cap>0){
+			JOptionPane.showMessageDialog(frame,"The capacity of the selected table is "+cap);
+		}
+		else if(cap==0){
+			JOptionPane.showMessageDialog(frame,"Hat ez egy luk");
+		}
+		else if(cap<0){
+			JOptionPane.showMessageDialog(frame,"Ez $tabil ba$tya");
+		}
 	}
 }

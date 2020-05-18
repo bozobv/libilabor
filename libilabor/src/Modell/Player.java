@@ -25,22 +25,6 @@ import java.util.ArrayList;
 		this.inventory = new Storable[INVENTORY_STARTING_SIZE];
 	}
 
-	// TODO ha meghal valaki, akkor az IceField EndGame fuggvenyet kell meghivni, de
-	// nem ismeri az IceFieldet
-	/*
-	 * public void step() { Scanner input = new Scanner(System.in);
-	 * System.out.print("Mit akarsz csinalni:\n" + "0: Mozgas\n" + "1: Asas\n" +
-	 * "2: Targy felvetle\n" + "3: Kepesseg hasznalata\n" + "4: Targy hasznalata\n"
-	 * + "5: Raketa javitasa\n" + "6: Semmit"); int player_choice = input.nextInt();
-	 * while (this.work > 0) { switch (player_choice) { case 0: move(); break; case
-	 * 1: dig(); break; case 2: pickUp(); break; case 3:
-	 * useSkill(this.getCurrentTable()); break; case 4: Scanner scanner = new
-	 * Scanner(System.in); System.out.print("Melyik itemet akarod hasznalni?:\n" +
-	 * "0: FlarGunPart\n" + "1:Rope\n" + "2:ScubaSuit\n" + "3:Shovel\n" +
-	 * "4:Tent\n"); int ch = input.nextInt(); useItem(ch); scanner.close(); break;
-	 * case 5: repairFlareGun(); break; case 6: break; } work--; } input.close(); }
-	 */
-
 	/**
 	 * A jatekos move-ja
 	 * @param it 
@@ -123,7 +107,6 @@ import java.util.ArrayList;
 	 */
 
 	public void addToInventory(Storable s) {
-		/*if (inventory[s.getId()] == null)*/ 
 			inventory[s.getId()] = s;
 			this.getCurrentTable().setFrozenItem(null);
 		
@@ -194,13 +177,7 @@ import java.util.ArrayList;
 			return;*/
 		this.work = work;
 	}
-	// @Override
-	/*
-	 * public void setCurrentTable(IceTable currenttable){
-	 * //this.getCurrentTable().removePlayer(this); this.) = currenttable;
-	 * //this.setCurrentTable(currenttable);
-	 * currenttable.getPlayersOnTable().add(this); }
-	 */
+
 	/**
 	 * Setter az inventoryhoz
 	 * @return inventory 

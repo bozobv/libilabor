@@ -36,8 +36,6 @@ public class Hole extends IceTable implements java.io.Serializable
 	 * @return null mert itt nem lehet targy
 	 * */
 	public Item getFrozenItem(){
-		//System.out.println("ez egy luk, nincs benne semmi");
-		//az icefield konstruktora ne tegyen ide item-et
 		return null;
 	}
 	

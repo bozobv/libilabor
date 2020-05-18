@@ -62,4 +62,8 @@ public class Controller implements Serializable
 	public void win() {
 		Win nyeres=new Win(this);
 	}
+	public void scientistSkillWindow(int cap){
+		view.scientistSkillWindow(cap);
+	}
+
 }
