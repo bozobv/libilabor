@@ -381,8 +381,6 @@ public class GameArea implements ActionListener {
 							}
 						}
 					}
-					
-					
 				}
 			};
 		    for (JPanel[] jPanels : icetables) {
