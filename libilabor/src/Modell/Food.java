@@ -2,13 +2,10 @@ package Modell;
 
 public class Food extends Instant implements java.io.Serializable
 {
-
-
-
+	
 	public Food(){
 		this.setId(6);
 	}
-
 	/**
 	 * A food-t egy adott jatekos felvette. A food eggyel noveli a THP-t 
 	 *

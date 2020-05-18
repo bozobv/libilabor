@@ -385,7 +385,6 @@ public class Map implements IModell
 				iceField = iceField.load();
 				
 		}
-		iceField.writeOut();
 	}
 
 	public void killBear(int index) 

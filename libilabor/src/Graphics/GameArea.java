@@ -79,7 +79,6 @@ public class GameArea implements ActionListener {
 			while (myReader.hasNextLine()) {
 				String data = myReader.nextLine();
 				field += data;
-				System.out.println(data);
 			}
 			myReader.close();
 		} catch (FileNotFoundException e) {
@@ -111,7 +110,6 @@ public class GameArea implements ActionListener {
 					JLabel l = new JLabel();
 					l.setBackground(Color.blue);
 					map.add(l);
-					System.out.println("l");
 				}
 			}
 
@@ -238,6 +236,7 @@ public class GameArea implements ActionListener {
 					if(currentState.getIceField().getIceTables().get(count).getFrozenItem() != null ) {
 						JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
 						ImageIcon image;
+						System.out.println(currentState.getIceField().getIceTables().get(count).getFrozenItem().getId());
 						switch(currentState.getIceField().getIceTables().get(count).getFrozenItem().getId()) 
 						{
 						
@@ -249,7 +248,7 @@ public class GameArea implements ActionListener {
 									b.setIcon(image);
 									buttonNumber++;
 									break;
-							case 2:  image = new ImageIcon("kepek_jatekba/scuba.png");
+							case 2: image = new ImageIcon("kepek_jatekba/scuba.png");
 									b.setIcon(image);
 									buttonNumber++;
 									break;
@@ -262,7 +261,7 @@ public class GameArea implements ActionListener {
 									}
 									else 
 									{
-										 image = new ImageIcon("kepek_jatekba/weakshovel.png");
+										image = new ImageIcon("kepek_jatekba/weakshovel.png");
 										b.setIcon(image);
 										buttonNumber++;
 										break;
@@ -283,8 +282,7 @@ public class GameArea implements ActionListener {
 									b.setIcon(image);
 									buttonNumber++;
 									break;
-							default: break;
-						
+							default: break;						
 						}
 					}
 					
