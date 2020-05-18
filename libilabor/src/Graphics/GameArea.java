@@ -6,7 +6,9 @@ import Modell.*;
 import javax.swing.*;
 
 import javax.swing.border.Border;
-
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Line2D;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -331,9 +333,13 @@ public class GameArea implements ActionListener {
 			}
 
 		}
-
+		
 	}
 
+	
+    
+ 
+	
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
 		if (actionEvent.getSource().equals(quitItem)) {
