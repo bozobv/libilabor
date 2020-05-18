@@ -269,6 +269,40 @@ public class GameArea extends JFrame implements ActionListener {
 			for (int j = 0; j < currentState.getWidth(); j++) {
 				if (field.charAt(i * currentState.getWidth() + j) == '1') {
 					int buttonNumber = 0;
+					JButton k = (JButton)icetables[i][j].getComponent(buttonNumber);
+					int snowHeight = currentState.getIceField().getIceTables().get(count).getSnowHeight();
+					k.setText(snowHeight>0? Integer.toString(snowHeight):"");
+					if(snowHeight == 0)
+					{
+						for (Component comps: k.getParent().getComponents()) {
+							comps.setBackground(new Color(179, 228, 233));
+						}
+					}
+					else if(snowHeight == 1)
+					{
+						for (Component comps: k.getParent().getComponents()) {
+							comps.setBackground(new Color(200, 200, 220));
+						}
+					}
+					else if(snowHeight == 2)
+					{
+						for (Component comps: k.getParent().getComponents()) {
+							comps.setBackground(new Color(205, 205, 230));
+						}
+					}
+					else if(snowHeight == 3)
+					{
+						for (Component comps: k.getParent().getComponents()) {
+							comps.setBackground(new Color(220, 220, 240));
+						}
+					}
+					else if(snowHeight == 4)
+					{
+						for (Component comps: k.getParent().getComponents()) {
+							comps.setBackground(new Color(240, 240, 240));
+						}
+					}
+					buttonNumber++;
 					for (Player player : currentState.getIceField().getIceTables().get(count).getPlayersOnTable()) {
 						if (player.getClass() == Eskimo.class) {
 							JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
@@ -289,7 +323,7 @@ public class GameArea extends JFrame implements ActionListener {
 						b.setIcon(image);
 						buttonNumber++;
 					}
-					if(currentState.getIceField().getIceTables().get(count).getFrozenItem() != null /*&& currentState.getIceField().getIceTables().get(count).getSnowHeight() == 0*/) {
+					if(currentState.getIceField().getIceTables().get(count).getFrozenItem() != null && currentState.getIceField().getIceTables().get(count).getSnowHeight() == 0) {
 						JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
 						ImageIcon image;
 						switch(currentState.getIceField().getIceTables().get(count).getFrozenItem().getId()) 
@@ -410,40 +444,7 @@ public class GameArea extends JFrame implements ActionListener {
 							
 					
 					
-					JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
-					int snowHeight = currentState.getIceField().getIceTables().get(count).getSnowHeight();
-					b.setText(snowHeight>0? Integer.toString(snowHeight):"");
-					if(snowHeight == 0) 
-					{
-						for (Component comps: b.getParent().getComponents()) {
-							comps.setBackground(new Color(179, 228, 233));
-						}
-					}
-					if(snowHeight == 1) 
-					{
-						for (Component comps: b.getParent().getComponents()) {
-							comps.setBackground(new Color(200, 200, 220));
-						}
-					}
-					if(snowHeight == 2) 
-					{
-						for (Component comps: b.getParent().getComponents()) {
-							comps.setBackground(new Color(205, 205, 230));
-						}
-					}
-					if(snowHeight == 3) 
-					{
-						for (Component comps: b.getParent().getComponents()) {
-							comps.setBackground(new Color(220, 220, 240));
-						}
-					}
-					if(snowHeight == 4) 
-					{
-						for (Component comps: b.getParent().getComponents()) {
-							comps.setBackground(new Color(240, 240, 240));
-						}
-					}
-					buttonNumber++;
+
 
 					count++;
 				}
