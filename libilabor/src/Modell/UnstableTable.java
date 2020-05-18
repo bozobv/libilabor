@@ -16,7 +16,7 @@ public class UnstableTable extends IceTable implements java.io.Serializable
 	}
 	/**felboritja a tablat*/
 	void flip() {
-		for(Player p : this.getPlayersOnTable()) p.setThp(0);
+		getIceField().endGame();
 	}
 	/**atveszi a jatekost es megvizsgalja hogy fel kell e borulni vagy sem
 	 * @param p az atvett jatekos

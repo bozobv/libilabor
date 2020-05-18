@@ -256,7 +256,7 @@ public class GameArea implements ActionListener  {
 						b.setIcon(image);
 						buttonNumber++;
 					}
-					if(currentState.getIceField().getIceTables().get(count).getFrozenItem() != null && currentState.getIceField().getIceTables().get(count).getSnowHeight() == 0) {
+					if(currentState.getIceField().getIceTables().get(count).getFrozenItem() != null /*&& currentState.getIceField().getIceTables().get(count).getSnowHeight() == 0*/) {
 						JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
 						ImageIcon image;
 						switch(currentState.getIceField().getIceTables().get(count).getFrozenItem().getId()) 
@@ -310,7 +310,7 @@ public class GameArea implements ActionListener  {
 					if(currentState.getIceField().getIceTables().get(count).getConstruction()!=null){
 						if(currentState.getIceField().getIceTables().get(count).getConstruction().getClass()==Tent.class){
 							JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
-							ImageIcon image = new ImageIcon(path+"/tent.png");
+							ImageIcon image = new ImageIcon(path+"/tentCONSTRUCTION.png");
 							b.setIcon(image);
 							buttonNumber++;
 						}
@@ -446,8 +446,6 @@ public class GameArea implements ActionListener  {
 		    refresh(m);
         }
 		if(actionEvent.getSource().equals(move)){
-
-			
 			ActionListener secondClickListener= new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
@@ -464,6 +462,16 @@ public class GameArea implements ActionListener  {
 									String name=m.getCurrentPlayer().getName();
 									m.movePlayer(name, index);
 									refresh(m);
+									for (JPanel[] jPanels : icetables) {
+										for (JPanel jPanel : jPanels) {
+											if(jPanel!=null) {
+												for (int k = 0; k < 9; k++) {
+													JButton b= (JButton)jPanel.getComponent(k);
+													b.removeActionListener(this);
+												}
+											}
+										}
+									}
 									break outerloop;
 								}
 							}
@@ -483,6 +491,7 @@ public class GameArea implements ActionListener  {
 					}
 				}
 			}
+
 		    
         }
 		if(actionEvent.getSource().equals(endTurn)){
@@ -498,7 +507,51 @@ public class GameArea implements ActionListener  {
 			refresh(m);
 		}
 		if(actionEvent.getSource().equals(rope)){
-			m.getCurrentPlayer().useItem(1,0);
+			ActionListener secondClickListener= new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					int index=0;
+					JPanel iceField= (JPanel)((JButton)e.getSource()).getParent();
+					outerloop:
+					for (int i = 0; i < m.getWidth(); i++) {
+						for (int j = 0; j < m.getHeight(); j++) {
+							if(icetables[i][j]!=null) {
+								if(icetables[i][j]!=iceField) {
+									index++;
+								}
+								else {
+									m.getCurrentPlayer().useItem(1,index);
+									refresh(m);
+									for (JPanel[] jPanels : icetables) {
+										for (JPanel jPanel : jPanels) {
+											if(jPanel!=null) {
+												for (int k = 0; k < 9; k++) {
+													JButton b= (JButton)jPanel.getComponent(k);
+													b.removeActionListener(this);
+												}
+											}
+										}
+									}
+									break outerloop;
+								}
+							}
+						}
+					}
+
+
+				}
+			};
+			for (JPanel[] jPanels : icetables) {
+				for (JPanel jPanel : jPanels) {
+					if(jPanel!=null) {
+						for (int i = 0; i < 9; i++) {
+							JButton b= (JButton)jPanel.getComponent(i);
+							b.addActionListener(secondClickListener);
+						}
+					}
+				}
+			}
+
 			refresh(m);
 		}
 	}
