@@ -40,7 +40,15 @@ public class Test {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
-		
+    	CommandHandler ch = new CommandHandler();
+		try 
+		{
+			ch.handling();
+		} catch (IOException e1) 
+		{
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
         Controller c=new Controller();
         c.initializeMenu();
