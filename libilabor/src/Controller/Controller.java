@@ -10,7 +10,7 @@ public class Controller
 	IView view=new Graphics();
 	
 	public void initializeMap(int height, int width, int FrozenItemDrop, int snowHeight) {
-        modell = new Map(height,width,FrozenItemDrop, snowHeight);
+        modell = new Map(height,width,FrozenItemDrop, snowHeight,this);
 	}
 	
 	public void startGame()
@@ -20,7 +20,7 @@ public class Controller
 	
 	public void endGame()
 	{
-		view.initializeEndGame();
+		view.initializeEndGame(this);
 	}
 		
 	public void refreshGraphics(IModell modell){
@@ -30,6 +30,9 @@ public class Controller
 	
 	public void play(){	
 
+	}
+	public void setIfController(){
+		modell.setIfController(this);
 	}
 	
 	public void initializeMenu(){
@@ -43,5 +46,8 @@ public class Controller
 	public void setModell(IModell modell) {
 		this.modell = modell;
 	}
-	
+
+	public void dispose() {
+		view.dispose();
+	}
 }

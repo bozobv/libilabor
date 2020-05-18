@@ -17,8 +17,10 @@ public class EndGame implements ActionListener {
 	private JButton restart, exit;
 	private JLabel title;  
 	private JPanel p;
+	private Controller.Controller controller;
 
-	public EndGame() {
+	public EndGame(Controller.Controller _controller) {
+		controller=_controller;
 		frame = new JFrame("Game Over");
 		frame.setPreferredSize(new Dimension(300, 300));
 		
@@ -26,6 +28,7 @@ public class EndGame implements ActionListener {
 		restart.setBackground(new Color(69, 143, 152));
 		restart.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
 		restart.setText("Restart");
+		restart.addActionListener(this);
 		
 		exit = new JButton();
 		exit.setBackground(new Color(69, 143, 152));
@@ -53,10 +56,12 @@ public class EndGame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(exit)) {
-			frame.dispose();
+			System.exit(0);
 		}
 		if(e.getSource().equals(restart)) {
-			
+			frame.dispose();
+			controller.dispose();
+			controller.startGame();
 		}
 
 	}

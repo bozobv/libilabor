@@ -402,4 +402,8 @@ public class GameArea implements ActionListener {
 		    refresh(m);
         }
 	}
+
+	public void dispose() {
+		frame.dispose();
+	}
 }
