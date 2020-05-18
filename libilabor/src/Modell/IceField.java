@@ -478,6 +478,7 @@ public class IceField implements java.io.Serializable
 	{
 		IceField iF = this;
 		try {
+			
 	         FileInputStream fileIn = new FileInputStream("mentett.ser");
 	         ObjectInputStream in = new ObjectInputStream(fileIn);
 	         iF = (IceField) in.readObject();
@@ -498,7 +499,8 @@ public class IceField implements java.io.Serializable
 	{
 		IceField iF = this;
 		try {
-	         FileInputStream fileIn = new FileInputStream("elsopalya.ser");
+			 String path = System.getProperty("user.dir")+ "\\libilabor\\src\\elsopalya.ser";	  
+	         FileInputStream fileIn = new FileInputStream(path);
 	         ObjectInputStream in = new ObjectInputStream(fileIn);
 	         iF = (IceField) in.readObject();
 	         in.close();

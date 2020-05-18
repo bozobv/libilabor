@@ -44,6 +44,7 @@ public class GameArea implements ActionListener {
 	String field;
 
 	public GameArea(Map m) {
+		
 		frame.setSize(new Dimension(1360, 768));
 		frame.setLayout(new BorderLayout());
 		frame.getContentPane().setBackground(new Color(28, 102, 222));
@@ -205,7 +206,7 @@ public class GameArea implements ActionListener {
 
 	public void refresh(IModell modell) {
 		this.clearMapView();
-
+		String path = System.getProperty("user.dir") +"\\kepek_jatekba";
 		Map currentState = (Map) modell;
 		int count = 0;
 
@@ -216,69 +217,68 @@ public class GameArea implements ActionListener {
 					for (Player player : currentState.getIceField().getIceTables().get(count).getPlayersOnTable()) {
 						if (player.getClass() == Eskimo.class) {
 							JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
-							ImageIcon image = new ImageIcon("kepek_jatekba/eskimo.png");
+							ImageIcon image = new ImageIcon(path+"/eskimo.png");
 							b.setIcon(image);
 							buttonNumber++;
 						}
 						else if (player.getClass() == Scientist.class) {
 							JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
-							ImageIcon image = new ImageIcon("kepek_jatekba/scient.png");
+							ImageIcon image = new ImageIcon(path+"/scient.png");
 							b.setIcon(image);							
 							buttonNumber++;
 						}						
 					}
 					for(PolarBear polarBear : currentState.getIceField().getIceTables().get(count).getAnimalsOnTable()) {
 						JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
-						ImageIcon image = new ImageIcon("kepek_jatekba/polarbear.png");
+						ImageIcon image = new ImageIcon(path+"/polarbear.png");
 						b.setIcon(image);
 						buttonNumber++;
 					}
 					if(currentState.getIceField().getIceTables().get(count).getFrozenItem() != null ) {
 						JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
 						ImageIcon image;
-						System.out.println(currentState.getIceField().getIceTables().get(count).getFrozenItem().getId());
 						switch(currentState.getIceField().getIceTables().get(count).getFrozenItem().getId()) 
 						{
 						
-							case 0: image = new ImageIcon("kepek_jatekba/flaregun.png");
+							case 0: image = new ImageIcon(path+"/flaregun.png");
 									b.setIcon(image);
 									buttonNumber++;
 									break;
-							case 1: image = new ImageIcon("kepek_jatekba/rope.png");
+							case 1: image = new ImageIcon(path+"/rope.png");
 									b.setIcon(image);
 									buttonNumber++;
 									break;
-							case 2: image = new ImageIcon("kepek_jatekba/scuba.png");
+							case 2: image = new ImageIcon(path+"/scuba.png");
 									b.setIcon(image);
 									buttonNumber++;
 									break;
 							case 3: if(currentState.getIceField().getIceTables().get(count).getFrozenItem().getClass() == Shovel.class) 
 									{
-										image = new ImageIcon("kepek_jatekba/shovel.png");
+										image = new ImageIcon(path+"/shovel.png");
 										b.setIcon(image);
 										buttonNumber++;
 										break;
 									}
 									else 
 									{
-										image = new ImageIcon("kepek_jatekba/weakshovel.png");
+										image = new ImageIcon(path+"/weakshovel.png");
 										b.setIcon(image);
 										buttonNumber++;
 										break;
 									}
-							case 4: image = new ImageIcon("kepek_jatekba/tent.png");
+							case 4: image = new ImageIcon(path+"/tent.png");
 									b.setIcon(image);
 									buttonNumber++;
 									break;
-							case 5: image = new ImageIcon("kepek_jatekba/adrenalin.png");
+							case 5: image = new ImageIcon(path+"/adrenalin.png");
 									b.setIcon(image);
 									buttonNumber++;
 									break;
-							case 6: image = new ImageIcon("kepek_jatekba/food.png");
+							case 6: image = new ImageIcon(path+"/food.png");
 									b.setIcon(image);
 									buttonNumber++;
 									break;
-							case 7: image = new ImageIcon("kepek_jatekba/whiskey.png");
+							case 7: image = new ImageIcon(path+"/whiskey.png");
 									b.setIcon(image);
 									buttonNumber++;
 									break;
