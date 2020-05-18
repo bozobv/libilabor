@@ -33,7 +33,7 @@ public class GameArea extends JFrame implements ActionListener {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			//g.drawImage();
+			
 			g.drawImage(image,7,53,1300,839,null);
 			refresh(m);
 		
@@ -43,7 +43,7 @@ public class GameArea extends JFrame implements ActionListener {
 
 
 	private String name, thp, work;
-	//private JFrame frame = new JFrame("jatszas");
+	
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenu menu = new JMenu("Menu");
 	private JMenuItem saveItem = new JMenuItem("Save");
@@ -65,7 +65,7 @@ public class GameArea extends JFrame implements ActionListener {
 	private JPanel panel = new JPanel();
 	private Container map = new Container();
 	private Map m;
-	// private JButton[][] icetables;
+	
 
 	private JPanel[][] icetables;
 	String field;
