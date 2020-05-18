@@ -26,17 +26,18 @@ public class GameArea implements ActionListener
 	private JButton skill = new JButton("Skill");
 	private JButton pickUp = new JButton("Pick up");
 	private JButton endTurn = new JButton("End turn");
-	private JLabel thp = new JLabel("THP:");
-	private JLabel work = new JLabel("Work:");
+	private JLabel lthp = new JLabel("THP:");
+	private JLabel lwork = new JLabel("Work:");
 	private JButton flare = new JButton();
 	private JLabel shovel = new JLabel();
 	private JButton rope = new JButton();
 	private JButton tent = new JButton();
 	private JLabel scuba = new JLabel();
-	private JLabel name = new JLabel("Lakatos Dzsesszpero");
+	private JLabel lname = new JLabel("Lakatos Dzsesszpero");
 	private JPanel panel = new JPanel();
 	private Container map = new Container();
 	private JButton[][] icetables;
+	private String name, thp, work;
 
 
 	public GameArea(Map m){
@@ -61,7 +62,7 @@ public class GameArea implements ActionListener
 		menu.add(quitItem);
 		menuBar.add(menu);
 		frame.add(map);
-	    panel.add(name);
+	    panel.add(lname);
 	    panel.add(Box.createRigidArea(new Dimension(0,10)));
 	    
 	    
@@ -87,6 +88,7 @@ public class GameArea implements ActionListener
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+        
         
         //PALYAELEMEK KIRAJZOLASA
         //soronkent toltodik, balrol jobbra
@@ -114,25 +116,25 @@ public class GameArea implements ActionListener
         
        
        //NEV JOBB FELUL
-        name.setFont(new Font(Font.MONOSPACED,Font.BOLD,20));
-        name.setSize(new Dimension(200,40));
-        name.setAlignmentX(Component.CENTER_ALIGNMENT);
-        name.setOpaque(true);
-        name.setBackground(new Color(179,228,233));
+        lname.setFont(new Font(Font.MONOSPACED,Font.BOLD,20));
+        lname.setSize(new Dimension(200,40));
+        lname.setAlignmentX(Component.CENTER_ALIGNMENT);
+        lname.setOpaque(true);
+        lname.setBackground(new Color(179,228,233));
 
         
         //GOMBOK JOBB OLDALT
         //--------------------------------------------------------------
-		grid.add(thp);
-		grid.add(work);
+		grid.add(lthp);
+		grid.add(lwork);
 		//-----
-        thp.setPreferredSize(new Dimension(100,100));
-        thp.setFont(new Font(Font.MONOSPACED,Font.BOLD,20));
-        thp.setOpaque(true);
-        thp.setBackground(new Color(179,228,233));
-        work.setFont(new Font(Font.MONOSPACED,Font.BOLD,20));
-        work.setOpaque(true);
-        work.setBackground(new Color(179,228,233));
+        lthp.setPreferredSize(new Dimension(100,100));
+        lthp.setFont(new Font(Font.MONOSPACED,Font.BOLD,20));
+        lthp.setOpaque(true);
+        lthp.setBackground(new Color(179,228,233));
+        lwork.setFont(new Font(Font.MONOSPACED,Font.BOLD,20));
+        lwork.setOpaque(true);
+        lwork.setBackground(new Color(179,228,233));
         //-----
 
         grid.add(move);
