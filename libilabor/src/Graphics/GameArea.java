@@ -207,6 +207,7 @@ public class GameArea implements ActionListener {
 	public void refresh(IModell modell) {
 		this.clearMapView();
 		String path = System.getProperty("user.dir") +"\\kepek_jatekba";
+		System.out.println(path);
 		Map currentState = (Map) modell;
 		int count = 0;
 
