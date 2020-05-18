@@ -152,7 +152,7 @@ public class GameArea extends JFrame implements ActionListener {
 		
 
 		// NEV JOBB FELUL
-		lname.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
+		lname.setFont(new Font(Font.MONOSPACED, Font.BOLD, 15));
 		lname.setSize(new Dimension(200, 40));
 		lname.setAlignmentX(Component.CENTER_ALIGNMENT);
 		lname.setOpaque(true);
