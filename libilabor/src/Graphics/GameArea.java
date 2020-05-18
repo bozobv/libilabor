@@ -17,63 +17,139 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
-
+/**
+ * a jatekablakot megjelenito osztaly
+ */
 public class GameArea extends JFrame implements ActionListener {
 
 
+	/**
+	 * a hatter megjelenitese
+	 * @param g Graphics peldany
+	 */
 	@Override
 	public void paint(Graphics g) {
-	
+
 		super.paint(g);
 		String path = System.getProperty("user.dir") +"\\kepek_jatekba";
 		 BufferedImage image = null;
 			try {
 				image = ImageIO.read(new File(path+"/hatter.png"));
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 			g.drawImage(image,7,53,1300,839,null);
 			refresh(m);
-		
+
 	}
-	
-	
 
 
+	/**
+	 * a nev, thp és munka szövegesen
+	 */
 	private String name, thp, work;
-	
+	/**
+	 * a menubar
+	 */
 	private JMenuBar menuBar = new JMenuBar();
+	/**
+	 * egy menu
+	 */
 	private JMenu menu = new JMenu("Menu");
+	/**
+	 * menu elem a menteshez
+	 */
 	private JMenuItem saveItem = new JMenuItem("Save");
+	/**
+	 * menu elem a kilepeshez
+	 */
 	private JMenuItem quitItem = new JMenuItem("Quit");
+	/**
+	 * egy container, ami a racshoz kell
+	 */
 	private Container grid = new Container();
+	/**
+	 * move gomb
+	 */
 	private JButton move = new JButton("Move");
+	/**
+	 * dig gomb
+	 */
 	private JButton dig = new JButton("Dig");
+	/**
+	 * skill gomb
+	 */
 	private JButton skill = new JButton("Skill");
+	/**
+	 * pickup gomb
+	 */
 	private JButton pickUp = new JButton("Pick up");
+	/**
+	 * endturn gomb
+	 */
 	private JButton endTurn = new JButton("End turn");
+	/**
+	 * thp megjelenitesehez label
+	 */
 	private JLabel lthp = new JLabel("thp: " + thp);
+	/**
+	 * a munka megjelenitesehez label
+	 */
 	private JLabel lwork = new JLabel("work:" + work);
+	/**
+	 * a flaregunpart inventory slotot reprezentalo gomb
+	 */
 	private JButton flare = new JButton();
+	/**
+	 * a lapat  inventory slotot reprezentalo label
+	 */
 	private JLabel shovel = new JLabel();
+	/**
+	 * a kotel inventory slotot reprezentalo gomb
+	 */
 	private JButton rope = new JButton();
+	/**
+	 * a sator inventory slotot reprezentalo gomb
+	 */
 	private JButton tent = new JButton();
+	/**
+	 * a buvarruuha inventory slotot reprezentalo label
+	 */
 	private JLabel scuba = new JLabel();
+	/**
+	 * a nevet megjelenito label
+	 */
 	private JLabel lname = new JLabel("Name: " + name);
+	/**
+	 * egy panel, amiben vannak megjelenitendo dolgok
+	 */
 	private JPanel panel = new JPanel();
+	/**
+	 * a map megjelenitendo reszeit tartalmazo container
+	 */
 	private Container map = new Container();
+	/**
+	 * a map
+	 */
 	private Map m;
-	
-
+	/**
+	 * a jegtablakhoz tartozo panelek
+	 */
 	private JPanel[][] icetables;
-	String field;
+	/**
+	 * betolteshez szukseges string
+	 */
+	private String field;
 
+	/**
+	 * konstruktor
+	 * @param _m map peldany
+	 */
 	public GameArea(Map _m) {
 		m=_m;
 		setSize(new Dimension(1600, 900));
-		
+
 		setLayout(new BorderLayout());
 		getContentPane().setBackground(new Color(28, 102, 222));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -97,8 +173,6 @@ public class GameArea extends JFrame implements ActionListener {
 		panel.add(lname);
 		panel.add(Box.createRigidArea(new Dimension(0, 10)));
 
-		
-		
 		// maga a map (en?)
 		icetables = new JPanel[m.getHeight()][m.getWidth()];
 		map.setLayout(new GridLayout(m.getHeight(), m.getWidth(), 30, 30));
@@ -137,19 +211,15 @@ public class GameArea extends JFrame implements ActionListener {
 					map.add(panelka2);
 					icetables[i][j] = panelka2;
 					panelka2.setVisible(true);
-					
 				} else {
 					icetables[i][j] = null;
 					JLabel l = new JLabel();
-					l.setVisible(false);
 					l.setBackground(Color.blue);
 					map.add(l);
 				}
 			}
 
 		}
-		
-		
 
 		// NEV JOBB FELUL
 		lname.setFont(new Font(Font.MONOSPACED, Font.BOLD, 15));
@@ -221,9 +291,11 @@ public class GameArea extends JFrame implements ActionListener {
 		quitItem.addActionListener(this);
 		// --------------------------------------------------------------------
 		refresh(m);
-		
 	}
 
+	/**
+	 * letorli a mapot
+	 */
 	public void clearMapView() {
 		for (JPanel[] jButton : icetables) {
 			for (JPanel jButton2 : jButton) {
@@ -250,6 +322,10 @@ public class GameArea extends JFrame implements ActionListener {
 		scuba.setBackground(new Color(179, 228, 233));
 	}
 
+	/**
+	 * frissiti a megjelenitest
+	 * @param modell eszerint frissit
+	 */
 	public void refresh(IModell modell) {
 		this.clearMapView();
 		String path = System.getProperty("user.dir") +"\\kepek_jatekba";		//ez a windows
@@ -455,6 +531,10 @@ public class GameArea extends JFrame implements ActionListener {
 		
 	}
 
+	/**
+	 * a gombok mukodeserol gondoskodik
+	 * @param actionEvent az actionevent
+	 */
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
 		if (actionEvent.getSource().equals(quitItem)) {
@@ -632,20 +712,10 @@ public class GameArea extends JFrame implements ActionListener {
 		}
 	}
 
-	public void dispose() {
-		dispose();
-	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-
-
+	/**
+	 * mikor a scientist skillt hasznal, ez gondoskodik a dialogusablak megjeleniteserol
+	 * @param cap a lekerdezett tabla kapacitasa
+	 */
 	public void scientistSkillWindow(int cap) {
 		if(cap>0){
 			JOptionPane.showMessageDialog(this,"The capacity of the selected table is "+cap);
@@ -657,5 +727,4 @@ public class GameArea extends JFrame implements ActionListener {
 			JOptionPane.showMessageDialog(this,"Ez $tabil ba$tya");
 		}
 	}
-
 }
