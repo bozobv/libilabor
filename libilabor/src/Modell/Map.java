@@ -436,7 +436,7 @@ public class Map implements IModell
 			for (int i = 0; i < iceField.getPlayers().size(); i++) 
 			{
 				//osszes player workje 5re allitva
-				iceField.getPlayers().get(i).setWork(5);
+				iceField.getPlayers().get(i).setWork(4);
 				Random rand = new Random(); 
 				//ha jon vihar, akkor meghivja a vihar fuggvenyt
 				if (blizzardComing == true) 
