@@ -420,12 +420,15 @@ public class Map implements IModell
 	//ezek még nincsenek késze, csak commitolok
 	public void nextPlayer()
 	{
-		boolean playerDrowning = false; 
+
 		
 		if (currentPlayer == iceField.getPlayers().get(iceField.getPlayers().size() - 1).getName())
 		{
 			//ha az utso játékos volt, ezek történnek:
 			//currentplayer az első játékos lesz
+			if(iceField.getPalyerInWater()){
+				iceField.endGame();
+			}
 			currentPlayer = iceField.getPlayers().get(0).getName();
 
 			//állatok lépnek
