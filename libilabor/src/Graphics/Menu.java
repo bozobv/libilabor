@@ -67,8 +67,13 @@ public class Menu  implements ActionListener {
 			frame.dispose();
 		}
 		else if(actionEvent.getSource().equals(newGame)){
-			NewGameWindow n = new NewGameWindow(controller);
-
+			
+			controller.initializeMap(8, 8, /*jcbItems.getSelectedIndex() +*/ 1, /*jcbSnow.getSelectedIndex() + */1);	
+			
+			controller.getModell().load("new");
+			controller.getModell();
+			
+			controller.startGame();
 			frame.dispose();
 		}
 		else if(actionEvent.getSource().equals(loadGame)){
