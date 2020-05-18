@@ -454,6 +454,11 @@ public class Map implements IModell
 				}
 			}
 	}
+	@Override
+	public String[] getCurrentPlayerData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	/*public String[] getCurrentPlayerData()
