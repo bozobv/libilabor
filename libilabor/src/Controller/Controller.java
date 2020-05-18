@@ -18,9 +18,9 @@ public class Controller
 		view.initializeGameArea(modell);
 	}
 	
-	public void endGame(){
+	public void endGame()
+	{
 		view.initializeEndGame();
-
 	}
 		
 	public void refreshGraphics(IModell modell){

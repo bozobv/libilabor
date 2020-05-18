@@ -45,7 +45,7 @@ public class Test {
         Controller c=new Controller();
         c.initializeMenu();
         
-        CommandHandler ch = new CommandHandler();
+        /*CommandHandler ch = new CommandHandler();
 		try 
 		{
 			ch.handling();
@@ -53,7 +53,7 @@ public class Test {
 		{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		}
+		}*/
 
     	//Graphics graphics = new Graphics();
     	//graphics.initializeMenu();

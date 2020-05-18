@@ -460,12 +460,12 @@ public class IceField implements java.io.Serializable
 	public void save()
 	{
 		try {
-	         FileOutputStream fileOut = new FileOutputStream(new File("elsopalya.ser"));
+	         FileOutputStream fileOut = new FileOutputStream(new File("mentett.ser"));
 	         ObjectOutputStream out = new ObjectOutputStream(fileOut);
 	         out.writeObject(this);
 	         out.close();
 	         fileOut.close();
-	         System.out.printf("Serialized data is saved in elsopalya.ser");
+	         System.out.printf("Serialized data is saved in mentett.ser");
 	      } catch (IOException i) {
 	         i.printStackTrace();
 	      }
@@ -475,6 +475,26 @@ public class IceField implements java.io.Serializable
 	 * @return az eppen betoltendo mezovel
 	 */
 	public IceField load()
+	{
+		IceField iF = this;
+		try {
+	         FileInputStream fileIn = new FileInputStream("mentett.ser");
+	         ObjectInputStream in = new ObjectInputStream(fileIn);
+	         iF = (IceField) in.readObject();
+	         in.close();
+	         fileIn.close();
+	      } catch (IOException i) {
+	         i.printStackTrace();
+	         return iF;
+	      } catch (ClassNotFoundException c) {
+	         System.out.println("elsopalya class not found");
+	         c.printStackTrace();
+	         return iF;
+	      }
+		return iF;
+	}
+	
+	public IceField loadNewGame()
 	{
 		IceField iF = this;
 		try {
@@ -493,6 +513,7 @@ public class IceField implements java.io.Serializable
 	      }
 		return iF;
 	}
+	
 	/**
 	 * kiirja a mezo adatait
 	 */

@@ -373,7 +373,9 @@ public class Map implements IModell
 		iceField.save();
 	}
 
-	public void load(String saveFileName) {
+	public void load(String name) {
+		if (name == "new")
+			iceField = iceField.loadNewGame();
 		iceField = iceField.load();
 	}
 

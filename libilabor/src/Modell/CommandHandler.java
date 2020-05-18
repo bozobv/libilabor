@@ -537,7 +537,10 @@ public class CommandHandler {
 		testField.save();
 	}
 
-	public void load(String saveFileName) {
+	public void load(String name) 
+	{
+		if (name == "new")
+			testField = testField.loadNewGame();
 		testField = testField.load();
 	}
 

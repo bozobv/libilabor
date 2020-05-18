@@ -9,6 +9,9 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class GameArea implements ActionListener
 {
@@ -51,12 +54,46 @@ public class GameArea implements ActionListener
 		//maga a map (en?)
         icetables = new JButton[m.getHeight()][m.getWidth()];
         map.setLayout(new GridLayout(m.getHeight(),m.getWidth(),30,30));
+        
+        String field = "";
+        try 
+        {
+            File myObj = new File("kirajz");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) 
+            {
+              String data = myReader.nextLine();
+              field += data;
+              System.out.println(data);
+            }
+            myReader.close();
+         }        
+        catch (FileNotFoundException e) 
+        {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        
+        
         //soronkent toltodik, balrol jobbra
-        for (int i = 0;i < m.getHeight(); i++){
-            for (int j = 0;j < m.getWidth(); j++){
-                JButton b = new JButton();
-                b.setBackground(new Color(255,255,255));
-                map.add(b);
+        for (int i = 0;i < m.getHeight(); i++)
+        {
+            for (int j = 0;j < m.getWidth(); j++)
+            {
+            	if (field.charAt(i * m.getWidth() + j )  == '1')
+            	{
+            		JButton b = new JButton();
+            		b.setBackground(new Color(255,255,255));
+            		map.add(b);
+                    System.out.println("b");
+            	}
+            	else
+            	{
+            		JLabel l = new JLabel();
+            		l.setBackground(Color.blue);
+            		map.add(l);
+                    System.out.println("l");
+            	}
             }
 
         }

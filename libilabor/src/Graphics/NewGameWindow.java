@@ -31,9 +31,9 @@ import javax.swing.event.DocumentListener;
 
 public class NewGameWindow extends JFrame implements ActionListener
 {
-	private final JComboBox  jcbItems, jcbSnow, jcbEs, jcbSc, jcbPb;
+	//private final JComboBox  jcbItems, jcbSnow, jcbEs, jcbSc, jcbPb;
 	//private final JPanel p1Left, p2Left, p3Left ,p4Left ,p5Left, p6Left, p1Right, p2Right, p3Right ,p4Right ,p5Right;
-	private final JLabel lItems, lSnow, lEs, lSc, lPb;
+	//private final JLabel lItems, lSnow, lEs, lSc, lPb;
 	private final JButton  bStart;
 	Color ourgreen = new Color(69, 143, 152), textBlue = new Color(200,200,255);
 	//private Container grid = new Container();
@@ -66,6 +66,7 @@ public class NewGameWindow extends JFrame implements ActionListener
         c.gridwidth = GridBagConstraints.REMAINDER;
         c.fill = GridBagConstraints.BOTH;
 		
+        /*
       //karakterek
       	Object player[]=new Object[10];
       	for (int i = 0; i < 10; i++)
@@ -154,7 +155,7 @@ public class NewGameWindow extends JFrame implements ActionListener
   			//panel
   			panel.add(lPb, c);
   	  		panel.add(jcbPb, c);
-  	  		
+  	  		*/
   	  bStart=new JButton("ZSAMO");
   	  bStart.setFont(new Font(Font.MONOSPACED,Font.BOLD,40));
   	  bStart.setPreferredSize(new Dimension(100,50));
@@ -172,21 +173,21 @@ public class NewGameWindow extends JFrame implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
 		if(actionEvent.getSource().equals(bStart)){
-			controller.initializeMap(8,8,jcbItems.getSelectedIndex()+1,jcbSnow.getSelectedIndex()+1);
+			controller.initializeMap(8, 8, /*jcbItems.getSelectedIndex() +*/ 1, /*jcbSnow.getSelectedIndex() + */1);
 			
-			//csicska eszkim�k
-			for(int i=0;i<jcbEs.getSelectedIndex()+1;i++) {
+			/*//csicska eszkim�k
+			for(int i = 0; i < jcbEs.getSelectedIndex() + 1; i++) {
 				controller.getModell().addPlayer("eskimo", "name", 0);
 			}
 			//csan�d kutat�k
-			for(int i=0;i<jcbSc.getSelectedIndex()+1;i++) {
+			for(int i = 0; i < jcbSc.getSelectedIndex() + 1; i++) {
 				controller.getModell().addPlayer("scientist", "name", 0);
 			}
 			
 			//klyles
-			for(int i=0;i<jcbPb.getSelectedIndex()+1;i++) {
+			for(int i = 0; i < jcbPb.getSelectedIndex() + 1; i++) {
 				controller.getModell().addBear(5);
-			}
+			}*/
 			
 			controller.startGame();
 			this.dispose();
