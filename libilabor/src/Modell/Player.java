@@ -185,8 +185,8 @@ import java.util.ArrayList;
 	 * 
 	 */
 	public void setWork(int work) {
-		if (work > 5)
-			return;
+		/*if (work > 5)
+			return;*/
 		this.work = work;
 	}
 	// @Override

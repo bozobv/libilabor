@@ -409,10 +409,25 @@ public class Map implements IModell
 	
 	
 	//ezek még nincsenek késze, csak commitolok
-	public void nextTurn()
+	public void nextPlayer()
 	{
+		
 		if (currentPlayer == iceField.getPlayers().get(iceField.getPlayers().size()))
+		{
+			//ha az utso játékos volt
 			currentPlayer = iceField.getPlayers().get(0);
+			
+			for(int j = 0; j < iceField.getAnimal().size(); j++)
+			{
+				iceField.getAnimal().get(j).step();
+			}
+			
+			for (int i = 0; i < iceField.getPlayers().size(); i++) 
+			{
+				iceField.getPlayers().get(i).setWork(5);
+				Random rand = new Random(); 
+			}
+		}
 		else
 			for (int i = 0; i < iceField.getPlayers().size(); i++) 
 			{
@@ -423,17 +438,20 @@ public class Map implements IModell
 			}
 	}
 	
-	public void game()
-	{
-		
-	}
 	
 	public String[] getCurrentPlayerData()
 	{
-		String[] cpString = new String[2];
-		///String[0] = currentPlayer.getName();
+		//ez fölösleges :)
+		String[] cpString = new String[8];
+		cpString[0] = currentPlayer.getName();
+		cpString[1] = String.valueOf(currentPlayer.getThp());
+		cpString[2] = String.valueOf(currentPlayer.getWork());
 		
-		
+		Storable[] cpInventory = currentPlayer.getInventory();
+		for (int i = 0; i<5; i++)
+		{
+			cpString[3 + i] = cpInventory[i].writeOut();
+		}
 		return cpString;
 	}
 	

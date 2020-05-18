@@ -75,5 +75,7 @@ public interface IModell {
 	
 	public String[] getCurrentPlayerData();
 	
+	public void nextPlayer();
+	
 	
 }
