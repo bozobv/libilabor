@@ -499,8 +499,8 @@ public class IceField implements java.io.Serializable
 	{
 		IceField iF = this;
 		try {
-			 String path = System.getProperty("user.dir")+ "\\libilabor\\src\\elsopalya.ser";	
-			 //String path = System.getProperty("user.dir")+ "/elsopalya.ser";	  
+			 String path = System.getProperty("user.dir")+ "\\libilabor\\src\\elsopalya.ser";		//ez a windows
+			 //String path = System.getProperty("user.dir")+ "/elsopalya.ser";	  					//ez a linux
 
 
 	         FileInputStream fileIn = new FileInputStream(path);

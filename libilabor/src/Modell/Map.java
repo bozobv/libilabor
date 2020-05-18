@@ -313,6 +313,7 @@ public class Map implements IModell
 		for (Player player : this.iceField.getPlayers()) {
 			if (player.getName().equals(name))
 				player.dig();
+				
 		}
 	}
 

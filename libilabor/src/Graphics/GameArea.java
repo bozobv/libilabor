@@ -194,6 +194,7 @@ public class GameArea implements ActionListener {
 						button.setText("");
 						button.setIcon(null);
 						button.setBackground(Color.WHITE);
+						button.setText("");
 					}
 				}
 			}
@@ -211,8 +212,9 @@ public class GameArea implements ActionListener {
 
 	public void refresh(IModell modell) {
 		this.clearMapView();
-		String path = System.getProperty("user.dir") +"\\kepek_jatekba";
-		//String path = System.getProperty("user.dir") +"/kepek_jatekba";
+		String path = System.getProperty("user.dir") +"\\kepek_jatekba";		//ez a windows
+		//String path = System.getProperty("user.dir") +"/kepek_jatekba";			//ez a linuxos
+
 
 		Map currentState = (Map) modell;
 		int count = 0;
@@ -317,6 +319,14 @@ public class GameArea implements ActionListener {
 			m.dig(m.getCurrentPlayer().getName());
 			refresh(m);
 		}
+		if(actionEvent.getSource().equals(pickUp)) {
+			m.getCurrentPlayer().pickUp();
+			refresh(m);
+		}
+		if(actionEvent.getSource().equals(skill)){
+		    m.getCurrentPlayer().useSkill(m.getCurrentPlayer().getCurrentTable());
+		    refresh(m);
+        }
 
 	}
 }
