@@ -25,7 +25,7 @@ public class Map implements IModell
 	public Map(int _height, int _width, int FrozenItemDrop, int snowHeight){
 		height=_height;
 		width=_width;
-		iceField= new IceField(height, width, FrozenItemDrop, snowHeight);
+		iceField = new IceField(height, width, FrozenItemDrop, snowHeight);
 	}
 
 
@@ -378,6 +378,7 @@ public class Map implements IModell
 		else {
 				iceField = iceField.load();
 		}
+		iceField.writeOut();
 	}
 
 	public void killBear(int index) {
