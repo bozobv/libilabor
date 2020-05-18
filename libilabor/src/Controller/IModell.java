@@ -52,6 +52,7 @@ public interface IModell {
 	 * @param type icefield tipusa
 	 * @param height magassag
 	 * @param width szelesseg
+	 
 	 */
 	
 	public void createIceField(String type, int height, int width);

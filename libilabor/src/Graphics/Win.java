@@ -27,6 +27,8 @@ public class Win implements ActionListener {
 
     public Win(Controller _controller) {
         controller=_controller;
+        
+        
         frame = new JFrame("Congratulations!");
         frame.setPreferredSize(new Dimension(300, 300));
 
