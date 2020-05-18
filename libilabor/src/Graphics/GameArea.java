@@ -315,7 +315,62 @@ public class GameArea implements ActionListener {
 							buttonNumber++;
 						}
 					}
-
+					
+					if(modell.getCurrentPlayer().getInventory()[0]!= null) {
+						ImageIcon image = new ImageIcon(path+"/flaregun2.png");
+						flare.setIcon(image);	
+					}
+					else {
+						flare.setIcon(null);
+					}
+						
+					
+					if(modell.getCurrentPlayer().getInventory()[1]!= null) {
+						ImageIcon image = new ImageIcon(path+"/rope2.png");
+						rope.setIcon(image);	
+					}
+					else {
+						rope.setIcon(null);
+					}
+						
+					
+					if(modell.getCurrentPlayer().getInventory()[2]!= null) {
+						ImageIcon image = new ImageIcon(path+"/scuba2.png");
+						scuba.setIcon(image);	
+					}
+					else {
+						scuba.setIcon(null);
+					}
+						
+					
+					if(modell.getCurrentPlayer().getInventory()[3]!= null) {
+						if(modell.getCurrentPlayer().getInventory()[3].getClass() == Shovel.class){
+							ImageIcon image = new ImageIcon(path+"/shovel2.png");
+							shovel.setIcon(image);
+						}
+						else {
+							ImageIcon image = new ImageIcon(path+"/weakshovel2.png");
+							shovel.setIcon(image);
+						}
+							
+							
+					}
+					else {
+						shovel.setIcon(null);
+					}
+						
+					
+					if(modell.getCurrentPlayer().getInventory()[4]!= null) {
+						ImageIcon image = new ImageIcon(path+"/tent2.png");
+						tent.setIcon(image);	
+					}
+					else  {
+						tent.setIcon(null);
+					}
+						
+							
+					
+					
 					JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
 					int snowHeight=currentState.getIceField().getIceTables().get(count).getSnowHeight();
 					b.setText(snowHeight>0? Integer.toString(snowHeight):"");
