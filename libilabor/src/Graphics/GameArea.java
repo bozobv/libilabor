@@ -214,8 +214,14 @@ public class GameArea implements ActionListener {
 		this.clearMapView();
 		String path = System.getProperty("user.dir") +"\\kepek_jatekba";		//ez a windows
 		//String path = System.getProperty("user.dir") +"/kepek_jatekba";			//ez a linuxos
-
-
+		
+		name = m.getCurrentPlayer().getName();
+		thp = String.valueOf(m.getCurrentPlayer().getThp());
+		work = String.valueOf(m.getCurrentPlayer().getWork()); 
+		lname.setText("name: " + name);
+		lthp.setText("thp: " + thp);
+		lwork.setText("work: " + work);
+		
 		Map currentState = (Map) modell;
 		int count = 0;
 
@@ -294,8 +300,30 @@ public class GameArea implements ActionListener {
 							default: break;						
 						}
 					}
+					if(currentState.getIceField().getIceTables().get(count).getConstruction()!=null){
+						if(currentState.getIceField().getIceTables().get(count).getConstruction().getClass()==Tent.class){
+							JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
+							ImageIcon image = new ImageIcon(path+"/tent.png");
+							b.setIcon(image);
+							buttonNumber++;
+						}
+						else if(currentState.getIceField().getIceTables().get(count).getConstruction().getClass()==Igloo.class){
+							JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
+							ImageIcon image = new ImageIcon(path+"/iglu.png");
+							b.setIcon(image);
+							buttonNumber++;
+						}
+					}
+
 					JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
-					b.setText(Integer.toString(currentState.getIceField().getIceTables().get(count).getSnowHeight()));
+					int snowHeight=currentState.getIceField().getIceTables().get(count).getSnowHeight();
+					b.setText(snowHeight>0? Integer.toString(snowHeight):"");
+					if(snowHeight == 0) {
+						for (Component comps: b.getParent().getComponents()) {
+							comps.setBackground(new Color(179, 228, 233));
+						}
+						
+					}
 					buttonNumber++;
 
 					count++;
