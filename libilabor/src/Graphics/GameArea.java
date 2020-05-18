@@ -45,7 +45,7 @@ public class GameArea implements ActionListener {
 
 	public GameArea(Map _m) {
 		m=_m;
-		frame.setSize(new Dimension(1360, 768));
+		frame.setSize(new Dimension(1600, 900));
 		frame.setLayout(new BorderLayout());
 		frame.getContentPane().setBackground(new Color(28, 102, 222));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -313,6 +313,11 @@ public class GameArea implements ActionListener {
 		}
 		if(actionEvent.getSource().equals(dig)){
 			m.dig(m.getCurrentPlayer().getName());
+			refresh(m);
+		}
+		if(actionEvent.getSource().equals(pickUp)) {
+			m.getCurrentPlayer().pickUp();
+			refresh(m);
 		}
 
 	}
