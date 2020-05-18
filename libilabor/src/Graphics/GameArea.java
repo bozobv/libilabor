@@ -16,7 +16,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class GameArea implements ActionListener {
+public class GameArea implements ActionListener  {
 	private String name, thp, work;
 	private JFrame frame = new JFrame("jatszas");
 	private JMenuBar menuBar = new JMenuBar();
@@ -236,6 +236,40 @@ public class GameArea implements ActionListener {
 			for (int j = 0; j < currentState.getWidth(); j++) {
 				if (field.charAt(i * currentState.getWidth() + j) == '1') {
 					int buttonNumber = 0;
+					JButton k = (JButton)icetables[i][j].getComponent(buttonNumber);
+					int snowHeight = currentState.getIceField().getIceTables().get(count).getSnowHeight();
+					k.setText(snowHeight>0? Integer.toString(snowHeight):"");
+					if(snowHeight == 0)
+					{
+						for (Component comps: k.getParent().getComponents()) {
+							comps.setBackground(new Color(179, 228, 233));
+						}
+					}
+					else if(snowHeight == 1)
+					{
+						for (Component comps: k.getParent().getComponents()) {
+							comps.setBackground(new Color(200, 200, 220));
+						}
+					}
+					else if(snowHeight == 2)
+					{
+						for (Component comps: k.getParent().getComponents()) {
+							comps.setBackground(new Color(205, 205, 230));
+						}
+					}
+					else if(snowHeight == 3)
+					{
+						for (Component comps: k.getParent().getComponents()) {
+							comps.setBackground(new Color(220, 220, 240));
+						}
+					}
+					else if(snowHeight == 4)
+					{
+						for (Component comps: k.getParent().getComponents()) {
+							comps.setBackground(new Color(240, 240, 240));
+						}
+					}
+					buttonNumber++;
 					for (Player player : currentState.getIceField().getIceTables().get(count).getPlayersOnTable()) {
 						if (player.getClass() == Eskimo.class) {
 							JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
@@ -377,40 +411,7 @@ public class GameArea implements ActionListener {
 							
 					
 					
-					JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
-					int snowHeight = currentState.getIceField().getIceTables().get(count).getSnowHeight();
-					b.setText(snowHeight>0? Integer.toString(snowHeight):"");
-					if(snowHeight == 0) 
-					{
-						for (Component comps: b.getParent().getComponents()) {
-							comps.setBackground(new Color(179, 228, 233));
-						}
-					}
-					if(snowHeight == 1) 
-					{
-						for (Component comps: b.getParent().getComponents()) {
-							comps.setBackground(new Color(200, 200, 220));
-						}
-					}
-					if(snowHeight == 2) 
-					{
-						for (Component comps: b.getParent().getComponents()) {
-							comps.setBackground(new Color(205, 205, 230));
-						}
-					}
-					if(snowHeight == 3) 
-					{
-						for (Component comps: b.getParent().getComponents()) {
-							comps.setBackground(new Color(220, 220, 240));
-						}
-					}
-					if(snowHeight == 4) 
-					{
-						for (Component comps: b.getParent().getComponents()) {
-							comps.setBackground(new Color(240, 240, 240));
-						}
-					}
-					buttonNumber++;
+
 
 					count++;
 				}
@@ -427,7 +428,7 @@ public class GameArea implements ActionListener {
 			System.exit(0);
 		}
 		if(actionEvent.getSource().equals(saveItem)){
-			//TODO mentesfuggveny
+			m.save("mentett");
 		}
 		if(actionEvent.getSource().equals(dig)){
 			m.dig(m.getCurrentPlayer().getName());
@@ -438,7 +439,55 @@ public class GameArea implements ActionListener {
 			refresh(m);
 		}
 		if(actionEvent.getSource().equals(skill)){
-		    m.getCurrentPlayer().useSkill(m.getCurrentPlayer().getCurrentTable());
+			if(m.getCurrentPlayer().getClass()==Eskimo.class){
+				m.getCurrentPlayer().useSkill(m.getCurrentPlayer().getCurrentTable());
+			}
+			else{
+				ActionListener secondClickListener= new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						int index=0;
+						JPanel iceField= (JPanel)((JButton)e.getSource()).getParent();
+						outerloop:
+						for (int i = 0; i < m.getWidth(); i++) {
+							for (int j = 0; j < m.getHeight(); j++) {
+								if(icetables[i][j]!=null) {
+									if(icetables[i][j]!=iceField) {
+										index++;
+									}
+									else {
+										m.getCurrentPlayer().useSkill(m.getIceField().getIceTables().get(index));
+										refresh(m);
+										for (JPanel[] jPanels : icetables) {
+											for (JPanel jPanel : jPanels) {
+												if(jPanel!=null) {
+													for (int k = 0; k < 9; k++) {
+														JButton b= (JButton)jPanel.getComponent(k);
+														b.removeActionListener(this);
+													}
+												}
+											}
+										}
+										break outerloop;
+									}
+								}
+							}
+						}
+
+
+					}
+				};
+				for (JPanel[] jPanels : icetables) {
+					for (JPanel jPanel : jPanels) {
+						if(jPanel!=null) {
+							for (int i = 0; i < 9; i++) {
+								JButton b= (JButton)jPanel.getComponent(i);
+								b.addActionListener(secondClickListener);
+							}
+						}
+					}
+				}
+			}
 		    refresh(m);
         }
 		if(actionEvent.getSource().equals(move)){
@@ -552,5 +601,17 @@ public class GameArea implements ActionListener {
 
 	public void dispose() {
 		frame.dispose();
+	}
+
+	public void scientistSkillWindow(int cap) {
+		if(cap>0){
+			JOptionPane.showMessageDialog(frame,"The capacity of the selected table is "+cap);
+		}
+		else if(cap==0){
+			JOptionPane.showMessageDialog(frame,"Hat ez egy luk");
+		}
+		else if(cap<0){
+			JOptionPane.showMessageDialog(frame,"Ez $tabil ba$tya");
+		}
 	}
 }

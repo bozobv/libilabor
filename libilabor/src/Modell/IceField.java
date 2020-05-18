@@ -46,9 +46,13 @@ public class IceField implements java.io.Serializable
 	 * default konstruktor ures mezo letrehozasahoz
 	 */
 	private Controller controller;
+	
 	public void setController(Controller _controller){
 		controller=_controller;
 	}
+	public Controller getController(){
+		return controller;
+	};
 	public IceField()
 	{
 		StableTable nextStableTable = new StableTable();
@@ -467,7 +471,9 @@ public class IceField implements java.io.Serializable
 	 */
 	public void save()
 	{
-		try {
+		try 
+		{
+			controller = null;
 	         FileOutputStream fileOut = new FileOutputStream(new File("mentett.ser")); //ez mentett
 	         ObjectOutputStream out = new ObjectOutputStream(fileOut);
 	         out.writeObject(this);

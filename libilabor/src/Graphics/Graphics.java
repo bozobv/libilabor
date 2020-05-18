@@ -42,4 +42,9 @@ public class Graphics implements IView {
 	public void dispose() {
 		garea.dispose();
 	}
+
+	@Override
+	public void scientistSkillWindow(int cap) {
+		garea.scientistSkillWindow(cap);
+	}
 }

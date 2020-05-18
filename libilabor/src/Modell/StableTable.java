@@ -3,9 +3,7 @@ package Modell;
 
 public class StableTable extends IceTable implements java.io.Serializable
 {
-	/*public int getCapacity() {
-		return this.getIceField().getPlayers().size();
-	}*/
+
 	/**
 	 * konstruktorban beallitjuk a capacityt -1-r hogy egyszeruen meg tudjuk kulonboztetni a tobbitol
 	 */
