@@ -1,12 +1,6 @@
 package Controller;
 public interface IView {
 	/**
-	 * frissiti a kinezetet a nezetnek a modell alapjan
-	 * @param modell ami alapjan frissiti a nezetet
-	 */
-	void refreshGraphics(IModell modell);
-	
-	/**
 	 * inicializalja a menu ablakot
 	 * @param controller a controller amelyik inicializalja
 	 */
@@ -20,7 +14,7 @@ public interface IView {
 	
 	/**
 	 * inicializalja a jatek ablakot
-	 * @param controller a controller amelyik inicializalja
+	 * @param modell a modell amelyik inicializalja
 	 */
 	void initializeGameArea(IModell modell);
 

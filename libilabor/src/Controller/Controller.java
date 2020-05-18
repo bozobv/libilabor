@@ -65,7 +65,7 @@ public class Controller implements Serializable
 	}
 	/**
 	 * model setter
-	 * @param modell a beallítando modell
+	 * @param modell a beallitando modell
 	 */
 	public void setModell(IModell modell) {
 		this.modell = modell;
@@ -104,7 +104,7 @@ public class Controller implements Serializable
 	 * nyeresnel hivodik meg, nyerest kezeli
 	 */
 	public void win() {
-		Win nyeres=new Win(this);
+		new Win(this);
 	}
 	
 	/**

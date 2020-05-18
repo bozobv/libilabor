@@ -217,22 +217,6 @@ public class IceField implements java.io.Serializable
 		}
 	}
 
-	public IceField( int FrozenItemDrop, int snowHeight, int EscimoNumber, int ScientistNumber, int PolarBNumber)
-	{
-		if (EscimoNumber + ScientistNumber < 3)
-		{
-			System.out.println("tobb mint harom jatekos kell");
-		}
-		if (FrozenItemDrop < 0 || FrozenItemDrop > 9)
-		{
-			System.out.println("A befagyott targyak eselyenek 0 es 9 kozott kell lennie");
-			return;
-		}	
-		
-		
-		
-		
-	}
 	
 	/**
 	 * a kor menetenek lebonyolitasa
@@ -408,21 +392,7 @@ public class IceField implements java.io.Serializable
 	{
 		System.out.println("Gyozelem");
 	}
-		
-	/*public void setFrozenItemDrop(int frequency) 
-	{
-		if (frequency < 1) 
-		{
-			System.out.println("Nullanal nagyobbnak kell lennie, te kis butus");
-			return;
-		}
-		this.FrozenItemDrop = frequency;
-		
-	}*/
-	/**
-	 * setter a blizzardFrequency valtozohoz
-	 * @param frequency a valtozo uj erteke
-	 */
+
 	public void setBlizzardFrequency(int frequency) 
 	{
 		if (frequency < 1 || frequency > 10) 
@@ -433,10 +403,7 @@ public class IceField implements java.io.Serializable
 		this.blizzardFrequency = frequency;
 	}
 	
-	/*public int getFrozenItemDrop() 
-	{
-		return this.FrozenItemDrop;
-	}*/
+
 	/**
 	 * getter a blizzardFrequency valtozohoz
 	 * @return a valtozo referenciaja

@@ -26,7 +26,7 @@ public class Map implements IModell , java.io.Serializable
 	 * A mezo szelessege
 	 */
 	private int width;
-	
+
 	/**
 	 * 	A soron levo jatekos adatai
 	 */
@@ -35,7 +35,7 @@ public class Map implements IModell , java.io.Serializable
 	/**
 	 * Ha vihar lesz ez a tagvaltozo true
 	 */
-	private boolean blizzardComing = false; 
+	private boolean blizzardComing = false;
 	
 	/**
 	 * Getter az iceField valtozohoz
@@ -72,26 +72,7 @@ public class Map implements IModell , java.io.Serializable
 		iceField = new IceField(height, width, FrozenItemDrop, snowHeight);
 		iceField.setController(controller);
 	}
-	/**
-	 * Letrehoz egy kevesbe specifikalt Map-et
-	 * @param controller a jatek iranyito egysege
-	 */
-	public Map(Controller controller)
-	{
-		iceField = new IceField();
-		iceField.load();
-		iceField.setController(controller);
-	}
 
-	public void createEmptyIceField() 
-	{
-		iceField = new IceField();
-	}
-	/**
-	 * megkeresi az adott nevu jatekost
-	 * @param name ot keressuk
-	 * @return adott nevu jatekost
-	 */
 	public Player searchPlayer(String name) {
 		for (int i = 0; i < iceField.getPlayers().size(); i++) {
 			if (iceField.getPlayers().get(i).getName().equals(name)) {
@@ -107,7 +88,7 @@ public class Map implements IModell , java.io.Serializable
 	public void characterStats(String name) {
 		searchPlayer(name).writeOut();
 	}
-	
+
 	/**
 	 * hozzaad egy playert az adott indexu jegtablahoz
 	 * @param type milyen tipusu jatekos keruljon a palyara
@@ -144,7 +125,7 @@ public class Map implements IModell , java.io.Serializable
 	}
 	/**
 	 *beallitja a vihar eselyet
-	 *@param possibility az esely 
+	 *@param possibility az esely
 	 */
 	public void blizzardChance(int possibility) {
 		iceField.setBlizzardFrequency(possibility);
@@ -294,7 +275,7 @@ public class Map implements IModell , java.io.Serializable
 	public void destroyItem(int index) {
 		iceField.getIceTables().get(index).setFrozenItem(null);
 	}
-	
+
 	/**
 	 * a megadott nevu jatekost a megadott indexu jegtablara mozgatja
 	 * @param name a jatekos neve
@@ -429,11 +410,11 @@ public class Map implements IModell , java.io.Serializable
 				
 		}
 	}
-	
+
 	/**
-	 * adott nevu jatekos használja a kötelet az adott indexu jegtablan levo egyik jatekosra
+	 * adott nevu jatekos hasznï¿½lja a kï¿½telet az adott indexu jegtablan levo egyik jatekosra
 	 * @param name a hasznalo neve
-	 * @param index a kihuzni kivant jatekos tablaja 
+	 * @param index a kihuzni kivant jatekos tablaja
 	 */
 	public void rope(String name, int index) {
 		searchPlayer(name).useItem(1, index);
@@ -468,8 +449,8 @@ public class Map implements IModell , java.io.Serializable
 	}
 	/**
 	 * a sarkkutato kepessege
-	 * @param sarkkutato neve
-	 * @param a megvizsgalni kivant jegtabla indexe
+	 * @param name sarkkutato neve
+	 * @param index a megvizsgalni kivant jegtabla indexe
 	 */
 	public void scout(String name, int index) {
 		searchPlayer(name).useSkill(this.iceField.getIceTables().get(index));
@@ -522,7 +503,7 @@ public class Map implements IModell , java.io.Serializable
 		this.getIceField().save();
 	}
 	/**
-	 * adott file-bol tolt be egy korabban mentett allast 
+	 * adott file-bol tolt be egy korabban mentett allast
 	 * @param saveFileName a file eleri utvonala
 	 */
 	public void load(String name) {
@@ -620,12 +601,13 @@ public class Map implements IModell , java.io.Serializable
 	}
 	/**
 	 * 	beallitja az iceField vezerlo egyseget
-	 * @param vezerlo egyseg
+	 * @param controller vezerlo egyseg
 	 */
 	@Override
 	public void setIfController(Controller controller) {
 		iceField.setController(controller);
 	}
+
 
 
 }

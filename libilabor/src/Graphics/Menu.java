@@ -6,8 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 public class Menu  implements ActionListener {
 	/**
@@ -88,12 +86,7 @@ public class Menu  implements ActionListener {
 			frame.dispose();
 		}
 		else if(actionEvent.getSource().equals(newGame)){
-			
-			//controller.initializeMap(8, 8, /*jcbItems.getSelectedIndex() +*/ 1, /*jcbSnow.getSelectedIndex() + */1);
-			
-			//controller.getModell().load("new");
-			//controller.setIfController();
-			//controller.startGame();
+
 			controller.newGame();
 			
 			//kisbirtok nagybirtok ciganyokkal nem birtok

@@ -16,8 +16,7 @@ public abstract class Character implements java.io.Serializable {
 	public Character(IceTable it) {
 		currentTable = it;
 	}
-	
-	//public abstract void step();
+
 
 	/**
 	 * a karakter az adott tablara probal mozdulni

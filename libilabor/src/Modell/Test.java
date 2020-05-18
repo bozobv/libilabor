@@ -1,14 +1,5 @@
 package Modell;
-
-import java.io.File;
-import java.io.IOException;
-
-import javax.swing.JFrame;
-
 import Controller.Controller;
-import Graphics.Graphics;
-
-
 
 public class Test implements java.io.Serializable {
 

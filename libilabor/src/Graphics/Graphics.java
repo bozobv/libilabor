@@ -19,15 +19,7 @@ public class Graphics implements IView {
 	 * a jatek vege nezet
 	 */
 	EndGame eg;
-	
-	/**
-	 * frissiti a jatek nezetet
-	 */
-	@Override
-	public void refreshGraphics(IModell modell){
-		// TODO Auto-generated method stub
-		garea.refresh(modell);
-	}
+
 	/**
 	 * letrehozza a menut
 	 */

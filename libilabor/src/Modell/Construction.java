@@ -14,7 +14,7 @@ public interface Construction extends java.io.Serializable {
      * kiirja a dolgokat
      */
 
-     abstract String writeOut();
+    String writeOut();
 
 
 }

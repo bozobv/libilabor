@@ -89,7 +89,7 @@ public interface IModell {
 	/**
 	 * item beallitasa az icetableban
 	 * @param type a tipusa az itemnek
-	 * @param indexe a tablenek
+	 * @param index indexe a tablenek
 	 * */
 	
 	public void setItem(String type, int index);
@@ -100,9 +100,12 @@ public interface IModell {
 	 * */
 	
 	public void destroyItem(int index);
+	
+
+
 	/**
 	 * player mozgatasa
-	 * @param a jatekos neve aki mozdulni akar
+	 * @param name a jatekos neve aki mozdulni akar
 	 * @param index hogy hova
 	 * */
 	public void movePlayer(String name, int index);
@@ -204,6 +207,8 @@ public interface IModell {
 	 * @param index A mezo indexe ahonnan a medvet el akarjuk tavolitani
 	 */
 	public void killBear(int index);
+
+	/**
 	/**
 	 * Visszaadja a soron levo jatekost
 	 * @return A soron levo jatekos
