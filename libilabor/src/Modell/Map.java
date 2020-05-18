@@ -11,7 +11,7 @@ public class Map implements IModell
 	private int FrozenItemDrop = 0;
 	private int height;
 	private int width;
-	private Player currentPlayer;
+	private String currentPlayer;
 	
 	private boolean blizzardComing = false; 
 	
@@ -379,7 +379,7 @@ public class Map implements IModell
 		if (name == "new") 
 		{
 			iceField = iceField.loadNewGame();
-			currentPlayer = iceField.getPlayers().get(0);
+			currentPlayer = iceField.getPlayers().get(0).getName();
 		}
 		else {
 				iceField = iceField.load();
@@ -415,11 +415,11 @@ public class Map implements IModell
 	{
 		boolean playerDrowning = false; 
 		
-		if (currentPlayer == iceField.getPlayers().get(iceField.getPlayers().size()))
+		if (currentPlayer == iceField.getPlayers().get(iceField.getPlayers().size()).getName())
 		{
 			//ha az utso játékos volt, ezek történnek:
 			//currentplayer az első játékos lesz
-			currentPlayer = iceField.getPlayers().get(0);
+			currentPlayer = iceField.getPlayers().get(0).getName();
 			
 			//állatok lépnek
 			for(int j = 0; j < iceField.getAnimal().size(); j++)
@@ -448,19 +448,19 @@ public class Map implements IModell
 			for (int i = 0; i < iceField.getPlayers().size(); i++) 
 			{
 				//ha nem az utso jatekos, akkor csak siman a currentplayert allitjuk a kovire
-				if (iceField.getPlayers().get(i).getName().equals(currentPlayer.getName())) 
+				if (iceField.getPlayers().get(i).getName().equals(currentPlayer)) 
 				{
-					currentPlayer = iceField.getPlayers().get(i + 1);
+					currentPlayer = iceField.getPlayers().get(i + 1).getName();
 				}
 			}
 	}
 	
 	
-	public String[] getCurrentPlayerData()
+	/*public String[] getCurrentPlayerData()
 	{
 		//ez fölösleges :)
 		String[] cpString = new String[8];
-		cpString[0] = currentPlayer.getName();
+		cpString[0] = currentPlayer;
 		cpString[1] = String.valueOf(currentPlayer.getThp());
 		cpString[2] = String.valueOf(currentPlayer.getWork());
 		
@@ -470,7 +470,7 @@ public class Map implements IModell
 			cpString[3 + i] = cpInventory[i].writeOut();
 		}
 		return cpString;
-	}
+	}*/
 	
 	
 	
