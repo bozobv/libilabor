@@ -30,6 +30,7 @@ public class Scientist extends Player implements java.io.Serializable
 			
 			this.setWork(this.getWork()-1 );
 			int capacity = t.getCapacity();
+			getCurrentTable().getIceField().getController().scientistSkillWindow(capacity);
 			if(capacity < 0) {
 				System.out.println("A vizsgalalt tabla kapacitasa: vegetelen");
 			}

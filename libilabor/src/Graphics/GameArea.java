@@ -17,6 +17,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
+
 public class GameArea extends JFrame implements ActionListener {
 
 
@@ -39,6 +40,7 @@ public class GameArea extends JFrame implements ActionListener {
 	}
 	
 	
+
 
 	private String name, thp, work;
 	//private JFrame frame = new JFrame("jatszas");
@@ -287,7 +289,7 @@ public class GameArea extends JFrame implements ActionListener {
 						b.setIcon(image);
 						buttonNumber++;
 					}
-					if(currentState.getIceField().getIceTables().get(count).getFrozenItem() != null && currentState.getIceField().getIceTables().get(count).getSnowHeight() == 0) {
+					if(currentState.getIceField().getIceTables().get(count).getFrozenItem() != null /*&& currentState.getIceField().getIceTables().get(count).getSnowHeight() == 0*/) {
 						JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
 						ImageIcon image;
 						switch(currentState.getIceField().getIceTables().get(count).getFrozenItem().getId()) 
@@ -341,7 +343,7 @@ public class GameArea extends JFrame implements ActionListener {
 					if(currentState.getIceField().getIceTables().get(count).getConstruction()!=null){
 						if(currentState.getIceField().getIceTables().get(count).getConstruction().getClass()==Tent.class){
 							JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
-							ImageIcon image = new ImageIcon(path+"/tent.png");
+							ImageIcon image = new ImageIcon(path+"/tentCONSTRUCTION.png");
 							b.setIcon(image);
 							buttonNumber++;
 						}
@@ -462,7 +464,7 @@ public class GameArea extends JFrame implements ActionListener {
 			System.exit(0);
 		}
 		if(actionEvent.getSource().equals(saveItem)){
-			//TODO mentesfuggveny
+			m.save("mentett");
 		}
 		if(actionEvent.getSource().equals(dig)){
 			m.dig(m.getCurrentPlayer().getName());
@@ -473,7 +475,55 @@ public class GameArea extends JFrame implements ActionListener {
 			refresh(m);
 		}
 		if(actionEvent.getSource().equals(skill)){
-		    m.getCurrentPlayer().useSkill(m.getCurrentPlayer().getCurrentTable());
+			if(m.getCurrentPlayer().getClass()==Eskimo.class){
+				m.getCurrentPlayer().useSkill(m.getCurrentPlayer().getCurrentTable());
+			}
+			else{
+				ActionListener secondClickListener= new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						int index=0;
+						JPanel iceField= (JPanel)((JButton)e.getSource()).getParent();
+						outerloop:
+						for (int i = 0; i < m.getWidth(); i++) {
+							for (int j = 0; j < m.getHeight(); j++) {
+								if(icetables[i][j]!=null) {
+									if(icetables[i][j]!=iceField) {
+										index++;
+									}
+									else {
+										m.getCurrentPlayer().useSkill(m.getIceField().getIceTables().get(index));
+										refresh(m);
+										for (JPanel[] jPanels : icetables) {
+											for (JPanel jPanel : jPanels) {
+												if(jPanel!=null) {
+													for (int k = 0; k < 9; k++) {
+														JButton b= (JButton)jPanel.getComponent(k);
+														b.removeActionListener(this);
+													}
+												}
+											}
+										}
+										break outerloop;
+									}
+								}
+							}
+						}
+
+
+					}
+				};
+				for (JPanel[] jPanels : icetables) {
+					for (JPanel jPanel : jPanels) {
+						if(jPanel!=null) {
+							for (int i = 0; i < 9; i++) {
+								JButton b= (JButton)jPanel.getComponent(i);
+								b.addActionListener(secondClickListener);
+							}
+						}
+					}
+				}
+			}
 		    refresh(m);
         }
 		if(actionEvent.getSource().equals(move)){
@@ -590,6 +640,7 @@ public class GameArea extends JFrame implements ActionListener {
 	public void dispose() {
 		dispose();
 	}
+
 	
 	
 	
@@ -598,4 +649,18 @@ public class GameArea extends JFrame implements ActionListener {
 	
 	
 	
+
+
+	public void scientistSkillWindow(int cap) {
+		if(cap>0){
+			JOptionPane.showMessageDialog(this,"The capacity of the selected table is "+cap);
+		}
+		else if(cap==0){
+			JOptionPane.showMessageDialog(this,"Hat ez egy luk");
+		}
+		else if(cap<0){
+			JOptionPane.showMessageDialog(this,"Ez $tabil ba$tya");
+		}
+	}
+
 }

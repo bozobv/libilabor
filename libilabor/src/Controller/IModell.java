@@ -79,4 +79,5 @@ public interface IModell {
 
 
 	void setIfController(Controller controller);
+
 }

@@ -78,8 +78,10 @@ public class Menu  implements ActionListener {
 			//kisbirtok nagybirtok ciganyokkal nem birtok
 			frame.dispose();
 		}
-		else if(actionEvent.getSource().equals(loadGame)){
-
+		else if(actionEvent.getSource().equals(loadGame))
+		{
+			controller.loadGame();
+			
 		}
 
 	}
