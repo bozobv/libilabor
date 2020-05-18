@@ -26,10 +26,11 @@ public class Map implements IModell
 		return width;
 	}
 
-	public Map(int _height, int _width, int FrozenItemDrop, int snowHeight){
+	public Map(int _height, int _width, int FrozenItemDrop, int snowHeight,Controller controller){
 		height=_height;
 		width=_width;
 		iceField = new IceField(height, width, FrozenItemDrop, snowHeight);
+		iceField.setController(controller);
 	}
 
 	public void createEmptyIceField() 
@@ -466,6 +467,11 @@ public class Map implements IModell
 					i++;
 				}
 			}
+	}
+
+	@Override
+	public void setIfController(Controller controller) {
+		iceField.setController(controller);
 	}
 
 	

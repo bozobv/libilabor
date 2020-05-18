@@ -8,8 +8,9 @@ public interface IView {
 	
 	public void initializeMenu(Controller controller);
 	
-	public void initializeEndGame();
+	public void initializeEndGame(Controller controller);
 	
 	public void initializeGameArea(IModell modell);
-	
+
+    void dispose();
 }

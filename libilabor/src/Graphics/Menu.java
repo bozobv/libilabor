@@ -71,7 +71,7 @@ public class Menu  implements ActionListener {
 			controller.initializeMap(8, 8, /*jcbItems.getSelectedIndex() +*/ 1, /*jcbSnow.getSelectedIndex() + */1);	
 			
 			controller.getModell().load("new");
-			
+			controller.setIfController();
 			controller.startGame();
 			
 			//kisbirtok nagybirtok ciganyokkal nem birtok

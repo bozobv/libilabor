@@ -76,6 +76,7 @@ public interface IModell {
 	public Player getCurrentPlayer();
 	
 	public void nextPlayer();
-	
-	
+
+
+	void setIfController(Controller controller);
 }
