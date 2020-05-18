@@ -7,7 +7,6 @@ import javax.swing.*;
 
 import javax.swing.border.Border;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.geom.Line2D;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -71,6 +70,8 @@ public class GameArea implements ActionListener {
 		panel.add(lname);
 		panel.add(Box.createRigidArea(new Dimension(0, 10)));
 
+		
+		
 		// maga a map (en?)
 		icetables = new JPanel[m.getHeight()][m.getWidth()];
 		map.setLayout(new GridLayout(m.getHeight(), m.getWidth(), 30, 30));
@@ -109,6 +110,7 @@ public class GameArea implements ActionListener {
 					map.add(panelka2);
 					icetables[i][j] = panelka2;
 					panelka2.setVisible(true);
+					
 				} else {
 					icetables[i][j] = null;
 					JLabel l = new JLabel();
@@ -118,6 +120,8 @@ public class GameArea implements ActionListener {
 			}
 
 		}
+		
+		
 
 		// NEV JOBB FELUL
 		lname.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
@@ -189,6 +193,7 @@ public class GameArea implements ActionListener {
 		quitItem.addActionListener(this);
 		// --------------------------------------------------------------------
 		refresh(m);
+		
 	}
 
 	public void clearMapView() {
@@ -506,4 +511,10 @@ public class GameArea implements ActionListener {
 	public void dispose() {
 		frame.dispose();
 	}
+	
+	
+	
+	
+	
+	
 }
