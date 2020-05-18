@@ -213,8 +213,14 @@ public class GameArea implements ActionListener {
 		this.clearMapView();
 		String path = System.getProperty("user.dir") +"\\kepek_jatekba";		//ez a windows
 		//String path = System.getProperty("user.dir") +"/kepek_jatekba";			//ez a linuxos
-
-
+		
+		name = m.getCurrentPlayer().getName();
+		thp = String.valueOf(m.getCurrentPlayer().getThp());
+		work = String.valueOf(m.getCurrentPlayer().getWork()); 
+		lname.setText("name: " + name);
+		lthp.setText("thp: " + thp);
+		lwork.setText("work: " + work);
+		
 		Map currentState = (Map) modell;
 		int count = 0;
 
