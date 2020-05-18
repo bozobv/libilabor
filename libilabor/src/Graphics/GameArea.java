@@ -1,6 +1,6 @@
 package Graphics;
 import Controller.*;
-import Modell.Map;
+import Modell.*;
 
 import javax.swing.*;
 
@@ -43,14 +43,28 @@ public class GameArea implements ActionListener
 		frame.setSize(new Dimension(1360,768));
 		frame.setLayout(new BorderLayout());
 		frame.getContentPane().setBackground(new Color(28,102,222));
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		frame.setResizable(false);
+		frame.setJMenuBar(menuBar);
+        JPanel panelka=new JPanel();
+        panelka.setLayout(new BoxLayout(panelka,BoxLayout.X_AXIS));
+        panelka.add(Box.createRigidArea(new Dimension(40,0)));
+        panel.add(grid);
+        panelka.add(panel);
+        frame.add(panelka, BorderLayout.LINE_END);
+        panelka.setBackground(new Color(28,102,222));
 		panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
 		panel.setBackground(new Color(28,102,222));
 		grid.setLayout(new GridLayout(6,2,10,10));
 		menu.add(saveItem);
 		menu.add(quitItem);
 		menuBar.add(menu);
-		frame.setJMenuBar(menuBar);
-
+		frame.add(map);
+	    panel.add(name);
+	    panel.add(Box.createRigidArea(new Dimension(0,10)));
+	    
+	    
 		//maga a map (en?)
         icetables = new JButton[m.getHeight()][m.getWidth()];
         map.setLayout(new GridLayout(m.getHeight(),m.getWidth(),30,30));
@@ -74,7 +88,7 @@ public class GameArea implements ActionListener
             e.printStackTrace();
         }
         
-        
+        //PALYAELEMEK KIRAJZOLASA
         //soronkent toltodik, balrol jobbra
         for (int i = 0;i < m.getHeight(); i++)
         {
@@ -82,10 +96,31 @@ public class GameArea implements ActionListener
             {
             	if (field.charAt(i * m.getWidth() + j )  == '1')
             	{
-            		JButton b = new JButton();
+            		/*JButton b = new JButton();
             		b.setBackground(new Color(255,255,255));
             		map.add(b);
                     System.out.println("b");
+                    */
+                    JPanel panelka2=new JPanel();
+                    panelka2.setLayout(new GridLayout(3,3));
+                    
+                    JButton b1=new JButton("1");  
+                    JButton b2=new JButton("2");  
+                    JButton b3=new JButton("3");  
+                    JButton b4=new JButton("4");  
+                    JButton b5=new JButton("5");  
+                    JButton b6=new JButton("6");  
+                    JButton b7=new JButton("7");  
+                    JButton b8=new JButton("8");  
+                    JButton b9=new JButton("9");  
+                    b1.setBackground(new Color(255,255,255));    
+                    panelka2.add(b1);panelka2.add(b2);panelka2.add(b3);panelka2.add(b4);panelka2.add(b5);  
+                    panelka2.add(b6);panelka2.add(b7);panelka2.add(b8);panelka2.add(b9);  
+                    map.add(panelka2);
+                    panelka2.setVisible(true);
+                    
+                    
+                    
             	}
             	else
             	{
@@ -97,17 +132,18 @@ public class GameArea implements ActionListener
             }
 
         }
-        frame.add(map);
-
-        panel.add(name);
+        
+       
+       //NEV JOBB FELUL
         name.setFont(new Font(Font.MONOSPACED,Font.BOLD,20));
         name.setSize(new Dimension(200,40));
         name.setAlignmentX(Component.CENTER_ALIGNMENT);
         name.setOpaque(true);
         name.setBackground(new Color(179,228,233));
 
-        panel.add(Box.createRigidArea(new Dimension(0,10)));
-
+        
+        //GOMBOK JOBB OLDALT
+        //--------------------------------------------------------------
 		grid.add(thp);
 		grid.add(work);
 		//-----
@@ -157,24 +193,39 @@ public class GameArea implements ActionListener
         scuba.setOpaque(true);
         scuba.setBackground(new Color(179,228,233));
         //-----
-
-
-        panel.add(grid);
-        JPanel panelka=new JPanel();
-        panelka.setLayout(new BoxLayout(panelka,BoxLayout.X_AXIS));
-        panelka.add(Box.createRigidArea(new Dimension(40,0)));
-        panelka.add(panel);
-        panelka.setBackground(new Color(28,102,222));
-		frame.add(panelka, BorderLayout.LINE_END);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-		frame.setResizable(false);
-
         saveItem.addActionListener(this);
         quitItem.addActionListener(this);
+        //--------------------------------------------------------------------
 
+        
 	}
+	
+
+	public void clearMapView() {
+		for (JButton[] jButton : icetables) {
+			for (JButton jButton2 : jButton) {
+				jButton2.setBackground(new Color(255,255,255));
+			}
+		}
+
+		
+		name.setBackground(new Color(179,228,233));
+		name.setText("");
+		
+		flare.setBackground(new Color(179,228,233));
+		shovel.setBackground(new Color(179,228,233));
+	 	rope.setBackground(new Color(179,228,233));
+		tent.setBackground(new Color(179,228,233));
+		scuba.setBackground(new Color(179,228,233));
+	}
+	
+	
+	
 	public void refresh(IModell modell) {
+		this.clearMapView();
+		
+		//ide kene az ujrarajzolas 0-rol
+		
 		
 	}
 
