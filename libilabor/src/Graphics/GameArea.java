@@ -299,6 +299,21 @@ public class GameArea implements ActionListener {
 							default: break;						
 						}
 					}
+					if(currentState.getIceField().getIceTables().get(count).getConstruction()!=null){
+						if(currentState.getIceField().getIceTables().get(count).getConstruction().getClass()==Tent.class){
+							JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
+							ImageIcon image = new ImageIcon(path+"/tent.png");
+							b.setIcon(image);
+							buttonNumber++;
+						}
+						else if(currentState.getIceField().getIceTables().get(count).getConstruction().getClass()==Igloo.class){
+							JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
+							ImageIcon image = new ImageIcon(path+"/iglu.png");
+							b.setIcon(image);
+							buttonNumber++;
+						}
+					}
+
 					JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
 					int snowHeight=currentState.getIceField().getIceTables().get(count).getSnowHeight();
 					b.setText(snowHeight>0? Integer.toString(snowHeight):"");
