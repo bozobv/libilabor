@@ -12,10 +12,7 @@ public class Graphics implements IView {
 	EndGame eg;
 	NewGameWindow ngm;
 	
-	@Override
-	public void initialize(){
-		// TODO Auto-generated method stub
-	}
+
 	@Override
 	public void refreshGraphics(IModell modell){
 		// TODO Auto-generated method stub

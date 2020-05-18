@@ -1,16 +1,13 @@
 package Controller;
-import Graphics.*;
 public interface IView {
 	
-	public void initialize();
+	void refreshGraphics(IModell modell);
 	
-	public void refreshGraphics(IModell modell);
+	void initializeMenu(Controller controller);
 	
-	public void initializeMenu(Controller controller);
+	void initializeEndGame(Controller controller);
 	
-	public void initializeEndGame(Controller controller);
-	
-	public void initializeGameArea(IModell modell);
+	void initializeGameArea(IModell modell);
 
     void dispose();
 

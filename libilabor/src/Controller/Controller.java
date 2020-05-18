@@ -25,15 +25,8 @@ public class Controller implements Serializable
 	{
 		view.initializeEndGame(this);
 	}
-		
-	public void refreshGraphics(IModell modell){
-		view.refreshGraphics(modell);
-
-	}
 	
-	public void play(){	
 
-	}
 	public void setIfController(){
 		modell.setIfController(this);
 	}

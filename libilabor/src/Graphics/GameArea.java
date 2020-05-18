@@ -23,7 +23,7 @@ public class GameArea extends JFrame implements ActionListener {
 
 	@Override
 	public void paint(Graphics g) {
-	
+
 		super.paint(g);
 		String path = System.getProperty("user.dir") +"\\kepek_jatekba";
 		 BufferedImage image = null;
@@ -33,17 +33,17 @@ public class GameArea extends JFrame implements ActionListener {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 			g.drawImage(image,7,53,1300,839,null);
 			refresh(m);
-		
+
 	}
-	
-	
+
+
 
 
 	private String name, thp, work;
-	
+
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenu menu = new JMenu("Menu");
 	private JMenuItem saveItem = new JMenuItem("Save");
@@ -65,7 +65,7 @@ public class GameArea extends JFrame implements ActionListener {
 	private JPanel panel = new JPanel();
 	private Container map = new Container();
 	private Map m;
-	
+
 
 	private JPanel[][] icetables;
 	String field;
@@ -73,7 +73,7 @@ public class GameArea extends JFrame implements ActionListener {
 	public GameArea(Map _m) {
 		m=_m;
 		setSize(new Dimension(1600, 900));
-		
+
 		setLayout(new BorderLayout());
 		getContentPane().setBackground(new Color(28, 102, 222));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -97,8 +97,6 @@ public class GameArea extends JFrame implements ActionListener {
 		panel.add(lname);
 		panel.add(Box.createRigidArea(new Dimension(0, 10)));
 
-		
-		
 		// maga a map (en?)
 		icetables = new JPanel[m.getHeight()][m.getWidth()];
 		map.setLayout(new GridLayout(m.getHeight(), m.getWidth(), 30, 30));
@@ -137,19 +135,15 @@ public class GameArea extends JFrame implements ActionListener {
 					map.add(panelka2);
 					icetables[i][j] = panelka2;
 					panelka2.setVisible(true);
-					
 				} else {
 					icetables[i][j] = null;
 					JLabel l = new JLabel();
-					l.setVisible(false);
 					l.setBackground(Color.blue);
 					map.add(l);
 				}
 			}
 
 		}
-		
-		
 
 		// NEV JOBB FELUL
 		lname.setFont(new Font(Font.MONOSPACED, Font.BOLD, 15));
@@ -221,7 +215,6 @@ public class GameArea extends JFrame implements ActionListener {
 		quitItem.addActionListener(this);
 		// --------------------------------------------------------------------
 		refresh(m);
-		
 	}
 
 	public void clearMapView() {
@@ -632,20 +625,6 @@ public class GameArea extends JFrame implements ActionListener {
 		}
 	}
 
-	public void dispose() {
-		dispose();
-	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-
-
 	public void scientistSkillWindow(int cap) {
 		if(cap>0){
 			JOptionPane.showMessageDialog(this,"The capacity of the selected table is "+cap);
@@ -657,5 +636,4 @@ public class GameArea extends JFrame implements ActionListener {
 			JOptionPane.showMessageDialog(this,"Ez $tabil ba$tya");
 		}
 	}
-
 }

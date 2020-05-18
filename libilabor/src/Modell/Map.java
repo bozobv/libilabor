@@ -483,7 +483,6 @@ public class Map implements IModell , java.io.Serializable
 	@Override
 	public void setIfController(Controller controller) {
 		iceField.setController(controller);
-		iceField.getPlayers().get(0).addToInventory(new FlareGunPart());
 	}
 
 
