@@ -1,5 +1,6 @@
 package Modell;
 
+import java.util.Random;
 
 /**
  * a jegesmedvet megvalosito osztaly
@@ -34,8 +35,13 @@ public class PolarBear extends Character implements java.io.Serializable{
 	/**
 	 * ez a fv hivodik meg, mikor a medve lep
 	 */
-    public void step() {
-
+    public void step() 
+    {
+		Random rand = new Random();
+		int nextTable = rand.nextInt(this.getCurrentTable().getNeighbours().size() );
+		this.getCurrentTable().getNeighbours().get(nextTable).polarBearVisit(this);
+		System.out.println("kuki szomszedszam: " + nextTable);;
+		
     }
 
 	/**

@@ -6,7 +6,9 @@ import Modell.*;
 import javax.swing.*;
 
 import javax.swing.border.Border;
-
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Line2D;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -316,15 +318,94 @@ public class GameArea implements ActionListener {
 							buttonNumber++;
 						}
 					}
-
+					
+					if(modell.getCurrentPlayer().getInventory()[0]!= null) {
+						ImageIcon image = new ImageIcon(path+"/flaregun2.png");
+						flare.setIcon(image);	
+					}
+					else {
+						flare.setIcon(null);
+					}
+						
+					
+					if(modell.getCurrentPlayer().getInventory()[1]!= null) {
+						ImageIcon image = new ImageIcon(path+"/rope2.png");
+						rope.setIcon(image);	
+					}
+					else {
+						rope.setIcon(null);
+					}
+						
+					
+					if(modell.getCurrentPlayer().getInventory()[2]!= null) {
+						ImageIcon image = new ImageIcon(path+"/scuba2.png");
+						scuba.setIcon(image);	
+					}
+					else {
+						scuba.setIcon(null);
+					}
+						
+					
+					if(modell.getCurrentPlayer().getInventory()[3]!= null) {
+						if(modell.getCurrentPlayer().getInventory()[3].getClass() == Shovel.class){
+							ImageIcon image = new ImageIcon(path+"/shovel2.png");
+							shovel.setIcon(image);
+						}
+						else {
+							ImageIcon image = new ImageIcon(path+"/weakshovel2.png");
+							shovel.setIcon(image);
+						}
+							
+							
+					}
+					else {
+						shovel.setIcon(null);
+					}
+						
+					
+					if(modell.getCurrentPlayer().getInventory()[4]!= null) {
+						ImageIcon image = new ImageIcon(path+"/tent2.png");
+						tent.setIcon(image);	
+					}
+					else  {
+						tent.setIcon(null);
+					}
+						
+							
+					
+					
 					JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
-					int snowHeight=currentState.getIceField().getIceTables().get(count).getSnowHeight();
+					int snowHeight = currentState.getIceField().getIceTables().get(count).getSnowHeight();
 					b.setText(snowHeight>0? Integer.toString(snowHeight):"");
-					if(snowHeight == 0) {
+					if(snowHeight == 0) 
+					{
 						for (Component comps: b.getParent().getComponents()) {
 							comps.setBackground(new Color(179, 228, 233));
 						}
-						
+					}
+					if(snowHeight == 1) 
+					{
+						for (Component comps: b.getParent().getComponents()) {
+							comps.setBackground(new Color(200, 200, 220));
+						}
+					}
+					if(snowHeight == 2) 
+					{
+						for (Component comps: b.getParent().getComponents()) {
+							comps.setBackground(new Color(205, 205, 230));
+						}
+					}
+					if(snowHeight == 3) 
+					{
+						for (Component comps: b.getParent().getComponents()) {
+							comps.setBackground(new Color(220, 220, 240));
+						}
+					}
+					if(snowHeight == 4) 
+					{
+						for (Component comps: b.getParent().getComponents()) {
+							comps.setBackground(new Color(240, 240, 240));
+						}
 					}
 					buttonNumber++;
 
@@ -334,9 +415,13 @@ public class GameArea implements ActionListener {
 			}
 
 		}
-
+		
 	}
 
+	
+    
+ 
+	
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
 		if (actionEvent.getSource().equals(quitItem)) {
