@@ -365,18 +365,20 @@ public class GameArea implements ActionListener {
 				public void actionPerformed(ActionEvent e) {
 					int index=0;
 					JPanel iceField= (JPanel)((JButton)e.getSource()).getParent();
+					 outerloop:
 					for (int i = 0; i < m.getWidth(); i++) {
 						for (int j = 0; j < m.getHeight(); j++) {
 							if(icetables[i][j]!=null) {
 								if(icetables[i][j]!=iceField) {	
 									System.out.println("baktalo");
 									index++;
+								}
+								else {
 									String name=m.getCurrentPlayer().getName();
 									m.movePlayer(name, index);
 									refresh(m);
-									return;
+									break outerloop;
 								}
-
 							}
 						}
 					}
