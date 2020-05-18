@@ -37,7 +37,6 @@ public class Scientist extends Player implements java.io.Serializable
 			else
 				System.out.println("A vizsgalalt tabla kapacitasa: " + Integer.toString(capacity));
 		}
-		this.setWork(this.getWork()-1);;
 	}
 	/**
 	 * kiirja a kutato adatait
