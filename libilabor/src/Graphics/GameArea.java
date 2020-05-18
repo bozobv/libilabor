@@ -108,6 +108,7 @@ public class GameArea implements ActionListener {
 					icetables[i][j] = panelka2;
 					panelka2.setVisible(true);
 				} else {
+					icetables[i][j] = null;
 					JLabel l = new JLabel();
 					l.setBackground(Color.blue);
 					map.add(l);
@@ -359,12 +360,13 @@ public class GameArea implements ActionListener {
 			ActionListener secondClickListener= new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					int x,y, index=0;
+					int index=0;
 					JPanel iceField= (JPanel)((Button)e.getSource()).getParent();
 					for (int i = 0; i < m.getWidth(); i++) {
 						for (int j = 0; j < m.getHeight(); j++) {
 							if(icetables[i][j]!=null) {
 								if(icetables[i][j]!=iceField) {
+									
 									index++;
 								}
 

@@ -112,7 +112,10 @@ import java.util.ArrayList;
 	{
 		if(this.getCurrentTable().getSnowHeight() > 0 || this.getCurrentTable().getFrozenItem() == null )
 			return;
+		if(work>0) {
 		this.getCurrentTable().getFrozenItem().pickedUpBy(this);
+		work--;
+		}
 	}
 	/**
 	 * Adott targy hozzaadasa az inventoryhoz
