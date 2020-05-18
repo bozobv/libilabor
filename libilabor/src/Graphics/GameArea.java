@@ -15,6 +15,7 @@ import java.util.Scanner;
 
 public class GameArea implements ActionListener
 {
+	private String name, thp, work;
 	private JFrame frame = new JFrame("jatszas");
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenu menu = new JMenu("Menu");
@@ -26,19 +27,19 @@ public class GameArea implements ActionListener
 	private JButton skill = new JButton("Skill");
 	private JButton pickUp = new JButton("Pick up");
 	private JButton endTurn = new JButton("End turn");
-	private JLabel lthp = new JLabel("THP:");
-	private JLabel lwork = new JLabel("Work:");
+	private JLabel lthp = new JLabel("thp: " + thp);
+	private JLabel lwork = new JLabel("work:" + work);
 	private JButton flare = new JButton();
 	private JLabel shovel = new JLabel();
 	private JButton rope = new JButton();
 	private JButton tent = new JButton();
 	private JLabel scuba = new JLabel();
-	private JLabel lname = new JLabel("Lakatos Dzsesszpero");
+	private JLabel lname = new JLabel("Name: " + name);
 	private JPanel panel = new JPanel();
 	private Container map = new Container();
 	
 	//private JButton[][] icetables;
-	private String name, thp, work;
+	
 	
 	private JPanel[][] icetables;
 

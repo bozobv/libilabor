@@ -428,14 +428,15 @@ public class Map implements IModell
 		
 	}
 	
-	public String[] getPlayerData()
+	public String[] getCurrentPlayerData()
 	{
 		String[] cpString = new String[2];
 		///String[0] = currentPlayer.getName();
 		
 		
-		return null;
+		return cpString;
 	}
+	
 	
 	
 }
