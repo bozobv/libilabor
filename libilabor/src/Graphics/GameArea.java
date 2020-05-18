@@ -66,7 +66,7 @@ public class GameArea implements ActionListener
 	    
 	    
 		//maga a map (en?)
-        icetables = new JPanel[m.getHeight()][m.getWidth()];
+        icetables=new JPanel[m.getHeight()][m.getWidth()];
         map.setLayout(new GridLayout(m.getHeight(),m.getWidth(),30,30));
         
         String field = "";
@@ -103,36 +103,12 @@ public class GameArea implements ActionListener
                     */
                     JPanel panelka2=new JPanel();
                     panelka2.setLayout(new GridLayout(3,3));
-                    
-                    JButton b1=new JButton("1");
-                    b1.setText("");
-                    b1.setBackground(Color.WHITE);
-                    JButton b2=new JButton("2"); 
-                    b2.setText("");
-                    b2.setBackground(Color.WHITE);
-                    JButton b3=new JButton("3"); 
-                    b3.setText("");
-                    b3.setBackground(Color.WHITE);
-                    JButton b4=new JButton("4"); 
-                    b4.setText("");
-                    b4.setBackground(Color.WHITE);
-                    JButton b5=new JButton("5");  
-                    b5.setText("");
-                    b5.setBackground(Color.WHITE);
-                    JButton b6=new JButton("6");  
-                    b6.setText("");
-                    b6.setBackground(Color.WHITE);
-                    JButton b7=new JButton("7"); 
-                    b7.setText("");
-                    b7.setBackground(Color.WHITE);
-                    JButton b8=new JButton("8");
-                    b8.setText("");
-                    b8.setBackground(Color.WHITE);
-                    JButton b9=new JButton("9"); 
-                    b9.setText("");
-                    b9.setBackground(Color.WHITE);   
-                    panelka2.add(b1);panelka2.add(b2);panelka2.add(b3);panelka2.add(b4);panelka2.add(b5);  
-                    panelka2.add(b6);panelka2.add(b7);panelka2.add(b8);panelka2.add(b9);  
+                    JButton buttons[]=new JButton[9];
+                    for(int k=0;k<9;k++){
+                        buttons[k]=new JButton();
+                        buttons[k].setBackground(Color.WHITE);
+                        panelka2.add(buttons[k]);
+                    }
                     map.add(panelka2);
                     icetables[i][j]=panelka2;
                     panelka2.setVisible(true);
