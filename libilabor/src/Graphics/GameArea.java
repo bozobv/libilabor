@@ -1,6 +1,6 @@
 package Graphics;
 import Controller.*;
-import Modell.Map;
+import Modell.*;
 
 import javax.swing.*;
 
@@ -179,11 +179,29 @@ public class GameArea implements ActionListener
 	}
 	
 	public void clearMapView() {
+		for (JButton[] jButton : icetables) {
+			for (JButton jButton2 : jButton) {
+				jButton2.setBackground(new Color(255,255,255));
+			}
+		}
 		
+		name.setBackground(new Color(179,228,233));
+		name.setText("");
 		
+		flare.setBackground(new Color(179,228,233));
+		shovel.setBackground(new Color(179,228,233));
+	 	rope.setBackground(new Color(179,228,233));
+		tent.setBackground(new Color(179,228,233));
+		scuba.setBackground(new Color(179,228,233));
 	}
 	
+	
+	
 	public void refresh(IModell modell) {
+		this.clearMapView();
+		
+		//ide kene az ujrarajzolas 0-rol
+		
 		
 	}
 
