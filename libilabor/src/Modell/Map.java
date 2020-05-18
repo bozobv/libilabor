@@ -408,8 +408,13 @@ public class Map implements IModell
 		}
 		return str;
 	}
-	
-	
+
+	@Override
+	public Player getCurrentPlayer() {
+		return searchPlayer(currentPlayer);
+	}
+
+
 	//ezek még nincsenek késze, csak commitolok
 	public void nextPlayer()
 	{
@@ -454,11 +459,7 @@ public class Map implements IModell
 				}
 			}
 	}
-	@Override
-	public String[] getCurrentPlayerData() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 	
 	
 	/*public String[] getCurrentPlayerData()
