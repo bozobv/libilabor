@@ -241,7 +241,7 @@ public class GameArea implements ActionListener
 	public void refresh(IModell modell) {
 		this.clearMapView();
 		
-		//ide kene az ujrarajzolas 0-rol
+		Map currentState = (Map) modell;
 		
 		
 	}
