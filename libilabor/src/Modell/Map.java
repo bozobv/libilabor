@@ -428,9 +428,11 @@ public class Map implements IModell
 			currentPlayer = iceField.getPlayers().get(0).getName();
 
 			//állatok lépnek
-			for(int j = 0; j < iceField.getAnimal().size(); j++)
+			for(int j = 0; j < iceField.getIceTables().size(); j++)
 			{
-				iceField.getAnimal().get(j).step();
+				if (iceField.getIceTables().get(j).getAnimalsOnTable().isEmpty() == false)
+					iceField.getIceTables().get(j).getAnimalsOnTable().get(0).step();
+				//System.out.println("allat: " + j);
 			}
 			
 			for (int i = 0; i < iceField.getPlayers().size(); i++) 
