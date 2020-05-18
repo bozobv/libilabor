@@ -45,7 +45,7 @@ public class GameArea implements ActionListener {
 
 	public GameArea(Map _m) {
 		m=_m;
-		frame.setSize(new Dimension(1360, 768));
+		frame.setSize(new Dimension(1600, 900));
 		frame.setLayout(new BorderLayout());
 		frame.getContentPane().setBackground(new Color(28, 102, 222));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -191,6 +191,7 @@ public class GameArea implements ActionListener {
 					jButton2.setBackground(new Color(255, 255, 255));
 					for (int i = 0; i < 9; i++) {
 						JButton button = (JButton) jButton2.getComponent(i);
+						button.setText("");
 						button.setIcon(null);
 						button.setBackground(Color.WHITE);
 					}
@@ -238,7 +239,7 @@ public class GameArea implements ActionListener {
 						b.setIcon(image);
 						buttonNumber++;
 					}
-					if(currentState.getIceField().getIceTables().get(count).getFrozenItem() != null ) {
+					if(currentState.getIceField().getIceTables().get(count).getFrozenItem() != null && currentState.getIceField().getIceTables().get(count).getSnowHeight() == 0) {
 						JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
 						ImageIcon image;
 						switch(currentState.getIceField().getIceTables().get(count).getFrozenItem().getId()) 
@@ -312,6 +313,7 @@ public class GameArea implements ActionListener {
 		}
 		if(actionEvent.getSource().equals(dig)){
 			m.dig(m.getCurrentPlayer().getName());
+			refresh(m);
 		}
 
 	}
