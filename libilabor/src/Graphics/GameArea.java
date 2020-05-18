@@ -6,7 +6,9 @@ import Modell.*;
 import javax.swing.*;
 
 import javax.swing.border.Border;
-
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Line2D;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -193,6 +195,7 @@ public class GameArea implements ActionListener {
 					jButton2.setBackground(new Color(255, 255, 255));
 					for (int i = 0; i < 9; i++) {
 						JButton button = (JButton) jButton2.getComponent(i);
+						button.setText("");
 						button.setIcon(null);
 						button.setBackground(Color.WHITE);
 						button.setText("");
@@ -250,7 +253,7 @@ public class GameArea implements ActionListener {
 						b.setIcon(image);
 						buttonNumber++;
 					}
-					if(currentState.getIceField().getIceTables().get(count).getFrozenItem() != null ) {
+					if(currentState.getIceField().getIceTables().get(count).getFrozenItem() != null && currentState.getIceField().getIceTables().get(count).getSnowHeight() == 0) {
 						JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
 						ImageIcon image;
 						switch(currentState.getIceField().getIceTables().get(count).getFrozenItem().getId()) 
@@ -372,13 +375,37 @@ public class GameArea implements ActionListener {
 					
 					
 					JButton b = (JButton)icetables[i][j].getComponent(buttonNumber);
-					int snowHeight=currentState.getIceField().getIceTables().get(count).getSnowHeight();
+					int snowHeight = currentState.getIceField().getIceTables().get(count).getSnowHeight();
 					b.setText(snowHeight>0? Integer.toString(snowHeight):"");
-					if(snowHeight == 0) {
+					if(snowHeight == 0) 
+					{
 						for (Component comps: b.getParent().getComponents()) {
 							comps.setBackground(new Color(179, 228, 233));
 						}
-						
+					}
+					if(snowHeight == 1) 
+					{
+						for (Component comps: b.getParent().getComponents()) {
+							comps.setBackground(new Color(200, 200, 220));
+						}
+					}
+					if(snowHeight == 2) 
+					{
+						for (Component comps: b.getParent().getComponents()) {
+							comps.setBackground(new Color(205, 205, 230));
+						}
+					}
+					if(snowHeight == 3) 
+					{
+						for (Component comps: b.getParent().getComponents()) {
+							comps.setBackground(new Color(220, 220, 240));
+						}
+					}
+					if(snowHeight == 4) 
+					{
+						for (Component comps: b.getParent().getComponents()) {
+							comps.setBackground(new Color(240, 240, 240));
+						}
 					}
 					buttonNumber++;
 
@@ -388,9 +415,13 @@ public class GameArea implements ActionListener {
 			}
 
 		}
-
+		
 	}
 
+	
+    
+ 
+	
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
 		if (actionEvent.getSource().equals(quitItem)) {
@@ -401,7 +432,6 @@ public class GameArea implements ActionListener {
 		}
 		if(actionEvent.getSource().equals(dig)){
 			m.dig(m.getCurrentPlayer().getName());
-			refresh(m);
 			refresh(m);
 		}
 		if(actionEvent.getSource().equals(pickUp)) {
