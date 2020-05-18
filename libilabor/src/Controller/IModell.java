@@ -73,7 +73,7 @@ public interface IModell {
 
 	public String gameStance();
 	
-	public String[] getCurrentPlayerData();
+	public Player getCurrentPlayer();
 	
 	public void nextPlayer();
 	
