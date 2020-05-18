@@ -8,12 +8,30 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class EndGame implements ActionListener {
+	/**
+	 * a jatek ablak
+	 */
 	private JFrame frame;
+	/**
+	 * a restart es exit gomb
+	 */
 	private JButton restart, exit;
+	/**
+	 * a label, amire a game over lesz kiirva
+	 */
 	private JLabel title;  
+	/**
+	 * A panel amire a dolgokat pakoljuk
+	 */
 	private JPanel p;
+	/**
+	 * a controller referenciaja
+	 */
 	private Controller.Controller controller;
-
+	/**
+	 * konstruktor inicalizal mindent
+	 * @param _controller a controller ami hivta
+	 */
 	public EndGame(Controller.Controller _controller) {
 		controller=_controller;
 		frame = new JFrame("Game Over");
@@ -49,7 +67,9 @@ public class EndGame implements ActionListener {
 		frame.setLocation(dim.width/2-frame.getSize().width/2,dim.height/2-frame.getSize().height/2);
 
 	}
-
+	/**
+	 * actionlistener a gombokra
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(exit)) {

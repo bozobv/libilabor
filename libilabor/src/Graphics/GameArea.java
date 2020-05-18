@@ -1,12 +1,8 @@
 package Graphics;
-
 import Controller.*;
 import Modell.*;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
-
-
 import java.awt.*;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -16,8 +12,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
-
-
 public class GameArea extends JFrame implements ActionListener {
 
 
