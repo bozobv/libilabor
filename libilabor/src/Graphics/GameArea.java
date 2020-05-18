@@ -370,7 +370,6 @@ public class GameArea implements ActionListener {
 						for (int j = 0; j < m.getHeight(); j++) {
 							if(icetables[i][j]!=null) {
 								if(icetables[i][j]!=iceField) {	
-									System.out.println("baktalo");
 									index++;
 								}
 								else {
@@ -390,7 +389,6 @@ public class GameArea implements ActionListener {
 				for (JPanel jPanel : jPanels) {
 					if(jPanel!=null) {
 						for (int i = 0; i < 9; i++) {
-							System.out.println("tavesz");
 							JButton b= (JButton)jPanel.getComponent(i);
 							b.addActionListener(secondClickListener);
 						}
