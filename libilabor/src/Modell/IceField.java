@@ -30,7 +30,7 @@ public class IceField implements java.io.Serializable
 	/**
 	 * a hovihar eslyehez hasznalt szam
 	 */
-	private int blizzardFrequency = 9; //minel nagyobb a szam, annal kisebb az esely a hoviharra
+	private int blizzardFrequency = 3; //minel nagyobb a szam, annal kisebb az esely a hoviharra
 	/**
 	 * a hovihar merete
 	 */

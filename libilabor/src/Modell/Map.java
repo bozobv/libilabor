@@ -12,6 +12,9 @@ public class Map implements IModell
 	private int height;
 	private int width;
 	private Player currentPlayer;
+	
+	private boolean blizzardComing = false; 
+	
 
 	public IceField getIceField() {
 		return iceField;
@@ -411,12 +414,15 @@ public class Map implements IModell
 	//ezek még nincsenek késze, csak commitolok
 	public void nextPlayer()
 	{
+		boolean playerDrowning = false; 
 		
 		if (currentPlayer == iceField.getPlayers().get(iceField.getPlayers().size()))
 		{
-			//ha az utso játékos volt
+			//ha az utso játékos volt, ezek történnek:
+			//currentplayer az első játékos lesz
 			currentPlayer = iceField.getPlayers().get(0);
 			
+			//állatok lépnek
 			for(int j = 0; j < iceField.getAnimal().size(); j++)
 			{
 				iceField.getAnimal().get(j).step();
@@ -424,13 +430,25 @@ public class Map implements IModell
 			
 			for (int i = 0; i < iceField.getPlayers().size(); i++) 
 			{
+				//osszes player workje 5re allitva
 				iceField.getPlayers().get(i).setWork(5);
 				Random rand = new Random(); 
+				//ha jon vihar, akkor meghivja a vihar fuggvenyt
+				if (blizzardComing == true) 
+				{
+						iceField.Blizzard(iceField.getBlizzardSize());
+				}
+				//itt 1 a 4hez az esely, hogy kovi korban vihar jon
+				if (rand.nextInt(iceField.getBlizzardFrequency()) == 0) 
+					blizzardComing = true;
+				else
+					blizzardComing = false;
 			}
 		}
 		else
 			for (int i = 0; i < iceField.getPlayers().size(); i++) 
 			{
+				//ha nem az utso jatekos, akkor csak siman a currentplayert allitjuk a kovire
 				if (iceField.getPlayers().get(i).getName().equals(currentPlayer.getName())) 
 				{
 					currentPlayer = iceField.getPlayers().get(i + 1);
