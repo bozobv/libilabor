@@ -3,7 +3,9 @@ package Controller;
 import Graphics.*;
 import Modell.*;
 
-public class Controller 
+import java.io.Serializable;
+
+public class Controller implements Serializable
 {
 	IModell modell;
 	
